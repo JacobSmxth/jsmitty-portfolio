@@ -74,16 +74,20 @@ body {
             background-color: $black;
 
             #content {
+                position: relative;
+                width: 100%;
+                height: 40rem;
                 display: flex;
+                background-image: url('./assets/images/jacobHeadshot.png');
                 background-color: $second;
                 background-size: cover;
-                background-position: top;
+                background-position: center 25%;
 
                 #contentInContent {
                     display: flex;
                     position: relative;
                     width: 100%;
-                    height: 45rem;
+                    height: 100%;
                     overflow: hidden;
                     
                     .tint {
@@ -93,14 +97,6 @@ body {
                         width: 100%;
                         height: 100%;
                         background-color: rgba($black, .6);
-
-                        #myFace {
-                        position: relative;
-                        width: 100%;
-                        bottom: 0;
-                        object-fit: contain;
-                        }
-
                     }
 
                     #myNameHeader {
