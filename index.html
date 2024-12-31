@@ -7,18 +7,34 @@
     <title>JSmitty.com | Portfolio Website</title>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/icons8-shrek-32.png" />
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <div id="wrapper">
+        <div id="overlay"></div>
         <nav>
             <div id="websiteHeader">
                 <h3>JSmitty.com</h3>
             </div>
             <div id="burgerDropdown"></div>
             <ul id="navList">
-                <li>About Me</li>
-                <li>My Work</li>
+                <div id="navSidebarHeader">
+                    <h3>JSmitty.</h3>
+                    <div id="closeNav"></div>
+                </div>
+                <div id="navSidebarItems">
+                    <li>Work</li>
+                    <li>Services</li>
+                    <li>About</li>
+                    <li>Career</li>
+                    <li>Contact</li>
+                </div>
+                <div id="navSidebarFooter">
+                    <h5 class="social"><a href="www.facebook.com">Facebook</a></h5>
+                    <h5 class="social instagram"><a href="www.instagram.com">Instagram</a></h5>
+                    <h5 class="social"><a href="https://www.twitch.tv">Twitch</a></h5>
+                </div>
             </ul>
         </nav>
 
@@ -40,8 +56,19 @@
                     projects. Outside of coding, I enjoy working out, deepening my faith, and finding ways to inspire
                     others through my creativity and hard work.</p>
             </section>
+            <section id="myWork">
+                <h1 id="myWorkHeader">
+                    My Work
+                </h1>
+                <div id="worksColumn">
+                    <div class="work" id="csProjects">Cybersecurity Projects</div>
+                    <div class="work" id="amWebsite">Action Masonry Website</div>
+                    <div class="work" id="rrr">Random Random Random</div>
+                </div>
+            </section>
         </section>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>

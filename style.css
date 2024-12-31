@@ -20,46 +20,144 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   height: 100%;
   background: #1B1816;
 }
+body #wrapper #overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(27, 24, 22, 0.6);
+  z-index: 100;
+  opacity: 0%;
+  transition: opacity 0.4s ease;
+}
+body #wrapper #overlay.active {
+  opacity: 100%;
+}
 body #wrapper nav {
-  position: relative;
-  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   color: #A9927D;
   display: flex;
+  z-index: 100;
+}
+body #wrapper nav #websiteHeader {
+  color: #A9927D;
+  transition: color 0.3s ease;
+}
+body #wrapper nav #websiteHeader.active {
+  color: #49111C;
 }
 body #wrapper nav #websiteHeader h3 {
+  padding: 1rem;
   font-size: 2rem;
   font-family: "headerFont", sans-serif;
 }
 body #wrapper nav #burgerDropdown {
   position: absolute;
-  right: 0.5rem;
+  right: 1.2rem;
   background-image: url(./assets/images/menuIconLight.png);
   background-size: contain;
   width: 2.6rem;
   height: 2.6rem;
+  margin: 1rem 0rem;
 }
 body #wrapper nav #navList {
-  display: none;
+  transform: translateX(100%);
+  z-index: 102;
+  font-family: "headerFont", sans-serif;
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1B1816;
+  border: 2px solid #A9927D;
+  height: 100vh;
+  width: 75%;
+  right: 0;
+}
+body #wrapper nav #navList.open {
+  transform: translateX(0%);
+}
+body #wrapper nav #navList #navSidebarHeader {
+  display: flex;
+  align-items: center;
+}
+body #wrapper nav #navList #navSidebarHeader h3 {
+  position: absolute;
+  font-size: 2rem;
+  left: 0;
+  top: 0;
+  padding: 0.5rem;
+  margin: 0.2rem 1rem;
+}
+body #wrapper nav #navList #navSidebarHeader #closeNav {
+  background-image: url("./assets/images/icons8-close-50.png");
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem 1rem;
+}
+body #wrapper nav #navList #navSidebarItems {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #wrapper nav #navList #navSidebarItems li {
+  text-transform: uppercase;
+  padding: 3rem 5rem;
+  font-size: 2rem;
+}
+body #wrapper nav #navList #navSidebarFooter {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
+body #wrapper nav #navList #navSidebarFooter .social a {
+  color: #A9927D;
+  font-size: 1rem;
+  position: relative;
+  margin: 0.5rem 1rem;
+}
+body #wrapper nav #navList #navSidebarFooter .social:not(:first-child, :last-child) a {
+  border-left: 1px solid #A9927D;
+  border-right: 1px solid #A9927D;
+  padding: 0rem 1rem;
 }
 body #wrapper #contentSection {
   color: #F2F4F3;
+  z-index: 1;
   background-color: #1B1816;
+  height: 100vh;
 }
 body #wrapper #contentSection #content {
   position: relative;
+  z-index: 1;
   width: 100%;
-  height: 40rem;
+  height: 40vh;
   display: flex;
   background-image: url("./assets/images/jacobHeadshot.png");
+  background-attachment: fixed;
   background-color: #A9927D;
-  background-size: cover;
-  background-position: center 25%;
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 body #wrapper #contentSection #content #contentInContent {
   display: flex;
@@ -94,6 +192,7 @@ body #wrapper #contentSection #content #contentInContent #myNameHeader h1 {
 }
 body #wrapper #aboutMe {
   position: relative;
+  z-index: 2;
   height: 100%;
 }
 body #wrapper #aboutMe #currentTitle {
@@ -116,4 +215,28 @@ body #wrapper #aboutMe #contactMeBtn {
   background-size: contain;
   width: 2.6rem;
   height: 2.6rem;
+}
+body #wrapper #myWork {
+  position: relative;
+  z-index: 2;
+}
+body #wrapper #myWork #myWorkHeader {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "headerFont", sans-serif;
+}
+body #wrapper #myWork #worksColumn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #wrapper #myWork #worksColumn .work {
+  text-align: center;
+  position: relative;
+  width: 75%;
+  padding: 2rem 3rem;
+  margin: 1rem 0rem;
+  border: 1px solid #5E503F;
 }/*# sourceMappingURL=style.css.map */
