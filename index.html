@@ -5,34 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>JSmitty.com | Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <div id="websiteHeader">JSmitty</div>
-
-        <div id="burgerDropdown">@@</div>
-        <ul>
-            <li>About Me</li>
-            <li>My Work</li>
-        </ul>
-    </nav>
-    <section id="content">
-        <div id="myFace">
-            <div id="myNameHeader">
-                <h1 id="firstNameHeader">Jacob</h1>
-                <h1 id="lastNameHeader">Smith</h1>
+    <div id="wrapper">
+        <nav>
+            <div id="websiteHeader">
+                <h3>JSmitty.com</h3>
             </div>
-        </div>
-    </section>
-    <section id="aboutMe">
-        <div id="contactMeBtn">@@</div>
-        <h2 id="currentTitle">Student @ UNG</h2>
-        <p id="descriptionAboutMe">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam repellendus a
-            temporibus natus, culpa excepturi animi molestiae, libero quibusdam rem rerum alias placeat ipsa doloribus
-            nam. Sit rem ex dolore rerum similique nesciunt laudantium atque reprehenderit debitis esse. Quae
-            consequuntur architecto, facere magni aperiam laborum.</p>
-    </section>
+            <div id="burgerDropdown"></div>
+            <ul id="navList">
+                <li>About Me</li>
+                <li>My Work</li>
+            </ul>
+        </nav>
+
+        <section id="contentSection">
+            <section id="content">
+                <div id="contentInContent">
+                    <img id="myFace" src="./assets/images/jacobHeadshot.png" />
+                    <div class="tint"></div>
+                    <div id="myNameHeader">
+                        <h1 id="firstNameHeader">Jacob</h1>
+                        <h1 id="lastNameHeader">Smith</h1>
+                    </div>
+                </div>
+            </section>
+            <section id="aboutMe">
+                <div id="contactMeBtn"></div>
+                <h2 id="currentTitle">Student</h2>
+                <p id="descriptionAboutMe">I’m Jacob Smith, a web developer and cybersecurity enthusiast who loves
+                    learning and creating. I’m passionate about building efficient, secure, and visually appealing
+                    projects. Outside of coding, I enjoy working out, deepening my faith, and finding ways to inspire
+                    others through my creativity and hard work.</p>
+            </section>
+        </section>
+    </div>
 </body>
 
 </html>

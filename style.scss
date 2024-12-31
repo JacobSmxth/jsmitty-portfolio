@@ -1,0 +1,163 @@
+// Adding in my fonts
+@font-face {
+    font-family: 'headerFont';
+    src: url('./assets/fonts/Lexend-VariableFont_wght.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'baseFont';
+    src: url('./assets/fonts/AlumniSansPinstripe-Regular.ttf'),
+         url('./assets/fonts/AlumniSansPinstripe-Italic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Color variables for ease later in code
+$black: #1B1816;
+$main: #49111C;
+$white: #F2F4F3;
+$second: #A9927D;
+$third: #5E503F;
+
+
+// I'm setting all values to zero or none so I can have complete control over the pages look. Going for a mobile first approach
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+// This is to make sizing easier for me. Since the default broswer size is nomral 16px, 62.5% would leave that at 10px. Meaning that 1 rem is 10px. Making math easier
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    height: 100%;
+    background: $black;
+
+    #wrapper {
+        nav {
+            position: relative;
+            padding: 1rem;
+            color: $second;
+            display: flex;
+
+            #websiteHeader {
+                h3 {
+                    font-size: 2rem;
+                    font-family: 'headerFont', sans-serif;
+                }
+            }
+
+            #burgerDropdown {
+                position: absolute;
+                right: .5rem;
+                background-image: url(./assets/images/menuIconLight.png);
+                background-size: contain;
+                width: 2.6rem;
+                height: 2.6rem;
+            }
+
+            #navList {
+                display: none;
+            }
+        }
+
+        #contentSection {
+            color: $white;
+            background-color: $black;
+
+            #content {
+                display: flex;
+                background-color: $second;
+                background-size: cover;
+                background-position: top;
+
+                #contentInContent {
+                    display: flex;
+                    position: relative;
+                    width: 100%;
+                    height: 45rem;
+                    overflow: hidden;
+                    
+                    .tint {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($black, .6);
+
+                        #myFace {
+                        position: relative;
+                        width: 100%;
+                        bottom: 0;
+                        object-fit: contain;
+                        }
+
+                    }
+
+                    #myNameHeader {
+                        font-family: 'headerFont', sans-serif;
+                        font-size: 2.5rem;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        color: $second;
+                        background-color: rgba($third, .5);
+                        padding: .5rem 1rem;
+                        border-radius: .5rem;
+
+                        display: flex;
+                        justify-content: center;
+                        h1 {
+                            margin: .2rem;
+                        }
+                    }
+
+                    
+                }
+
+                
+            }
+        
+        }
+
+        #aboutMe {
+            position: relative;
+            height: 100%;
+            #currentTitle {
+                margin: 2rem 0rem 0rem 1rem;
+                padding: 1rem;
+                font-size: 2rem;
+                font-family: 'headerFont', sans-serif;
+            }
+            #descriptionAboutMe {
+                margin: 1rem;
+                text-align: center;
+                font-family: 'headerFont', sans-serif;
+                font-size: 1.5rem;
+            }
+            #contactMeBtn {
+                position: absolute;
+                top: 0rem;
+                right: 2rem;
+                background-image: url(./assets/images/contactIconLight.png);
+                background-size: contain;
+                width: 2.6rem;
+                height: 2.6rem;
+            }
+        }
+
+    }
+}
+
+
+
+      
