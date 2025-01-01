@@ -42,6 +42,7 @@ $third: #5E503F;
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -50,6 +51,9 @@ body {
     background: $black;
 
     #wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
         #overlay {
             position: fixed;
             top: 0;
@@ -98,7 +102,7 @@ body {
             #burgerDropdown {
                 position: absolute;
                 right: 1.2rem;
-                background-image: url(../assets/images/menuIconLight.png);
+                background-image: url('../assets/images/menuIconLight.png');
                 background-size: contain;
                 width: 2.6rem;
                 height: 2.6rem;
@@ -206,10 +210,10 @@ body {
 
         // Content Section for mobile devices / smaller screens
         #contentSection {
+            flex-grow: 1;
             color: $white;
             z-index: 1;
             background-color: $black;
-            height: 100vh;
 
             #content {
                 position: relative;
@@ -217,7 +221,7 @@ body {
                 width: 100%;
                 height: 40rem;
                 display: flex;
-                background-image: url('.../assets/images/jacobHeadshot.png');
+                background-image: url('../assets/images/jacobHeadshot.png');
                 background-attachment: fixed;
                 background-color: $second;
                 background-size: contain;
@@ -307,7 +311,7 @@ body {
                 position: absolute;
                 top: 3rem;
                 right: 2rem;
-                background-image: url(../assets/images/contactIconLight.png);
+                background-image: url('../assets/images/contactIconLight.png');
                 background-size: contain;
                 width: 2.6rem;
                 height: 2.6rem;
@@ -326,40 +330,58 @@ body {
             }
 
             #worksColumn {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-auto-rows: min-content;
+                gap: 20vw;
+                width: 100%;
+                padding: 1rem;
+                margin-top: 1vh;
 
                 .work {
                     text-align: center;
-                    position: relative;
-                    width: 75%;
-                    padding: 10rem 3rem;
-                    margin: 1rem 0rem;
-                    border: .1rem solid $third;
+                    margin: 10rem 0;
 
                     a {
+                        position: relative;
                         font-size: 2rem;
                         font-family: 'headerFont', sans-serif;
-                        color: $second;
+                        color: $white;
+                        width: 75%;
+                        padding: 10vw 10vw;
+                        border: .1rem solid $third;
+                        border-radius: 2rem;
+
+                        span {
+                            background-color: rgba($black, .6);
+                        }
+                    }
+
+                    #csProjects {
+                        width: 100%;
+                        background-image: url('../assets/images/github.jpg');
+                        background-blend-mode: multiply;
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
                     }
 
                 }
 
-                #csProjects {
-                    background-image: url('.../assets/images/github.jpg');
-                    background-color: rgba($black, .7);
-                    background-blend-mode: multiply;
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                }
+                
 
 
             }
         }
+        #footerSection {
+            footer {
+                margin-top: 3rem;
+                padding: 1rem;
+                text-align: center;
+                background-color: $third;
+                
+            }
+        } 
     }
 }
 }
@@ -576,7 +598,7 @@ body {
                     right: 1rem;
                     width: 1rem;
                     height: 1rem;
-                    background: url('.../assets/images/contactIconLight.png');
+                    background: url('../assets/images/contactIconLight.png');
                     background-size: contain;
                     padding: 1rem;
                     cursor: pointer;
