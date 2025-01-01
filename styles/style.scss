@@ -1,15 +1,22 @@
 // Adding in my fonts
 @font-face {
     font-family: 'headerFont';
-    src: url('./assets/fonts/Lexend-VariableFont_wght.ttf');
+    src: url('../assets/fonts/Lexend-VariableFont_wght.ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'baseFont';
-    src: url('./assets/fonts/AlumniSansPinstripe-Regular.ttf'),
-         url('./assets/fonts/AlumniSansPinstripe-Italic.ttf');
+    src: url('../assets/fonts/AlumniSansPinstripe-Regular.ttf'),
+         url('../assets/fonts/AlumniSansPinstripe-Italic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'writingFont';
+    src: url('../assets/fonts/CaveatBrush-Regular.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -70,14 +77,14 @@ body {
             color: $second;
             display: flex;
             z-index: 100;
-            background-color: rgba($second, .5);
+            background-color: rgba($third, .5);
 
             #websiteHeader {
                 color: $second;
                 transition: all .3s ease;
 
                 &.active {
-                    color: $main;
+                    color: $black;
                 }
 
                 h3 {
@@ -91,7 +98,7 @@ body {
             #burgerDropdown {
                 position: absolute;
                 right: 1.2rem;
-                background-image: url(./assets/images/menuIconLight.png);
+                background-image: url(../assets/images/menuIconLight.png);
                 background-size: contain;
                 width: 2.6rem;
                 height: 2.6rem;
@@ -137,7 +144,7 @@ body {
                     }
 
                     #closeNav {
-                        background-image: url('./assets/images/icons8-close-50.png');
+                        background-image: url('../assets/images/icons8-close-50.png');
                         background-size: contain;
                         position: absolute;
                         top: 0;
@@ -159,6 +166,10 @@ body {
                         text-transform: uppercase;
                         padding: 3rem 5rem;
                         font-size: 2rem;
+                        
+                        a {
+                            color: $second;
+                        }
                     }
                 }
 
@@ -166,10 +177,11 @@ body {
                     display: flex;
                     justify-content: center;
                     position: absolute;
-                    bottom: 0;
+                    bottom: 2rem;
 
                     .social {
-                        a {
+                        span {
+                            padding: .5rem;
                             color: $second;
                             font-size: 1rem;
                             position: relative;
@@ -178,7 +190,7 @@ body {
                     }
 
                     .social:not(:first-child, :last-child) {
-                        a {
+                        span {
                         border-left: .1rem solid $second;
                         border-right: .1rem solid $second;
                         padding: 0rem 1rem;
@@ -205,7 +217,7 @@ body {
                 width: 100%;
                 height: 40rem;
                 display: flex;
-                background-image: url('./assets/images/jacobHeadshot.png');
+                background-image: url('.../assets/images/jacobHeadshot.png');
                 background-attachment: fixed;
                 background-color: $second;
                 background-size: contain;
@@ -295,7 +307,7 @@ body {
                 position: absolute;
                 top: 3rem;
                 right: 2rem;
-                background-image: url(./assets/images/contactIconLight.png);
+                background-image: url(../assets/images/contactIconLight.png);
                 background-size: contain;
                 width: 2.6rem;
                 height: 2.6rem;
@@ -337,7 +349,7 @@ body {
                 }
 
                 #csProjects {
-                    background-image: url('./assets/images/github.jpg');
+                    background-image: url('.../assets/images/github.jpg');
                     background-color: rgba($black, .7);
                     background-blend-mode: multiply;
                     background-position: center;
@@ -366,7 +378,6 @@ body {
     body {
         background: rgba($black, .99);
         font-family: 'headerFont', sans-serif;
-        height: 50000px;
 
 // Page wrapper for better look
         #wrapper {
@@ -379,7 +390,7 @@ body {
             // Nav sectrion for larger displays
             nav {
                 z-index: 100;
-                position: absolute;
+                position: fixed;
                 display: flex;
                 left: 0;
                 top: 0;
@@ -389,6 +400,7 @@ body {
                 background: $black;
                 width: 100%;
                 height: 3rem;
+                border-bottom: .1rem solid $second;
 
                 #websiteHeader {
                     h3 {
@@ -408,14 +420,35 @@ body {
                 #navSidebarItems {
                     display: flex;
                     flex-direction: row;
+                    text-align: center;
                     width: 100%;
 
                     li {
 
                         a {
+                            position: relative;
                             color: $second;
                             padding: .2rem .4rem;
+
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                height: .2rem;
+                                left: 0;
+                                bottom: 0;
+                                width: 0%;
+                                background: rgba($second, .7);
+                                transition: width .2s;
+                            }
+    
+                            &:hover:after {
+                                width: 100%;
+                            }
+
+                            
                         }
+                        
                     }
                 }
 
@@ -436,28 +469,36 @@ body {
                     }
 
                     a.social {
-                        margin: 0rem .6rem;
+                        margin: 0rem 1rem;
+                        padding: .5rem;
+                        transition: all .4s ease;
+
+                        &:hover {
+                            transform: scale(1.5);
+                        }
+
+                        
                     }
                     a.facebook {
-                        width: 1rem;
-                        height: 1rem;
-                        background: url("./assets/images/icons8-facebook-50.png");
+                        width: 1.1rem;
+                        height: 1.1rem;
+                        background: url("../assets/images/icons8-facebook-50.png");
                         background-repeat: no-repeat;
                         background-size: contain;
                         background-position: center;
                     }
                     a.instagram {
-                        width: 1rem;
-                        height: 1rem;
-                        background: url("./assets/images/icons8-instagram-50.png");
+                        width: 1.1rem;
+                        height: 1.1rem;
+                        background: url("../assets/images/icons8-instagram-50.png");
                         background-repeat: no-repeat;
                         background-size: contain;
                         background-position: center;
                     }
                     a.twitch {
-                        width: 1rem;
-                        height: 1rem;
-                        background: url("./assets/images/icons8-twitch-50.png");
+                        width: 1.1rem;
+                        height: 1.1rem;
+                        background: url("../assets/images/icons8-twitch-50.png");
                         background-repeat: no-repeat;
                         background-size: contain;
                         background-position: center;
@@ -469,7 +510,7 @@ body {
                 
                 #content {
                     position: relative;
-                    background: url('./assets/images/jacobHeadshot.png');
+                    background: url('../assets/images/jacobHeadshot.png');
                     background-position: center;
                     background-attachment: fixed;
                     background-size: contain;
@@ -519,6 +560,126 @@ body {
                             color: rgba($second, .7);
                             text-shadow: 1rem 1rem 1rem rgba($black, 1);
                         }
+                    }
+                }
+            }
+
+            #aboutMe {
+                border-top: rgba($white, .5) .2rem solid;
+                width: 100%;
+                position: relative;
+                display: flex;
+
+                #contactMeBtn {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    width: 1rem;
+                    height: 1rem;
+                    background: url('.../assets/images/contactIconLight.png');
+                    background-size: contain;
+                    padding: 1rem;
+                    cursor: pointer;
+                }
+
+                #titleClump {
+                    position: absolute;
+                    top: 1rem;
+                    left: 1rem;
+                    margin: 1rem 0rem;
+                    width: 20vw;
+
+                    #currentTitle {
+                        color: rgba($second, 1);
+                        font-size: 4vw;
+                    }
+                    #titleSubtitle {
+                        color: rgba($second, .65);
+                        font-size: 1.25vw;
+                    }
+            
+                }
+
+                #descriptionAboutMe {
+                    position: relative;
+                    display: block;
+                    margin-left: 27vw;
+                    text-align: center;
+                    width: 50vw;
+                    padding: 3rem;
+                    color: rgba($white, .8);
+
+                    p {
+                        padding: .4rem;
+                        margin-bottom: .5rem;
+                        width: 30vw;
+                    }
+                }
+            }
+
+            .partial-hr {
+                display: block;
+                height: 1px;
+                width: 60vw;
+                margin: 0 auto;
+                border: 0;
+                border-top: 1px solid $second;
+            }
+
+            #myWork {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                height: 150vh;
+
+                #myWorkHeader {
+                    font-family: 'writingFont', cursive;
+                    margin-top: 2rem;
+                    font-size: 4rem;
+                }
+
+                #worksColumn {
+                    margin-top: 3vw;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-auto-rows: 10vw;
+                    gap: 5vw;
+
+                    .work {
+                        margin: 9rem auto 0 auto;
+                        transition: all .4s ease;
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+
+                        a {
+                            width: 100%;
+                            color: rgba($white, 1);
+                            padding: 5vw;
+                            border: .5rem solid rgba($third, .3);
+                            border-radius: 2rem;
+
+                            span {
+                                background-color: rgba($black, .7);
+                                padding: .3rem .7rem;
+                                border-radius: .4rem;
+                            }
+
+                        }
+                    }
+
+                    #csProjects {
+                        position: relative;
+                        width: 100%;
+                        background-image: url('../assets/images/github.jpg');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+
                     }
                 }
             }

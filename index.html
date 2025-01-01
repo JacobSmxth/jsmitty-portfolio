@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSmitty.com | Portfolio Website</title>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/websiteIcon.png" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
@@ -15,7 +15,7 @@
         <div id="overlay"></div>
         <nav>
             <div id="websiteHeader">
-                <h3>JSmitty.com</h3>
+                <h3>&lt;JSmitty.com /&gt;</h3>
             </div>
             <div id="burgerDropdown"></div>
             <ul id="navList">
@@ -24,18 +24,17 @@
                     <div id="closeNav"></div>
                 </div>
                 <div id="navSidebarItems">
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Career</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#myWork">Work</a></li>
+                    <li><a href="#" id="serviceBtn">Services</a></li>
+                    <li><a href="#aboutMe">About</a></li>
+                    <li><a href="#" id="careerBtn">Career</a></li>
                 </div>
                 <div id="navSidebarFooter">
-                    <a class="social facebook" href="https://www.facebook.com/"><span
+                    <a class="social facebook" href="https://www.facebook.com/" target="_blank"><span
                             class="sidebarFooterText">Facebook</span></a>
-                    <a class="social instagram" href="https://www.instagram.com/"><span
+                    <a class="social instagram" href="https://www.instagram.com/jacobsmxth2" target="_blank"><span
                             class="sidebarFooterText">Instagram</span></a>
-                    <a class="social twitch" href="https://www.twitch.tv/jsmittytv"><span
+                    <a class="social twitch" href="https://www.twitch.tv/jsmittytv" target="_blank"><span
                             class="sidebarFooterText">Twitch</span></a>
                 </div>
             </ul>
@@ -80,20 +79,30 @@
                     </p>
                 </div>
             </section>
+            <hr class="partial-hr" />
             <section id="myWork">
                 <h1 id="myWorkHeader">
                     My Work
                 </h1>
                 <div id="worksColumn">
-                    <div class="work" id="csProjects"><a
-                            href="https://github.com/JacobSmxth/Cybersecurity_Projects">Cybersecurity Projects</a></div>
-                    <div class="work" id="rwr"><a href="">Random Work Random</a></div>
-                    <div class="work" id="rrr"><a href="">Random Random Random</a></div>
+                    <div class="work"><a href="https://github.com/JacobSmxth/Cybersecurity_Projects" id="csProjects"
+                            target="_blank"><span>Cybersecurity Projects</span></a></div>
+                    <div class="work"><a href=""><span>Empty</span></a></div>
+                    <div class="work"><a href=""><span>Empty</span></a></div>
+                    <div class="work"><a href=""><span>Empty</span></a></div>
+                    <div class="work"><a href=""><span>Empty</span></a></div>
+                    <div class="work"><a href=""><span>Empty</span></a></div>
                 </div>
             </section>
         </section>
+        <section id="footerSection">
+
+            <footer>
+                © 2024 Jacob Smith. All Rights Reserved.
+            </footer>
+        </section>
     </div>
-    <script src="./script.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>

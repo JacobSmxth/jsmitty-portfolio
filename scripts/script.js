@@ -7,6 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("overlay");
     const webHeader = document.getElementById("websiteHeader");
 
+
+    // making error message for specific button click
+    const servicesBtn = document.getElementById("serviceBtn");
+    const careerBtn = document.getElementById("careerBtn");
+    const contactBtn = document.getElementById("contactMeBtn");
+
+
+    function errorMsg(thing) {
+        thing.addEventListener("click", () => {
+            alert("This currently doesn't work. Maybe it will soon!")
+        });
+    }
+
+    errorMsg(servicesBtn);
+    errorMsg(careerBtn);
+    errorMsg(contactMeBtn);
+
     // Waiting for that click on the burger menu button
     burger.addEventListener("click", () => {
         console.log("Burger clicked!");
