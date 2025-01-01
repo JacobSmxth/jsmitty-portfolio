@@ -37,7 +37,7 @@ html {
     scroll-behavior: smooth;
 }
 
-// @media (max-width: 767px) {
+@media (max-width: 767px) {
 body {
     height: 100%;
     background: $black;
@@ -350,73 +350,175 @@ body {
         }
     }
 }
-// }
+}
 
 
 
 
 // CSS for any tablet/Laptop Devices
 
-// @media (min-width: 768px) {
-//     html {
-//         scroll-behavior: smooth;
-//         font-size: 15px;
-//     }
+@media (min-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+        font-size: 15px;
+    }
 
-//     body {
-//         background: rgba($main, 1);
+    body {
+        background: rgba($black, .99);
+        font-family: 'headerFont', sans-serif;
+        height: 50000px;
 
-// // Page wrapper for better look
-//         #wrapper {
-//             width: 85vw;
-//             margin: 0 auto;
-//             background: $black;
-//             color: $second;
+// Page wrapper for better look
+        #wrapper {
+            width: 85vw;
+            margin: 0 auto;
+            background: $black;
+            color: $second;
+            border: $third .1rem solid;
 
-//             nav {
-//                 width: 100%;
-//                 display: flex;
+            // Nav sectrion for larger displays
+            nav {
+                z-index: 100;
+                position: absolute;
+                display: flex;
+                left: 0;
+                top: 0;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background: $black;
+                width: 100%;
+                height: 3rem;
 
-//                 #navSidebarHeader {
-//                     display: none;
-//                 }
+                #websiteHeader {
+                    h3 {
+                        padding: .5rem 1rem;
+                    }
+                }
+
+                #navList {
+                    display: flex;
+                }
 
 
-//                 #navSidebarFooter {
-//                     display: flex;
+                #navSidebarHeader {
+                    display: none;
+                }
+
+                #navSidebarItems {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+
+                    li {
+
+                        a {
+                            color: $second;
+                            padding: .2rem .4rem;
+                        }
+                    }
+                }
+
+
+                #navSidebarFooter {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: .7rem;
+
                     
                     
-//                     a {
-//                         display: none;
-//                     }
+                    a {
+                        display: none;
+                    }
 
-//                     h5.facebook {
-//                         width: 1rem;
-//                         height: 1rem;
-//                         background: url("./assets/images/icons8-facebook-50.png");
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         background-position: center;
-//                     }
-//                     h5.instagram {
-//                         width: 1rem;
-//                         height: 1rem;
-//                         background: url("./assets/images/icons8-instagram-50.png");
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         background-position: center;
-//                     }
-//                     h5.twitch {
-//                         width: 1rem;
-//                         height: 1rem;
-//                         background: url("./assets/images/icons8-twitch-50.png");
-//                         background-repeat: no-repeat;
-//                         background-size: contain;
-//                         background-position: center;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+                    h5.social {
+                        margin: 0rem .6rem;
+                    }
+                    h5.facebook {
+                        width: 1rem;
+                        height: 1rem;
+                        background: url("./assets/images/icons8-facebook-50.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }
+                    h5.instagram {
+                        width: 1rem;
+                        height: 1rem;
+                        background: url("./assets/images/icons8-instagram-50.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }
+                    h5.twitch {
+                        width: 1rem;
+                        height: 1rem;
+                        background: url("./assets/images/icons8-twitch-50.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }
+                }
+            }
+
+            #contentSection {
+                
+                #content {
+                    position: relative;
+                    background: url('./assets/images/jacobHeadshot.png');
+                    background-position: center;
+                    background-attachment: fixed;
+                    background-size: contain;
+                    background-color: $second;
+                    background-repeat: no-repeat;
+                    height: 90vh;
+
+
+                    #contentInContent {
+                        .tint {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba($black, .8);
+                        }
+                    }
+                }
+
+                #myNameHeader {
+                    color: $third;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 9vw;
+                    transition: all .3s ease-in-out;
+                    #firstNameHeader {
+                        position: absolute;
+                        top: 15vw;
+                        text-shadow: 1rem 1rem 1rem rgba($black, .7);
+                        transition: all .3s ease-in-out;
+                    }
+                    #lastNameHeader {
+                        position: absolute;
+                        bottom: 15vw;
+                        right: 1rem;
+                        
+                        text-shadow: 1rem 1rem 1rem rgba($black, .7);
+                        transition: all .3s ease-in-out;
+                    }
+
+                    &:hover {
+                        
+                        cursor: pointer;
+
+                        #lastNameHeader, #firstNameHeader {
+                            color: rgba($second, .7);
+                            text-shadow: 1rem 1rem 1rem rgba($black, 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
     
