@@ -35,6 +35,9 @@ html {
     height: 100%;
     background: #1B1816;
   }
+  body #popupMenu {
+    display: none;
+  }
   body #wrapper {
     min-height: 100vh;
     display: flex;
@@ -152,7 +155,6 @@ html {
     color: #A9927D;
     font-size: 1rem;
     position: relative;
-    margin: 0.5rem 1rem;
   }
   body #wrapper nav #navList #navSidebarFooter .social:not(:first-child, :last-child) span {
     border-left: 0.1rem solid #A9927D;
@@ -288,10 +290,15 @@ html {
   body #wrapper #myWork #worksColumn .work #csProjects {
     width: 100%;
     background-image: url("../assets/images/github.jpg");
-    background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn .work #portfolioSite {
+    background-image: url("../assets/images/portsite.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   body #wrapper #footerSection footer {
     margin-top: 3rem;
@@ -309,12 +316,89 @@ html {
     background: rgba(27, 24, 22, 0.99);
     font-family: "headerFont", sans-serif;
   }
+  body #popupMenu {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000;
+  }
+  body #popupMenu.opened {
+    visibility: visible;
+  }
+  body #popupMenu #contactForm {
+    position: fixed;
+    width: 35%;
+    height: 75%;
+    background: #A9927D;
+    border-radius: 3rem;
+    box-shadow: 0rem 1rem 3rem #000;
+    padding: 3rem;
+  }
+  body #popupMenu #contactForm span#closeForm {
+    font-size: 2.7rem;
+    float: right;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  body #popupMenu #contactForm h2 {
+    color: #F2F4F3;
+    text-shadow: 0rem 0.4rem 1rem #1B1816;
+    font-size: 3rem;
+    text-align: center;
+  }
+  body #popupMenu #contactForm form {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  body #popupMenu #contactForm form .formItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.75rem;
+    margin-top: 2rem 0rem;
+  }
+  body #popupMenu #contactForm form .formItem label {
+    margin-right: 1rem;
+  }
+  body #popupMenu #contactForm form .formItem input {
+    padding: 0.5rem;
+    align-items: center;
+  }
+  body #popupMenu #contactForm form .formItem button {
+    width: 70%;
+    padding: 1rem;
+    font-size: 2rem;
+    border: 0.3rem solid #5E503F;
+    margin: 2rem 0;
+  }
   body #wrapper {
     width: 85vw;
     margin: 0 auto;
     background: #1B1816;
     color: #A9927D;
     border: #5E503F 0.1rem solid;
+  }
+  body #wrapper #overlay {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 199999;
+    background: rgba(27, 24, 22, 0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  body #wrapper #overlay.active {
+    visibility: visible;
   }
   body #wrapper nav {
     z-index: 100;
@@ -403,13 +487,21 @@ html {
     background-size: contain;
     background-position: center;
   }
+  body #wrapper nav #navSidebarFooter a.twitter {
+    width: 1.1rem;
+    height: 1.1rem;
+    background: url("../assets/images/icons8-x-50.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
   body #wrapper #contentSection #content {
     position: relative;
     background: url("../assets/images/jacobHeadshot.png");
     background-position: center;
     background-attachment: fixed;
     background-size: contain;
-    background-color: #A9927D;
+    background-color: rgba(94, 80, 63, 0.5);
     background-repeat: no-repeat;
     height: 90vh;
   }
@@ -419,7 +511,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(27, 24, 22, 0.8);
+    background-color: rgba(27, 24, 22, 0.1);
   }
   body #wrapper #contentSection #myNameHeader {
     color: #5E503F;
@@ -427,6 +519,9 @@ html {
     height: 100%;
     font-size: 9vw;
     transition: all 0.3s ease-in-out;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
   }
   body #wrapper #contentSection #myNameHeader #firstNameHeader {
     position: absolute;
@@ -529,6 +624,7 @@ html {
   }
   body #wrapper #myWork #worksColumn .work:hover {
     transform: scale(1.1);
+    box-shadow: 0rem 5rem 10rem #010101;
   }
   body #wrapper #myWork #worksColumn .work a {
     width: 100%;
@@ -536,11 +632,13 @@ html {
     padding: 5vw;
     border: 0.5rem solid rgba(94, 80, 63, 0.3);
     border-radius: 2rem;
+    box-shadow: 0rem 1rem 2rem #010101;
   }
   body #wrapper #myWork #worksColumn .work a span {
     background-color: rgba(27, 24, 22, 0.7);
     padding: 0.3rem 0.7rem;
     border-radius: 0.4rem;
+    box-shadow: 0rem 0.5rem 1rem #1B1816;
   }
   body #wrapper #myWork #worksColumn #csProjects {
     position: relative;
@@ -549,5 +647,11 @@ html {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn #portfolioSite {
+    background-image: url("../assets/images/portsite.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }/*# sourceMappingURL=style.css.map */

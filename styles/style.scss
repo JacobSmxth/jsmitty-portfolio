@@ -50,6 +50,10 @@ body {
     height: 100%;
     background: $black;
 
+    #popupMenu {
+        display: none;
+    }
+
     #wrapper {
         min-height: 100vh;
         display: flex;
@@ -189,7 +193,6 @@ body {
                             color: $second;
                             font-size: 1rem;
                             position: relative;
-                            margin: .5rem 1rem;
                         }
                     }
 
@@ -360,10 +363,16 @@ body {
                     #csProjects {
                         width: 100%;
                         background-image: url('../assets/images/github.jpg');
-                        background-blend-mode: multiply;
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
+                    }
+
+                    #portfolioSite {
+                        background-image: url("../assets/images/portsite.png");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
                     }
 
                 }
@@ -401,6 +410,84 @@ body {
         background: rgba($black, .99);
         font-family: 'headerFont', sans-serif;
 
+    // Contact form outside of wrapper
+        #popupMenu {
+            visibility: hidden;
+            position: fixed;
+            top: 50%;
+            right: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000000;
+
+
+            &.opened {
+                visibility: visible;
+            }
+
+            #contactForm {
+                position: fixed;
+                width: 35%;
+                height: 75%;
+                background: $second;
+                border-radius: 3rem;
+                box-shadow: 0rem 1rem 3rem #000;
+                padding: 3rem;
+
+
+                span#closeForm {
+                    font-size: 2.7rem;
+                    float: right;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                }
+
+                h2 {
+                    color: $white;
+                    text-shadow: 0rem .4rem 1rem $black;
+                    font-size: 3rem;
+                    text-align: center;
+                }
+
+                form {
+                    position: relative;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .formItem {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        font-size: 1.75rem;
+                        margin-top: 2rem 0rem;
+
+                        label {
+                            margin-right: 1rem
+                        }
+
+                        input {
+                            padding: .5rem;
+                            align-items: center;
+                        }
+
+                        button {
+                            width: 70%;
+                            padding: 1rem;
+                            font-size: 2rem;
+                            border: .3rem solid $third;
+                            margin: 2rem 0
+                        }
+                    }
+
+
+                }
+            }
+        }
 // Page wrapper for better look
         #wrapper {
             width: 85vw;
@@ -408,6 +495,22 @@ body {
             background: $black;
             color: $second;
             border: $third .1rem solid;
+
+
+            #overlay {
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
+                z-index: 199999;
+                background: rgba($black, .8);
+                position: fixed;
+                left: 0;
+                top: 0;
+
+                &.active {
+                    visibility: visible;
+                }
+            }
 
             // Nav sectrion for larger displays
             nav {
@@ -525,6 +628,14 @@ body {
                         background-size: contain;
                         background-position: center;
                     }
+                    a.twitter {
+                        width: 1.1rem;
+                        height: 1.1rem;
+                        background: url("../assets/images/icons8-x-50.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }
                 }
             }
 
@@ -536,7 +647,7 @@ body {
                     background-position: center;
                     background-attachment: fixed;
                     background-size: contain;
-                    background-color: $second;
+                    background-color: rgba($third, .5);
                     background-repeat: no-repeat;
                     height: 90vh;
 
@@ -548,7 +659,7 @@ body {
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            background-color: rgba($black, .8);
+                            background-color: rgba($black, .1);
                         }
                     }
                 }
@@ -559,6 +670,7 @@ body {
                     height: 100%;
                     font-size: 9vw;
                     transition: all .3s ease-in-out;
+                    user-select: none;
                     #firstNameHeader {
                         position: absolute;
                         top: 15vw;
@@ -673,9 +785,11 @@ body {
                     .work {
                         margin: 9rem auto 0 auto;
                         transition: all .4s ease;
+            
 
                         &:hover {
                             transform: scale(1.1);
+                            box-shadow: 0rem 5rem 10rem #010101;
                         }
 
                         a {
@@ -684,11 +798,13 @@ body {
                             padding: 5vw;
                             border: .5rem solid rgba($third, .3);
                             border-radius: 2rem;
+                            box-shadow: 0rem 1rem 2rem #010101;
 
                             span {
                                 background-color: rgba($black, .7);
                                 padding: .3rem .7rem;
                                 border-radius: .4rem;
+                                box-shadow: 0rem .5rem 1rem $black;
                             }
 
                         }
@@ -701,7 +817,15 @@ body {
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
+                        
 
+                    }
+
+                    #portfolioSite {
+                        background-image: url("../assets/images/portsite.png");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
                     }
                 }
             }

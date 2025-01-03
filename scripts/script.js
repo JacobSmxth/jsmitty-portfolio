@@ -6,11 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeSidebar = document.getElementById("closeNav");
     const overlay = document.getElementById("overlay");
     const webHeader = document.getElementById("websiteHeader");
+    const popup = document.getElementById("popupMenu");
+    const overlayTint = document.getElementById("overlay");
+    const closePopup = document.getElementById("closeForm");
 
 
     // making error message for specific button click
     const servicesBtn = document.getElementById("serviceBtn");
-    const careerBtn = document.getElementById("careerBtn");
     const contactBtn = document.getElementById("contactMeBtn");
 
 
@@ -21,8 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     errorMsg(servicesBtn);
-    errorMsg(careerBtn);
-    errorMsg(contactMeBtn);
+
+
+    contactBtn.addEventListener("click", () => {
+        popup.classList.toggle('opened');
+        overlayTint.classList.toggle('active');
+    });
+
+    closePopup.addEventListener("click", () => {
+        popup.classList.toggle('opened');
+        overlayTint.classList.toggle('active');
+    })
 
     // Waiting for that click on the burger menu button
     burger.addEventListener("click", () => {

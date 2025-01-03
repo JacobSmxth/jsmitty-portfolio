@@ -11,6 +11,30 @@
 </head>
 
 <body>
+    <div id="popupMenu">
+        <div id="contactForm">
+            <span id="closeForm" onclick="closeContactForm()">&times;</span>
+            <h2>Get in Touch!</h2>
+            <form action="">
+                <span class="formItem">
+                    <label for="name">Your Full Name:</label>
+                    <input type="text" name="name" id="name" required>
+                </span>
+                <span class="formItem">
+                    <label for="email">Email Address:</label>
+                    <input type="email" name="email" id="email" required>
+                </span>
+                <span class="formItem">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" required></textarea>
+                </span>
+                <button type="submit">Send</button>
+                <span class="formItem">
+                    <p>THis is terrible looking i apologize</p>
+                </span>
+            </form>
+        </div>
+    </div>
     <div id="wrapper">
         <div id="overlay"></div>
         <nav>
@@ -27,13 +51,15 @@
                     <li><a href="#myWork">Work</a></li>
                     <li><a href="#" id="serviceBtn">Services</a></li>
                     <li><a href="#aboutMe">About</a></li>
-                    <li><a href="#" id="careerBtn">Career</a></li>
+                    <li><a href="https://www.linkedin.com/in/jacobsmxth/" target="_blank" id="careerBtn">Career</a></li>
                 </div>
                 <div id="navSidebarFooter">
                     <a class="social facebook" href="https://www.facebook.com/" target="_blank"><span
                             class="sidebarFooterText">Facebook</span></a>
                     <a class="social instagram" href="https://www.instagram.com/jacobsmxth2" target="_blank"><span
                             class="sidebarFooterText">Instagram</span></a>
+                    <a class="social twitter" href="https://x.com/jacobsmxth2?lang=en" target="_blank"><span
+                            class="sidebarFooterText">Twitter</span></a>
                     <a class="social twitch" href="https://www.twitch.tv/jsmittytv" target="_blank"><span
                             class="sidebarFooterText">Twitch</span></a>
                 </div>
@@ -87,11 +113,9 @@
                 <div id="worksColumn">
                     <div class="work"><a href="https://github.com/JacobSmxth/Cybersecurity_Projects" id="csProjects"
                             target="_blank"><span>Cybersecurity Projects</span></a></div>
-                    <div class="work"><a href=""><span>Empty</span></a></div>
-                    <div class="work"><a href=""><span>Empty</span></a></div>
-                    <div class="work"><a href=""><span>Empty</span></a></div>
-                    <div class="work"><a href=""><span>Empty</span></a></div>
-                    <div class="work"><a href=""><span>Empty</span></a></div>
+                    <div class="work"><a href="https://www.jsmitty.com" id="portfolioSite"
+                            target="_blank"><span>Portfolio
+                                Website</span></a></div>
                 </div>
             </section>
         </section>
