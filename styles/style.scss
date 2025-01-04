@@ -53,6 +53,9 @@ body {
     #popupContactMenu {
         display: none;
     }
+    #popupGoalsMenu {
+        display: none;
+    }
 
     #wrapper {
         min-height: 100vh;
@@ -403,7 +406,7 @@ body {
 @media (min-width: 768px) {
     html {
         scroll-behavior: smooth;
-        font-size: 15px;
+        font-size: 90%;
     }
 
     body {
@@ -437,17 +440,21 @@ body {
 
             .goalSection {
                 border: .2rem solid $second;
-                width: 30%;
+                width: 35vw;
+                font-size: 1vw;
                 height: 95%;
                 background: $black;
                 border-radius: 3rem;
                 padding: 2rem;
                 color: $second;
+                font-size: rem;
                 transition: all .2s ease;
 
                 &:hover {
-                    width: 45%;
+                    width: 45vw;
+                    font-size: 1vw;
                 }
+
             }
 
             span {
@@ -460,7 +467,7 @@ body {
                 box-shadow: 0rem .1rem .1rem $black;
                 transition: all .3s ease;
                 cursor: pointer;
-
+                user-select: none;
                 &:hover {
                     transform: scale(1.2);
                     box-shadow: 0rem .5rem 1rem $black;
@@ -478,23 +485,22 @@ body {
 
 
                 h2 {
-                    font-size: 2rem;
                     text-align: center;
                     padding: .3rem;
                     border-bottom: .1rem solid $second;
                 }
 
                 .goal.right {
-                    margin-left: 33%;
+                    margin-left: 25%;
                 }
 
                 .goal.left {
-                    margin-right: 33%;
+                    margin-right: 25%;
                 }
 
                 .goal {
-                    padding: 1rem;
-                    width: 50%;
+                    padding: .5rem;
+                    width: 75%;
                 }
 
                 footer {
@@ -503,7 +509,7 @@ body {
 
                     a {
                         color: $second;
-                        font-size: 1.5rem;
+                        font-size: .5vwrem;
                         padding: .5rem;
                         transition: color .3s ease;
                     }

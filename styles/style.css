@@ -38,6 +38,9 @@ html {
   body #popupContactMenu {
     display: none;
   }
+  body #popupGoalsMenu {
+    display: none;
+  }
   body #wrapper {
     min-height: 100vh;
     display: flex;
@@ -310,7 +313,7 @@ html {
 @media (min-width: 768px) {
   html {
     scroll-behavior: smooth;
-    font-size: 15px;
+    font-size: 90%;
   }
   body {
     background: #1b1816;
@@ -340,16 +343,19 @@ html {
   }
   body #popupGoalsMenu .goalSection {
     border: 0.2rem solid #A9927D;
-    width: 30%;
+    width: 35vw;
+    font-size: 1vw;
     height: 95%;
     background: #1B1816;
     border-radius: 3rem;
     padding: 2rem;
     color: #A9927D;
+    font-size: rem;
     transition: all 0.2s ease;
   }
   body #popupGoalsMenu .goalSection:hover {
-    width: 45%;
+    width: 45vw;
+    font-size: 1vw;
   }
   body #popupGoalsMenu span {
     padding: 1rem;
@@ -361,6 +367,9 @@ html {
     box-shadow: 0rem 0.1rem 0.1rem #1B1816;
     transition: all 0.3s ease;
     cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
   }
   body #popupGoalsMenu span:hover {
     transform: scale(1.2);
@@ -376,20 +385,19 @@ html {
     box-shadow: -1rem 1rem 1rem #1B1816;
   }
   body #popupGoalsMenu #finleyLifeGoals h2 {
-    font-size: 2rem;
     text-align: center;
     padding: 0.3rem;
     border-bottom: 0.1rem solid #A9927D;
   }
   body #popupGoalsMenu #finleyLifeGoals .goal.right {
-    margin-left: 33%;
+    margin-left: 25%;
   }
   body #popupGoalsMenu #finleyLifeGoals .goal.left {
-    margin-right: 33%;
+    margin-right: 25%;
   }
   body #popupGoalsMenu #finleyLifeGoals .goal {
-    padding: 1rem;
-    width: 50%;
+    padding: 0.5rem;
+    width: 75%;
   }
   body #popupGoalsMenu #finleyLifeGoals footer {
     border-top: 0.1rem solid #A9927D;
@@ -397,7 +405,7 @@ html {
   }
   body #popupGoalsMenu #finleyLifeGoals footer a {
     color: #A9927D;
-    font-size: 1.5rem;
+    font-size: 0.5vwrem;
     padding: 0.5rem;
     transition: color 0.3s ease;
   }
