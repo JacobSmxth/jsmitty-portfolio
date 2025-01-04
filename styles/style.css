@@ -35,7 +35,7 @@ html {
     height: 100%;
     background: #1B1816;
   }
-  body #popupMenu {
+  body #popupContactMenu {
     display: none;
   }
   body #wrapper {
@@ -313,10 +313,101 @@ html {
     font-size: 15px;
   }
   body {
-    background: rgba(27, 24, 22, 0.99);
+    background: #1b1816;
     font-family: "headerFont", sans-serif;
   }
-  body #popupMenu {
+  body.disabledScroll {
+    overflow: hidden;
+  }
+  body #popupGoalsMenu {
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(94, 80, 63, 0.8);
+    z-index: 9999999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  body #popupGoalsMenu.shown {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+  }
+  body #popupGoalsMenu .goalSection {
+    border: 0.2rem solid #A9927D;
+    width: 30%;
+    height: 95%;
+    background: #1B1816;
+    border-radius: 3rem;
+    padding: 2rem;
+    color: #A9927D;
+    transition: all 0.2s ease;
+  }
+  body #popupGoalsMenu .goalSection:hover {
+    width: 45%;
+  }
+  body #popupGoalsMenu span {
+    padding: 1rem;
+    width: 10%;
+    text-align: center;
+    border-radius: 1rem;
+    background: #A9927D;
+    color: #1B1816;
+    box-shadow: 0rem 0.1rem 0.1rem #1B1816;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  body #popupGoalsMenu span:hover {
+    transform: scale(1.2);
+    box-shadow: 0rem 0.5rem 1rem #1B1816;
+    color: rgba(27, 24, 22, 0.7);
+  }
+  body #popupGoalsMenu #finleyLifeGoals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: -1rem 1rem 1rem #1B1816;
+  }
+  body #popupGoalsMenu #finleyLifeGoals h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0.3rem;
+    border-bottom: 0.1rem solid #A9927D;
+  }
+  body #popupGoalsMenu #finleyLifeGoals .goal.right {
+    margin-left: 33%;
+  }
+  body #popupGoalsMenu #finleyLifeGoals .goal.left {
+    margin-right: 33%;
+  }
+  body #popupGoalsMenu #finleyLifeGoals .goal {
+    padding: 1rem;
+    width: 50%;
+  }
+  body #popupGoalsMenu #finleyLifeGoals footer {
+    border-top: 0.1rem solid #A9927D;
+    padding: 0.3rem;
+  }
+  body #popupGoalsMenu #finleyLifeGoals footer a {
+    color: #A9927D;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  body #popupGoalsMenu #finleyLifeGoals footer a:hover {
+    color: #5E503F;
+  }
+  body #popupGoalsMenu #jacobsYearGoals {
+    box-shadow: 1rem 1rem 1rem #1B1816;
+  }
+  body #popupContactMenu {
     visibility: hidden;
     position: fixed;
     top: 50%;
@@ -326,10 +417,10 @@ html {
     align-items: center;
     z-index: 1000000;
   }
-  body #popupMenu.opened {
+  body #popupContactMenu.opened {
     visibility: visible;
   }
-  body #popupMenu #contactForm {
+  body #popupContactMenu #contactForm {
     position: fixed;
     width: 35%;
     height: 75%;
@@ -338,26 +429,26 @@ html {
     box-shadow: 0rem 1rem 3rem #000;
     padding: 3rem;
   }
-  body #popupMenu #contactForm span#closeForm {
+  body #popupContactMenu #contactForm span#closeForm {
     font-size: 2.7rem;
     float: right;
     margin: 0;
     padding: 0;
     cursor: pointer;
   }
-  body #popupMenu #contactForm h2 {
+  body #popupContactMenu #contactForm h2 {
     color: #F2F4F3;
     text-shadow: 0rem 0.4rem 1rem #1B1816;
     font-size: 3rem;
     text-align: center;
   }
-  body #popupMenu #contactForm form {
+  body #popupContactMenu #contactForm form {
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
-  body #popupMenu #contactForm form .formItem {
+  body #popupContactMenu #contactForm form .formItem {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -366,14 +457,14 @@ html {
     font-size: 1.75rem;
     margin-top: 2rem 0rem;
   }
-  body #popupMenu #contactForm form .formItem label {
+  body #popupContactMenu #contactForm form .formItem label {
     margin-right: 1rem;
   }
-  body #popupMenu #contactForm form .formItem input {
+  body #popupContactMenu #contactForm form .formItem input {
     padding: 0.5rem;
     align-items: center;
   }
-  body #popupMenu #contactForm form .formItem button {
+  body #popupContactMenu #contactForm form .formItem button {
     width: 70%;
     padding: 1rem;
     font-size: 2rem;
@@ -599,11 +690,10 @@ html {
   }
   body #wrapper #myWork {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     text-align: center;
-    height: 150vh;
+    overflow: visible;
+    height: auto;
   }
   body #wrapper #myWork #myWorkHeader {
     font-family: "writingFont", cursive;
@@ -611,15 +701,17 @@ html {
     font-size: 4rem;
   }
   body #wrapper #myWork #worksColumn {
-    margin-top: 3vw;
+    margin-top: 1vw;
     width: 100%;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 10vw;
     gap: 5vw;
+    min-height: 5vh;
+    padding: 4vw;
   }
   body #wrapper #myWork #worksColumn .work {
-    margin: 9rem auto 0 auto;
     transition: all 0.4s ease;
   }
   body #wrapper #myWork #worksColumn .work:hover {
@@ -627,6 +719,9 @@ html {
     box-shadow: 0rem 5rem 10rem #010101;
   }
   body #wrapper #myWork #worksColumn .work a {
+    display: block;
+    box-sizing: border-box;
+    min-height: 5rem;
     width: 100%;
     color: #f2f4f3;
     padding: 5vw;
@@ -653,5 +748,11 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  body #wrapper #footerSection {
+    border-top: 0.1rem solid #5E503F;
+  }
+  body #wrapper #footerSection footer {
+    padding: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

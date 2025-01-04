@@ -6,9 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeSidebar = document.getElementById("closeNav");
     const overlay = document.getElementById("overlay");
     const webHeader = document.getElementById("websiteHeader");
-    const popup = document.getElementById("popupMenu");
+
+
+    // Creating popups for certain button clicks
+    const popupGoals = document.getElementById("popupGoalsMenu");
+    const closeGoalsPopup = document.getElementById("closeGoals");
+    const popupContact = document.getElementById("popupContactMenu");
     const overlayTint = document.getElementById("overlay");
-    const closePopup = document.getElementById("closeForm");
+    const closeContactPopup = document.getElementById("closeForm");
+
+    const myNameHeader = document.getElementById("myNameHeader");
 
 
     // making error message for specific button click
@@ -24,30 +31,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     errorMsg(servicesBtn);
 
+    // Creating new toggle function to prevent reusing code
+
+    function toggle(objectToToggle, className) {
+        if (objectToToggle) {
+            objectToToggle.classList.toggle(className);
+        } else {
+            console.warn("object to toggle not found!")
+        }
+    }
+
+
+    myNameHeader.addEventListener("click", () => toggle(popupGoals, 'shown'));
+
+
+    closeGoalsPopup.addEventListener("click", () => toggle(popupGoals, 'shown'));
+
 
     contactBtn.addEventListener("click", () => {
-        popup.classList.toggle('opened');
-        overlayTint.classList.toggle('active');
+        toggle(popupContact, 'opened');
+        toggle(overlayTint, 'active');
     });
 
-    closePopup.addEventListener("click", () => {
-        popup.classList.toggle('opened');
-        overlayTint.classList.toggle('active');
+    closeContactPopup.addEventListener("click", () => {
+        toggle(popupContact, 'opened');
+        toggle(overlayTint, 'active');
     })
 
     // Waiting for that click on the burger menu button
     burger.addEventListener("click", () => {
-        console.log("Burger clicked!");
-
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle("active");
-        webHeader.classList.toggle("active");
+        toggle(sidebar, 'open');
+        toggle(overlay, 'active');
+        toggle(webHeader, 'active');
     });
 
     closeSidebar.addEventListener("click", () => {
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle("active");
-        webHeader.classList.toggle("active");
+        toggle(sidebar, 'open');
+        toggle(overlay, 'active');
+        toggle(webHeader, 'active');
     });
 
 });
