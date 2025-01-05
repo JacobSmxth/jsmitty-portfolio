@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
         burger: document.getElementById("burgerDropdown"),
         sidebar: document.getElementById("navList"),
         closeSidebar: document.getElementById("closeNav"),
-        overlay: document.getElementById("overlay"),
+        overlayTint: document.getElementById("overlay"),
         webHeader: document.getElementById("websiteHeader"),
         popupGoals: document.getElementById("popupGoalsMenu"),
         closeGoalsPopup: document.getElementById("closeGoals"),
         popupContact: document.getElementById("popupContactMenu"),
-        overlayTint: document.getElementById("overlay"),
         closeContactPopup: document.getElementById("closeForm"),
         myNameHeader: document.getElementById("myNameHeader"),
         servicesBtn: document.getElementById("serviceBtn"),
+        contactBtn: document.getElementById("contactMeBtn"),
     }
 
 
@@ -39,13 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     function initEventListeners() {
         const {
-            burger, sidebar, closeSidebar, overlay, webHeader, popupGoals, closeGoalsPopup, popupContact, overlayTint, closeContactPopup, myNameHeader, servicesBtn,
+            burger, sidebar, closeSidebar, webHeader, popupGoals, closeGoalsPopup, popupContact, overlayTint, closeContactPopup, myNameHeader, servicesBtn, contactBtn,
         } = elements;
 
 
-        if (serviceBtn) errorMsg(servicesBtn, 'This feature is under construction!')
+        if (servicesBtn) errorMsg(servicesBtn, 'This feature is under construction!')
 
         if (myNameHeader) myNameHeader.addEventListener("click", () => toggle(popupGoals, 'shown'));
 
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (burger) {
             burger.addEventListener("click", () => {
                 toggle(sidebar, 'open');
-                toggle(overlay, 'active');
+                toggle(overlayTint, 'active');
                 toggle(webHeader, 'active');
             });
         }
@@ -76,15 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (closeSidebar) {
             closeSidebar.addEventListener("click", () => {
                 toggle(sidebar, 'open');
-                toggle(overlay, 'active');
+                toggle(overlayTint, 'active');
                 toggle(webHeader, 'active');
             });
         }
     }
-
-
-
-
 
 
 
