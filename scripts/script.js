@@ -1,35 +1,32 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Creating variables for certain elements to allow the navbar to open and close correctly
-    const burger = document.getElementById("burgerDropdown");
-    const sidebar = document.getElementById("navList");
-    const closeSidebar = document.getElementById("closeNav");
-    const overlay = document.getElementById("overlay");
-    const webHeader = document.getElementById("websiteHeader");
 
-
-    // Creating popups for certain button clicks
-    const popupGoals = document.getElementById("popupGoalsMenu");
-    const closeGoalsPopup = document.getElementById("closeGoals");
-    const popupContact = document.getElementById("popupContactMenu");
-    const overlayTint = document.getElementById("overlay");
-    const closeContactPopup = document.getElementById("closeForm");
-
-    const myNameHeader = document.getElementById("myNameHeader");
-
-
-    // making error message for specific button click
-    const servicesBtn = document.getElementById("serviceBtn");
-    const contactBtn = document.getElementById("contactMeBtn");
-
-
-    function errorMsg(thing) {
-        thing.addEventListener("click", () => {
-            alert("This currently doesn't work. Maybe it will soon!")
-        });
+    // After research I've found that it might be more useful to make an object instead of many variables
+    const elements = {
+        burger: document.getElementById("burgerDropdown"),
+        sidebar: document.getElementById("navList"),
+        closeSidebar: document.getElementById("closeNav"),
+        overlay: document.getElementById("overlay"),
+        webHeader: document.getElementById("websiteHeader"),
+        popupGoals: document.getElementById("popupGoalsMenu"),
+        closeGoalsPopup: document.getElementById("closeGoals"),
+        popupContact: document.getElementById("popupContactMenu"),
+        overlayTint: document.getElementById("overlay"),
+        closeContactPopup: document.getElementById("closeForm"),
+        myNameHeader: document.getElementById("myNameHeader"),
+        servicesBtn: document.getElementById("serviceBtn"),
     }
 
-    errorMsg(servicesBtn);
+
+    function errorMsg(object, message = 'There seems to have been an error!') {
+        if (object) {
+            object.addEventListener('click', () => {
+                alert(message);
+            });
+        } else {
+            console.warn('THe provided object does not exist')
+        }
+    }
 
     // Creating new toggle function to prevent reusing code
 
@@ -42,33 +39,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    myNameHeader.addEventListener("click", () => toggle(popupGoals, 'shown'));
+    function initEventListeners() {
+        const {
+            burger, sidebar, closeSidebar, overlay, webHeader, popupGoals, closeGoalsPopup, popupContact, overlayTint, closeContactPopup, myNameHeader, servicesBtn,
+        } = elements;
 
 
-    closeGoalsPopup.addEventListener("click", () => toggle(popupGoals, 'shown'));
+        if (serviceBtn) errorMsg(servicesBtn, 'This feature is under construction!')
+
+        if (myNameHeader) myNameHeader.addEventListener("click", () => toggle(popupGoals, 'shown'));
+
+        if (closeGoalsPopup) closeGoalsPopup.addEventListener("click", () => toggle(popupGoals, 'shown'));
+
+        if (contactBtn) {
+            contactBtn.addEventListener("click", () => {
+                toggle(popupContact, 'opened');
+                toggle(overlayTint, 'active');
+            });
+        }
+
+        if (closeContactPopup) {
+            closeContactPopup.addEventListener("click", () => {
+                toggle(popupContact, 'opened');
+                toggle(overlayTint, 'active');
+            })
+        }
+
+        if (burger) {
+            burger.addEventListener("click", () => {
+                toggle(sidebar, 'open');
+                toggle(overlay, 'active');
+                toggle(webHeader, 'active');
+            });
+        }
+
+        if (closeSidebar) {
+            closeSidebar.addEventListener("click", () => {
+                toggle(sidebar, 'open');
+                toggle(overlay, 'active');
+                toggle(webHeader, 'active');
+            });
+        }
+    }
 
 
-    contactBtn.addEventListener("click", () => {
-        toggle(popupContact, 'opened');
-        toggle(overlayTint, 'active');
-    });
 
-    closeContactPopup.addEventListener("click", () => {
-        toggle(popupContact, 'opened');
-        toggle(overlayTint, 'active');
-    })
 
-    // Waiting for that click on the burger menu button
-    burger.addEventListener("click", () => {
-        toggle(sidebar, 'open');
-        toggle(overlay, 'active');
-        toggle(webHeader, 'active');
-    });
 
-    closeSidebar.addEventListener("click", () => {
-        toggle(sidebar, 'open');
-        toggle(overlay, 'active');
-        toggle(webHeader, 'active');
-    });
+
+
+    // Initialize Event Listeners
+    initEventListeners();
+
 
 });
