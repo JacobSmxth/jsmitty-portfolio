@@ -268,7 +268,7 @@ html {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: min-content;
-    gap: 20vw;
+    gap: 15vw;
     width: 100%;
     padding: 1rem;
     margin-top: 1vh;
@@ -290,7 +290,21 @@ html {
   body #wrapper #myWork #worksColumn .work a span {
     background-color: rgba(27, 24, 22, 0.6);
   }
-  body #wrapper #myWork #worksColumn .work #csProjects {
+  body #wrapper #myWork #worksColumn .work #skyCast {
+    width: 100%;
+    background-image: url("../assets/images/skyCast.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn .work #todoList {
+    width: 100%;
+    background-image: url("../assets/images/toDoList.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn .work #gitHub {
     width: 100%;
     background-image: url("../assets/images/github.jpg");
     background-position: center;
@@ -743,7 +757,23 @@ html {
     border-radius: 0.4rem;
     box-shadow: 0rem 0.5rem 1rem #1B1816;
   }
-  body #wrapper #myWork #worksColumn #csProjects {
+  body #wrapper #myWork #worksColumn #skyCast {
+    position: relative;
+    width: 100%;
+    background-image: url("../assets/images/skyCast.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn #todoList {
+    position: relative;
+    width: 100%;
+    background-image: url("../assets/images/toDoList.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body #wrapper #myWork #worksColumn #gitHub {
     position: relative;
     width: 100%;
     background-image: url("../assets/images/github.jpg");

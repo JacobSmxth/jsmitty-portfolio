@@ -339,7 +339,7 @@ body {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
                 grid-auto-rows: min-content;
-                gap: 20vw;
+                gap: 15vw;
                 width: 100%;
                 padding: 1rem;
                 margin-top: 1vh;
@@ -347,6 +347,7 @@ body {
                 .work {
                     text-align: center;
                     margin: 10rem 0;
+                    
 
                     a {
                         position: relative;
@@ -363,7 +364,21 @@ body {
                         }
                     }
 
-                    #csProjects {
+                    #skyCast {
+                        width: 100%;
+                        background-image: url('../assets/images/skyCast.png');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    #todoList {
+                        width: 100%;
+                        background-image: url('../assets/images/toDoList.png');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    #gitHub {
                         width: 100%;
                         background-image: url('../assets/images/github.jpg');
                         background-position: center;
@@ -931,15 +946,29 @@ body {
                         }
                     }
 
-                    #csProjects {
+                    #skyCast {
+                        position: relative;
+                        width: 100%;
+                        background-image: url('../assets/images/skyCast.png');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    #todoList {
+                        position: relative;
+                        width: 100%;
+                        background-image: url('../assets/images/toDoList.png');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    #gitHub {
                         position: relative;
                         width: 100%;
                         background-image: url('../assets/images/github.jpg');
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
-                        
-
                     }
 
                     #portfolioSite {
