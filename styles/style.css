@@ -34,12 +34,63 @@ html {
   body {
     height: 100%;
     background: #1B1816;
-  }
-  body #popupContactMenu {
-    display: none;
+    /* Contact Menu Popup */
   }
   body #popupGoalsMenu {
     display: none;
+  }
+  body #popupContactMenu {
+    display: none; /* Hidden by default */
+  }
+  body #popupContactMenu.opened {
+    display: flex; /* Show when opened */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(27, 24, 22, 0.6); /* Semi-transparent overlay */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  body #popupContactMenu.opened #contactForm {
+    position: relative;
+    width: 90vw; /* Nearly full width */
+    height: 90vh; /* Nearly full height */
+    background: #A9927D; /* Use your defined color variable */
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 3rem rgba(27, 24, 22, 0.5);
+    overflow-y: auto; /* Scrollable if content overflows */
+  }
+  body #popupContactMenu.opened #contactForm span#closeForm {
+    font-size: 3rem; /* Larger for easy tapping */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+  body #popupContactMenu.opened #contactForm h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  body #popupContactMenu.opened #contactForm form .formItem {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+  }
+  body #popupContactMenu.opened #contactForm form .formItem label {
+    margin-bottom: 0.5rem;
+  }
+  body #popupContactMenu.opened #contactForm form .formItem input {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  body #popupContactMenu.opened #contactForm form .formItem button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.8rem; /* Touch-friendly size */
   }
   body #wrapper {
     min-height: 100vh;
@@ -50,6 +101,8 @@ html {
     position: fixed;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(27, 24, 22, 0.6);
@@ -90,7 +143,7 @@ html {
     background-size: contain;
     width: 2.6rem;
     height: 2.6rem;
-    margin: 1rem 0rem;
+    margin: 1rem 0;
   }
   body #wrapper nav #navList {
     transform: translateX(100%);
@@ -162,7 +215,7 @@ html {
   body #wrapper nav #navList #navSidebarFooter .social:not(:first-child, :last-child) span {
     border-left: 0.1rem solid #A9927D;
     border-right: 0.1rem solid #A9927D;
-    padding: 0rem 1rem;
+    padding: 0 1rem;
   }
   body #wrapper #contentSection {
     flex-grow: 1;
@@ -222,14 +275,14 @@ html {
     border-bottom: 0.1rem solid #A9927D;
   }
   body #wrapper #aboutMe #titleClump {
-    margin: 2rem 0rem 0rem 1rem;
+    margin: 2rem 0 0 1rem;
     padding: 1rem;
     font-family: "headerFont", sans-serif;
   }
-  body #wrapper #aboutMe #currentTitle {
+  body #wrapper #aboutMe #titleClump #currentTitle {
     font-size: 2.5rem;
   }
-  body #wrapper #aboutMe #titleSubtitle {
+  body #wrapper #aboutMe #titleClump #titleSubtitle {
     font-size: 1.4rem;
     width: 20rem;
   }
@@ -283,35 +336,35 @@ html {
     font-family: "headerFont", sans-serif;
     color: #F2F4F3;
     width: 75%;
-    padding: 10vw 10vw;
+    padding: 10vw;
     border: 0.1rem solid #5E503F;
     border-radius: 2rem;
   }
   body #wrapper #myWork #worksColumn .work a span {
     background-color: rgba(27, 24, 22, 0.6);
   }
-  body #wrapper #myWork #worksColumn .work #skyCast {
+  body #wrapper #myWork #worksColumn .work a#skyCast {
     width: 100%;
     background-image: url("../assets/images/skyCast.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn .work #todoList {
+  body #wrapper #myWork #worksColumn .work a#todoList {
     width: 100%;
     background-image: url("../assets/images/toDoList.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn .work #gitHub {
+  body #wrapper #myWork #worksColumn .work a#gitHub {
     width: 100%;
     background-image: url("../assets/images/github.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn .work #portfolioSite {
+  body #wrapper #myWork #worksColumn .work a#portfolioSite {
     background-image: url("../assets/images/portsite.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -364,7 +417,6 @@ html {
     border-radius: 3rem;
     padding: 2rem;
     color: #A9927D;
-    font-size: rem;
     transition: all 0.2s ease;
   }
   body #popupGoalsMenu .goalSection:hover {
@@ -378,7 +430,7 @@ html {
     border-radius: 1rem;
     background: #A9927D;
     color: #1B1816;
-    box-shadow: 0rem 0.1rem 0.1rem #1B1816;
+    box-shadow: 0 0.1rem 0.1rem #1B1816;
     transition: all 0.3s ease;
     cursor: pointer;
     -webkit-user-select: none;
@@ -387,7 +439,7 @@ html {
   }
   body #popupGoalsMenu span:hover {
     transform: scale(1.2);
-    box-shadow: 0rem 0.5rem 1rem #1B1816;
+    box-shadow: 0 0.5rem 1rem #1B1816;
     color: rgba(27, 24, 22, 0.7);
   }
   body #popupGoalsMenu #finleyLifeGoals {
@@ -403,15 +455,15 @@ html {
     padding: 0.3rem;
     border-bottom: 0.1rem solid #A9927D;
   }
+  body #popupGoalsMenu #finleyLifeGoals .goal {
+    padding: 0.5rem;
+    width: 75%;
+  }
   body #popupGoalsMenu #finleyLifeGoals .goal.right {
     margin-left: 25%;
   }
   body #popupGoalsMenu #finleyLifeGoals .goal.left {
     margin-right: 25%;
-  }
-  body #popupGoalsMenu #finleyLifeGoals .goal {
-    padding: 0.5rem;
-    width: 75%;
   }
   body #popupGoalsMenu #finleyLifeGoals footer {
     border-top: 0.1rem solid #A9927D;
@@ -448,7 +500,7 @@ html {
     height: 75%;
     background: #A9927D;
     border-radius: 3rem;
-    box-shadow: 0rem 1rem 3rem #000;
+    box-shadow: 0 1rem 3rem #000;
     padding: 3rem;
   }
   body #popupContactMenu #contactForm span#closeForm {
@@ -460,7 +512,7 @@ html {
   }
   body #popupContactMenu #contactForm h2 {
     color: #F2F4F3;
-    text-shadow: 0rem 0.4rem 1rem #1B1816;
+    text-shadow: 0 0.4rem 1rem #1B1816;
     font-size: 3rem;
     text-align: center;
   }
@@ -477,7 +529,7 @@ html {
     justify-content: center;
     text-align: center;
     font-size: 1.75rem;
-    margin-top: 2rem 0rem;
+    margin: 2rem 0;
   }
   body #popupContactMenu #contactForm form .formItem label {
     margin-right: 1rem;
@@ -533,21 +585,21 @@ html {
   body #wrapper nav #navList {
     display: flex;
   }
-  body #wrapper nav #navSidebarHeader {
+  body #wrapper nav #navList #navSidebarHeader {
     display: none;
   }
-  body #wrapper nav #navSidebarItems {
+  body #wrapper nav #navList #navSidebarItems {
     display: flex;
     flex-direction: row;
     text-align: center;
     width: 100%;
   }
-  body #wrapper nav #navSidebarItems li a {
+  body #wrapper nav #navList #navSidebarItems li a {
     position: relative;
     color: #A9927D;
     padding: 0.2rem 0.4rem;
   }
-  body #wrapper nav #navSidebarItems li a::after {
+  body #wrapper nav #navList #navSidebarItems li a::after {
     content: "";
     position: absolute;
     height: 0.2rem;
@@ -557,65 +609,49 @@ html {
     background: rgba(169, 146, 125, 0.7);
     transition: width 0.2s;
   }
-  body #wrapper nav #navSidebarItems li a:hover:after {
+  body #wrapper nav #navList #navSidebarItems li a:hover::after {
     width: 100%;
   }
-  body #wrapper nav #navSidebarFooter {
+  body #wrapper nav #navList #navSidebarFooter {
     display: flex;
     flex-direction: row;
     margin-left: 0.7rem;
   }
-  body #wrapper nav #navSidebarFooter a .sidebarFooterText {
-    display: none;
-  }
-  body #wrapper nav #navSidebarFooter a.social {
-    margin: 0rem 1rem;
+  body #wrapper nav #navList #navSidebarFooter a.social {
+    margin: 0 1rem;
     padding: 0.5rem;
     transition: all 0.4s ease;
   }
-  body #wrapper nav #navSidebarFooter a.social:hover {
+  body #wrapper nav #navList #navSidebarFooter a.social:hover {
     transform: scale(1.5);
   }
-  body #wrapper nav #navSidebarFooter a.facebook {
+  body #wrapper nav #navList #navSidebarFooter a.social.facebook {
     width: 1.1rem;
     height: 1.1rem;
-    background: url("../assets/images/icons8-facebook-50.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url("../assets/images/icons8-facebook-50.png") no-repeat center/contain;
   }
-  body #wrapper nav #navSidebarFooter a.instagram {
+  body #wrapper nav #navList #navSidebarFooter a.social.instagram {
     width: 1.1rem;
     height: 1.1rem;
-    background: url("../assets/images/icons8-instagram-50.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url("../assets/images/icons8-instagram-50.png") no-repeat center/contain;
   }
-  body #wrapper nav #navSidebarFooter a.twitch {
+  body #wrapper nav #navList #navSidebarFooter a.social.twitch {
     width: 1.1rem;
     height: 1.1rem;
-    background: url("../assets/images/icons8-twitch-50.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url("../assets/images/icons8-twitch-50.png") no-repeat center/contain;
   }
-  body #wrapper nav #navSidebarFooter a.twitter {
+  body #wrapper nav #navList #navSidebarFooter a.social.twitter {
     width: 1.1rem;
     height: 1.1rem;
-    background: url("../assets/images/icons8-x-50.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url("../assets/images/icons8-x-50.png") no-repeat center/contain;
+  }
+  body #wrapper nav #navList #navSidebarFooter a .sidebarFooterText {
+    display: none;
   }
   body #wrapper #contentSection #content {
     position: relative;
-    background: url("../assets/images/jacobHeadshot.png");
-    background-position: center;
-    background-attachment: fixed;
-    background-size: contain;
+    background: url("../assets/images/jacobHeadshot.png") center/contain no-repeat fixed;
     background-color: rgba(94, 80, 63, 0.5);
-    background-repeat: no-repeat;
     height: 90vh;
   }
   body #wrapper #contentSection #content #contentInContent .tint {
@@ -649,10 +685,8 @@ html {
     text-shadow: 1rem 1rem 1rem rgba(27, 24, 22, 0.7);
     transition: all 0.3s ease-in-out;
   }
-  body #wrapper #contentSection #myNameHeader:hover {
-    cursor: pointer;
-  }
-  body #wrapper #contentSection #myNameHeader:hover #lastNameHeader, body #wrapper #contentSection #myNameHeader:hover #firstNameHeader {
+  body #wrapper #contentSection #myNameHeader:hover #lastNameHeader,
+  body #wrapper #contentSection #myNameHeader:hover #firstNameHeader {
     color: rgba(169, 146, 125, 0.7);
     text-shadow: 1rem 1rem 1rem #1b1816;
   }
@@ -668,8 +702,7 @@ html {
     right: 1rem;
     width: 1rem;
     height: 1rem;
-    background: url("../assets/images/contactIconLight.png");
-    background-size: contain;
+    background: url("../assets/images/contactIconLight.png") no-repeat center/contain;
     padding: 1rem;
     cursor: pointer;
   }
@@ -677,7 +710,7 @@ html {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    margin: 1rem 0rem;
+    margin: 1rem 0;
     width: 20vw;
   }
   body #wrapper #aboutMe #titleClump #currentTitle {
@@ -738,7 +771,7 @@ html {
   }
   body #wrapper #myWork #worksColumn .work:hover {
     transform: scale(1.1);
-    box-shadow: 0rem 5rem 10rem #010101;
+    box-shadow: 0 5rem 10rem #010101;
   }
   body #wrapper #myWork #worksColumn .work a {
     display: block;
@@ -749,39 +782,33 @@ html {
     padding: 5vw;
     border: 0.5rem solid rgba(94, 80, 63, 0.3);
     border-radius: 2rem;
-    box-shadow: 0rem 1rem 2rem #010101;
+    box-shadow: 0 1rem 2rem #010101;
   }
   body #wrapper #myWork #worksColumn .work a span {
     background-color: rgba(27, 24, 22, 0.7);
     padding: 0.3rem 0.7rem;
     border-radius: 0.4rem;
-    box-shadow: 0rem 0.5rem 1rem #1B1816;
+    box-shadow: 0 0.5rem 1rem #1B1816;
   }
-  body #wrapper #myWork #worksColumn #skyCast {
-    position: relative;
-    width: 100%;
+  body #wrapper #myWork #worksColumn .work a#skyCast {
     background-image: url("../assets/images/skyCast.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn #todoList {
-    position: relative;
-    width: 100%;
+  body #wrapper #myWork #worksColumn .work a#todoList {
     background-image: url("../assets/images/toDoList.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn #gitHub {
-    position: relative;
-    width: 100%;
+  body #wrapper #myWork #worksColumn .work a#gitHub {
     background-image: url("../assets/images/github.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  body #wrapper #myWork #worksColumn #portfolioSite {
+  body #wrapper #myWork #worksColumn .work a#portfolioSite {
     background-image: url("../assets/images/portsite.png");
     background-size: cover;
     background-repeat: no-repeat;
