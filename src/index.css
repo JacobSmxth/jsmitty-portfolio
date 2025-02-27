@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-bg: #141204;
+  --accent: #33B3D6;
+  --light: #EBD2D6;
+}
+
+body {
+  @apply bg-dark-bg text-light font-sans;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-opacity-90 transition-all duration-300 inline-block;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .nav-link {
+    @apply text-light hover:text-accent transition-colors duration-300;
+  }
+  
+  .nav-link.active {
+    @apply text-accent;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-light;
+  }
+  
+  .card {
+    @apply bg-dark-bg bg-opacity-50 backdrop-blur-sm border border-accent/20 rounded-lg p-6 hover:border-accent/50 transition-all duration-300;
+  }
+}
