@@ -23,7 +23,7 @@ const About = () => {
           >
             <div className="aspect-square rounded-full overflow-hidden border-4 border-accent/30 max-w-md mx-auto">
               <img 
-                src="../../assets/pictureface.png" 
+                src="/pictureface.png" 
                 alt="Jacob Smith" 
                 className="w-full h-full object-cover"
               />
