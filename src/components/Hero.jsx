@@ -30,7 +30,7 @@ const Hero = () => {
                 </span>
             </div>
                 <h3 className="px-3 py-1">I am a 19-year-old frontend developer building secure sites with React and Tailwind.</h3>
-                <div className="max-w-screen flex justify-center gap-4 mt-4">
+                <div className="max-w-screen flex justify-center gap-4 mt-4 pb-6 border-b-1 border-b-gray-700">
                     <a href="#" className="px-3 py-2 ml-3 max-w-1/3 rounded-xl text-center bg-blue-900">See Projects</a>
                     <a href="#" className="px-3 py-2 mr-3 max-w-1/2 rounded-xl text-center bg-blue-900">Download Resume</a>
                 </div>

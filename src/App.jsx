@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Projects from './components/Projects'
 
 function App() {
   
@@ -7,8 +8,9 @@ function App() {
     <>
       <div id="wrapper" className="bg-linear-to-br from-gray-700 to-gray-900 min-h-screen">
         <Header />
-        <section id="content">
+        <section id="content" className=''>
           <Hero />
+          <Projects />
         </section>
       </div>
     </>
