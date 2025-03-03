@@ -1,5 +1,6 @@
 import { div } from 'framer-motion/client';
 import projectData from '../data/projectData'
+import SkillsTicker from './SkillsTicker';
 
 const Projects = () => {
 
@@ -8,11 +9,11 @@ const Projects = () => {
             <h1 className="text-2xl text-center text-gray-200 p-3">
                 Featured Work
             </h1>
-            <div className='flex flex-col items-center mt-4'>
+            <div id='Projects' className='flex flex-col items-center my-4'>
                 {projectData.map((proj) => {
                     return (
                         <div key={proj.id} className='border-1 border-gray-700  text-gray-300 rounded-xl max-w-2/3 text-center flex flex-col items-center mb-5'>
-                            <img className='max-w-full p-5' src={proj.image} alt={"photo of " + proj.name} />
+                            <img className='max-w-full px-5 pt-6' src={proj.image} alt={"photo of " + proj.name} />
                             <h1 className='text-lg p-2'>
                                 {proj.name}
                             </h1>
@@ -32,6 +33,7 @@ const Projects = () => {
                                 <a href={proj.live} target='_blank' className='border-b-1'>Live Demo</a>
                                 <a href={proj.github} target='_blank' className='border-b-1'>View Code</a>
                             </div>
+                            
                         </div>
                     )
                 })}

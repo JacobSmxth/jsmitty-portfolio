@@ -1,6 +1,8 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
+import SkillsTicker from './components/SkillsTicker'
+
 
 function App() {
   
@@ -12,6 +14,7 @@ function App() {
           <Hero />
           <Projects />
         </section>
+        <SkillsTicker />
       </div>
     </>
   )

@@ -1,0 +1,10 @@
+https://apidocs.cheapshark.com/#b9b738bf-2916-2a13-e40d-d05bccdce2ba
+https://developer.marvel.com/
+https://www.reddit.com/dev/api/
+https://newsapi.org/
+https://developer.themoviedb.org/reference/intro/getting-started
+https://swapi.dev/
+https://ipgeolocation.io/
+https://open-meteo.com/
+https://docs.github.com/en/rest?apiVersion=2022-11-28
+https://rawg.io/apidocs
