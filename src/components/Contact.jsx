@@ -7,14 +7,39 @@ const Contact = () => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
-
+  const [submitting, setSubmitting] = useState(false);
+  
   const handleChange = (e) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value
     });
   };
-
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formState
+        }).toString()
+      });
+      
+      setSubmitted(true);
+      setFormState({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
   return (
     <div id="contact" className="p-3 my-8">
       <h2 className="text-2xl text-center text-gray-800 dark:text-gray-200 mb-5">
@@ -33,13 +58,14 @@ const Contact = () => {
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          onSubmit={() => setSubmitted(true)}
+          onSubmit={handleSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
           <p className="hidden">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
           </p>
           
+          {/* Rest of form remains the same */}
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 mb-1">Name</label>
             <input
@@ -82,8 +108,9 @@ const Contact = () => {
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded transition-colors"
+            disabled={submitting}
           >
-            Send Message
+            {submitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       )}
