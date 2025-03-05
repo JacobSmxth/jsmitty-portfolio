@@ -5,14 +5,14 @@ import SkillsTicker from './SkillsTicker';
 const Projects = () => {
 
     return (
-        <div className="w-full p-2">
+        <div className="w-full">
             <h1 className="text-2xl text-center text-gray-200 p-3">
                 Featured Work
             </h1>
-            <div id='Projects' className='flex flex-col items-center my-4'>
+            <div id='Projects' className='flex flex-col items-center my-4 md:grid md:grid-cols-2 xl:grid-cols-3 md:place-items-center'>
                 {projectData.map((proj) => {
                     return (
-                        <div key={proj.id} className='border-1 border-gray-700  text-gray-300 rounded-xl max-w-2/3 text-center flex flex-col items-center mb-5'>
+                        <div key={proj.id} className='border-1 border-gray-700  text-gray-300 rounded-xl max-w-2/3 text-center flex flex-col items-center mb-5 xl:max-w-3/4'>
                             <img className='max-w-full px-5 pt-6' src={proj.image} alt={"photo of " + proj.name} />
                             <h1 className='text-lg p-2'>
                                 {proj.name}
