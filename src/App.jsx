@@ -1,65 +1,53 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import SkillsSection from './components/SkillsSection';
-import SkillsTicker from './components/SkillsTicker';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import LoadingScreen from './components/LoadingScreen.jsx';
+import SkillsTicker from './components/SkillsTicker';
+import LoadingScreen from './components/LoadingScreen';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import ContactPage from './pages/ContactPage';
 import { FaArrowUp } from 'react-icons/fa';
+
+// Scroll to top when navigating to a new page
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
-  });
-
-  // Apply theme effect
+  
+  // Initialize app and set dark mode
   useEffect(() => {
     // Simulate loading assets
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
     
-    // Apply theme properly to document root
-    document.documentElement.classList.remove('dark', 'light');
-    document.documentElement.classList.add(theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // Track scroll position
+    // Apply dark theme to document root
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }, []);
+  
+  // Track scroll position for scroll-to-top button
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
-      
-      // Calculate active section
-      const sections = ['home', 'projects', 'experience', 'skills', 'testimonials', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
@@ -67,14 +55,9 @@ function App() {
       behavior: 'smooth'
     });
   };
-
-  // Toggle theme function
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
-  };
-
+  
   return (
-    <>
+    <BrowserRouter>
       <AnimatePresence mode="wait">
         {isLoading ? (
           <LoadingScreen key="loading" />
@@ -86,34 +69,17 @@ function App() {
             exit={{ opacity: 0 }}
             className="min-h-screen transition-colors duration-500"
           >
-            <div id="top" className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 relative">
+            <div id="top" className="bg-gray-900 text-gray-200 relative">
               <div id="wrapper" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <Header activeSection={activeSection} />
+                <Header />
+                <ScrollToTop />
                 
-                <main id="content" className="pt-24 pb-12 space-y-14">
-                  <section id="home">
-                    <Hero />
-                  </section>
-                  
-                  <section id="projects">
-                    <Projects />
-                  </section>
-                  
-                  <section id="experience">
-                    <Experience />
-                  </section>
-                  
-                  <section id="skills">
-                    <SkillsSection />
-                  </section>
-                  
-                  <section id="testimonials">
-                    <Testimonials />
-                  </section>
-                  
-                  <section id="contact">
-                    <Contact />
-                  </section>
+                <main id="content" className="pt-24 pb-12">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                  </Routes>
                 </main>
                 
                 <SkillsTicker />
@@ -138,7 +104,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </BrowserRouter>
   );
 }
 

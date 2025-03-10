@@ -1,7 +1,5 @@
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithubSquare, FaLinkedin, FaInstagram, FaArrowRight } from "react-icons/fa";
-import AnimationWrapper from "../components/AnimationWrapper";
-import { fadeIn, fromLeft, fromRight, scaleUp } from '../utils/animationVariants';
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -70,22 +68,19 @@ const Hero = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         <div className="flex items-center justify-center">
-          <AnimationWrapper variants={fadeIn}>
             <div className="relative w-4/5 max-w-xs">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full opacity-70 blur-sm animate-pulse"></div>
               <img
-                className="rounded-full object-cover w-full aspect-square relative z-10 bg-gray-100 dark:bg-gray-800 p-1"
+                className="rounded-full object-cover w-full aspect-square relative z-10 p-1"
                 src="/pictureFace.svg"
                 alt="Jacob Smith - Frontend Developer"
               />
               <div className="absolute -top-4 -right-4 bg-blue-500 w-8 h-8 rounded-full opacity-80"></div>
               <div className="absolute -bottom-2 -left-2 bg-teal-400 w-6 h-6 rounded-full opacity-70"></div>
             </div>
-          </AnimationWrapper>
         </div>
         
         <div className="flex flex-col justify-center">
-          <AnimationWrapper variants={fromRight}>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               <span className="bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-400 bg-clip-text text-transparent">
                 Jacob Smith
@@ -129,7 +124,6 @@ const Hero = () => {
                 hoverColor="hover:text-pink-500"
               />
             </div>
-          </AnimationWrapper>
         </div>
       </div>
       

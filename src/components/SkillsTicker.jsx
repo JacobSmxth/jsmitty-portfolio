@@ -15,12 +15,12 @@ const SkillsTicker = () => {
     },
     {
       category: "Styling",
-      skills: ["Tailwind CSS", "SASS", "CSS Modules", "Styled Components"],
+      skills: ["Tailwind CSS", "SASS", "Styled Components"],
       color: "text-pink-400"
     },
     {
       category: "Tools",
-      skills: ["Git", "GitHub", "VS Code", "Figma", "Netlify", "Vercel"],
+      skills: ["Git", "GitHub", "VS Code", "Netlify", "Vercel"],
       color: "text-green-400"
     },
     {
@@ -81,7 +81,7 @@ const SkillsTicker = () => {
       >
         {skillGroups.map((group, groupIndex) => (
           <div key={group.category} className="inline-flex items-center">
-            {groupIndex !== 0 && <Separator />}
+            {<Separator />}
             <span className="text-gray-400 font-medium mr-2">
               {group.category}:
             </span>
