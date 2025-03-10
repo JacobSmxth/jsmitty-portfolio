@@ -30,66 +30,44 @@ A modern, animated React portfolio showcasing web development skills and service
 - **Email Integration**: [EmailJS](https://www.emailjs.com/)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
 
-## 🚀 Installation & Setup
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-```
-
-2. **Install dependencies**
-
-```bash
-npm install
-```
-
-3. **Set up environment variables**
-
-Create a `.env` file in the root directory:
-
-```
-VITE_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
-```
-
-4. **Start the development server**
-
-```bash
-npm run dev
-```
-
-5. **Build for production**
-
-```bash
-npm run build
-```
-
-## 📬 EmailJS Configuration
-
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Set up a service (Gmail, Outlook, etc.)
-3. Create two email templates:
-   - Main notification template (for you to receive messages)
-   - Auto-reply template (for users to receive confirmation)
-4. Get your Service ID, Template IDs, and Public Key
-5. Update the ContactPage component with your IDs
 
 ## 📁 Project Structure
 
 ```
-portfolio/
-├── public/           # Static files
-├── src/              # Source files
-│   ├── components/   # Reusable components
-│   ├── data/         # JSON data files
-│   ├── pages/        # Page components
-│   ├── App.jsx       # Main app component
-│   └── main.jsx      # Entry point
-├── .env              # Environment variables
-├── package.json      # Dependencies
-├── tailwind.config.js # Tailwind configuration
-└── vite.config.js    # Vite configuration
+jsmitty-portfolio
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ pictureFace.svg
+│  └─ screenshot.png
+├─ README.md
+├─ src
+│  ├─ App.jsx
+│  ├─ components
+│  │  ├─ Experience.jsx
+│  │  ├─ Footer.jsx
+│  │  ├─ Header.jsx
+│  │  ├─ Hero.jsx
+│  │  ├─ LoadingScreen.jsx
+│  │  ├─ Projects.jsx
+│  │  ├─ SkillsSection.jsx
+│  │  ├─ SkillsTicker.jsx
+│  │  ├─ Testimonials.jsx
+│  │  └─ ThemeToggle.jsx
+│  ├─ data
+│  │  ├─ projectData.js
+│  │  ├─ services.js
+│  │  └─ testimonials.js
+│  ├─ index.css
+│  ├─ main.jsx
+│  └─ pages
+│     ├─ ContactPage.jsx
+│     ├─ HomePage.jsx
+│     └─ ServicesPage.jsx
+├─ tailwind.config.js
+└─ vite.config.js
+
 ```
 
 ## 🎨 Key Components
@@ -118,7 +96,7 @@ portfolio/
 
 ## 📝 License
 
-MIT © [Your Name]
+MIT © Jacob Smith
 
 ---
 
