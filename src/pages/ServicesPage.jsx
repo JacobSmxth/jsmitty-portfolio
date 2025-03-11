@@ -28,7 +28,6 @@ const ServicesPage = () => {
             High-quality web development solutions to help your business stand out and succeed online.
           </p>
         </motion.div>
-
         <motion.div 
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ y: 20, opacity: 0 }}
@@ -51,7 +50,6 @@ const ServicesPage = () => {
             </motion.button>
           ))}
         </motion.div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, index) => (
             <motion.div
@@ -70,12 +68,27 @@ const ServicesPage = () => {
               <div className="p-6">
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
+                
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center">
+                    <span className="text-gray-500 dark:text-gray-400 text-sm mr-1">Starting at</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-bold text-xl">${service.rate}</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm ml-1">/hr</span>
+                  </div>
+                  
+                  {service.rate < 30 && (
+                    <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs px-2 py-1 rounded-full">
+                      Budget-friendly
+                    </span>
+                  )}
+                </div>
+                
                 <motion.a
                   href="/contact"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors w-full text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Request Service
                 </motion.a>
@@ -83,8 +96,7 @@ const ServicesPage = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Call To Action */}
+        
         <motion.div 
           className="mt-20 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl shadow-xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
