@@ -1,21 +1,22 @@
 import { motion } from 'framer-motion';
 import { 
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGitAlt, 
 } from 'react-icons/fa';
-import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import { SiTailwindcss, SiNextdotjs, SiAdobephotoshop } from 'react-icons/si';
+import { VscVscode } from "react-icons/vsc";
 
 const SkillsSection = () => {
   const skills = [
     { name: "HTML5", icon: <FaHtml5 />, color: "text-orange-500" },
     { name: "CSS3", icon: <FaCss3Alt />, color: "text-blue-500" },
     { name: "JavaScript", icon: <FaJs />, color: "text-yellow-400" },
-    { name: "TypeScript", icon: <SiTypescript />, color: "text-blue-600" },
+    { name: "Python", icon: <FaPython />, color: "text-blue-600" },
     { name: "React", icon: <FaReact />, color: "text-cyan-400" },
     { name: "Next.js", icon: <SiNextdotjs />, color: "text-white" },
     { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "text-teal-400" },
-    { name: "Node.js", icon: <FaNodeJs />, color: "text-green-500" },
+    { name: "VS Code", icon: <VscVscode />, color: "text-blue-500" },
     { name: "Git", icon: <FaGitAlt />, color: "text-red-500" },
-    { name: "Figma", icon: <FaFigma />, color: "text-purple-400" }
+    { name: "Photoshop Basics", icon: <SiAdobephotoshop />, color: "text-blue-400" }
   ];
 
   return (

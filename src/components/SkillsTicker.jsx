@@ -2,60 +2,64 @@ import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { 
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaSass, FaGitAlt, FaGithub, 
-  FaFigma, FaCode, FaMobile, FaSearch, FaUniversalAccess, FaTachometerAlt
+  FaPython, FaMobile, FaSearch, FaUniversalAccess, FaTachometerAlt
 } from "react-icons/fa";
-import { SiTailwindcss, SiNetlify, SiVercel } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiNetlify, SiAdobephotoshop, SiVite } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 const SkillsTicker = () => {
   const skillGroups = [
     {
+      category: "Languages",
+      skills: ["HTML5", "CSS3", "JavaScript", "Python"],
+      color: "text-yellow-400"
+    },
+    {
       category: "Frontend",
-      skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js"],
+      skills: ["React", "Next.js", "Vite"],
       color: "text-blue-400"
     },
     {
       category: "Styling",
-      skills: ["Tailwind CSS", "SASS", "Styled Components"],
+      skills: ["Tailwind CSS", "SASS"],
       color: "text-pink-400"
     },
     {
       category: "Tools",
-      skills: ["Git", "GitHub", "VS Code", "Netlify", "Vercel"],
+      skills: ["Git", "GitHub", "VS Code", "Netlify", "Photoshop Basics"],
       color: "text-green-400"
     },
     {
-      category: "Other",
-      skills: ["Responsive Design", "SEO", "Accessibility", "Performance Optimization"],
+      category: "Skills",
+      skills: ["Responsive Design", "SEO", "Accessibility", "Problem Solving"],
       color: "text-purple-400"
     }
   ];
-
+  
   const getIcon = (skill) => {
     switch(skill) {
       case "HTML5": return <FaHtml5 className="mr-2" />;
       case "CSS3": return <FaCss3Alt className="mr-2" />;
       case "JavaScript": return <FaJs className="mr-2" />;
-      case "TypeScript": return <FaCode className="mr-2" />;
+      case "Python": return <FaPython className="mr-2" />;
       case "React": return <FaReact className="mr-2" />;
-      case "Next.js": return <FaCode className="mr-2" />;
+      case "Next.js": return <SiNextdotjs className="mr-2" />;
+      case "Vite": return <SiVite className="mr-2" />;
       case "Tailwind CSS": return <SiTailwindcss className="mr-2" />;
       case "SASS": return <FaSass className="mr-2" />;
-      case "CSS Modules": return <FaCode className="mr-2" />;
-      case "Styled Components": return <FaCode className="mr-2" />;
       case "Git": return <FaGitAlt className="mr-2" />;
       case "GitHub": return <FaGithub className="mr-2" />;
-      case "VS Code": return <FaCode className="mr-2" />;
-      case "Figma": return <FaFigma className="mr-2" />;
+      case "VS Code": return <VscVscode className="mr-2" />;
       case "Netlify": return <SiNetlify className="mr-2" />;
-      case "Vercel": return <SiVercel className="mr-2" />;
+      case "Photoshop Basics": return <SiAdobephotoshop className="mr-2" />;
       case "Responsive Design": return <FaMobile className="mr-2" />;
       case "SEO": return <FaSearch className="mr-2" />;
       case "Accessibility": return <FaUniversalAccess className="mr-2" />;
-      case "Performance Optimization": return <FaTachometerAlt className="mr-2" />;
+      case "Problem Solving": return <FaTachometerAlt className="mr-2" />;
       default: return null;
     }
   };
-
+  
   const SkillItem = ({ text, color }) => (
     <motion.span
       whileHover={{ scale: 1.1 }}
@@ -65,11 +69,11 @@ const SkillsTicker = () => {
       {text}
     </motion.span>
   );
-
+  
   const Separator = () => (
     <span className="mx-4 text-gray-500 text-xl">•</span>
   );
-
+  
   return (
     <div className="py-6 border-y border-gray-700 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 w-full overflow-hidden">
       <Marquee

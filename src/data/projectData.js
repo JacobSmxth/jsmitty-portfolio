@@ -4,7 +4,7 @@ const projectData = [
         name: "SkyCast",
         description: "Weather application displaying current and upcoming forecasts with location search. Features clean interface design and saves user preferences locally.",
         tech: ["JavaScript", "CSS", "Local Storage"],
-        image: "https://images.unsplash.com/photo-1597200381847-30ec200eeb9a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "/skycast.png",
         github: "https://github.com/JacobSmxth/SkyCast",
         live: "https://JacobSmxth.github.io/SkyCast",
     },
@@ -13,10 +13,19 @@ const projectData = [
         name: "Portfolio",
         description: "Personal website showcasing development projects and skills. Built with React components and responsive Tailwind styling for all device sizes.",
         tech: ["React", "Tailwind CSS"],
-        image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "/portfolio.png",
         github: "https://github.com/JacobSmxth/jsmitty-portfolio",
         live: "https://www.jsmitty.com/",
     },
+    {
+        id: 3,
+        name: "Kayla Fitness",
+        description: "Fitness website for Kayla Smith, an Athletic trainer from the Alpharetta area. Built with HTML, TailwindCSS, and JS. More of a landing page than aything.",
+        tech: ["HTML", "Tailwind CSS", "JavaScript"],
+        image: "/kaylafitness.png",
+        github: "https://github.com/JacobSmxth/kayla-fitness-website",
+        live: "https://jacobsmxth.github.io/kayla-fitness-website/",
+    }
 ]
 
 export default projectData;
