@@ -25,6 +25,15 @@ const projectData = [
         image: "/kaylafitness.png",
         github: "https://github.com/JacobSmxth/kayla-fitness-website",
         live: "https://jacobsmxth.github.io/kayla-fitness-website/",
+    },
+    {
+        id: 4,
+        name: "Coffee Haven",
+        description: "A modern coffee shop website showcasing menu items, about section, and contact information. Built with HTML, CSS, and JavaScript for a smooth user experience.",
+        tech: ["React", "Tailwind CSS"],
+        image: "/coffeehaven.png",
+        github: "https://github.com/JacobSmxth/coffee-haven",
+        live: "https://coffeehaven.netlify.app/",
     }
 ]
 

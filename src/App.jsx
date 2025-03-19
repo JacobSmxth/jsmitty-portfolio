@@ -67,9 +67,10 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen transition-colors duration-500"
+            className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-100 transition-colors duration-500"
           >
-            <div id="top" className="bg-gray-900 text-gray-200 relative">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,0.8),rgba(17,24,39,0.95))] pointer-events-none"></div>
               <div id="wrapper" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <Header />
                 <ScrollToTop />
@@ -92,7 +93,7 @@ function App() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 20 }}
                       onClick={scrollToTop}
-                      className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+                      className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:scale-110 active:scale-95"
                       aria-label="Scroll to top"
                     >
                       <FaArrowUp />
