@@ -39,7 +39,6 @@ const HomePage = () => {
         id="home"
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent pointer-events-none"></div>
         <Hero />
       </motion.section>
       
@@ -48,7 +47,6 @@ const HomePage = () => {
         id="projects"
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent pointer-events-none"></div>
         <Projects />
       </motion.section>
       
@@ -57,7 +55,6 @@ const HomePage = () => {
         id="experience"
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-green-500/10 to-transparent pointer-events-none"></div>
         <Experience />
       </motion.section>
       
@@ -66,7 +63,6 @@ const HomePage = () => {
         id="skills"
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/10 to-transparent pointer-events-none"></div>
         <SkillsSection />
       </motion.section>
       
@@ -75,7 +71,6 @@ const HomePage = () => {
         id="testimonials"
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/10 to-transparent pointer-events-none"></div>
         <Testimonials />
       </motion.section>
     </motion.div>

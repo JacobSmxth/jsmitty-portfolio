@@ -8,6 +8,7 @@ import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+import ProjectDetail from './pages/ProjectDetail';
 import { FaArrowUp } from 'react-icons/fa';
 
 // Scroll to top when navigating to a new page
@@ -80,6 +81,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/services" element={<ServicesPage />} />
                     <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/project/:id" element={<ProjectDetail />} />
                   </Routes>
                 </main>
                 
