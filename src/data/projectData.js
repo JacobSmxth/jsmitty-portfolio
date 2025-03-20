@@ -34,6 +34,15 @@ const projectData = [
         image: "/coffeehaven.png",
         github: "https://github.com/JacobSmxth/coffee-haven",
         live: "https://coffeehaven.netlify.app/",
+    },
+    {
+        id: 5,
+        name: "Vogue Vistas",
+        description: "An e-commerce website showcasing fashion products with a modern and elegant design. Features product browsing and responsive layout for all devices.",
+        tech: ["React", "Material UI", "Next.js", "Redux"],
+        image: "/voguevistas.png",
+        github: "https://github.com/JacobSmxth/urban-style",
+        live: "https://voguevistas.netlify.app/",
     }
 ]
 
