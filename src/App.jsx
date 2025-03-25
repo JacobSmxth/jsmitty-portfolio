@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SkillsTicker from './components/SkillsTicker';
 import LoadingScreen from './components/LoadingScreen';
+import DeveloperAttribution from './components/DeveloperAttribution';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
@@ -87,6 +88,7 @@ function App() {
                 
                 <SkillsTicker />
                 <Footer />
+                <DeveloperAttribution />
                 
                 <AnimatePresence>
                   {showScrollTop && (
