@@ -10,7 +10,7 @@ const DeveloperAttribution = () => {
       rel="noopener noreferrer"
     >
       <FaGithub className="text-lg" />
-      <span>Developed by Jacob Smith</span>
+      <span>Developed by JSmitty</span>
     </a>
   );
 };

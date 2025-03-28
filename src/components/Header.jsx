@@ -29,18 +29,18 @@ const Header = ({ theme, toggleTheme }) => {
   
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'backdrop-blur-md bg-white/90 dark:bg-gray-900/90 shadow-md' : 'bg-transparent'
+      scrolled ? 'backdrop-blur-md bg-gray-900/90 shadow-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex-shrink-0"
+            className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors flex-shrink-0"
           >
             <Link to="/">
               <span className="font-mono">&lt;</span>
-              <span className="text-blue-600 dark:text-blue-400">jsmitty</span>
+              <span className="text-blue-400">jsmitty</span>
               <span className="font-mono">.com /&gt;</span>
             </Link>
           </motion.div>
@@ -50,8 +50,8 @@ const Header = ({ theme, toggleTheme }) => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`relative px-1 py-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group ${
-                  location.pathname === link.href ? 'text-blue-600 dark:text-blue-400' : ''
+                className={`relative px-1 py-2 text-gray-200 hover:text-blue-400 transition-colors group ${
+                  location.pathname === link.href ? 'text-blue-400' : ''
                 }`}
               >
                 {link.name}
@@ -64,7 +64,7 @@ const Header = ({ theme, toggleTheme }) => {
           
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="lg:hidden p-2 rounded-md text-gray-200 hover:bg-gray-800 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -79,7 +79,7 @@ const Header = ({ theme, toggleTheme }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg"
+            className="lg:hidden overflow-hidden bg-gray-900 border-t border-gray-800 shadow-lg"
           >
             <div className="px-4 pt-2 pb-4 space-y-1">
               {navLinks.map((link) => (
@@ -88,8 +88,8 @@ const Header = ({ theme, toggleTheme }) => {
                   to={link.href}
                   className={`block py-3 px-4 text-base font-medium rounded-md transition-colors ${
                     location.pathname === link.href
-                      ? 'bg-blue-50 dark:bg-gray-800 text-blue-600 dark:text-blue-400'
-                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      ? 'bg-gray-800 text-blue-400'
+                      : 'text-gray-200 hover:bg-gray-800'
                   }`}
                 >
                   {link.name}

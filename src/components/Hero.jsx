@@ -58,10 +58,10 @@ const Hero = () => {
   
   return (
     <section className="p-5 md:p-8 w-full border-2 rounded-2xl shadow-lg overflow-hidden relative
-                       bg-white dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800
-                       text-gray-800 dark:text-gray-200
-                       border-gray-300 dark:border-gray-700">
-      <div className="absolute inset-0 overflow-hidden opacity-5 dark:opacity-10 pointer-events-none">
+                       bg-gradient-to-br from-gray-900 to-gray-800
+                       text-gray-200
+                       border-gray-700">
+      <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-40 h-40 bg-blue-500 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-60 h-60 bg-purple-500 rounded-full filter blur-3xl"></div>
       </div>
@@ -82,23 +82,23 @@ const Hero = () => {
         
         <div className="flex flex-col justify-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
                 Jacob Smith
               </span>
             </h1>
             
-            <h2 className="font-medium text-blue-600 dark:text-blue-300 mt-2 text-lg md:text-xl">
+            <h2 className="font-medium text-blue-300 mt-2 text-lg md:text-xl">
               Frontend Developer • Alpharetta, GA
             </h2>
             
             <div className="min-h-[80px] mt-4">
-              <p className="text-gray-700 dark:text-gray-300 text-lg">
+              <p className="text-gray-300 text-lg">
                 {displayText}
-                <span className={`ml-1 inline-block w-2 h-5 bg-blue-500 dark:bg-blue-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}></span>
+                <span className={`ml-1 inline-block w-2 h-5 bg-blue-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}></span>
               </p>
             </div>
             
-            <div className="flex gap-5 text-2xl md:text-3xl mt-4 text-gray-700 dark:text-gray-300">
+            <div className="flex gap-5 text-2xl md:text-3xl mt-4 text-gray-300">
               <SocialLink
                 href="https://github.com/JacobSmxth"
                 icon={<FaGithubSquare />}
@@ -136,7 +136,7 @@ const Hero = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           href="#Projects"
-          className="group px-6 py-3 rounded-xl text-center bg-blue-600 hover:bg-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 text-white shadow-md flex items-center justify-center font-medium"
+          className="group px-6 py-3 rounded-xl text-center bg-blue-700 hover:bg-blue-600 text-white shadow-md flex items-center justify-center font-medium"
           aria-label="See my projects"
         >
           See Projects
@@ -153,7 +153,7 @@ const Hero = () => {
           href="https://docs.google.com/document/d/1BJA9teks9FotnFxpHl-WVYmhX3R-Cfj5omWKuL0ZWw0/edit?tab=t.0"
           target="_blank"
           rel="noopener noreferrer"
-          className="group px-6 py-3 rounded-xl text-center bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-600 hover:to-blue-500 dark:from-blue-800 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-600 text-white shadow-md flex items-center justify-center font-medium"
+          className="group px-6 py-3 rounded-xl text-center bg-gradient-to-r from-blue-800 to-blue-700 hover:from-blue-700 hover:to-blue-600 text-white shadow-md flex items-center justify-center font-medium"
           aria-label="See my resume"
         >
           See Resume

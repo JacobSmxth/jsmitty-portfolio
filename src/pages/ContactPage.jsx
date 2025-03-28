@@ -21,6 +21,24 @@ const ContactPage = () => {
   const [activeField, setActiveField] = useState(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   
+  // Handle URL parameters for pre-selected service
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const serviceParam = params.get('service');
+    
+    if (serviceParam) {
+      try {
+        const serviceTitle = decodeURIComponent(serviceParam);
+        setFormState(prev => ({
+          ...prev,
+          service: serviceTitle
+        }));
+      } catch (error) {
+        console.error('Error parsing service parameter:', error);
+      }
+    }
+  }, []);
+  
   // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
@@ -109,7 +127,7 @@ const ContactPage = () => {
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left Side - Contact Form */}
       <motion.div 
-        className="lg:w-1/2 bg-white dark:bg-gray-900 p-8 lg:p-12 flex flex-col justify-center"
+        className="lg:w-1/2 bg-gray-900 p-8 lg:p-12 flex flex-col justify-center"
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -120,24 +138,24 @@ const ContactPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2">
+            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
               Let's work together
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-lg text-gray-300 mb-8">
               Tell me about your project, and I'll help bring it to life.
             </p>
           </motion.div>
           
           {submitted ? (
             <motion.div 
-              className="p-6 border-l-4 border-green-500 bg-green-50 dark:bg-green-900/30 rounded-r-lg shadow-md"
+              className="p-6 border-l-4 border-green-500 bg-green-900/30 rounded-r-lg shadow-md"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h3 className="text-xl text-green-600 dark:text-green-400 font-semibold mb-2">Message Sent Successfully!</h3>
-              <p className="text-gray-700 dark:text-gray-300">Thank you for reaching out. I'll review your project details and get back to you within 24-48 hours.</p>
+              <h3 className="text-xl text-green-400 font-semibold mb-2">Message Sent Successfully!</h3>
+              <p className="text-gray-300">Thank you for reaching out. I'll review your project details and get back to you within 24-48 hours.</p>
               <motion.button
-                className="mt-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-5 py-2 rounded-md font-medium"
+                className="mt-4 bg-gray-700 text-white px-5 py-2 rounded-md font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSubmitted(false)}
@@ -153,7 +171,7 @@ const ContactPage = () => {
             >
               {error && (
                 <motion.div 
-                  className="p-4 bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-400 rounded-md"
+                  className="p-4 bg-red-900/30 border-l-4 border-red-500 text-red-400 rounded-md"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
@@ -168,7 +186,7 @@ const ContactPage = () => {
                   animate={{ y: activeField === 'name' ? -5 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium">
+                  <label htmlFor="name" className="text-gray-300 font-medium">
                     Your Name
                   </label>
                   {initials && (
@@ -190,7 +208,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   onFocus={() => handleFocus('name')}
                   onBlur={handleBlur}
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   required
                   animate={{ 
                     boxShadow: activeField === 'name' ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : '0 0 0 0 rgba(59, 130, 246, 0)'
@@ -202,7 +220,7 @@ const ContactPage = () => {
               <div>
                 <motion.label 
                   htmlFor="email" 
-                  className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                  className="block text-gray-300 font-medium mb-2"
                   animate={{ y: activeField === 'email' ? -5 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -216,7 +234,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   onFocus={() => handleFocus('email')}
                   onBlur={handleBlur}
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   required
                   animate={{ 
                     boxShadow: activeField === 'email' ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : '0 0 0 0 rgba(59, 130, 246, 0)'
@@ -227,7 +245,7 @@ const ContactPage = () => {
               <div>
                 <motion.label 
                   htmlFor="service" 
-                  className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                  className="block text-gray-300 font-medium mb-2"
                   animate={{ y: activeField === 'service' ? -5 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -240,7 +258,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   onFocus={() => handleFocus('service')}
                   onBlur={handleBlur}
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   required
                   animate={{ 
                     boxShadow: activeField === 'service' ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : '0 0 0 0 rgba(59, 130, 246, 0)'
@@ -256,7 +274,7 @@ const ContactPage = () => {
               <div>
                 <motion.label 
                   htmlFor="message" 
-                  className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
+                  className="block text-gray-300 font-medium mb-2"
                   animate={{ y: activeField === 'message' ? -5 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -270,7 +288,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   onFocus={() => handleFocus('message')}
                   onBlur={handleBlur}
-                  className="w-full p-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                   placeholder="Tell me about your project goals, timeline, and any specific requirements..."
                   required
                   animate={{ 
@@ -297,14 +315,14 @@ const ContactPage = () => {
                 ) : 'Send Message'}
               </motion.button>
               
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-gray-600 dark:text-gray-400 mb-3 text-sm font-medium">Or connect with me directly:</p>
+              <div className="mt-8 pt-6 border-t border-gray-700">
+                <p className="text-gray-400 mb-3 text-sm font-medium">Or connect with me directly:</p>
                 <div className="flex space-x-4">
                   <motion.a 
                     href="https://github.com/jacobsmxth" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="p-3 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700 transition-colors"
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -314,7 +332,7 @@ const ContactPage = () => {
                     href="https://linkedin.com/in/jacobsmxth" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="p-3 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700 transition-colors"
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -324,7 +342,7 @@ const ContactPage = () => {
                     href="https://x.com/jacobsmxth2" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="p-3 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700 transition-colors"
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -332,7 +350,7 @@ const ContactPage = () => {
                   </motion.a>
                   <motion.a 
                     href="mailto:jacobsmith@jsmitty.com" 
-                    className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="p-3 bg-gray-800 rounded-full text-gray-300 hover:bg-gray-700 transition-colors"
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.9 }}
                   >
