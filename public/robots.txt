@@ -1,0 +1,18 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jsmitty.com/sitemap.xml
+
+# Prevent crawling of error pages
+Disallow: /404
+Disallow: /500
+
+# Allow Google to crawl JavaScript and CSS
+User-agent: Googlebot
+Allow: /*.js$
+Allow: /*.css$
+
+# Crawl delay for all bots
+Crawl-delay: 1 

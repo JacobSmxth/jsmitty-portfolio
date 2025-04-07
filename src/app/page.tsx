@@ -54,11 +54,14 @@ export default function HomePage() {
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
+          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
             Jacob Smith
           </h1>
-          <p className="text-xl text-gray-400">
+          <p className="text-xl text-gray-400 mb-2">
             Front End Web Developer
+          </p>
+          <p className="text-sm text-gray-500 italic">
+            &quot;With great power comes great responsibility... to write clean code&quot;
           </p>
         </div>
 

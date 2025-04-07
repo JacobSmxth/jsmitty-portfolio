@@ -16,7 +16,7 @@ export const workThoughts: WorkThought[] = [
   },
   {
     id: '2',
-    date: '2025-04-07',
+    date: '2025-04-05',
     title: 'Client Project Progress',
     thought: 'Hit a small setback today when a file corruption cost me about 1-2 hours of work. However, I was able to recover and rebuild most of the progress. The project is getting close to completion, and I\'m excited to see it come together. This experience reinforced the importance of regular commits and backups!',
     mood: 'challenging'
