@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 1920px;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 20, 20, 20;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: 'Satoshi', sans-serif;
+}
+
+@keyframes shrinkToCenter {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-shrink {
+  animation: shrinkToCenter 0.3s ease-out forwards;
+}
+
+.animate-popIn {
+  animation: popIn 0.3s ease-out forwards;
+}
+
+.animate-popIn-delay-1 {
+  animation: popIn 0.3s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-popIn-delay-2 {
+  animation: popIn 0.3s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.centered-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+}
+
+/* Add a subtle bounce effect to the monster avatars */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.group:hover .bounce {
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background: linear-gradient(
+    90deg,
+    rgb(239, 68, 68), /* red-500 */
+    rgb(185, 28, 28), /* red-700 */
+    rgb(75, 85, 99),  /* gray-600 */
+    rgb(31, 41, 55),  /* gray-800 */
+    rgb(239, 68, 68)  /* back to start */
+  );
+  background-size: 300% 100%;
+  animation: gradientFlow 8s ease infinite;
+}
+
