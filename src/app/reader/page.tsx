@@ -12,7 +12,6 @@ import { blogPosts } from '@/data/blogPosts';
 import TableOfContents from '@/components/TableOfContents';
 import { dailyLearnings } from '@/data/learnings';
 import { workThoughts } from '@/data/workThoughts';
-import LoadingSpinner from '@/components/LoadingSpinner';
 
 export default function ReaderPage() {
   const [posts, setPosts] = useState<RedditPost[]>([]);
@@ -22,7 +21,6 @@ export default function ReaderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentLearningIndex, setCurrentLearningIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -40,15 +38,6 @@ export default function ReaderPage() {
 
     loadPosts();
   }, [currentPage]);
-
-  useEffect(() => {
-    // Hide loading spinner after data is loaded
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const calculateReadingTime = (content: string) => {
     const wordsPerMinute = 200;
@@ -82,124 +71,6 @@ export default function ReaderPage() {
   };
 
   return (
-    <>
-      {isLoading && <LoadingSpinner />}
-      <div className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black overflow-x-hidden">
-          <main className="text-white px-4 sm:px-8 py-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
-                <Link 
-                  href="/"
-                  className="inline-flex items-center text-gray-400 hover:text-red-500 transition-colors duration-300 text-xl cursor-pointer"
-                >
-                  <ArrowLeft className="mr-2" />
-                  Back to Selection
-                </Link>
-
-                <Link 
-                  href="/about?from=reader"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-gray-800/50 text-red-400 rounded-xl hover:bg-red-500/10 transition-all duration-300 text-lg font-medium cursor-pointer"
-                >
-                  <User size={20} />
-                  About Me
-                </Link>
-              </div>
-
-              <div className="flex flex-col lg:flex-row gap-8">
-                {/* Main Content */}
-                <div className="flex-grow lg:max-w-4xl w-full space-y-16">
-                  {/* Hero Section */}
-                  <section className="space-y-8">
-                    <h1 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
-                      My Thoughts & Experiences
-                    </h1>
-                    <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
-                      Welcome to my blog where I share insights about web development, 
-                      design, and my journey as a developer.
-                    </p>
-                  </section>
-
-                  {/* Today I Learned - Latest */}
-                  {dailyLearnings.length > 0 && (
-                    <section className="space-y-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <Lightbulb className="text-red-500" size={28} />
-                          <h2 className="text-2xl sm:text-4xl font-bold text-white">Today I Learned</h2>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={handlePrevLearning}
-                            className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors duration-300"
-                            title="Previous learning"
-                          >
-                            <ChevronLeft className="text-gray-400 hover:text-red-500" size={24} />
-                          </button>
-                          <span className="text-gray-400 text-sm">
-                            {currentLearningIndex + 1} / {dailyLearnings.length}
-                          </span>
-                          <button
-                            onClick={handleNextLearning}
-                            className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors duration-300"
-                            title="Next learning"
-                          >
-                            <ChevronRight className="text-gray-400 hover:text-red-500" size={24} />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-800">
-                        <div className="space-y-4">
-                          <div className="flex items-center justify-between">
-                            <h3 className="text-xl font-semibold text-red-400">{dailyLearnings[currentLearningIndex].title}</h3>
-                            <time className="text-sm text-gray-400">
-                              {new Date(dailyLearnings[currentLearningIndex].date + 'T00:00:00').toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                              })}
-                            </time>
-                          </div>
-                          <p className="text-gray-300 text-lg leading-relaxed">
-                            {dailyLearnings[currentLearningIndex].description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {dailyLearnings[currentLearningIndex].tags.map((tag) => (
-                              <span 
-                                key={tag} 
-                                className="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-300"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Search and Categories */}
-                  <section className="space-y-8 w-full">
-                    {/* Search */}
-                    <div className="relative w-full">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Search className="text-gray-400" size={20} />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Search posts..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-300 placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
-                      />
-                    </div>
-
-                    {/* Categories */}
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-3">
-                        <Tag className="text-red-500" size={28} />
-                        <h2 className="text-2xl sm:text-4xl font-bold text-white">Categories</h2>
-                      </div>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black overflow-x-hidden">
       <main className="text-white px-4 sm:px-8 py-8">
         <div className="max-w-7xl mx-auto">

@@ -48,22 +48,6 @@ export default function ClientPage() {
               </p>
             </section>
 
-            {/* About Me */}
-            <section className="space-y-6">
-              <div className="flex items-center gap-3">
-                <User className="text-red-500" size={28} />
-                <h2 className="text-4xl font-bold text-white">About Me</h2>
-              </div>
-              <div className="bg-gray-800/50 p-6 rounded-xl space-y-4">
-                <p className="text-gray-300">
-                  I&apos;m a dedicated web developer with a strong foundation in modern web technologies and a passion for creating exceptional digital experiences. My approach combines traditional development skills with strategic use of AI tools to deliver high-quality solutions efficiently.
-                </p>
-                <p className="text-gray-300">
-                  Currently pursuing a Bachelor of Science in Cybersecurity at the University of North Georgia, I bring a security-first mindset to all my development work. This ensures your website or application is not just beautiful and functional, but also secure and robust.
-                </p>
-              </div>
-            </section>
-
             {/* Services */}
             <section className="space-y-6">
               <div className="flex items-center gap-3">

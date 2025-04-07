@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Inter } from "next/font/google";
-import { usePathname } from 'next/navigation';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import "./globals.css";
 
@@ -14,26 +13,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [isLoading, setIsLoading] = useState(true);
-  const pathname = usePathname();
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    // Show loading spinner
-    setIsLoading(true);
+    if (isInitialLoad.current) {
+      // Only show loading spinner on initial page load
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        isInitialLoad.current = false;
+      }, 500); // 500ms duration
 
-    // Hide loading spinner after a short delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800); // Adjust timing as needed
-
-    return () => clearTimeout(timer);
-  }, [pathname]);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden`}>
         {isLoading && <LoadingSpinner />}
         <div className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           {children}
