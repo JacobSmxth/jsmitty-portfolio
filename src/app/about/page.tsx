@@ -115,7 +115,7 @@ export default function AboutPage() {
                       As a lifelong Spider-Man enthusiast, I&apos;ve found inspiration in the character&apos;s journey of growth and responsibility. While I appreciate Tobey Maguire&apos;s nostalgic portrayal, I believe Andrew Garfield truly captured the essence of the character, even if the writing didn&apos;t always do him justice. The upcoming &quot;Friendly Neighborhood Spider-Man&quot; show promises to bring an exciting new perspective to the character.
                     </p>
                     <Link 
-                      href="/blog/web-of-inspiration"
+                      href="/reader?post=web-of-inspiration"
                       className="text-red-400 hover:text-red-300 transition-colors duration-300 inline-flex items-center"
                     >
                       Read my thoughts on Spider-Man and Development →

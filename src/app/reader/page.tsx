@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ArrowLeft, BookOpen, Calendar, Tag, MessageCircle, ThumbsUp, ChevronLeft, ChevronRight, User, Search, Clock, Lightbulb, Brain } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { fetchRedditPosts } from '@/lib/reddit';
@@ -14,6 +15,9 @@ import { dailyLearnings } from '@/data/learnings';
 import { workThoughts } from '@/data/workThoughts';
 
 export default function ReaderPage() {
+  const searchParams = useSearchParams();
+  const postId = searchParams.get('post');
+  
   const [posts, setPosts] = useState<RedditPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,6 +25,16 @@ export default function ReaderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentLearningIndex, setCurrentLearningIndex] = useState(0);
+
+  useEffect(() => {
+    // If a specific post is requested, set it as the search query
+    if (postId) {
+      const post = blogPosts.find(p => p.id === postId);
+      if (post) {
+        setSearchQuery(post.title);
+      }
+    }
+  }, [postId]);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -48,6 +62,12 @@ export default function ReaderPage() {
 
   const filteredBlogPosts = blogPosts
     .filter(post => {
+      // If a specific post is requested, only show that post
+      if (postId) {
+        return post.id === postId;
+      }
+      
+      // Otherwise, use the regular filtering logic
       const matchesCategory = selectedCategory ? post.category === selectedCategory : true;
       const matchesSearch = searchQuery.trim() === '' ? true : 
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -241,9 +261,18 @@ export default function ReaderPage() {
                           remarkPlugins={[remarkGfm]}
                           components={{
                             p: (props) => <p className="text-gray-300" {...props} />,
-                            h1: (props) => <h1 className="text-2xl sm:text-3xl font-bold text-red-400" {...props} />,
-                            h2: (props) => <h2 className="text-xl sm:text-2xl font-bold text-red-400" {...props} />,
-                            h3: (props) => <h3 className="text-lg sm:text-xl font-bold text-red-400" {...props} />,
+                            h1: ({ children, ...props }) => {
+                              const id = children?.toString().toLowerCase().replace(/[^\w]+/g, '-');
+                              return <h1 id={id} className="text-2xl sm:text-3xl font-bold text-red-400 scroll-mt-24" {...props}>{children}</h1>;
+                            },
+                            h2: ({ children, ...props }) => {
+                              const id = children?.toString().toLowerCase().replace(/[^\w]+/g, '-');
+                              return <h2 id={id} className="text-xl sm:text-2xl font-bold text-red-400 scroll-mt-24" {...props}>{children}</h2>;
+                            },
+                            h3: ({ children, ...props }) => {
+                              const id = children?.toString().toLowerCase().replace(/[^\w]+/g, '-');
+                              return <h3 id={id} className="text-lg sm:text-xl font-bold text-red-400 scroll-mt-24" {...props}>{children}</h3>;
+                            },
                             a: (props) => <a className="text-red-400 hover:text-red-500" {...props} />,
                             code: (props) => <code className="bg-gray-700 px-1 py-0.5 rounded break-words" {...props} />,
                             pre: (props) => <pre className="bg-gray-700 p-4 rounded-lg overflow-x-auto" {...props} />,
