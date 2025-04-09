@@ -1,42 +1,37 @@
-'use client';
-
-import { useEffect, useState, useRef } from 'react';
 import { Inter } from "next/font/google";
-import LoadingSpinner from '@/components/LoadingSpinner';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 import "./globals.css";
+import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: 'Jacob Smith - Front End Web Developer',
+  description: 'Portfolio of Jacob Smith, a front end web developer specializing in React, Next.js, and modern web technologies.',
+};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const isInitialLoad = useRef(true);
-
-  useEffect(() => {
-    if (isInitialLoad.current) {
-      // Only show loading spinner on initial page load
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-        isInitialLoad.current = false;
-      }, 500); // 500ms duration
-
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.png" type="image/png+xml" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden`}>
-        {isLoading && <LoadingSpinner />}
-        <div className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-          {children}
-        </div>
+      <body className={`${inter.className} overflow-x-hidden bg-black`}>
+        <ClientLayoutWrapper>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <div className="flex-grow">
+              {children}
+            </div>
+            <Footer />
+          </div>
+        </ClientLayoutWrapper>
       </body>
     </html>
   );

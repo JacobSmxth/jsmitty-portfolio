@@ -15,7 +15,7 @@ export const education: Education[] = [
     degree: "B.S.",
     field: "Cybersecurity",
     duration: "Present",
-    gpa: 3.4,
+    gpa: 3.37,
     focus: [
       "Financial Technology",
       "Web Development"
@@ -28,7 +28,7 @@ export const education: Education[] = [
   {
     school: "Denmark High School",
     duration: "Graduated",
-    gpa: 3.87,
+    gpa: 3.88,
     relevantCoursework: [
       "AP Computer Science Principles",
       "AP Computer Science A"

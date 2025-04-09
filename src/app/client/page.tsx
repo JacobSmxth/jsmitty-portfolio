@@ -1,123 +1,174 @@
-'use client';
-
 import Link from 'next/link';
-import { ArrowLeft, Briefcase, CheckCircle2, MessageCircle, User } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  User,
+  Zap,
+  LayoutDashboard,
+  Target,
+  Mail,
+  Quote,
+} from 'lucide-react';
 import projectData from '@/data/projectData';
 import testimonials from '@/data/testimonials';
-import Footer from '@/components/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Client Services | Jacob Smith',
+  description: 'Web development and design services offered by Jacob Smith. Let\'s build your vision.',
+};
 
 export default function ClientPage() {
   // Filter projects to show real client work
-  const clientProjects = projectData.filter(project => 
-    project.name === "Fr0st.gg" || 
-    project.name === "Kayla Fitness" ||
-    project.name === "Vickery Burger Bar"
+  const clientProjects = projectData.filter(
+    (project) =>
+      project.name === 'Fr0st.gg' ||
+      project.name === 'Kayla Fitness' ||
+      project.name === 'Vickery Burger Bar'
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      <main className="text-white p-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
-            <Link 
-              href="/"
-              className="inline-flex items-center text-gray-400 hover:text-red-500 transition-colors duration-300 text-xl cursor-pointer"
-            >
-              <ArrowLeft className="mr-2" />
-              Back to Selection
-            </Link>
+    <main className="flex-grow text-white p-8 bg-gradient-to-br from-gray-900 to-black">
+      <div className="max-w-6xl mx-auto">
+        {/* Navigation Bar */}
+        <nav className="flex items-center justify-between mb-16">
+          <Link 
+            href="/"
+            className="inline-flex items-center text-gray-400 hover:text-red-500 transition-colors duration-300 text-lg cursor-pointer"
+          >
+            <ArrowLeft className="mr-2" size={20} />
+            Back to Selection
+          </Link>
 
-            <Link 
-              href="/about?from=client"
-              className="inline-flex items-center gap-2 px-6 py-2 bg-gray-800/50 text-red-400 rounded-xl hover:bg-red-500/10 transition-all duration-300 text-lg font-medium cursor-pointer"
-            >
-              <User size={20} />
-              About Me
-            </Link>
-          </div>
+          <Link 
+            href="/about?from=client"
+            className="inline-flex items-center gap-2 px-5 py-2 bg-gray-800/50 text-red-400 rounded-lg hover:bg-red-500/10 transition-all duration-300 text-base font-medium cursor-pointer"
+          >
+            <User size={18} />
+            About Me
+          </Link>
+        </nav>
 
-          <div className="space-y-16">
-            {/* Hero Section */}
-            <section className="space-y-8">
-              <h1 className="text-6xl font-bold bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
-                Jacob Smith
-              </h1>
-              <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
-                Full Stack Developer & AI-Enhanced Engineer based in Alpharetta, GA. I create beautiful, functional websites that help businesses grow. 
-                With a focus on modern design, user experience, and performance, I turn your vision into reality.
-              </p>
-            </section>
+        <div className="space-y-24">
+          {/* Hero Section */}
+          <section className="text-center space-y-6">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Let&apos;s Build Your <span className="bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">Digital Vision</span>
+            </h1>
+            <p className="text-xl font-medium text-red-400 mt-2">
+               Front End Web Developer & AI-Enhanced Engineer
+            </p>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              I craft high-performance, beautifully designed websites and applications that engage users and drive results for your business.
+            </p>
+            <div>
+              <a 
+                href="mailto:jacob.d.smith@live.com"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold shadow-lg hover:shadow-red-500/30"
+              >
+                <Mail size={20} />
+                Start Your Project
+              </a>
+            </div>
+          </section>
 
-            {/* Services */}
-            <section className="space-y-6">
-              <div className="flex items-center gap-3">
-                <Briefcase className="text-red-500" size={28} />
-                <h2 className="text-4xl font-bold text-white">Services</h2>
+          {/* Key Benefits/Services Section */}
+          <section className="space-y-12">
+            <h2 className="text-center text-4xl font-bold text-white mb-12">How I Help You Succeed</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Benefit 1: Design */} 
+              <div className="bg-gray-800/40 p-8 rounded-2xl border border-gray-700/50 space-y-4 text-center hover:border-red-500/50 transition-colors duration-300">
+                <LayoutDashboard className="text-red-500 mx-auto" size={40} />
+                <h3 className="text-2xl font-semibold text-white">Stunning & Intuitive Design</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Capture your audience with modern, user-friendly interfaces designed for engagement and ease of use.
+                </p>
+                <ul className="text-left space-y-2 pt-2">
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Mobile-First Responsive Layouts
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> User Experience (UX) Optimization
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Visually Appealing UI
+                  </li>
+                </ul>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div className="bg-gray-800/50 p-6 rounded-xl space-y-4">
-                  <h3 className="text-2xl font-semibold text-red-400">Web Development</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">Custom website development</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">Responsive design</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">Performance optimization</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-gray-800/50 p-6 rounded-xl space-y-4">
-                  <h3 className="text-2xl font-semibold text-red-400">Design & UX</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">Modern UI design</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">User experience optimization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="text-red-500 mt-1" size={20} />
-                      <span className="text-gray-300">Mobile-first approach</span>
-                    </li>
-                  </ul>
-                </div>
+              {/* Benefit 2: Development */} 
+              <div className="bg-gray-800/40 p-8 rounded-2xl border border-gray-700/50 space-y-4 text-center hover:border-red-500/50 transition-colors duration-300">
+                <Zap className="text-red-500 mx-auto" size={40} />
+                <h3 className="text-2xl font-semibold text-white">Robust & Scalable Development</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Build a reliable foundation with clean code, modern technologies, and performance optimization.
+                </p>
+                <ul className="text-left space-y-2 pt-2">
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Fast Loading Speeds
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Secure & Maintainable Code
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Future-Proof Technologies
+                  </li>
+                </ul>
               </div>
-            </section>
+              {/* Benefit 3: Results */} 
+              <div className="bg-gray-800/40 p-8 rounded-2xl border border-gray-700/50 space-y-4 text-center hover:border-red-500/50 transition-colors duration-300">
+                <Target className="text-red-500 mx-auto" size={40} />
+                <h3 className="text-2xl font-semibold text-white">Focus on Your Goals</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Collaborate closely to ensure the final product aligns perfectly with your business objectives.
+                </p>
+                <ul className="text-left space-y-2 pt-2">
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Clear Communication
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Goal-Oriented Solutions
+                  </li>
+                  <li className="flex items-center gap-2 text-gray-300">
+                    <CheckCircle2 className="text-red-400" size={18} /> Measurable Results
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-            {/* Portfolio */}
-            <section className="space-y-6">
-              <div className="flex items-center gap-3">
-                <Briefcase className="text-red-500" size={28} />
-                <h2 className="text-4xl font-bold text-white">Client Work</h2>
-              </div>
-              <div className="grid grid-cols-1 gap-6 mt-6">
+          {/* Combined Portfolio & Testimonials Section */}
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Portfolio Section */}
+            <section className="lg:w-1/2 space-y-8">
+              <h2 className="text-center text-4xl font-bold text-white">Recent Client Success Stories</h2>
+              <div className="space-y-8">
                 {clientProjects.map((project) => (
-                  <div key={project.id} className="bg-gray-800/50 p-6 rounded-xl space-y-4">
-                    <h3 className="text-2xl font-semibold text-red-400">{project.name}</h3>
+                  <div
+                    key={project.id}
+                    className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700/50 space-y-4 transition-all duration-300 hover:shadow-lg hover:border-red-500/30 hover:scale-[1.01]"
+                  >
+                    <h3 className="text-2xl font-semibold text-red-400">
+                      {project.name}
+                    </h3>
                     <p className="text-gray-300">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 pt-2">
                       {project.technologies.map((tech, index) => (
-                        <span key={index} className="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm">
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm"
+                        >
                           {tech}
                         </span>
                       ))}
                     </div>
                     {project.liveUrl && (
-                      <a 
+                      <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-gray-400 hover:text-red-500 transition-colors duration-300"
+                        className="inline-block mt-4 text-red-400 font-medium hover:text-red-500 transition-colors duration-300 group"
                       >
-                        View Live →
+                        View Live Site <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </a>
                     )}
                   </div>
@@ -125,45 +176,53 @@ export default function ClientPage() {
               </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="space-y-6">
-              <div className="flex items-center gap-3">
-                <MessageCircle className="text-red-500" size={28} />
-                <h2 className="text-4xl font-bold text-white">Client Testimonials</h2>
-              </div>
-              <div className="grid grid-cols-1 gap-6 mt-6">
-                {testimonials.filter(t => t.author === "Fr0st" || t.author === "Kayla Smith").map((testimonial) => (
-                  <div 
-                    key={testimonial.id} 
-                    className="bg-gray-800/50 p-6 rounded-xl space-y-4 border border-gray-700"
-                  >
-                    <p className="text-gray-300 italic">{testimonial.text}</p>
-                    <div className="flex flex-col">
-                      <span className="text-red-400 font-semibold">{testimonial.author}</span>
-                      <span className="text-gray-500">{testimonial.position}</span>
+            {/* Testimonials Section */}
+            <section className="lg:w-1/2 space-y-8">
+              <h2 className="text-center text-4xl font-bold text-white">What My Clients Say</h2>
+              <div className="space-y-8">
+                {testimonials
+                  .filter((t) => t.author === 'Fr0st' || t.author === 'Kayla Smith')
+                  .map((testimonial) => (
+                    <div
+                      key={testimonial.id}
+                      className="relative bg-gray-800/60 p-8 rounded-2xl border border-gray-700/60 space-y-4 shadow-inner"
+                    >
+                      <Quote className="absolute top-4 left-4 w-12 h-12 text-red-500/20" strokeWidth={1.5} />
+                      <p className="text-gray-300 italic text-lg leading-relaxed relative z-10">
+                        {testimonial.text}
+                      </p>
+                      <div className="flex flex-col items-end pt-4 relative z-10">
+                        <span className="text-red-400 font-semibold text-lg">
+                          {testimonial.author}
+                        </span>
+                        <span className="text-gray-500 text-sm">
+                          {testimonial.position}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
-            </section>
-
-            {/* CTA */}
-            <section className="text-center space-y-6">
-              <h2 className="text-4xl font-bold text-white">Ready to Start Your Project?</h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Let&apos;s discuss how I can help bring your vision to life.
-              </p>
-              <a 
-                href="mailto:jacob.d.smith@live.com"
-                className="inline-block px-8 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold"
-              >
-                Get in Touch
-              </a>
             </section>
           </div>
+
+          {/* CTA Section */}
+          <section className="text-center space-y-8 py-16 bg-gray-800/30 rounded-3xl">
+            <h2 className="text-4xl font-bold text-white">Ready to Elevate Your Online Presence?</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Let&apos;s discuss your project requirements and how I can help you achieve your goals.
+            </p>
+            <div>
+              <a 
+                href="mailto:jacob.d.smith@live.com"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-xl font-semibold shadow-lg hover:shadow-red-500/30"
+              >
+                <Mail size={22} />
+                Get a Free Consultation
+              </a>
+            </div>
+          </section>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </main>
   );
 } 

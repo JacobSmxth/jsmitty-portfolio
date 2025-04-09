@@ -44,20 +44,61 @@ Next.js provides several advantages for portfolio websites:
 
 3. **Modern Styling**
    - Tailwind CSS for utility-first styling
-   - Custom animations
+   - Custom animations (like the ones we added!)
    - Dark mode support
 
-## Implementation
+## Implementation Example
 
-The portfolio includes:
-- Project showcase
-- Skills section
-- Contact form
-- Blog integration
+Here's a snippet showing how to fetch data in a Next.js page component:
 
-## Conclusion
+\`\`\`javascript
+// pages/posts/[slug].js
+import { getPostData, getAllPostSlugs } from '../../lib/posts';
 
-Building a portfolio with Next.js provides a solid foundation for showcasing your work while ensuring optimal performance and user experience.
+export async function getStaticProps({ params }) {
+  const postData = await getPostData(params.slug);
+  return {
+    props: {
+      postData,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = getAllPostSlugs();
+  return {
+    paths,
+    fallback: false, // Show 404 if path doesn't exist
+  };
+}
+
+export default function Post({ postData }) {
+  return (
+    <article>
+      <h1>{postData.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    </article>
+  );
+}
+\`\`\`
+
+And styling with Tailwind:
+
+\`\`\`css
+/* styles/globals.css */
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+  --breakpoint-3xl: 1920px;
+}
+
+body {
+  @apply bg-gray-900 text-gray-100 font-sans;
+}
+\`\`\`
+
+Building a portfolio like this allows you to demonstrate real-world application development skills.
     `,
     tags: ['Next.js', 'React', 'Tailwind CSS', 'Portfolio'],
     category: 'Web Development',
@@ -118,7 +159,7 @@ The web continues to evolve, offering new possibilities for developers and users
     excerpt: 'Exploring my approach to AI in development: learning without it, but leveraging it strategically in production work.',
     content: `# AI-Enhanced Development: My Approach to Learning and Production
 
-Hi, I'm Jacob Smith, and this is my personal take on how I approach development in the age of AI.
+This is my personal take on how I approach development in the age of AI.
 
 ## Learning Without AI
 
