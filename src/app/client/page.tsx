@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -9,20 +12,19 @@ import {
   Mail,
   Quote,
 } from 'lucide-react';
-import projectData from '@/data/projectData';
+import projectData, { Project } from '@/data/projectData';
 import testimonials from '@/data/testimonials';
-import { contactInfo } from '@/data/contactInfo';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Client Services | Jacob Smith',
-  description: 'Web development and design services offered by Jacob Smith. Let\'s build your vision.',
-};
+import ContactModal from '@/components/ContactModal';
 
 export default function ClientPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   // Filter projects to show real client work
   const clientProjects = projectData.filter(
-    (project) =>
+    (project: Project) =>
       project.name === 'Fr0st.gg' ||
       project.name === 'Kayla Fitness' ||
       project.name === 'Vickery Burger Bar'
@@ -63,13 +65,13 @@ export default function ClientPage() {
               I craft high-performance, beautifully designed websites and applications that engage users and drive results for your business.
             </p>
             <div>
-              <a 
-                href={`mailto:${contactInfo.email}`}
+              <button 
+                onClick={openModal} 
                 className="inline-flex items-center gap-2 px-8 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold shadow-lg hover:shadow-red-500/30"
               >
                 <Mail size={20} />
                 Start Your Project
-              </a>
+              </button>
             </div>
           </section>
 
@@ -143,7 +145,7 @@ export default function ClientPage() {
             <section className="lg:w-1/2 space-y-8">
               <h2 className="text-center text-4xl font-bold text-white">Recent Client Success Stories</h2>
               <div className="space-y-8">
-                {clientProjects.map((project) => (
+                {clientProjects.map((project: Project) => (
                   <div
                     key={project.id}
                     className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700/50 space-y-4 transition-all duration-300 hover:shadow-lg hover:border-red-500/30 hover:scale-[1.01]"
@@ -153,7 +155,7 @@ export default function ClientPage() {
                     </h3>
                     <p className="text-gray-300">{project.description}</p>
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {project.technologies.map((tech, index) => (
+                      {project.technologies.map((tech: string, index: number) => (
                         <span
                           key={index}
                           className="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm"
@@ -213,17 +215,18 @@ export default function ClientPage() {
               Let&apos;s discuss your project requirements and how I can help you achieve your goals.
             </p>
             <div>
-              <a 
-                href={`mailto:${contactInfo.email}`}
+              <button 
+                onClick={openModal}
                 className="inline-flex items-center gap-2 px-10 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-xl font-semibold shadow-lg hover:shadow-red-500/30"
               >
                 <Mail size={22} />
                 Get a Free Consultation
-              </a>
+              </button>
             </div>
           </section>
         </div>
       </div>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </main>
   );
 } 

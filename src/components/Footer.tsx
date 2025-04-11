@@ -1,10 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { contactInfo } from '@/data/contactInfo';
+import ContactModal from './ContactModal';
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <footer className="w-full py-6 border-t border-gray-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
@@ -14,7 +21,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Jacob Smith. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs">
-              Have a project idea? <a href={`mailto:${contactInfo.email}`} className="text-red-400 hover:text-red-500 hover:underline transition-colors duration-300">Let&apos;s connect!</a>
+              Have a project idea? <button onClick={openModal} className="text-red-400 hover:text-red-500 hover:underline transition-colors duration-300">Let&apos;s connect!</button>
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -34,15 +41,17 @@ export default function Footer() {
             >
               <Linkedin className="w-5 h-5" />
             </Link>
-            <Link 
-              href={`mailto:${contactInfo.email}`}
+            <button 
+              onClick={openModal}
               className="text-gray-400 hover:text-red-500 transition-colors duration-300"
+              title="Contact Me"
             >
               <Mail className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </footer>
   );
 } 

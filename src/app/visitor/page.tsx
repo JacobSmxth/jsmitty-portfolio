@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -21,10 +24,9 @@ import {
   SiGit,
 } from 'react-icons/si';
 import { socialLinks } from '@/data/socialLinks';
-import projectData from '@/data/projectData';
-import testimonials from '@/data/testimonials';
-import { contactInfo } from '@/data/contactInfo';
-import type { Metadata } from 'next';
+import projectData, { Project } from '@/data/projectData';
+import testimonials, { Testimonial } from '@/data/testimonials';
+import ContactModal from '@/components/ContactModal';
 
 const iconMap = {
   github: Github,
@@ -44,14 +46,14 @@ const skillIconMap: { [key: string]: React.ElementType } = {
   Git: SiGit,
 };
 
-export const metadata: Metadata = {
-  title: 'Portfolio & Profile | Jacob Smith',
-  description: 'Explore the projects, skills, and background of Jacob Smith, a front-end web developer.',
-};
-
 export default function VisitorPage() {
-  const allProjects = projectData;
-  const allTestimonials = testimonials;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const allProjects: Project[] = projectData;
+  const allTestimonials: Testimonial[] = testimonials;
 
   return (
     <main className="flex-grow text-white p-8 bg-gradient-to-br from-gray-900 to-black">
@@ -216,7 +218,7 @@ export default function VisitorPage() {
           <section className="space-y-12 fade-in-section fade-in-delay-4">
             <h2 className="text-center text-4xl font-bold text-white">Kind Words</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {allTestimonials.map((testimonial) => (
+              {allTestimonials.map((testimonial: Testimonial) => (
                 <div
                   key={testimonial.id}
                   className="bg-gray-800/40 p-6 rounded-2xl border border-gray-700/50 space-y-4 flex flex-col shadow-md"
@@ -244,12 +246,12 @@ export default function VisitorPage() {
               Interested in my work or want to discuss a potential project? Feel free to reach out or connect on social media.
             </p>
             <div className="flex justify-center items-center gap-6 flex-wrap">
-              <a
-                href={`mailto:${contactInfo.email}`}
+              <button
+                onClick={openModal}
                 className="inline-flex items-center gap-2 px-8 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold"
               >
                 Get in Touch
-              </a>
+              </button>
               {socialLinks.filter(l => l.platform === 'linkedin' || l.platform === 'github').map((link) => {
                 const Icon = iconMap[link.icon as keyof typeof iconMap];
                 return (
@@ -270,6 +272,7 @@ export default function VisitorPage() {
           </section>
         </div>
       </div>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </main>
   );
 } 
