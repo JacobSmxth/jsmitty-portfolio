@@ -5,10 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { blogPosts, BlogPost } from '@/data/blogPosts';
 import ReaderClient from '@/components/ReaderClient';
 
-// Define an interface for the page props
-interface ReaderPageProps {
-  params?: { [key: string]: string | string[] | undefined }; // Include params even if unused
-}
+// Removed ReaderPageProps interface definition
 
 // generateMetadata function removed - lives in metadata.ts
 
@@ -25,7 +22,8 @@ function ReaderContent() {
 }
 
 // Page component now wraps ReaderContent in Suspense
-export default function ReaderPage({}: ReaderPageProps) {
+// Removed ReaderPageProps type annotation
+export default function ReaderPage() {
   return (
     <Suspense fallback={<div>Loading post...</div>}>
       <ReaderContent />
