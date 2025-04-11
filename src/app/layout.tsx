@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
+import AppStructure from '@/components/AppStructure';
 import "./globals.css";
 import type { Metadata } from 'next';
 
@@ -24,13 +23,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} overflow-x-hidden bg-black`}>
         <ClientLayoutWrapper>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <div className="flex-grow">
-              {children}
-            </div>
-            <Footer />
-          </div>
+          <AppStructure>
+            {children}
+          </AppStructure>
         </ClientLayoutWrapper>
       </body>
     </html>
