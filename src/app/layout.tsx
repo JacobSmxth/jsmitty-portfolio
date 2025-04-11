@@ -29,6 +29,8 @@ export default function RootLayout({
             {children}
           </AppStructure>
         </ClientLayoutWrapper>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
