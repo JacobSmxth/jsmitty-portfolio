@@ -23,6 +23,7 @@ import {
 import { socialLinks } from '@/data/socialLinks';
 import projectData from '@/data/projectData';
 import testimonials from '@/data/testimonials';
+import { contactInfo } from '@/data/contactInfo';
 import type { Metadata } from 'next';
 
 const iconMap = {
@@ -244,7 +245,7 @@ export default function VisitorPage() {
             </p>
             <div className="flex justify-center items-center gap-6 flex-wrap">
               <a
-                href="mailto:jacob.d.smith@live.com"
+                href={`mailto:${contactInfo.email}`}
                 className="inline-flex items-center gap-2 px-8 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold"
               >
                 Get in Touch

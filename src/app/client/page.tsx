@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import projectData from '@/data/projectData';
 import testimonials from '@/data/testimonials';
+import { contactInfo } from '@/data/contactInfo';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function ClientPage() {
             </p>
             <div>
               <a 
-                href="mailto:jacob.d.smith@live.com"
+                href={`mailto:${contactInfo.email}`}
                 className="inline-flex items-center gap-2 px-8 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold shadow-lg hover:shadow-red-500/30"
               >
                 <Mail size={20} />
@@ -213,7 +214,7 @@ export default function ClientPage() {
             </p>
             <div>
               <a 
-                href="mailto:jacob.d.smith@live.com"
+                href={`mailto:${contactInfo.email}`}
                 className="inline-flex items-center gap-2 px-10 py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-xl font-semibold shadow-lg hover:shadow-red-500/30"
               >
                 <Mail size={22} />

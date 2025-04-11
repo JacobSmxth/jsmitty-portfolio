@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { contactInfo } from '@/data/contactInfo';
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Jacob Smith. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs">
-              Have a project idea? <a href="mailto:jacob.d.smith@live.com" className="text-red-400 hover:text-red-500 hover:underline transition-colors duration-300">Let&apos;s connect!</a>
+              Have a project idea? <a href={`mailto:${contactInfo.email}`} className="text-red-400 hover:text-red-500 hover:underline transition-colors duration-300">Let&apos;s connect!</a>
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -34,7 +35,7 @@ export default function Footer() {
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link 
-              href="mailto:jacob.d.smith@live.com"
+              href={`mailto:${contactInfo.email}`}
               className="text-gray-400 hover:text-red-500 transition-colors duration-300"
             >
               <Mail className="w-5 h-5" />
