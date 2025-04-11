@@ -17,13 +17,8 @@ function ReaderContent() {
   const searchParams = useSearchParams();
   const postId = searchParams.get('post');
 
-  // Sort blog posts by date (most recent first)
-  const sortedBlogPosts = [...blogPosts].sort((a, b) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
   const initialPost: BlogPost | null = postId
-    ? sortedBlogPosts.find(p => p.id === postId) || null // Use sorted array
+    ? blogPosts.find(p => p.id === postId) || null
     : null;
 
   return <ReaderClient initialPost={initialPost} />;
