@@ -29,4 +29,7 @@ export const workThoughts: WorkThought[] = [
     mood: 'positive'
   }
   // Add more work thoughts here
-]; 
+];
+
+// Sort the array by date (most recent first)
+workThoughts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); 

@@ -292,4 +292,7 @@ After all, in our own way, we developers are web-slingers too. 🕸️
     slug: 'web-of-inspiration',
     category: 'Development'
   }
-]; 
+];
+
+// Sort the array by date (most recent first)
+blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); 
