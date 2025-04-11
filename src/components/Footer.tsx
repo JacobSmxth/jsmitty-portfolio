@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { contactInfo } from '@/data/contactInfo';
 import ContactModal from './ContactModal';
 
 export default function Footer() {
