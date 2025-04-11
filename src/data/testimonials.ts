@@ -1,3 +1,9 @@
+/**
+ * testimonials.ts
+ * 
+ * Stores client testimonials used across different pages 
+ * (e.g., Client page, Visitor page).
+ */
 export interface Testimonial {
   id: number;
   text: string;

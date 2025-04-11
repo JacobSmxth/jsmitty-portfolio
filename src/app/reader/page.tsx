@@ -5,6 +5,14 @@ import { useSearchParams } from 'next/navigation';
 import { blogPosts, BlogPost } from '@/data/blogPosts';
 import ReaderClient from '@/components/ReaderClient';
 
+/**
+ * Reader Page Component (/reader)
+ * 
+ * The entry point for the blog/reader section.
+ * Primarily uses React Suspense to handle loading states while the 
+ * ReaderContent component fetches and processes URL search parameters.
+ */
+
 // Removed ReaderPageProps interface definition
 
 // generateMetadata function removed - lives in metadata.ts

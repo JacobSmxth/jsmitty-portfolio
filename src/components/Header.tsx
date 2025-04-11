@@ -1,9 +1,18 @@
-'use client'; // Needs to be client for hooks
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react'; // Icons for mobile menu
+import { Menu, X } from 'lucide-react';
+
+/**
+ * Header Component
+ * 
+ * Renders the main site navigation bar, including the site title/logo,
+ * desktop navigation links, and a collapsible mobile menu.
+ * Uses `usePathname` to highlight the active link.
+ * This component is conditionally rendered by `AppStructure` (not shown on root '/').
+ */
 
 const navLinks = [
   { href: '/visitor', label: 'Portfolio' },

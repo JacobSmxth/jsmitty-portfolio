@@ -1,3 +1,9 @@
+/**
+ * workThoughts.ts
+ * 
+ * Stores brief updates or reflections related to work and projects.
+ * Primarily displayed in a sidebar or section on the main /reader page.
+ */
 export interface WorkThought {
   id: string;
   date: string;

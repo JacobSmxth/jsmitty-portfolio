@@ -28,6 +28,15 @@ import projectData, { Project } from '@/data/projectData';
 import testimonials, { Testimonial } from '@/data/testimonials';
 import ContactModal from '@/components/ContactModal';
 
+/**
+ * Visitor Page Component (/visitor)
+ * 
+ * A general portfolio overview page for visitors who don't fit 
+ * the specific Recruiter or Client categories.
+ * Showcases projects, tech stack, blog posts link, testimonials, 
+ * and general contact options.
+ */
+
 const iconMap = {
   github: Github,
   twitter: Twitter,

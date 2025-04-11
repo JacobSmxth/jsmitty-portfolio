@@ -6,6 +6,15 @@ import AppStructure from '@/components/AppStructure';
 import "./globals.css";
 import type { Metadata } from 'next';
 
+/**
+ * Root Layout Component
+ * 
+ * Applies global styles, fonts, and wrappers to all routes.
+ * Includes Vercel analytics and speed insights.
+ * Uses AppStructure to conditionally render Header/Footer.
+ * Uses ClientLayoutWrapper for potential client-side layout effects (like loading spinners).
+ */
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

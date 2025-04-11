@@ -6,12 +6,20 @@ import { X, Github, Linkedin, Twitter } from 'lucide-react'; // Removed Mail
 import { contactInfo } from '@/data/contactInfo';
 import { socialLinks } from '@/data/socialLinks';
 
-// Define icon map locally or import if shared
+/**
+ * ContactModal Component
+ * 
+ * A reusable modal dialog that displays primary contact information (email) 
+ * and links to social media profiles.
+ * Uses Headless UI for transitions and accessibility.
+ */
+
+// Defines icons for social links used within this modal.
+// Consider moving to a shared location if used elsewhere.
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
   twitter: Twitter,
-  // Add mappings for other platforms if they exist in socialLinks
 };
 
 interface ContactModalProps {

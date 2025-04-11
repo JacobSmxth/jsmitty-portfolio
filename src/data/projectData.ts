@@ -1,3 +1,9 @@
+/**
+ * projectData.ts
+ * 
+ * Defines the structure and content for project portfolio items.
+ * Used across various pages (Visitor, Client, Recruiter) to display project details.
+ */
 export interface Project {
     id: string;
     name: string;

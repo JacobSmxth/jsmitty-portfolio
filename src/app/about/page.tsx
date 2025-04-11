@@ -5,6 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, User, Heart, Film, X } from 'lucide-react';
 
+/**
+ * About Page Component (/about)
+ * 
+ * Displays personal background, journey into web development, outside interests,
+ * and media consumption (like Spider-Man).
+ * Includes an interactive modal triggered by double-clicking the portrait image.
+ */
+
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

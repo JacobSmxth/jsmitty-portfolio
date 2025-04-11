@@ -1,3 +1,9 @@
+/**
+ * learnings.ts
+ * 
+ * Contains data for the "Today I Learned" section, typically displayed
+ * on the blog/reader page.
+ */
 export interface DailyLearning {
   id: string;
   date: string;

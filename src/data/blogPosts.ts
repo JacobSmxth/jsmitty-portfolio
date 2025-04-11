@@ -1,3 +1,9 @@
+/**
+ * blogPosts.ts
+ * 
+ * Defines the structure and content for blog posts.
+ * Used by the /reader page and potentially other listing components.
+ */
 export interface BlogPost {
   id: string;
   title: string;

@@ -16,6 +16,14 @@ import projectData, { Project } from '@/data/projectData';
 import testimonials from '@/data/testimonials';
 import ContactModal from '@/components/ContactModal';
 
+/**
+ * Client Page Component (/client)
+ * 
+ * Tailored for potential clients, highlighting services, key benefits,
+ * specific client project examples, testimonials, and clear calls-to-action 
+ * (like "Start Your Project" and "Get a Free Consultation").
+ */
+
 export default function ClientPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

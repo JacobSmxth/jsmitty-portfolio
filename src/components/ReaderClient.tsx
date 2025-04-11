@@ -15,6 +15,16 @@ import { workThoughts } from '@/data/workThoughts';
 import { dailyLearnings } from '@/data/learnings';
 import TableOfContents from '@/components/TableOfContents';
 
+/**
+ * ReaderClient Component
+ * 
+ * Handles the client-side rendering and interactivity for the /reader route.
+ * Manages displaying either the list of blog posts or a selected post's content.
+ * Includes features like post search, category filtering, table of contents generation,
+ * and display of related content (Daily Learnings, Work Thoughts).
+ * Uses ReactMarkdown for rendering blog content.
+ */
+
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +35,7 @@ const fadeIn = {
   }
 };
 
-// Markdown components definition - disable warnings for unused node
+// Markdown components definition for styling rendered content
 const markdownComponents: Components = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   h1: ({node, ...props}) => <h1 className="text-4xl sm:text-5xl font-bold text-red-500 mt-8 mb-4" {...props} />,

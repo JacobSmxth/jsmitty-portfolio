@@ -6,13 +6,21 @@ import { workExperience } from '@/data/workExperience';
 import { education } from '@/data/education';
 import type { Metadata } from 'next';
 
+/**
+ * Recruiter Page Component (/recruiter)
+ * 
+ * Provides a dedicated view for recruiters, highlighting relevant professional 
+ * information such as work experience, education, key projects (with code links), 
+ * testimonials, and direct links to resume/LinkedIn.
+ */
+
 export const metadata: Metadata = {
   title: 'Recruiter Information | Jacob Smith',
   description: 'Information for recruiters: work experience, education, projects, and skills of Jacob Smith, Front End Web Developer.',
 };
 
 export default function RecruiterPage() {
-  // Filter projects to only show those with GitHub links
+  // Filter projects to show only those with GitHub links
   const projectsWithCode = projectData.filter(project => project.github);
 
   return (
@@ -236,13 +244,11 @@ export default function RecruiterPage() {
               {/* Updated Resume Link */}
               <a 
                 href="/jacobSmith-frontEndDeveloper-2yearsExperience-cybersecurityMajor.pdf" // Correct path
+                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300 text-lg"
                 target="_blank"
                 rel="noopener noreferrer"
-                // Optional: Add download attribute to encourage download
-                // download="jacobSmith-resume.pdf" 
-                className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-300 text-lg font-semibold"
               >
-                View Resume
+                Download Resume
               </a>
               {/* LinkedIn Button */}
               <a 
@@ -252,7 +258,7 @@ export default function RecruiterPage() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gray-700/50 text-gray-300 rounded-xl hover:bg-gray-600/50 hover:text-white transition-colors duration-300 text-lg font-semibold"
                 title="Connect on LinkedIn"
               >
-                <Linkedin size={20} /> {/* Assuming Linkedin icon is imported */}
+                <Linkedin size={20} />
                 LinkedIn
               </a>
             </div>

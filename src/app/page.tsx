@@ -5,6 +5,16 @@ import { useRouter } from 'next/navigation';
 import { User, Briefcase, Eye, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+/**
+ * HomePage Component (Root Route: '/')
+ * 
+ * This is the main landing page acting as a selection hub.
+ * It presents different user types (Recruiter, Client, Reader, Visitor)
+ * and routes them to the appropriate section of the portfolio upon selection.
+ * Features an animated quote display.
+ * Note: Header and Footer are intentionally hidden on this route via AppStructure.
+ */
+
 const visitorTypes = [
   {
     id: 'recruiter',
