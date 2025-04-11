@@ -8,8 +8,13 @@ export default function Footer() {
     <footer className="w-full py-6 border-t border-gray-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Jacob Smith. All rights reserved.
+          <div className="text-sm text-center mt-8 space-y-1">
+            <p className="text-gray-400">
+              &copy; {new Date().getFullYear()} Jacob Smith. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-xs">
+              Have a project idea? <a href="mailto:jacob.d.smith@live.com" className="text-red-400 hover:text-red-500 hover:underline transition-colors duration-300">Let&apos;s connect!</a>
+            </p>
           </div>
           <div className="flex items-center gap-4">
             <Link 

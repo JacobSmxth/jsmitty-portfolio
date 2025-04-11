@@ -1,11 +1,21 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, User, Heart, Film } from 'lucide-react';
-import Footer from '@/components/Footer';
+import { ArrowLeft, User, Heart, Film, X } from 'lucide-react';
 
 export default function AboutPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageDoubleClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black overflow-x-hidden">
       <main className="text-white px-4 sm:px-6 md:px-8 py-6 md:py-8">
@@ -32,7 +42,7 @@ export default function AboutPage() {
                     A journey from the football field to web development.
                   </p>
                 </div>
-                <div className="relative w-40 h-48 sm:w-56 sm:h-64 md:w-64 md:h-72">
+                <div className="relative w-40 h-48 sm:w-56 sm:h-64 md:w-64 md:h-72 cursor-pointer" title="Double-click for a surprise!">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white via-gray-100 to-gray-200 shadow-lg" />
                   <Image
                     src="/images/Me2.png"
@@ -40,6 +50,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover object-top rounded-full border-4 border-red-500/20 relative z-10 hover:scale-105 transition-transform duration-300"
                     priority
+                    onDoubleClick={handleImageDoubleClick}
                   />
                 </div>
               </div>
@@ -126,8 +137,44 @@ export default function AboutPage() {
             </section>
           </div>
         </div>
+
+        {/* Secret Modal */}
+        {isModalOpen && (
+          <div 
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" 
+            onClick={closeModal}
+          >
+            <div 
+              className="relative bg-black border border-red-500/30 p-6 rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={closeModal} 
+                className="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition-colors"
+                aria-label="Close modal"
+              >
+                <X size={24} />
+              </button>
+              <div className="space-y-4">
+                <Image 
+                  src="/images/favorite.png" 
+                  alt="Favorite Image - Ceci" 
+                  width={500}
+                  height={500}
+                  className="object-contain w-full h-auto rounded"
+                />
+                <div className="text-center text-gray-200 space-y-2">
+                  <p className="text-lg font-semibold text-red-400">This is my girlfriend, Ceci!</p>
+                  <p>We met freshman year of high school in the lunch courtyard.</p>
+                  <p>We started dating junior year and even won Hoco King and Queen together.</p>
+                  <p>Unfortunately, we&apos;re doing long distance now, but making it work!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
       </main>
-      <Footer />
     </div>
   );
 } 
