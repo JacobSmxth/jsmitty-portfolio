@@ -20,8 +20,14 @@ export const metadata: Metadata = {
 };
 
 export default function RecruiterPage() {
-  // Filter projects to show only those with GitHub links
-  const projectsWithCode = projectData.filter(project => project.github);
+  // Define IDs of projects to exclude
+  const excludedProjectIds = ['7', '8', '1']; // IDs for Fr0st.gg, FuhrerGoatTV, Kayla Fitness
+
+  // Filter projects to show only those with GitHub links AND exclude specific ones
+  const projectsWithCode = projectData.filter(project => 
+    project.github && 
+    !excludedProjectIds.includes(project.id)
+  );
 
   return (
     <main className="text-white p-4 sm:p-6 md:p-8 bg-gradient-to-br from-gray-900 to-black">

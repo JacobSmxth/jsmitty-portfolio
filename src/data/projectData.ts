@@ -17,6 +17,26 @@ export interface Project {
 
 const projectData: Project[] = [
     {
+        id: '7',
+        name: "Fr0st.gg",
+        description: "A sophisticated wager rewards platform featuring a comprehensive leaderboard system, secure backend CMS panel, and encrypted API endpoints. Built with a full-stack architecture, the platform includes real-time data processing, secure user authentication, and advanced rate limiting. The system leverages modern security practices including API encryption and robust database management.",
+        technologies: ["React", "TypeScript", "Express", "Firebase", "Tailwind", "Framer Motion"],
+        image: "/images/frostgg.png",
+        github: undefined,
+        liveUrl: "https://fr0st.gg/",
+        category: 'web'
+    },
+    {
+        id: '8',
+        name: 'FuhrerGoatTV',
+        description: 'A multi-page web platform built for streamer FuhrerGoat to showcase sponsor-based giveaways and supporter challenges. Features include a styled leaderboard with monthly and weekly toggles, a dedicated challenges page, responsive Kick-themed design, and dynamic prize tracking. Built for performance, clarity, and easy future updates.',
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vite'],
+        image: '/images/fuhrergoat.png',
+        github: '', // Leave blank if not public
+        liveUrl: 'https://fuhrergoattv.vercel.app/',
+        category: 'web'
+    },
+    {
         id: '1',
         name: 'Kayla Fitness',
         description: 'A professional landing page for Alpharetta-based Athletic Trainer Kayla Smith. Features include an interactive schedule booking system, detailed service descriptions, client testimonials, and before/after transformation galleries. The responsive design ensures seamless viewing across all devices, while subtle animations enhance user engagement.',
@@ -74,16 +94,6 @@ const projectData: Project[] = [
         image: "/images/voguevistas.png",
         github: "https://github.com/JacobSmxth/urban-style",
         liveUrl: "https://voguevistas.netlify.app/",
-        category: 'web'
-    },
-    {
-        id: '7',
-        name: "Fr0st.gg",
-        description: "A sophisticated wager rewards platform featuring a comprehensive leaderboard system, secure backend CMS panel, and encrypted API endpoints. Built with a full-stack architecture, the platform includes real-time data processing, secure user authentication, and advanced rate limiting. The system leverages modern security practices including API encryption and robust database management.",
-        technologies: ["React", "TypeScript", "Express", "Firebase", "Tailwind", "Framer Motion"],
-        image: "/images/frostgg.png",
-        github: undefined,
-        liveUrl: "https://fr0st.gg/",
         category: 'web'
     }
 ];

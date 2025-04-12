@@ -30,13 +30,13 @@ export default function ClientPage() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Filter projects to show real client work
-  const clientProjects = projectData.filter(
-    (project: Project) =>
-      project.name === 'Fr0st.gg' ||
-      project.name === 'Kayla Fitness' ||
-      project.name === 'Vickery Burger Bar'
-  );
+  // Define the desired order of project IDs
+  const desiredOrder = ['7', '8', '1']; // IDs for Fr0st.gg, FuhrerGoatTV, Kayla Fitness
+
+  // Filter projects to show specific client work and sort them
+  const clientProjects = projectData
+    .filter((project: Project) => desiredOrder.includes(project.id))
+    .sort((a, b) => desiredOrder.indexOf(a.id) - desiredOrder.indexOf(b.id));
 
   return (
     <main className="flex-grow text-white p-8 bg-gradient-to-br from-gray-900 to-black">
