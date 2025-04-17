@@ -1,10 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, Briefcase, CheckCircle2, MessageCircle, User, GraduationCap, Github, Linkedin } from 'lucide-react';
 import projectData from '@/data/projectData';
 import testimonials from '@/data/testimonials';
 import { workExperience } from '@/data/workExperience';
 import { education } from '@/data/education';
-import type { Metadata } from 'next';
 
 /**
  * Recruiter Page Component (/recruiter)
@@ -13,11 +14,6 @@ import type { Metadata } from 'next';
  * information such as work experience, education, key projects (with code links), 
  * testimonials, and direct links to resume/LinkedIn.
  */
-
-export const metadata: Metadata = {
-  title: 'Recruiter Information | Jacob Smith',
-  description: 'Information for recruiters: work experience, education, projects, and skills of Jacob Smith, Front End Web Developer.',
-};
 
 export default function RecruiterPage() {
   // Define IDs of projects to exclude

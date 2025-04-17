@@ -109,7 +109,7 @@ export default function ReaderClient({ initialPost }: ReaderClientProps) {
   };
 
   const filteredBlogPosts = blogPosts.filter(post => {
-      const matchesCategory = selectedCategory ? post.category === selectedCategory : true;
+      const matchesCategory = selectedCategory ? post.tags.includes(selectedCategory) : true;
       const lowerSearchQuery = searchQuery.toLowerCase();
       const matchesSearch = searchQuery.trim() === '' ? true : 
         post.title.toLowerCase().includes(lowerSearchQuery) ||
@@ -144,7 +144,6 @@ export default function ReaderClient({ initialPost }: ReaderClientProps) {
               <article className="space-y-8">
                 <header className="space-y-4">
                   <h1 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
-                    {selectedPost.title}
                   </h1>
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-400">
                     <div className="flex items-center gap-2">
@@ -261,9 +260,9 @@ export default function ReaderClient({ initialPost }: ReaderClientProps) {
                        <button onClick={() => setSelectedCategory(null)} className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-300 cursor-pointer ${!selectedCategory ? 'bg-red-500 text-white' : 'bg-gray-800/50 text-gray-300 hover:bg-red-500/10 hover:text-red-400'}`}>
                          All
                        </button>
-                       {['Web Development', 'Design', 'Tutorials', 'Personal'].map((category) => (
-                         <button key={category} onClick={() => setSelectedCategory(category)} className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-300 cursor-pointer ${selectedCategory === category ? 'bg-red-500 text-white' : 'bg-gray-800/50 text-gray-300 hover:bg-red-500/10 hover:text-red-400'}`}>
-                           {category}
+                       {Array.from(new Set(blogPosts.flatMap(post => post.tags))).map((tag) => (
+                         <button key={tag} onClick={() => setSelectedCategory(tag)} className={`px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-300 cursor-pointer ${selectedCategory === tag ? 'bg-red-500 text-white' : 'bg-gray-800/50 text-gray-300 hover:bg-red-500/10 hover:text-red-400'}`}>
+                           {tag}
                          </button>
                        ))}
                      </div>

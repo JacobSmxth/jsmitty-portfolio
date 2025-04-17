@@ -58,3 +58,79 @@ This is the repository for my personal portfolio website, built with Next.js, Re
 ## Deployment
 
 This project is configured for and deployed on [Vercel](https://vercel.com/). Pushes to the `main` branch automatically trigger deployments.
+
+```
+jsmitty-portfolio
+├─ eslint.config.mjs
+├─ next.config.ts
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ public
+│  ├─ favicon.png
+│  ├─ images
+│  │  ├─ coffeehaven.png
+│  │  ├─ favorite.png
+│  │  ├─ frostgg.png
+│  │  ├─ fuhrergoat.png
+│  │  ├─ kaylafitness.png
+│  │  ├─ Me.png
+│  │  ├─ Me2.png
+│  │  ├─ pictureFace.svg
+│  │  ├─ portfolio.png
+│  │  ├─ screenshot.png
+│  │  ├─ skycast.png
+│  │  ├─ vickeryburger.png
+│  │  └─ voguevistas.png
+│  ├─ jacobSmith-frontEndDeveloper-2yearsExperience-cybersecurityMajor.pdf
+│  ├─ robots.txt
+│  └─ sitemap.xml
+├─ README.md
+├─ src
+│  ├─ app
+│  │  ├─ about
+│  │  │  └─ page.tsx
+│  │  ├─ client
+│  │  │  ├─ metadata.ts
+│  │  │  └─ page.tsx
+│  │  ├─ globals.css
+│  │  ├─ layout.tsx
+│  │  ├─ metadata.ts
+│  │  ├─ page.tsx
+│  │  ├─ reader
+│  │  │  ├─ metadata.ts
+│  │  │  └─ page.tsx
+│  │  ├─ recruiter
+│  │  │  └─ page.tsx
+│  │  ├─ store
+│  │  ├─ template.tsx
+│  │  └─ visitor
+│  │     ├─ metadata.ts
+│  │     └─ page.tsx
+│  ├─ components
+│  │  ├─ AppStructure.tsx
+│  │  ├─ ClientLayoutWrapper.tsx
+│  │  ├─ ContactModal.tsx
+│  │  ├─ Footer.tsx
+│  │  ├─ Header.tsx
+│  │  ├─ LoadingSpinner.tsx
+│  │  ├─ ReaderClient.tsx
+│  │  ├─ TableOfContents.tsx
+│  │  └─ ui
+│  │     ├─ Button.tsx
+│  │     ├─ Card.tsx
+│  │     └─ Container.tsx
+│  └─ data
+│     ├─ blogPosts.ts
+│     ├─ contactInfo.ts
+│     ├─ education.ts
+│     ├─ learnings.ts
+│     ├─ projectData.ts
+│     ├─ socialLinks.ts
+│     ├─ testimonials.ts
+│     ├─ workExperience.ts
+│     └─ workThoughts.ts
+├─ tailwind.config.js
+└─ tsconfig.json
+
+```

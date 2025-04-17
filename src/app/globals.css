@@ -1,15 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --font-display: "Satoshi", "sans-serif";
+  --font-body: "Plus Jakarta Sans", "sans-serif";
   --breakpoint-3xl: 1920px;
+  
+  --color-primary: 239 68 68;
+  --color-primary-dark: 185 28 28;
+  --color-secondary: 56 189 248;
+  --color-secondary-dark: 3 105 161;
+  --color-accent: 139 92 246;
+  --color-text: 255 255 255;
+  --color-text-muted: 156 163 175;
+  --color-background: 20 20 20;
+  --color-surface: 40 40 40;
+  --color-surface-alt: 50 50 50;
 }
 
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 20, 20, 20;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,47 +38,104 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
+/* Modern gradient background with radial effect */
+.gradient-bg {
+  background-attachment: fixed;
+}
+
+/* Glass effect */
+.glass {
+  background: linear-gradient(to bottom, rgba(50, 50, 50, 0.3), rgba(20, 20, 20, 0.6)); /* Gradient from light-ish gray to dark-ish gray */
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+}
+
+/* Enhanced animations */
 @keyframes shrinkToCenter {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0);
-  }
+  from { transform: scale(1); }
+  to { transform: scale(0); }
 }
 
 @keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-shrink {
-  animation: shrinkToCenter 0.3s ease-out forwards;
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.animate-popIn {
-  animation: popIn 0.3s ease-out forwards;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-popIn-delay-1 {
-  animation: popIn 0.3s ease-out 0.1s forwards;
-  opacity: 0;
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-popIn-delay-2 {
-  animation: popIn 0.3s ease-out 0.2s forwards;
-  opacity: 0;
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Animation classes */
+.animate-shrink { animation: shrinkToCenter 0.3s ease-out forwards; }
+.animate-popIn { animation: popIn 0.3s ease-out forwards; }
+.animate-popIn-delay-1 { animation: popIn 0.3s ease-out 0.1s forwards; opacity: 0; }
+.animate-popIn-delay-2 { animation: popIn 0.3s ease-out 0.2s forwards; opacity: 0; }
+.animate-float-up { animation: floatUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+
+.fade-in-section { animation: fadeIn 0.6s ease-out forwards; }
+.fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.fade-in-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+.group:hover .bounce { animation: bounce 1s ease infinite; }
+.group:hover .pulse { animation: pulse 1.5s ease infinite; }
+
+.gradient-animate {
+  background: linear-gradient(
+    90deg,
+    rgb(239, 68, 68), /* red-500 */
+    rgb(139, 92, 246), /* violet-500 */
+    rgb(56, 189, 248), /* light blue-500 */
+    rgb(239, 68, 68)  /* back to start */
+  );
+  background-size: 300% 100%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Layout Helpers */
 .centered-list {
   display: flex;
   flex-direction: column;
@@ -71,70 +144,54 @@ body {
   gap: 3.5rem;
 }
 
-/* Add a subtle bounce effect to the monster avatars */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+/* Text styles */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, rgb(var(--color-primary)), rgb(var(--color-accent)));
 }
 
-.group:hover .bounce {
-  animation: bounce 1s ease infinite;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+::-webkit-scrollbar-track {
+  background: rgb(30, 30, 30);
 }
 
-.gradient-animate {
-  background: linear-gradient(
-    90deg,
-    rgb(239, 68, 68), /* red-500 */
-    rgb(185, 28, 28), /* red-700 */
-    rgb(75, 85, 99),  /* gray-600 */
-    rgb(31, 41, 55),  /* gray-800 */
-    rgb(239, 68, 68)  /* back to start */
-  );
-  background-size: 300% 100%;
-  animation: gradientFlow 8s ease infinite;
+::-webkit-scrollbar-thumb {
+  background: rgb(60, 60, 60);
+  border-radius: 4px;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(80, 80, 80);
 }
 
-.fade-in-section {
-  animation: fadeIn 0.6s ease-out forwards;
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(239, 68, 68, 0.3) rgba(31, 41, 55, 0.3);
 }
 
-/* Apply animation with delay */
-.fade-in-delay-1 {
-  animation-delay: 0.1s;
-  opacity: 0; /* Start hidden */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-.fade-in-delay-2 {
-  animation-delay: 0.2s;
-  opacity: 0;
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.3);
+  border-radius: 4px;
 }
-.fade-in-delay-3 {
-  animation-delay: 0.3s;
-  opacity: 0;
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.3);
+  border-radius: 4px;
 }
-.fade-in-delay-4 {
-  animation-delay: 0.4s;
-  opacity: 0;
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(239, 68, 68, 0.5);
 }
 
