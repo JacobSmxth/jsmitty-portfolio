@@ -297,6 +297,94 @@ After all, in our own way, we developers are web-slingers too. 🕸️
     readingTime: '4 min read',
     slug: 'web-of-inspiration',
     category: 'Development'
+  },
+  {
+    id: 'switched-to-arch-linux-dual-boot',
+    title: 'Why I Switched to Arch Linux (Dual Boot) for Work and Kept Windows for Gaming',
+    date: '2025-05-06',
+    excerpt: "I recently switched to Arch Linux for all my development and productivity tasks while keeping Windows for gaming. Here's why I made the change, how it's going, and what I've learned.",
+    content: `
+
+# Why I Switched to Arch Linux (Dual Boot) for Work and Kept Windows for Gaming
+
+After years of relying solely on Windows for everything~from work to gaming~I finally made the leap to **dual boot Arch Linux**. Now, Windows is strictly for gaming, and **Linux is my home for productivity, coding, and getting real work done**. Here's a breakdown of why I made the change and what it's done for my workflow.
+
+---
+
+## Why Dual Boot?
+
+I’m a gamer and a developer. And unfortunately, gaming on Linux~while improving~isn’t quite perfect for every title, anti-cheat, or driver optimization. That’s why I **dual boot**: 
+
+- **Windows** stays for Steam games, launchers like Battle.net, and GPU-dependent titles.
+- **Arch Linux** handles all my scripting, development, and system customization needs.
+
+---
+
+## Why Arch Linux?
+
+I wanted a Linux distro that didn’t force opinions on me. Something **minimal, optimized, and fully under my control**. After trying a few options, I landed on Arch, and here’s why it stuck:
+
+### 1. **Unparalleled Customization**
+
+Arch gives me complete control over everything:
+- I only install what I need.
+- I use **Hyprland** for a slick, tiling window manager.
+- My setup includes **Alacritty, Zsh, Neovim, Ranger**, and other tools that make my workflow seamless.
+- No bloat. No background services I didn’t ask for.
+
+### 2. **Optimized Performance**
+
+Out of the box, Arch is fast and responsive. Since I choose every package myself, it boots faster, consumes less RAM, and feels snappier than Windows ever did.
+
+### 3. **Terminal-Centric Workflow**
+
+Most of my day is spent in the terminal, and on Arch, that’s a first-class experience. With tools like:
+
+- tmux for session management
+- fzf, rg, and bat for lightning-fast searching
+- fastfetch for system info flex
+- pacman and the AUR for unbeatable package control
+
+It feels like the system works **with me**, not against me.
+
+### 4. **Learning and Ownership**
+
+Running Arch forces you to understand your system. It’s not a plug-and-play distro—you install it manually, configure it yourself, and **troubleshoot your own problems**. That’s empowering. I now know more about my computer than I ever did before.
+
+---
+
+## My Setup (For the Curious)
+
+- **Desktop Environment**: KDE Plasma
+- **Terminal**: Alacritty + Zsh
+- **Editor**: Neovim (LazyVim distro)
+- **Browser**: Brave
+- **File Manager**: Dolphin
+- **System Tools**: Cava, Fastfetch, Btop, Git
+- **Language Stacks**: Python, Go, Node.js
+
+---
+
+## What About Gaming?
+
+Windows handles that. I boot into it when I want to play something that just doesn’t work well on Linux (like certain multiplayer shooters with anti-cheat). I’ve also kept my Steam library shared across both OSes where possible.
+
+---
+
+## Final Thoughts
+
+Switching to Arch Linux wasn’t just about ditching Windows—it was about **taking control of my computing environment**. The system is mine to mold, and everything I do on it is faster, cleaner, and more efficient.
+
+I still enjoy games on Windows, but now my real work happens in a space that feels custom-built for me.
+
+If you're thinking about it: **Just try dual booting. Arch might be a rabbit hole, but it's one worth falling into.**
+
+---
+`,
+    tags: ["Arch Linux", "Dual Boot", "Linux", "Windows", "Productivity", "Gaming", "Customization", "Terminal"],
+    slug: "switched-to-arch-linux",
+    readingTime: "4 min read",
+    category: "Development"
   }
 ];
 
