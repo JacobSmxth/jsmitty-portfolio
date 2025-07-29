@@ -234,7 +234,22 @@ a:hover {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--neon-red);
   z-index: 1000;
-  transition: var(--transition-normal);
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.cyber-nav.nav-visible {
+  transform: translateY(0);
 }
 
 .nav-container {
@@ -1380,11 +1395,35 @@ a:hover {
   .timeline-line {
     display: none;
   }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-brand {
+    order: 1;
+    flex: 1;
   }
   
   .nav-menu {
@@ -1399,22 +1438,43 @@ a:hover {
     transform: translateY(-100%);
     transition: var(--transition-normal);
     border-bottom: 1px solid var(--neon-red);
+    display: none;
   }
   
   .nav-menu.active {
     transform: translateY(0);
+    display: flex;
   }
   
   .mobile-menu-toggle {
     display: flex;
+    order: 3;
+    z-index: 1002;
   }
   
   .theme-toggle {
-    order: -1;
+    order: 2;
+    margin-right: var(--spacing-md);
   }
   
   .section-container {
     padding: 0 var(--spacing-lg);
+  }
+  
+  .hero-container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .hero-visual {
+    display: none !important;
+  }
+  
+  .code-snippet-container {
+    display: none !important;
+  }
+  
+  .floating-code {
+    display: none !important;
   }
   
   .title-line {
@@ -1429,11 +1489,31 @@ a:hover {
     justify-content: center;
   }
   
+  .hero-description {
+    font-size: var(--font-size-base);
+  }
+  
+  .spiderman-quote {
+    padding: var(--spacing-md);
+  }
+  
+  .quote-text {
+    font-size: var(--font-size-base);
+  }
+  
   .skills-grid {
     grid-template-columns: 1fr;
   }
   
   .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .plans-grid {
     grid-template-columns: 1fr;
   }
   
@@ -1455,26 +1535,320 @@ a:hover {
     display: none;
   }
   
+  .section-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero-container {
+    padding: 0 var(--spacing-md);
+  }
+  
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-base);
   }
   
   .title-line {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
+  }
+  
+  .title-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-sm);
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+  
+  .spiderman-quote {
+    padding: var(--spacing-sm);
+  }
+  
+  .quote-text {
+    font-size: var(--font-size-sm);
+  }
+  
+  .skill-category {
+    padding: var(--spacing-lg);
+  }
+  
+  .experience-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .plan-category {
+    padding: var(--spacing-lg);
+  }
+  
+  .terminal-body {
+    padding: var(--spacing-lg);
+  }
+  
+  .info-section {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* ===== MOBILE BREAKPOINTS ===== */
+@media (max-width: 360px) {
+  .nav-container {
+    padding: 0 var(--spacing-xs);
+  }
+  
+  .nav-brand .brand-text {
+    font-size: var(--font-size-base);
+  }
+  
+  .section-container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .hero-container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .title-line {
+    font-size: var(--font-size-lg);
   }
   
   .title-subtitle {
     font-size: var(--font-size-base);
   }
   
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
+  .hero-description {
+    font-size: var(--font-size-xs);
   }
   
   .cta-button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+  
+  .skill-category,
+  .experience-card,
+  .plan-category {
+    padding: var(--spacing-md);
+  }
+  
+  .terminal-body,
+  .info-section {
+    padding: var(--spacing-md);
+  }
+  
+  .form-input {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  .nav-menu {
+    z-index: 1001;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-lg) var(--spacing-md);
+    font-size: var(--font-size-base);
+    border-bottom: 1px solid rgba(255, 0, 64, 0.1);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .mobile-menu-toggle {
+    z-index: 1002;
+  }
+  
+  .hamburger-line {
+    width: 20px;
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+/* Mobile Contact Form Improvements */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 0;
+  }
+  
+  .terminal-container {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .form-input {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-lg);
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+  }
+  
+  .submit-btn {
     width: 100%;
     justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+  
+  .social-links {
+    gap: var(--spacing-sm);
+  }
+  
+  .social-link {
+    padding: var(--spacing-sm);
+  }
+  
+  .status-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Mobile Card Improvements */
+@media (max-width: 768px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-2xl);
+  }
+  
+  .card-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .card-tech {
+    gap: var(--spacing-xs);
+  }
+  
+  .tech-tag {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+}
+
+/* Mobile Timeline Improvements */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .timeline-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .timeline-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .timeline-subtitle {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Mobile Section Header Improvements */
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Mobile Grid Improvements */
+@media (max-width: 480px) {
+  .skills-grid,
+  .projects-grid,
+  .experience-grid,
+  .plans-grid {
+    gap: var(--spacing-lg);
+  }
+  
+  .skill-category,
+  .experience-card,
+  .plan-category {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Mobile Footer Improvements */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .footer-container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .footer-text {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .footer-tech {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .footer-text {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+  }
+  
+  .footer-tech {
+    font-size: var(--font-size-xs);
+    line-height: 1.3;
   }
 }
 
