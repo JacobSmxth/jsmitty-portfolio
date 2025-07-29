@@ -3,344 +3,827 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Smith - Systems Engineer</title>
+    <meta name="description" content="Jacob Smith - Systems Programmer & Cybersecurity Connoisseur | Code Ninjas Sensei | Education Team Content Creator">
+    <meta name="keywords" content="Jacob Smith, Systems Programming, Cybersecurity, Computer Science, Code Ninjas, Portfolio">
+    <meta name="author" content="Jacob Smith">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jacob Smith - Systems Programmer & Cybersecurity Connoisseur">
+    <meta property="og:description" content="Double major in Cybersecurity & Computer Science at UNG Dahlonega. Code Ninjas Sensei and Education Team Content Creator. Hosted on Vercel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jsmitty.com">
+
+    <title>Jacob Smith | Systems Programmer & Cybersecurity Connoisseur</title>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Font Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
-<body>
+<body class="cyberpunk-theme">
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-canvas" class="matrix-background"></canvas>
+    
+    <!-- Particle System Background -->
+    <div id="particles-container" class="particles-background"></div>
+    
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="cyber-nav" id="main-nav">
         <div class="nav-container">
-            <div class="nav-brand">Jacob Smith</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <!-- WHY DO I MAKE THINGS HARDER THAN THEY HAVE TO BE -->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand">
+                <span class="brand-text glitch-text" data-text="Jacob Smith">Jacob Smith</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link" data-section="hero">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Home</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Timeline</span>
+                </a>
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Skills</span>
+                </a>
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Projects</span>
+                </a>
+                <a href="#experience" class="nav-link" data-section="experience">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Experience</span>
+                </a>
+                <a href="#plans" class="nav-link" data-section="plans">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Plans</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <span class="nav-icon">></span>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </div>
+            
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="theme-toggle">
+                <div class="toggle-switch">
+                    <div class="toggle-slider"></div>
+                </div>
+                <span class="toggle-label">Ghost Protocol</span>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </div>
         </div>
     </nav>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-greeting">
+                        <span class="greeting-text">Hello, I'm</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line glitch-text" data-text="Jacob Smith">Jacob Smith</span>
+                        <span class="title-subtitle">
+                            <span class="typed-text" id="hero-typed"></span>
+                        </span>
+                    </h1>
+                    
+                    <div class="hero-description">
+                        <p class="description-text">
+                            Infrastructure-Focused Student Engineer transitioning from web to systems programming.
+                            <br>
+                            <strong class="highlight-text">Double Major:</strong> 
+                            <span class="neon-text">Cybersecurity & Computer Science</span> at UNG Dahlonega
+                        </p>
+                    </div>
+                    
+                    <div class="hero-quote">
+                        <blockquote class="spiderman-quote">
+                            <span class="quote-text">"With great power comes great responsibility."</span>
+                            <cite class="quote-author">— Ben Parker</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#projects" class="cta-button primary-cta">
+                            <span class="button-text">View My Work</span>
+                            <span class="button-icon">→</span>
+                        </a>
+                        <a href="#contact" class="cta-button secondary-cta">
+                            <span class="button-text">Get In Touch</span>
+                            <span class="button-icon">✉</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="code-snippet-container">
+                        <div class="code-snippet floating-code">
+                            <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="web-pattern"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Jacob Smith</h1>
-                <h2 class="hero-subtitle">Software & Systems Engineer</h2>
-                <p class="hero-description">
-                    Forward-Facing Developer transitioning from web to systems programming
-                </p>
-                <!-- SPIDERMAN IS CRUCIAL -->
-                <blockquote class="hero-quote">
-                    "With great power comes great responsibility."
-                    <cite>— Ben Parker</cite>
-                </blockquote>
-                <div class="hero-cta">
-                    <a href="#about" class="btn btn-primary">Learn More</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+                            </code></pre>
+                        </div>
+                        <div class="code-snippet floating-code">
+                            <pre><code class="language-go">
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Systems Programming")
+}
+                            </code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Systems Programmer and Cybersecurity student at UNG Dahlonega, double-majoring in
-                        Cybersecurity & Computer Science. After switching to Linux, I transitioned from front-end
-                        development to low-level systems work.
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-arrow">
+                    <span>↓</span>
+                </div>
+                <span class="scroll-text">Scroll to explore</span>
+            </div>
+        </section>
+        
+        <!-- About Timeline Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Journey Through Code">
+                        Journey Through Code
+                    </h2>
+                    <p class="section-subtitle">
+                        From frontend development to systems programming mastery
                     </p>
-                    <p>
-                        I have solid C expertise and 16-bit assembly fundamentals, and I'm currently focused on
-                        mastering C to fully understand systems internals, memory, and compilation. I also work
-                        with Go, C#, and Python, and rely on Neovim, Zsh, Git/GitHub, and QEMU for daily
-                        development and emulation workflows.
-                    </p>
-                    <blockquote class="section-quote">
-                        "Sometimes we have to be steady and give up the thing we want the most. Even our dreams."
-                        <cite>— Peter Parker</cite>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - 2028</div>
+                            <h3 class="timeline-title">University of North Georgia - Dahlonega</h3>
+                            <div class="timeline-subtitle">Bachelor of Science - Double Major</div>
+                            <div class="timeline-description">
+                                <p><strong class="neon-text">Cybersecurity & Computer Science</strong></p>
+                                <p>Expected Graduation: May 2028 | GPA: 3.48</p>
+                                <p><strong>Coursework:</strong> Applied Cybersecurity, Script Programming, Computer Science 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023 - 2025</div>
+                            <h3 class="timeline-title">Tennis Warehouse</h3>
+                            <div class="timeline-subtitle">Lead Stringer & Checker</div>
+                            <div class="timeline-description">
+                                <p>Led QA for 50+ units/hr with &lt;2% defect rate</p>
+                                <p>Managed peer training and implemented process improvements</p>
+                                <p>Developed leadership skills in fast-paced environment</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h3 class="timeline-title">Freelance Web Development</h3>
+                            <div class="timeline-subtitle">Independent Developer</div>
+                            <div class="timeline-description">
+                                <p>Develop custom web applications and platforms</p>
+                                <p>Create responsive, user-focused digital solutions</p>
+                                <p>Collaborate with clients on technical requirements</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025 - Present</div>
+                            <h3 class="timeline-title">Code Ninjas</h3>
+                            <div class="timeline-subtitle">Sensei (Instructor)</div>
+                            <div class="timeline-description">
+                                <p>Guide students in block coding and JavaScript fundamentals</p>
+                                <p>Teach foundational logic, debugging, and project-based problem solving</p>
+                                <p>Mentor young developers in computational thinking</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025 - Present</div>
+                            <h3 class="timeline-title">Education Team Content Creator</h3>
+                            <div class="timeline-subtitle">Curriculum Development</div>
+                            <div class="timeline-description">
+                                <p>Support Education team's projects in curriculum development</p>
+                                <p>Learning and development including core programs, debugging and QA</p>
+                                <p>Piloting new programs and training development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-quote">
+                    <blockquote class="spiderman-quote">
+                        <span class="quote-text">"Anyone can wear the mask. You could wear the mask."</span>
+                        <cite class="quote-author">— Miles Morales</cite>
                     </blockquote>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">2+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Languages</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <!-- MAY REMOVE AS MAY BE CONFUSING (MAY JUST LIST LANGUAGES) -->
-                    <h3>Languages & Paradigms</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">C</span>
-                            <span class="skill-level">3.9/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 39%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript/HTML/CSS</span>
-                            <span class="skill-level">7.4/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 74%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-level">5.2/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 52%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Go</span>
-                            <span class="skill-level">3/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 30%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C#</span>
-                            <span class="skill-level">3/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 30%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Rust</span>
-                            <span class="skill-level">1.2/10 (personal ranking)</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 12%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools & Environments</h3>
-                    <div class="tool-grid">
-                        <div class="tool-item">Neovim</div>
-                        <div class="tool-item">Zsh</div>
-                        <div class="tool-item">Git/GitHub</div>
-                        <div class="tool-item">QEMU</div>
-                        <div class="tool-item">Linux</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Domains of Interest</h3>
-                    <ul class="domain-list">
-                        <li>Systems & kernel-adjacent programming</li>
-                        <li>Cybersecurity tooling & secure architectures</li>
-                        <li>Front-end SPAs & real-time dashboards</li>
-                        <li>FinTech services & performance-critical systems</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS-->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">My Works</h2>
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Learning-Lab</h3>
-              <a href="https://github.com/JacobSmxth/learning-lab" target="_blank" class="project-link">View on GitHub</a>
-            </div>
-            <p>Centralized repository for low-level systems programming, covering C, Go, Rust, Assembly, and Python. Built for progressive mastery through exercises, prototypes, and research-driven projects.</p>
-            <div class="project-tags">
-              <span class="tag">C</span>
-              <span class="tag">Go</span>
-              <span class="tag">Rust</span>
-              <span class="tag">Assembly</span>
-              <span class="tag">Python</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Dotfiles</h3>
-              <a href="https://github.com/JacobSmxth/dotfiles" target="_blank" class="project-link">View on GitHub</a>
-            </div>
-            <p>Linux configuration suite using Hyprland, Waybar, Neovim, and tmux. Designed for high-productivity terminal workflows and custom desktop UI.</p>
-            <div class="project-tags">
-              <span class="tag">Linux</span>
-              <span class="tag">Hyprland</span>
-              <span class="tag">Neovim</span>
-              <span class="tag">Dotfiles</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Gaming Leaderboard</h3>
-              <a href="https://fr0st.gg/leaderboard" target="_blank" class="project-link">Live Demo</a>
-            </div>
-            <p>Real-time leaderboard system for competitive gaming using JavaScript and WebSockets. Built with scalability and instant updates in mind.</p>
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">WebSocket</span>
-              <span class="tag">Real-time</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Rewards Dashboard</h3>
-              <a href="https://www.goatrewards.com/" target="_blank" class="project-link">Live Demo</a>
-            </div>
-            <p>A streamers gaming leaderboard system with a custom dashboard UI. Integrates analytics and engagement tooling.</p>
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">Dashboard</span>
-              <span class="tag">Analytics</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    
-    <!-- EXPERIENCE -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Leadership & Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2025 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Lead Sensei</h3>
-                        <h4>Code Ninjas</h4>
-                        <p>Mentor 8–12 students weekly in block-code programming, JavaScript fundamentals, and foundational C# development in Unity game engine.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Double Major: Cybersecurity & Computer Science</h3>
-                        <h4>UNG Dahlonega</h4>
-                        <p>Pursuing dual Bachelor's degrees in Cybersecurity and Computer Science with specialized focus on systems programming and secure software development. Undecided on minor (leaning towards Fintech).</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 - 2024</div>
-                    <div class="timeline-content">
-                        <h3>Lead Stringer & Quality Checker</h3>
-                        <h4>Tennis Warehouse</h4>
-                        <p>Directed a team of 10+ stringers and maintained quality control standards. Verified quality on 50+ racquets a shift while maintaining less than 2% defect rate.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="streaming-banner">
-                <h3>Live Coding Streams</h3>
-                <p>Catch me streaming my development workflow occasionally on
-                    <a href="https://twitch.tv/jxvoided" target="_blank" class="twitch-link">Twitch</a>
-                </p>
-                <blockquote>
-                    "The way I see it, if you want the rainbow, you gotta put up with the rain."
-                    <cite>— Spider-Man</cite>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>
-                        Whether you're interested in systems programming, cybersecurity, or just want to chat about tech,
-                        I'd love to hear from you.
+        </section>
+        
+        <!-- Skills Matrix Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Digital Arsenal">
+                        Digital Arsenal
+                    </h2>
+                    <p class="section-subtitle">
+                        Systems programming expertise with cybersecurity focus
                     </p>
-                    <div class="contact-methods">
-                        <a href="mailto:jacobsmith@jsmitty.com" class="contact-item">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <span>jacobsmith@jsmitty.com</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/jacobsmxth" target="_blank" class="contact-item">
-                            <i class="fab fa-linkedin contact-icon"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/JacobSmxth" target="_blank" class="contact-item">
-                            <i class="fab fa-github contact-icon"></i>
-                            <span>GitHub: JacobSmxth</span>
-                        </a>
-                        <a href="https://twitch.tv/jxvoided" target="_blank" class="contact-item">
-                            <i class="fab fa-twitch contact-icon"></i>
-                            <span>Twitch Streams</span>
-                        </a>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-category" data-aos="fade-up">
+                        <h3 class="category-title">
+                            <span class="category-icon">⚡</span>
+                            Systems Programming
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">C</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Assembly</span>
+                                    <span class="skill-level">Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="25"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Go</span>
+                                    <span class="skill-level">Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="category-title">
+                            <span class="category-icon">🌐</span>
+                            Web Technologies
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML5/CSS3</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="65"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="category-title">
+                            <span class="category-icon">🛠️</span>
+                            Tools & Platforms
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Linux</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git/GitHub</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Neovim/Zsh</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="category-title">
+                            <span class="category-icon">🔒</span>
+                            Specializations
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Cybersecurity</span>
+                                    <span class="skill-level">Student</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="50"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Low-level Systems</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="35"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Network Protocols</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="30"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- NEEDS TO BE MADE TO WORK -->
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+            </div>
+        </section>
+        
+        <!-- Projects Grid Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Code Gallery">
+                        Code Gallery
+                    </h2>
+                    <p class="section-subtitle">
+                        Featured projects showcasing systems programming and development skills
+                    </p>
+                </div>
+                
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Project cards will be dynamically loaded -->
+                </div>
+                
+                <div class="projects-actions">
+                    <button class="show-more-btn" id="show-more-projects" style="display: none;">
+                        <span class="btn-text">Show More Projects</span>
+                        <span class="btn-icon">↓</span>
+                    </button>
+                </div>
+                
+                <div class="projects-quote">
+                    <blockquote class="spiderman-quote">
+                        <span class="quote-text">"Not everyone is meant to make a difference, but for me, the choice to lead an ordinary life is no longer an option."</span>
+                        <cite class="quote-author">— Peter Parker</cite>
+                    </blockquote>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        
+        <!-- Experience Grid Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Professional Journey">
+                        Professional Journey
+                    </h2>
+                    <p class="section-subtitle">
+                        Teaching, mentoring, and creating educational content
+                    </p>
+                </div>
+                
+                <div class="experience-grid">
+                    <div class="experience-card" data-aos="fade-up">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-code"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Code Ninjas Sensei</h3>
+                                <div class="card-period">2025 - Present</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Guide students through block coding and JavaScript fundamentals, 
+                                teaching foundational logic, debugging, and project-based problem solving.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Mentor young developers in computational thinking</li>
+                                <li>Teach debugging techniques and best practices</li>
+                                <li>Foster creative problem-solving through game development</li>
+                            </ul>
+                        </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Block Coding</span>
+                            <span class="tech-tag">Game Development</span>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Education Team Content Creator</h3>
+                                <div class="card-period">2025 - Present</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Support Education team's projects in curriculum development, 
+                                learning and development including core programs, debugging and QA.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Develop comprehensive curriculum materials</li>
+                                <li>Quality assurance for educational content</li>
+                                <li>Pilot new programs and training development</li>
+                            </ul>
+                        </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">Curriculum Design</span>
+                            <span class="tech-tag">QA Testing</span>
+                            <span class="tech-tag">Training Development</span>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-tools"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Lead Stringer & Checker</h3>
+                                <div class="card-period">2023 - 2025</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Led quality assurance for 50+ units per hour with less than 2% defect rate, 
+                                managing peer training and implementing process improvements.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Maintained exceptional quality standards</li>
+                                <li>Trained and mentored team members</li>
+                                <li>Optimized workflows for efficiency</li>
+                            </ul>
+                        </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">Quality Control</span>
+                            <span class="tech-tag">Team Leadership</span>
+                            <span class="tech-tag">Process Improvement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Plans Section -->
+        <section id="plans" class="plans-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Future Roadmap">
+                        Future Roadmap
+                    </h2>
+                    <p class="section-subtitle">
+                        Strategic goals and career trajectory in systems programming and cybersecurity
+                    </p>
+                </div>
+                
+                <div class="plans-grid">
+                    <div class="plan-category" data-aos="fade-up">
+                        <h3 class="plan-title">
+                            <span class="plan-icon"><i class="fas fa-code"></i></span>
+                            Technical Mastery
+                        </h3>
+                        <div class="plan-items">
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Master C Programming</span>
+                                    <span class="plan-timeline">2025-2026</span>
+                                </div>
+                                <p class="plan-description">Deep dive into systems programming, memory management, and low-level optimization</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Learn Go</span>
+                                    <span class="plan-timeline">2026</span>
+                                </div>
+                                <p class="plan-description">Modern systems language for cloud infrastructure and distributed systems</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Dive into FinTech</span>
+                                    <span class="plan-timeline">2026-2027</span>
+                                </div>
+                                <p class="plan-description">Financial technology systems, security protocols, and trading platforms</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="plan-title">
+                            <span class="plan-icon"><i class="fas fa-project-diagram"></i></span>
+                            Major Projects
+                        </h3>
+                        <div class="plan-items">
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">C Systems Project</span>
+                                    <span class="plan-timeline">2025</span>
+                                </div>
+                                <p class="plan-description">Low-level systems programming project showcasing memory management and performance optimization</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Go Infrastructure Tool</span>
+                                    <span class="plan-timeline">2026</span>
+                                </div>
+                                <p class="plan-description">Cloud-native infrastructure tool built with Go for scalability and performance</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">FinTech Application</span>
+                                    <span class="plan-timeline">2027</span>
+                                </div>
+                                <p class="plan-description">Financial technology application with security focus and real-time data processing</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-category" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="plan-title">
+                            <span class="plan-icon"><i class="fas fa-graduation-cap"></i></span>
+                            Long-term Goals
+                        </h3>
+                        <div class="plan-items">
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Master's in Computer Science</span>
+                                    <span class="plan-timeline">2028+</span>
+                                </div>
+                                <p class="plan-description">Advanced degree focusing on systems architecture and cybersecurity research</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Career Paths</span>
+                                    <span class="plan-timeline">Post-Graduation</span>
+                                </div>
+                                <p class="plan-description">Software Engineer • Infrastructure SWE • Security Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="plans-quote">
+                    <blockquote class="spiderman-quote">
+                        <span class="quote-text">"The future belongs to those who prepare for it today."</span>
+                        <cite class="quote-author">— Malcolm X</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Terminal Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Initialize Connection">
+                        Initialize Connection
+                    </h2>
+                    <p class="section-subtitle">
+                        Ready to collaborate on systems programming or educational projects
+                    </p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="terminal-container">
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <span class="control-btn close"></span>
+                                <span class="control-btn minimize"></span>
+                                <span class="control-btn maximize"></span>
+                            </div>
+                            <div class="terminal-title">jacob@portfolio:~$</div>
+                        </div>
+                        
+                        <div class="terminal-body">
+                            <div class="terminal-output" id="terminal-output">
+                                <div class="output-line">
+                                    <span class="prompt">jacob@portfolio:~$</span>
+                                    <span class="command">./contact_form --initialize</span>
+                                </div>
+                                <div class="output-line">
+                                    <span class="system-msg">Initializing secure connection...</span>
+                                </div>
+                                <div class="output-line">
+                                    <span class="success-msg">Connection established. Ready for input.</span>
+                                </div>
+                            </div>
+                            
+                            <form class="contact-form" id="contact-form">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span class="prompt">jacob@portfolio:~$</span>
+                                        <span class="command">echo "Your Name:" &&</span>
+                                    </label>
+                                    <input type="text" name="name" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span class="prompt">jacob@portfolio:~$</span>
+                                        <span class="command">echo "Your Email:" &&</span>
+                                    </label>
+                                    <input type="email" name="email" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span class="prompt">jacob@portfolio:~$</span>
+                                        <span class="command">echo "Your Message:" &&</span>
+                                    </label>
+                                    <textarea name="message" class="form-input form-textarea" rows="4" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">
+                                    <span class="btn-text">./send_message.sh</span>
+                                    <span class="btn-icon">→</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="info-section">
+                            <h3 class="info-title">Connect With Me</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/jacobsmxth" class="social-link" target="_blank" rel="noopener">
+                                    <span class="social-icon"><i class="fab fa-github"></i></span>
+                                    <span class="social-text">GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/jacobsmxth" class="social-link" target="_blank" rel="noopener">
+                                    <span class="social-icon"><i class="fab fa-linkedin"></i></span>
+                                    <span class="social-text">LinkedIn</span>
+                                </a>
+                                <a href="mailto:jacob@jsmitty.com" class="social-link">
+                                    <span class="social-icon"><i class="fas fa-envelope"></i></span>
+                                    <span class="social-text">Email</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3 class="info-title">Current Status</h3>
+                            <div class="status-info">
+                                <div class="status-item">
+                                    <span class="status-label">Location:</span>
+                                    <span class="status-value">Alpharetta, GA</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-label">Availability:</span>
+                                    <span class="status-value neon-text">Open to Opportunities</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-label">Focus:</span>
+                                    <span class="status-value">Systems Programming & Education</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-quote">
+                    <blockquote class="spiderman-quote">
+                        <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
+                        <cite class="quote-author">— Peter Parker</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+    </main>
+    
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="site-footer">
+        <div class="footer-container">
             <div class="footer-content">
-                <p>&copy; 2025 Jacob Smith. Built with vanilla HTML, CSS, and JavaScript.</p>
-                <p class="footer-quote">
-                    "With great power comes great responsibility."
+                <p class="footer-text">
+                    &copy; 2025 Jacob Smith. Built with passion for systems programming and education.
+                </p>
+                <p class="footer-tech">
+                    Crafted with HTML5, CSS3, and JavaScript | Hosted on Vercel
                 </p>
             </div>
         </div>
     </footer>
-
-    <script src="main.js"></script>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/matrix-rain.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/projects-data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
