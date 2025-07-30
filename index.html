@@ -134,20 +134,36 @@
                     </div>
                     
                     <div class="hero-actions">
-                        <a href="#projects" class="cta-button primary-cta">
-                            <span class="button-text">View My Work</span>
-                            <span class="button-icon">→</span>
-                        </a>
-                        <a href="#contact" class="cta-button secondary-cta">
-                            <span class="button-text">Get In Touch</span>
-                            <span class="button-icon">✉</span>
-                        </a>
+                        <div class="cta-buttons">
+                            <a href="#projects" class="cta-button primary-cta">
+                                <span class="button-text">View My Work</span>
+                                <span class="button-icon">→</span>
+                            </a>
+                            <a href="#contact" class="cta-button secondary-cta">
+                                <span class="button-text">Get In Touch</span>
+                                <span class="button-icon">✉</span>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-social">
+                            <div class="social-links-hero">
+                                <a href="https://github.com/jacobsmxth" class="social-link-hero" target="_blank" rel="noopener">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/jacobsmxth" class="social-link-hero" target="_blank" rel="noopener">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="mailto:jacob@jsmitty.com" class="social-link-hero">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="hero-visual">
                     <div class="code-snippet-container">
-                        <div class="code-snippet floating-code">
+                        <div class="code-snippet floating-code" id="floating-code-1">
                             <pre><code class="language-c">
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
@@ -158,7 +174,7 @@ int main() {
 }
                             </code></pre>
                         </div>
-                        <div class="code-snippet floating-code">
+                        <div class="code-snippet floating-code" id="floating-code-2">
                             <pre><code class="language-go">
 package main
 
@@ -182,270 +198,94 @@ func main() {
             </div>
         </section>
         
-        <!-- About Timeline Section -->
-        <section id="about" class="about-section">
+        <!-- Experience Grid Section -->
+        <section id="experience" class="experience-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Journey Through Code">
-                        Journey Through Code
+                    <h2 class="section-title glitch-text" data-text="Professional Journey">
+                        Professional Journey
                     </h2>
                     <p class="section-subtitle">
-                        From frontend development to systems programming mastery
+                        Teaching, mentoring, and creating educational content
                     </p>
                 </div>
                 
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - 2028</div>
-                            <h3 class="timeline-title">University of North Georgia - Dahlonega</h3>
-                            <div class="timeline-subtitle">Bachelor of Science - Double Major</div>
-                            <div class="timeline-description">
-                                <p><strong class="neon-text">Cybersecurity & Computer Science</strong></p>
-                                <p>Expected Graduation: May 2028 | GPA: 3.48</p>
-                                <p><strong>Coursework:</strong> Applied Cybersecurity, Script Programming, Computer Science 2</p>
+                <div class="experience-grid">
+                    <div class="experience-card" data-aos="fade-up">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-code"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Sensei</h3>
+                                <div class="card-period">Code Ninjas - 2025 - Present</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="timeline-marker">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Guide students through block coding and JavaScript fundamentals,
+                                teaching foundational logic, debugging, and project-based problem solving.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Mentor young developers in computational thinking</li>
+                                <li>Teach debugging techniques and best practices</li>
+                                <li>Foster creative problem-solving through game development</li>
+                            </ul>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023 - 2025</div>
-                            <h3 class="timeline-title">Tennis Warehouse</h3>
-                            <div class="timeline-subtitle">Lead Stringer & Checker</div>
-                            <div class="timeline-description">
-                                <p>Led QA for 50+ units/hr with &lt;2% defect rate</p>
-                                <p>Managed peer training and implemented process improvements</p>
-                                <p>Developed leadership skills in fast-paced environment</p>
-                            </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Block Coding</span>
+                            <span class="tech-tag">Game Development</span>
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - Present</div>
-                            <h3 class="timeline-title">Freelance Web Development</h3>
-                            <div class="timeline-subtitle">Independent Developer</div>
-                            <div class="timeline-description">
-                                <p>Develop custom web applications and platforms</p>
-                                <p>Create responsive, user-focused digital solutions</p>
-                                <p>Collaborate with clients on technical requirements</p>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Education Team Content Creator</h3>
+                                <div class="card-period">Code Ninjas - 2025 - Present</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Support Code Ninjas Education team's projects in curriculum development,
+                                learning and development including core programs, debugging and QA.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Develop comprehensive curriculum materials</li>
+                                <li>Quality assurance for educational content</li>
+                                <li>Pilot new programs and training development</li>
+                            </ul>
                         </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2025 - Present</div>
-                            <h3 class="timeline-title">Code Ninjas</h3>
-                            <div class="timeline-subtitle">Sensei (Instructor)</div>
-                            <div class="timeline-description">
-                                <p>Guide students in block coding and JavaScript fundamentals</p>
-                                <p>Teach foundational logic, debugging, and project-based problem solving</p>
-                                <p>Mentor young developers in computational thinking</p>
-                            </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">Curriculum Design</span>
+                            <span class="tech-tag">QA Testing</span>
+                            <span class="tech-tag">Training Development</span>
                         </div>
                     </div>
                     
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2025 - Present</div>
-                            <h3 class="timeline-title">Education Team Content Creator</h3>
-                            <div class="timeline-subtitle">Curriculum Development</div>
-                            <div class="timeline-description">
-                                <p>Support Education team's projects in curriculum development</p>
-                                <p>Learning and development including core programs, debugging and QA</p>
-                                <p>Piloting new programs and training development</p>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-header">
+                            <div class="card-icon"><i class="fas fa-tools"></i></div>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Lead Stringer & Checker</h3>
+                                <div class="card-period">Tennis Warehouse - 2023 - 2025</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-quote">
-                    <blockquote class="spiderman-quote">
-                        <span class="quote-text">"Anyone can wear the mask. You could wear the mask."</span>
-                        <cite class="quote-author">— Miles Morales</cite>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Skills Matrix Section -->
-        <section id="skills" class="skills-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Digital Arsenal">
-                        Digital Arsenal
-                    </h2>
-                    <p class="section-subtitle">
-                        Systems programming expertise with cybersecurity focus
-                    </p>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-category" data-aos="fade-up">
-                        <h3 class="category-title">
-                            <span class="category-icon">⚡</span>
-                            Systems Programming
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">C</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Assembly</span>
-                                    <span class="skill-level">Beginner</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="25"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Go</span>
-                                    <span class="skill-level">Beginner</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="20"></div>
-                                </div>
-                            </div>
+                        <div class="card-content">
+                            <p class="card-description">
+                                Led quality assurance for 50+ units per hour with less than 2% defect rate,
+                                managing peer training and implementing process improvements.
+                            </p>
+                            <ul class="card-highlights">
+                                <li>Maintained exceptional quality standards</li>
+                                <li>Trained and mentored team members</li>
+                                <li>Optimized workflows for efficiency</li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="category-title">
-                            <span class="category-icon">🌐</span>
-                            Web Technologies
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="65"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="category-title">
-                            <span class="category-icon">🛠️</span>
-                            Tools & Platforms
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Linux</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git/GitHub</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Neovim/Zsh</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
-                        <h3 class="category-title">
-                            <span class="category-icon">🔒</span>
-                            Specializations
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Cybersecurity</span>
-                                    <span class="skill-level">Student</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Low-level Systems</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="35"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Network Protocols</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="30"></div>
-                                </div>
-                            </div>
+                        <div class="card-tech">
+                            <span class="tech-tag">Quality Control</span>
+                            <span class="tech-tag">Team Leadership</span>
+                            <span class="tech-tag">Process Improvement</span>
                         </div>
                     </div>
                 </div>
@@ -484,99 +324,315 @@ func main() {
             </div>
         </section>
         
-        <!-- Experience Grid Section -->
-        <section id="experience" class="experience-section">
+        <!-- Skills Matrix Section -->
+        <section id="skills" class="skills-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Professional Journey">
-                        Professional Journey
+                    <h2 class="section-title glitch-text" data-text="Digital Arsenal">
+                        Digital Arsenal
                     </h2>
                     <p class="section-subtitle">
-                        Teaching, mentoring, and creating educational content
+                        Systems programming expertise with cybersecurity focus
+                    </p>
+                    <p class="skills-note">
+                        <em>Note: Progress bars indicate my confidence level with each technology</em>
                     </p>
                 </div>
                 
-                <div class="experience-grid">
-                    <div class="experience-card" data-aos="fade-up">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-code"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Code Ninjas Sensei</h3>
-                                <div class="card-period">2025 - Present</div>
+                <div class="skills-grid">
+                    <div class="skill-category" data-aos="fade-up">
+                        <h3 class="category-title">
+                            <span class="category-icon"><i class="fas fa-bolt"></i></span>
+                            Systems Programming
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">C</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Guide students through block coding and JavaScript fundamentals, 
-                                teaching foundational logic, debugging, and project-based problem solving.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Mentor young developers in computational thinking</li>
-                                <li>Teach debugging techniques and best practices</li>
-                                <li>Foster creative problem-solving through game development</li>
-                            </ul>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Block Coding</span>
-                            <span class="tech-tag">Game Development</span>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Assembly (16 bit)</span>
+                                    <span class="skill-level">Beginner</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="25"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Go</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="20"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Education Team Content Creator</h3>
-                                <div class="card-period">2025 - Present</div>
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="category-title">
+                            <span class="category-icon"><i class="fas fa-globe"></i></span>
+                            Web Technologies
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="70"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Support Education team's projects in curriculum development, 
-                                learning and development including core programs, debugging and QA.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Develop comprehensive curriculum materials</li>
-                                <li>Quality assurance for educational content</li>
-                                <li>Pilot new programs and training development</li>
-                            </ul>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Curriculum Design</span>
-                            <span class="tech-tag">QA Testing</span>
-                            <span class="tech-tag">Training Development</span>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML5/CSS3</span>
+                                    <span class="skill-level">Deep Knowledge</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="50"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-tools"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Lead Stringer & Checker</h3>
-                                <div class="card-period">2023 - 2025</div>
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="category-title">
+                            <span class="category-icon"><i class="fas fa-tools"></i></span>
+                            Tools & Platforms
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Linux</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="50"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git/GitHub</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Neovim/Zsh</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="70"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Led quality assurance for 50+ units per hour with less than 2% defect rate, 
-                                managing peer training and implementing process improvements.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Maintained exceptional quality standards</li>
-                                <li>Trained and mentored team members</li>
-                                <li>Optimized workflows for efficiency</li>
-                            </ul>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="category-title">
+                            <span class="category-icon"><i class="fas fa-bullseye"></i></span>
+                            Specializations
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Cybersecurity</span>
+                                    <span class="skill-level">Student</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="50"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Low-level Systems</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="35"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Network Protocols</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="30"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Quality Control</span>
-                            <span class="tech-tag">Team Leadership</span>
-                            <span class="tech-tag">Process Improvement</span>
+                    </div>
+                    
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="800">
+                        <h3 class="category-title">
+                            <span class="category-icon"><i class="fas fa-lightbulb"></i></span>
+                            Soft Skills
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Problem Solving</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Teaching</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Team Leadership</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Communication</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <!-- About Timeline Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title glitch-text" data-text="Journey Through Code">
+                        Journey Through Code
+                    </h2>
+                    <p class="section-subtitle">
+                        From frontend development to systems programming mastery
+                    </p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - 2028</div>
+                            <h3 class="timeline-title">Bachelor of Science - Double Major</h3>
+                            <div class="timeline-subtitle">University of North Georgia - Dahlonega</div>
+                            <div class="timeline-description">
+                                <p><strong class="neon-text">Cybersecurity & Computer Science</strong> | GPA: 3.48</p>
+                                <p>Expected Graduation: May 2028</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023 - 2025</div>
+                            <h3 class="timeline-title">Lead Stringer & Checker</h3>
+                            <div class="timeline-subtitle">Tennis Warehouse</div>
+                            <div class="timeline-description">
+                                <p>Led QA for 50+ units/hr with &lt;2% defect rate. Managed peer training and process improvements in fast-paced environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h3 class="timeline-title">Freelance Web Developer</h3>
+                            <div class="timeline-subtitle">Independent</div>
+                            <div class="timeline-description">
+                                <p>Develop custom web applications and responsive digital solutions for clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025 - Present</div>
+                            <h3 class="timeline-title">Sensei (Instructor)</h3>
+                            <div class="timeline-subtitle">Code Ninjas</div>
+                            <div class="timeline-description">
+                                <p>Guide students in block coding and JavaScript fundamentals. Mentor young developers in computational thinking and problem-solving.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
+                        <div class="timeline-marker active">
+                            <div class="marker-dot"></div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025 - Present</div>
+                            <h3 class="timeline-title">Education Team Content Creator</h3>
+                            <div class="timeline-subtitle">Code Ninjas</div>
+                            <div class="timeline-description">
+                                <p>Support curriculum development, QA testing, and pilot new educational programs for the Education team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-quote">
+                    <blockquote class="spiderman-quote">
+                        <span class="quote-text">"Anyone can wear the mask. You could wear the mask."</span>
+                        <cite class="quote-author">— Miles Morales</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        
         
         <!-- Plans Section -->
         <section id="plans" class="plans-section">
@@ -677,8 +733,8 @@ func main() {
                 
                 <div class="plans-quote">
                     <blockquote class="spiderman-quote">
-                        <span class="quote-text">"The future belongs to those who prepare for it today."</span>
-                        <cite class="quote-author">— Malcolm X</cite>
+                        <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
+                        <cite class="quote-author">— Peter Parker</cite>
                     </blockquote>
                 </div>
             </div>
@@ -786,7 +842,7 @@ func main() {
                                 </div>
                                 <div class="status-item">
                                     <span class="status-label">Focus:</span>
-                                    <span class="status-value">Systems Programming & Education</span>
+                                    <span class="status-value">Systems Programming</span>
                                 </div>
                             </div>
                         </div>

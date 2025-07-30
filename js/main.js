@@ -379,7 +379,43 @@ class CyberpunkPortfolio {
       
       setTimeout(() => {
         bar.style.width = `${progress}%`;
+        // Force repaint for mobile devices
+        bar.offsetHeight;
       }, index * 200);
+    });
+    
+    // Add touch event listeners for mobile interaction
+    this.setupMobileSkillInteraction();
+  }
+  
+  setupMobileSkillInteraction() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    skillItems.forEach(item => {
+      // Add touch events for mobile
+      item.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        item.classList.add('touched');
+      });
+      
+      item.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        setTimeout(() => {
+          item.classList.remove('touched');
+        }, 150);
+      });
+      
+      // Add click event for mobile tap
+      item.addEventListener('click', (e) => {
+        const skillBar = item.querySelector('.skill-progress');
+        const progress = skillBar.getAttribute('data-progress');
+        
+        // Re-animate the bar on mobile tap
+        skillBar.style.width = '0%';
+        setTimeout(() => {
+          skillBar.style.width = `${progress}%`;
+        }, 100);
+      });
     });
   }
   
@@ -545,6 +581,7 @@ class CyberpunkPortfolio {
       });
     }
   }
+  
   
   handleKeyboard(e) {
     // Keyboard shortcuts

@@ -424,6 +424,7 @@ a:hover {
   color: var(--electric-blue);
   font-weight: 500;
   line-height: 1.3;
+  min-height: 1.5em; /* Prevent layout shift when text is empty */
 }
 
 .typed-text {
@@ -443,7 +444,39 @@ a:hover {
 }
 
 .hero-quote {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-social {
+  margin-bottom: var(--spacing-xl);
+}
+
+.social-links-hero {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.social-link-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 128, 255, 0.1);
+  border: 2px solid var(--electric-blue);
+  border-radius: 50%;
+  color: var(--electric-blue);
+  font-size: var(--font-size-xl);
+  transition: var(--transition-normal);
+  text-decoration: none;
+}
+
+.social-link-hero:hover {
+  background: var(--electric-blue);
+  color: var(--deep-black);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-blue);
 }
 
 .spiderman-quote {
@@ -470,8 +503,26 @@ a:hover {
 
 .hero-actions {
   display: flex;
+  flex-direction: row;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cta-buttons {
+  display: flex;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
+}
+
+.hero-social {
+  margin-bottom: 0;
+}
+
+.social-links-hero {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--spacing-md);
 }
 
 .cta-button {
@@ -528,6 +579,7 @@ a:hover {
 .code-snippet-container {
   position: relative;
   height: 400px;
+  overflow: hidden;
 }
 
 .floating-code {
@@ -538,17 +590,36 @@ a:hover {
   padding: var(--spacing-lg);
   backdrop-filter: blur(10px);
   animation: float 6s ease-in-out infinite;
+  max-height: 300px;
+  overflow: hidden;
+  /* Constrain to container bounds but allow more width for code */
+  max-width: 350px;
+  width: auto;
+}
+
+/* Ensure hero section contains floating elements */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  /* Ensure visual content stays within bounds */
+  max-height: 500px;
+  overflow: hidden;
 }
 
 .floating-code:first-child {
-  top: 0;
-  right: 0;
+  top: 20px;
+  right: 20px;
   animation-delay: 0s;
 }
 
 .floating-code:last-child {
-  bottom: 0;
-  left: 0;
+  bottom: 20px;
+  left: 20px;
   animation-delay: 3s;
 }
 
@@ -723,6 +794,14 @@ a:hover {
   background: var(--deep-black);
 }
 
+.skills-note {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-md);
+  font-style: italic;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -765,6 +844,20 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.skill-item:hover,
+.skill-item.touched {
+  transform: translateX(5px);
+}
+
+.skill-item.touched {
+  background: rgba(0, 128, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  margin: -var(--spacing-sm);
 }
 
 .skill-info {
@@ -799,6 +892,7 @@ a:hover {
   width: 0%;
   transition: width 1s ease-out;
   box-shadow: var(--glow-red);
+  cursor: pointer;
 }
 
 /* ===== PROJECTS SECTION ===== */
@@ -1486,6 +1580,12 @@ a:hover {
   }
   
   .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+  
+  .cta-buttons {
     justify-content: center;
   }
   
@@ -1503,6 +1603,22 @@ a:hover {
   
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Ensure skill bars work on mobile */
+  .skill-item {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    transition: var(--transition-normal);
+  }
+  
+  .skill-item:active {
+    background: rgba(0, 128, 255, 0.1);
+    transform: translateX(2px);
+  }
+  
+  .skill-bar {
+    touch-action: manipulation;
   }
   
   .experience-grid {
@@ -1567,6 +1683,13 @@ a:hover {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-md);
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
   }
   
   .cta-button {

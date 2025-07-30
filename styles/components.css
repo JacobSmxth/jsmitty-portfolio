@@ -11,6 +11,7 @@
   min-width: 350px;
   margin: 0 var(--spacing-md);
   backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -139,6 +140,10 @@
   font-weight: 500;
   border: 1px solid var(--electric-blue);
   transition: var(--transition-normal);
+}
+
+.tech-badge {
+  cursor: pointer;
 }
 
 .tech-badge:hover {
