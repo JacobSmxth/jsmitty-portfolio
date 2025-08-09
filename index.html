@@ -1,57 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jacob Smith - Systems Programmer & Cybersecurity Connoisseur | Code Ninjas Sensei | Education Team Content Creator">
-    <meta name="keywords" content="Jacob Smith, Systems Programming, Cybersecurity, Computer Science, Code Ninjas, Portfolio">
+    <meta name="description" content="Jacob Smith - Backend-Focused Student Engineer | Java-first, Fintech-oriented | Code Ninjas Sensei | Education Team Content Creator">
+    <meta name="keywords" content="Jacob Smith, Java, Spring Boot, Backend, Fintech, Computer Science, Code Ninjas, Portfolio">
     <meta name="author" content="Jacob Smith">
-    
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Jacob Smith - Systems Programmer & Cybersecurity Connoisseur">
-    <meta property="og:description" content="Double major in Cybersecurity & Computer Science at UNG Dahlonega. Code Ninjas Sensei and Education Team Content Creator. Hosted on Vercel.">
+    <meta property="og:title" content="Jacob Smith - Java Backend & Fintech">
+    <meta property="og:description" content="Double major in Cybersecurity & Computer Science at UNG Dahlonega. Backend-focused with Java, Spring Boot, SQL, and fintech interests. Code Ninjas Sensei and Education Team Content Creator.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jsmitty.com">
 
-    <title>Jacob Smith | Systems Programmer & Cybersecurity Connoisseur</title>
-    
+    <title>Jacob Smith | Java Backend & Fintech</title>
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles/main.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/components.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    
+
     <!-- Font Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="cyberpunk-theme">
     <!-- Matrix Rain Background -->
     <canvas id="matrix-canvas" class="matrix-background"></canvas>
-    
+
     <!-- Particle System Background -->
     <div id="particles-container" class="particles-background"></div>
-    
+
     <!-- Navigation -->
     <nav class="cyber-nav" id="main-nav">
         <div class="nav-container">
             <div class="nav-brand">
                 <span class="brand-text glitch-text" data-text="Jacob Smith">Jacob Smith</span>
             </div>
-            
+
             <div class="nav-menu" id="nav-menu">
                 <a href="#hero" class="nav-link" data-section="hero">
                     <span class="nav-icon">></span>
@@ -82,7 +83,7 @@
                     <span class="nav-text">Contact</span>
                 </a>
             </div>
-            
+
             <!-- Theme Toggle -->
             <div class="theme-toggle" id="theme-toggle">
                 <div class="toggle-switch">
@@ -90,7 +91,7 @@
                 </div>
                 <span class="toggle-label">Ghost Protocol</span>
             </div>
-            
+
             <!-- Mobile Menu Toggle -->
             <div class="mobile-menu-toggle" id="mobile-menu-toggle">
                 <span class="hamburger-line"></span>
@@ -99,7 +100,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
@@ -109,30 +110,30 @@
                     <div class="hero-greeting">
                         <span class="greeting-text">Hello, I'm</span>
                     </div>
-                    
+
                     <h1 class="hero-title">
                         <span class="title-line glitch-text" data-text="Jacob Smith">Jacob Smith</span>
                         <span class="title-subtitle">
                             <span class="typed-text" id="hero-typed"></span>
                         </span>
                     </h1>
-                    
+
                     <div class="hero-description">
                         <p class="description-text">
-                            Infrastructure-Focused Student Engineer transitioning from web to systems programming.
+                            Backend-Focused Student Engineer pivoting to <strong>Java</strong> for fintech.
                             <br>
-                            <strong class="highlight-text">Double Major:</strong> 
+                            <strong class="highlight-text">Double Major:</strong>
                             <span class="neon-text">Cybersecurity & Computer Science</span> at UNG Dahlonega
                         </p>
                     </div>
-                    
+
                     <div class="hero-quote">
                         <blockquote class="spiderman-quote">
                             <span class="quote-text">"With great power comes great responsibility."</span>
                             <cite class="quote-author">— Ben Parker</cite>
                         </blockquote>
                     </div>
-                    
+
                     <div class="hero-actions">
                         <div class="cta-buttons">
                             <a href="#projects" class="cta-button primary-cta">
@@ -144,7 +145,7 @@
                                 <span class="button-icon">✉</span>
                             </a>
                         </div>
-                        
+
                         <div class="hero-social">
                             <div class="social-links-hero">
                                 <a href="https://github.com/jacobsmxth" class="social-link-hero" target="_blank" rel="noopener">
@@ -160,35 +161,34 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="hero-visual">
                     <div class="code-snippet-container">
                         <div class="code-snippet floating-code" id="floating-code-1">
-                            <pre><code class="language-c">
-#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-
-int main() {
-    printf("Hello, World!\n");
-    return 0;
+<pre><code class="language-java">
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, Fintech.");
+    }
 }
-                            </code></pre>
+</code></pre>
                         </div>
                         <div class="code-snippet floating-code" id="floating-code-2">
-                            <pre><code class="language-go">
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Systems Programming")
+<pre><code class="language-java">
+@RestController
+@RequestMapping("/api")
+class HealthController {
+    @GetMapping("/health")
+    public Map&lt;String,String&gt; health() {
+        return Map.of("status", "up");
+    }
 }
-                            </code></pre>
+</code></pre>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Scroll Indicator -->
             <div class="scroll-indicator">
                 <div class="scroll-arrow">
@@ -197,7 +197,7 @@ func main() {
                 <span class="scroll-text">Scroll to explore</span>
             </div>
         </section>
-        
+
         <!-- Experience Grid Section -->
         <section id="experience" class="experience-section">
             <div class="section-container">
@@ -209,7 +209,7 @@ func main() {
                         Teaching, mentoring, and creating educational content
                     </p>
                 </div>
-                
+
                 <div class="experience-grid">
                     <div class="experience-card" data-aos="fade-up">
                         <div class="card-header">
@@ -221,7 +221,7 @@ func main() {
                         </div>
                         <div class="card-content">
                             <p class="card-description">
-                                Guide students through block coding and JavaScript fundamentals,
+                                Guide students through block coding, JavaScript, and Python fundamentals,
                                 teaching foundational logic, debugging, and project-based problem solving.
                             </p>
                             <ul class="card-highlights">
@@ -232,11 +232,11 @@ func main() {
                         </div>
                         <div class="card-tech">
                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Block Coding</span>
-                            <span class="tech-tag">Game Development</span>
                         </div>
                     </div>
-                    
+
                     <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -262,7 +262,7 @@ func main() {
                             <span class="tech-tag">Training Development</span>
                         </div>
                     </div>
-                    
+
                     <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-tools"></i></div>
@@ -291,7 +291,7 @@ func main() {
                 </div>
             </div>
         </section>
-        
+
         <!-- Projects Grid Section -->
         <section id="projects" class="projects-section">
             <div class="section-container">
@@ -300,21 +300,21 @@ func main() {
                         Code Gallery
                     </h2>
                     <p class="section-subtitle">
-                        Featured projects showcasing systems programming and development skills
+                        Featured projects showcasing backend & fintech learning
                     </p>
                 </div>
-                
+
                 <div class="projects-grid" id="projects-grid">
                     <!-- Project cards will be dynamically loaded -->
                 </div>
-                
+
                 <div class="projects-actions">
                     <button class="show-more-btn" id="show-more-projects" style="display: none;">
                         <span class="btn-text">Show More Projects</span>
                         <span class="btn-icon">↓</span>
                     </button>
                 </div>
-                
+
                 <div class="projects-quote">
                     <blockquote class="spiderman-quote">
                         <span class="quote-text">"Not everyone is meant to make a difference, but for me, the choice to lead an ordinary life is no longer an option."</span>
@@ -323,7 +323,7 @@ func main() {
                 </div>
             </div>
         </section>
-        
+
         <!-- Skills Matrix Section -->
         <section id="skills" class="skills-section">
             <div class="section-container">
@@ -332,36 +332,27 @@ func main() {
                         Digital Arsenal
                     </h2>
                     <p class="section-subtitle">
-                        Systems programming expertise with cybersecurity focus
+                        Backend engineering with a fintech and security focus
                     </p>
                     <p class="skills-note">
                         <em>Note: Progress bars indicate my confidence level with each technology</em>
                     </p>
                 </div>
-                
+
                 <div class="skills-grid">
                     <div class="skill-category" data-aos="fade-up">
                         <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-bolt"></i></span>
-                            Systems Programming
+                            <span class="category-icon"><i class="fas fa-server"></i></span>
+                            Backend & Languages
                         </h3>
                         <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">C</span>
-                                    <span class="skill-level">Intermediate</span>
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-level">Learning Fast</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Assembly (16 bit)</span>
-                                    <span class="skill-level">Beginner</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="25"></div>
+                                    <div class="skill-progress" data-progress="55"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -370,16 +361,25 @@ func main() {
                                     <span class="skill-level">Learning</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="20"></div>
+                                    <div class="skill-progress" data-progress="30"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">C#</span>
+                                    <span class="skill-level">Learning</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="25"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-globe"></i></span>
-                            Web Technologies
+                            <span class="category-icon"><i class="fas fa-cubes"></i></span>
+                            Web & Scripting
                         </h3>
                         <div class="skills-list">
                             <div class="skill-item">
@@ -393,15 +393,6 @@ func main() {
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                    <span class="skill-level">Deep Knowledge</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
                                     <span class="skill-name">Python</span>
                                     <span class="skill-level">Intermediate</span>
                                 </div>
@@ -409,9 +400,18 @@ func main() {
                                     <div class="skill-progress" data-progress="50"></div>
                                 </div>
                             </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML5/CSS3</span>
+                                    <span class="skill-level">Deep Knowledge</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
                         <h3 class="category-title">
                             <span class="category-icon"><i class="fas fa-tools"></i></span>
@@ -420,20 +420,29 @@ func main() {
                         <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">Linux</span>
-                                    <span class="skill-level">Intermediate</span>
+                                    <span class="skill-name">Spring Boot</span>
+                                    <span class="skill-level">Exploring</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="50"></div>
+                                    <div class="skill-progress" data-progress="20"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">Git/GitHub</span>
-                                    <span class="skill-level">Advanced</span>
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
+                                    <div class="skill-progress" data-progress="40"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Linux</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="60"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -447,83 +456,38 @@ func main() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
                         <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-bullseye"></i></span>
-                            Specializations
+                            <span class="category-icon"><i class="fas fa-shield-alt"></i></span>
+                            Security & Data
                         </h3>
                         <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">Cybersecurity</span>
-                                    <span class="skill-level">Student</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Low-level Systems</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="35"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Network Protocols</span>
+                                    <span class="skill-name">API Security</span>
                                     <span class="skill-level">Learning</span>
                                 </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="30"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="800">
-                        <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-lightbulb"></i></span>
-                            Soft Skills
-                        </h3>
-                        <div class="skills-list">
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">Problem Solving</span>
-                                    <span class="skill-level">Advanced</span>
+                                    <span class="skill-name">SQL</span>
+                                    <span class="skill-level">Learning</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
+                                    <div class="skill-progress" data-progress="40"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-info">
-                                    <span class="skill-name">Teaching</span>
-                                    <span class="skill-level">Advanced</span>
+                                    <span class="skill-name">Kafka (Foundations)</span>
+                                    <span class="skill-level">Exploring</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Team Leadership</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Communication</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
+                                    <div class="skill-progress" data-progress="15"></div>
                                 </div>
                             </div>
                         </div>
@@ -531,7 +495,7 @@ func main() {
                 </div>
             </div>
         </section>
-        
+
         <!-- About Timeline Section -->
         <section id="about" class="about-section">
             <div class="section-container">
@@ -540,13 +504,13 @@ func main() {
                         Journey Through Code
                     </h2>
                     <p class="section-subtitle">
-                        From frontend development to systems programming mastery
+                        From frontend to a Java-first backend path
                     </p>
                 </div>
-                
+
                 <div class="timeline-container">
                     <div class="timeline-line"></div>
-                    
+
                     <div class="timeline-item" data-aos="fade-up">
                         <div class="timeline-marker">
                             <div class="marker-dot"></div>
@@ -562,7 +526,7 @@ func main() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="timeline-marker">
                             <div class="marker-dot"></div>
@@ -577,7 +541,7 @@ func main() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="timeline-marker active">
                             <div class="marker-dot"></div>
@@ -592,7 +556,7 @@ func main() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
                         <div class="timeline-marker active">
                             <div class="marker-dot"></div>
@@ -607,7 +571,7 @@ func main() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
                         <div class="timeline-marker active">
                             <div class="marker-dot"></div>
@@ -623,7 +587,7 @@ func main() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-quote">
                     <blockquote class="spiderman-quote">
                         <span class="quote-text">"Anyone can wear the mask. You could wear the mask."</span>
@@ -632,8 +596,8 @@ func main() {
                 </div>
             </div>
         </section>
-        
-        
+
+
         <!-- Plans Section -->
         <section id="plans" class="plans-section">
             <div class="section-container">
@@ -642,10 +606,10 @@ func main() {
                         Future Roadmap
                     </h2>
                     <p class="section-subtitle">
-                        Strategic goals and career trajectory in systems programming and cybersecurity
+                        Strategic goals aligned to Java backend and fintech
                     </p>
                 </div>
-                
+
                 <div class="plans-grid">
                     <div class="plan-category" data-aos="fade-up">
                         <h3 class="plan-title">
@@ -655,28 +619,35 @@ func main() {
                         <div class="plan-items">
                             <div class="plan-item">
                                 <div class="plan-header">
-                                    <span class="plan-name">Master C Programming</span>
-                                    <span class="plan-timeline">2025-2026</span>
+                                    <span class="plan-name">Master Java</span>
+                                    <span class="plan-timeline">2025</span>
                                 </div>
-                                <p class="plan-description">Deep dive into systems programming, memory management, and low-level optimization</p>
+                                <p class="plan-description">Core language, OOP, collections, concurrency, I/O</p>
                             </div>
                             <div class="plan-item">
                                 <div class="plan-header">
-                                    <span class="plan-name">Learn Go</span>
+                                    <span class="plan-name">Spring Boot + REST</span>
+                                    <span class="plan-timeline">2025</span>
+                                </div>
+                                <p class="plan-description">REST APIs, validation, dependency injection, testing</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">SQL & Docker</span>
+                                    <span class="plan-timeline">2025</span>
+                                </div>
+                                <p class="plan-description">Relational modeling, JDBC/JPA, containerized dev envs</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Kafka & API Security</span>
                                     <span class="plan-timeline">2026</span>
                                 </div>
-                                <p class="plan-description">Modern systems language for cloud infrastructure and distributed systems</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Dive into FinTech</span>
-                                    <span class="plan-timeline">2026-2027</span>
-                                </div>
-                                <p class="plan-description">Financial technology systems, security protocols, and trading platforms</p>
+                                <p class="plan-description">Messaging fundamentals, OAuth2/JWT, rate limiting</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="plan-category" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="plan-title">
                             <span class="plan-icon"><i class="fas fa-project-diagram"></i></span>
@@ -685,28 +656,28 @@ func main() {
                         <div class="plan-items">
                             <div class="plan-item">
                                 <div class="plan-header">
-                                    <span class="plan-name">C Systems Project</span>
+                                    <span class="plan-name">Personal Finance Tracker (C)</span>
+                                    <span class="plan-timeline">Active</span>
+                                </div>
+                                <p class="plan-description">Secure CLI finance tracker with Argon2; migrating ideas to Java services</p>
+                            </div>
+                            <div class="plan-item">
+                                <div class="plan-header">
+                                    <span class="plan-name">Java Backend Portfolio</span>
                                     <span class="plan-timeline">2025</span>
                                 </div>
-                                <p class="plan-description">Low-level systems programming project showcasing memory management and performance optimization</p>
+                                <p class="plan-description">REST APIs, auth, SQL integration, and Dockerized deploys</p>
                             </div>
                             <div class="plan-item">
                                 <div class="plan-header">
-                                    <span class="plan-name">Go Infrastructure Tool</span>
-                                    <span class="plan-timeline">2026</span>
+                                    <span class="plan-name">Go/C# Exploration</span>
+                                    <span class="plan-timeline">2025–2026</span>
                                 </div>
-                                <p class="plan-description">Cloud-native infrastructure tool built with Go for scalability and performance</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">FinTech Application</span>
-                                    <span class="plan-timeline">2027</span>
-                                </div>
-                                <p class="plan-description">Financial technology application with security focus and real-time data processing</p>
+                                <p class="plan-description">Service design patterns and cloud fundamentals</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="plan-category" data-aos="fade-up" data-aos-delay="400">
                         <h3 class="plan-title">
                             <span class="plan-icon"><i class="fas fa-graduation-cap"></i></span>
@@ -715,22 +686,22 @@ func main() {
                         <div class="plan-items">
                             <div class="plan-item">
                                 <div class="plan-header">
-                                    <span class="plan-name">Master's in Computer Science</span>
-                                    <span class="plan-timeline">2028+</span>
+                                    <span class="plan-name">Internships & Fintech</span>
+                                    <span class="plan-timeline">2025–2027</span>
                                 </div>
-                                <p class="plan-description">Advanced degree focusing on systems architecture and cybersecurity research</p>
+                                <p class="plan-description">Pursue backend roles with a security-by-design mindset</p>
                             </div>
                             <div class="plan-item">
                                 <div class="plan-header">
                                     <span class="plan-name">Career Paths</span>
                                     <span class="plan-timeline">Post-Graduation</span>
                                 </div>
-                                <p class="plan-description">Software Engineer • Infrastructure SWE • Security Engineer</p>
+                                <p class="plan-description">Software Engineer • Backend SWE • Security Engineer</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="plans-quote">
                     <blockquote class="spiderman-quote">
                         <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
@@ -739,7 +710,7 @@ func main() {
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Terminal Section -->
         <section id="contact" class="contact-section">
             <div class="section-container">
@@ -748,10 +719,10 @@ func main() {
                         Initialize Connection
                     </h2>
                     <p class="section-subtitle">
-                        Ready to collaborate on systems programming or educational projects
+                        Ready to collaborate on backend or educational projects
                     </p>
                 </div>
-                
+
                 <div class="contact-container">
                     <div class="terminal-container">
                         <div class="terminal-header">
@@ -762,7 +733,7 @@ func main() {
                             </div>
                             <div class="terminal-title">jacob@portfolio:~$</div>
                         </div>
-                        
+
                         <div class="terminal-body">
                             <div class="terminal-output" id="terminal-output">
                                 <div class="output-line">
@@ -776,7 +747,7 @@ func main() {
                                     <span class="success-msg">Connection established. Ready for input.</span>
                                 </div>
                             </div>
-                            
+
                             <form class="contact-form" id="contact-form">
                                 <div class="form-group">
                                     <label class="form-label">
@@ -785,7 +756,7 @@ func main() {
                                     </label>
                                     <input type="text" name="name" class="form-input" required>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span class="prompt">jacob@portfolio:~$</span>
@@ -793,7 +764,7 @@ func main() {
                                     </label>
                                     <input type="email" name="email" class="form-input" required>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="form-label">
                                         <span class="prompt">jacob@portfolio:~$</span>
@@ -801,7 +772,7 @@ func main() {
                                     </label>
                                     <textarea name="message" class="form-input form-textarea" rows="4" required></textarea>
                                 </div>
-                                
+
                                 <button type="submit" class="submit-btn">
                                     <span class="btn-text">./send_message.sh</span>
                                     <span class="btn-icon">→</span>
@@ -809,7 +780,7 @@ func main() {
                             </form>
                         </div>
                     </div>
-                    
+
                     <div class="contact-info">
                         <div class="info-section">
                             <h3 class="info-title">Connect With Me</h3>
@@ -828,7 +799,7 @@ func main() {
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div class="info-section">
                             <h3 class="info-title">Current Status</h3>
                             <div class="status-info">
@@ -842,13 +813,13 @@ func main() {
                                 </div>
                                 <div class="status-item">
                                     <span class="status-label">Focus:</span>
-                                    <span class="status-value">Systems Programming</span>
+                                    <span class="status-value">Backend Engineering (Java)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-quote">
                     <blockquote class="spiderman-quote">
                         <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
@@ -858,13 +829,13 @@ func main() {
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-content">
                 <p class="footer-text">
-                    &copy; 2025 Jacob Smith. Built with passion for systems programming and education.
+                    &copy; 2025 Jacob Smith. Built with a Java-first backend focus and a passion for learning.
                 </p>
                 <p class="footer-tech">
                     Crafted with HTML5, CSS3, and JavaScript | Hosted on Vercel
@@ -872,7 +843,7 @@ func main() {
             </div>
         </div>
     </footer>
-    
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
