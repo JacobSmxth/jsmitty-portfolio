@@ -1,6 +1,34 @@
 // Projects Data for Portfolio
 const projectsData = [
   {
+    id: 'CentLedger',
+    title: 'Cent Ledger',
+    subtitle: 'A Personal Finance API',
+    description: 'A lightweight Java API finance tracker that records income and expenses.',
+    image: null,
+    technologies: ['Java', 'Spring Boot'],
+    category: 'Systems Programming',
+    featured: true,
+    links: {
+      github: 'https://github.com/jacobsmxth/CentLedger',
+      github: null,
+    },
+    stats: {
+      stars: 0,
+      forks: 0,
+      language: 'Java'
+    },
+    highlights: [
+      'Real-time leaderboard updates',
+      'Community engagement features',
+      'Responsive design for all devices',
+      'Custom scoring system implementation'
+    ],
+    codeSnippet: null,
+    status: 'Active Development',
+    lastUpdated: '2025-08-17'
+  },
+  {
     id: 'goatrewards',
     title: 'GoatRewards',
     subtitle: 'Community Leaderboard Platform',
@@ -26,7 +54,7 @@ const projectsData = [
     ],
     codeSnippet: null,
     status: 'Live',
-    lastUpdated: '2025-01-25'
+    lastUpdated: '2025-07-25'
   },
   {
     id: 'dotfiles',
