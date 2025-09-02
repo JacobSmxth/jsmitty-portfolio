@@ -1,856 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jacob Smith - Backend-Focused Student Engineer | Java-first, Fintech-oriented | Code Ninjas Sensei | Education Team Content Creator">
-    <meta name="keywords" content="Jacob Smith, Java, Spring Boot, Backend, Fintech, Computer Science, Code Ninjas, Portfolio">
-    <meta name="author" content="Jacob Smith">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Jacob Smith - Java Backend & Fintech">
-    <meta property="og:description" content="Double major in Cybersecurity & Computer Science at UNG Dahlonega. Backend-focused with Java, Spring Boot, SQL, and fintech interests. Code Ninjas Sensei and Education Team Content Creator.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jsmitty.com">
-
-    <title>Jacob Smith | Java Backend & Fintech</title>
-
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="styles/main.css" as="style">
-    <link rel="preload" href="js/main.js" as="script">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/components.css">
-
-    <!-- Favicon -->
+    <title>Jacob Smith - Portfolio</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
-
-    <!-- Font Preloads -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="cyberpunk-theme">
-    <!-- Matrix Rain Background -->
-    <canvas id="matrix-canvas" class="matrix-background"></canvas>
-
-    <!-- Particle System Background -->
-    <div id="particles-container" class="particles-background"></div>
-
-    <!-- Navigation -->
-    <nav class="cyber-nav" id="main-nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-text glitch-text" data-text="Jacob Smith">Jacob Smith</span>
-            </div>
-
-            <div class="nav-menu" id="nav-menu">
-                <a href="#hero" class="nav-link" data-section="hero">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Home</span>
-                </a>
-                <a href="#about" class="nav-link" data-section="about">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Timeline</span>
-                </a>
-                <a href="#skills" class="nav-link" data-section="skills">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Skills</span>
-                </a>
-                <a href="#projects" class="nav-link" data-section="projects">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Projects</span>
-                </a>
-                <a href="#experience" class="nav-link" data-section="experience">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Experience</span>
-                </a>
-                <a href="#plans" class="nav-link" data-section="plans">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Plans</span>
-                </a>
-                <a href="#contact" class="nav-link" data-section="contact">
-                    <span class="nav-icon">></span>
-                    <span class="nav-text">Contact</span>
-                </a>
-            </div>
-
-            <!-- Theme Toggle -->
-            <div class="theme-toggle" id="theme-toggle">
-                <div class="toggle-switch">
-                    <div class="toggle-slider"></div>
-                </div>
-                <span class="toggle-label">Ghost Protocol</span>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
+<body>
+    <header>
+        <div class="container">
+            <img src="assets/headshot.jpg" alt="Jacob Smith" id="headshot" class="headshot">
+            <h1>Jacob Smith</h1>
+            <p>Alpharetta, GA | (678) 457-9988 | <a href="mailto:jacob.d.smith@live.com">jacob.d.smith@live.com</a> | <a href="https://jsmitty.com" target="_blank">jsmitty.com</a> | <a href="https://github.com/jacobsmxth" target="_blank">GitHub</a></p>
+        </div>
+    </header>
+ 
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#focus">Focus</a></li>
+                <li><a href="#soft-skills">Soft Skills</a></li>
+                <li><a href="#interests">Interests</a></li>
+            </ul>
         </div>
     </nav>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-greeting">
-                        <span class="greeting-text">Hello, I'm</span>
-                    </div>
-
-                    <h1 class="hero-title">
-                        <span class="title-line glitch-text" data-text="Jacob Smith">Jacob Smith</span>
-                        <span class="title-subtitle">
-                            <span class="typed-text" id="hero-typed"></span>
-                        </span>
-                    </h1>
-
-                    <div class="hero-description">
-                        <p class="description-text">
-                            Backend-Focused Student Engineer pivoting to <strong>Java</strong> for fintech.
-                            <br>
-                            <strong class="highlight-text">Double Major:</strong>
-                            <span class="neon-text">Cybersecurity & Computer Science</span> at UNG Dahlonega
-                        </p>
-                    </div>
-
-                    <div class="hero-quote">
-                        <blockquote class="spiderman-quote">
-                            <span class="quote-text">"With great power comes great responsibility."</span>
-                            <cite class="quote-author">— Ben Parker</cite>
-                        </blockquote>
-                    </div>
-
-                    <div class="hero-actions">
-                        <div class="cta-buttons">
-                            <a href="#projects" class="cta-button primary-cta">
-                                <span class="button-text">View My Work</span>
-                                <span class="button-icon">→</span>
-                            </a>
-                            <a href="#contact" class="cta-button secondary-cta">
-                                <span class="button-text">Get In Touch</span>
-                                <span class="button-icon">✉</span>
-                            </a>
-                        </div>
-
-                        <div class="hero-social">
-                            <div class="social-links-hero">
-                                <a href="https://github.com/jacobsmxth" class="social-link-hero" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://linkedin.com/in/jacobsmxth" class="social-link-hero" target="_blank" rel="noopener">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="mailto:jacob@jsmitty.com" class="social-link-hero">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="code-snippet-container">
-                        <div class="code-snippet floating-code" id="floating-code-1">
-<pre><code class="language-java">
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, Fintech.");
-    }
-}
-</code></pre>
-                        </div>
-                        <div class="code-snippet floating-code" id="floating-code-2">
-<pre><code class="language-java">
-@RestController
-@RequestMapping("/api")
-class HealthController {
-    @GetMapping("/health")
-    public Map&lt;String,String&gt; health() {
-        return Map.of("status", "up");
-    }
-}
-</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <div class="scroll-arrow">
-                    <span>↓</span>
-                </div>
-                <span class="scroll-text">Scroll to explore</span>
+ 
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>About</h2>
+                <p>Passionate about backend development, secure software, and fintech innovation. Currently pursuing a B.S. in Cybersecurity and Computer Science at the University of North Georgia.</p>
+                <blockquote>"The most critical system we rely on isn’t one we programmed, it’s the trust that privacy and security will hold."</blockquote>
             </div>
         </section>
 
-        <!-- Experience Grid Section -->
-        <section id="experience" class="experience-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Professional Journey">
-                        Professional Journey
-                    </h2>
-                    <p class="section-subtitle">
-                        Teaching, mentoring, and creating educational content
-                    </p>
-                </div>
-
-                <div class="experience-grid">
-                    <div class="experience-card" data-aos="fade-up">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-code"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Sensei</h3>
-                                <div class="card-period">Code Ninjas - 2025 - Present</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Guide students through block coding, JavaScript, and Python fundamentals,
-                                teaching foundational logic, debugging, and project-based problem solving.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Mentor young developers in computational thinking</li>
-                                <li>Teach debugging techniques and best practices</li>
-                                <li>Foster creative problem-solving through game development</li>
-                            </ul>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Block Coding</span>
-                        </div>
-                    </div>
-
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Education Team Content Creator</h3>
-                                <div class="card-period">Code Ninjas - 2025 - Present</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Support Code Ninjas Education team's projects in curriculum development,
-                                learning and development including core programs, debugging and QA.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Develop comprehensive curriculum materials</li>
-                                <li>Quality assurance for educational content</li>
-                                <li>Pilot new programs and training development</li>
-                            </ul>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Curriculum Design</span>
-                            <span class="tech-tag">QA Testing</span>
-                            <span class="tech-tag">Training Development</span>
-                        </div>
-                    </div>
-
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-tools"></i></div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Lead Stringer & Checker</h3>
-                                <div class="card-period">Tennis Warehouse - 2023 - 2025</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p class="card-description">
-                                Led quality assurance for 50+ units per hour with less than 2% defect rate,
-                                managing peer training and implementing process improvements.
-                            </p>
-                            <ul class="card-highlights">
-                                <li>Maintained exceptional quality standards</li>
-                                <li>Trained and mentored team members</li>
-                                <li>Optimized workflows for efficiency</li>
-                            </ul>
-                        </div>
-                        <div class="card-tech">
-                            <span class="tech-tag">Quality Control</span>
-                            <span class="tech-tag">Team Leadership</span>
-                            <span class="tech-tag">Process Improvement</span>
-                        </div>
-                    </div>
-                </div>
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>University of North Georgia</strong> - B.S. in Cybersecurity and Computer Science (August 2024 - May 2028)<br>Coursework: Applied Cybersecurity, Script Programming, Computer Science II</li>
+                    <li><strong>Denmark High School</strong> - Diploma (May 2024)<br>AP Computer Science Principles, AP Computer Science A<br>Captain of Football Team, DECA member</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Projects Grid Section -->
-        <section id="projects" class="projects-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Code Gallery">
-                        Code Gallery
-                    </h2>
-                    <p class="section-subtitle">
-                        Featured projects showcasing backend & fintech learning
-                    </p>
-                </div>
-
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Project cards will be dynamically loaded -->
-                </div>
-
-                <div class="projects-actions">
-                    <button class="show-more-btn" id="show-more-projects" style="display: none;">
-                        <span class="btn-text">Show More Projects</span>
-                        <span class="btn-icon">↓</span>
-                    </button>
-                </div>
-
-                <div class="projects-quote">
-                    <blockquote class="spiderman-quote">
-                        <span class="quote-text">"Not everyone is meant to make a difference, but for me, the choice to lead an ordinary life is no longer an option."</span>
-                        <cite class="quote-author">— Peter Parker</cite>
-                    </blockquote>
-                </div>
+        <section id="work">
+            <div class="container">
+                <h2>Current Work</h2>
+                <ul>
+                    <li><strong>Code Ninjas</strong> - Education Content Team Member (Contract, Remote, August 2025 - Present)<br>Working on the black belt program, converting Unity projects in C# to Godot</li>
+                    <li><strong>Code Ninjas</strong> - Sensei (Part-time, On-site, June 2025 - Present)<br>Teaching kids programming and coding concepts</li>
+                    <li><strong>Freelance Web Developer</strong> (Remote, January 2025 - Present) - Limited client work</li>
+                    <li><strong>Tennis Warehouse</strong> - Stringer and Lead Checker (July 2023 - Present)</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Skills Matrix Section -->
-        <section id="skills" class="skills-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Digital Arsenal">
-                        Digital Arsenal
-                    </h2>
-                    <p class="section-subtitle">
-                        Backend engineering with a fintech and security focus
-                    </p>
-                    <p class="skills-note">
-                        <em>Note: Progress bars indicate my confidence level with each technology</em>
-                    </p>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-category" data-aos="fade-up">
-                        <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-server"></i></span>
-                            Backend & Languages
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Java</span>
-                                    <span class="skill-level">Learning Fast</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="55"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Go</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="30"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">C#</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="25"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-cubes"></i></span>
-                            Web & Scripting
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5/CSS3</span>
-                                    <span class="skill-level">Deep Knowledge</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-tools"></i></span>
-                            Tools & Platforms
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Spring Boot</span>
-                                    <span class="skill-level">Exploring</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="20"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Docker</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="40"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Linux</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Neovim/Zsh</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
-                        <h3 class="category-title">
-                            <span class="category-icon"><i class="fas fa-shield-alt"></i></span>
-                            Security & Data
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">API Security</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="30"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">SQL</span>
-                                    <span class="skill-level">Learning</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="40"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Kafka (Foundations)</span>
-                                    <span class="skill-level">Exploring</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="15"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <p><strong>Languages:</strong> JavaScript, Java, C (explored), HTML, CSS, Python, GDScript, Bash</p>
+                <p><strong>Low-level:</strong> 16-bit Assembly (bootloader experimentation - brief period)</p>
+                <p><strong>Backend Focus:</strong> RESTful API development, JSON handling</p>
+                <p><strong>Frontend:</strong> HTMX, Tailwind CSS</p>
+                <p><strong>Tools:</strong> Git, GitHub, Gradle, Vite, npm, Chrome DevTools</p>
+                <p><strong>Systems:</strong> Linux (Arch Linux primary OS), dual boot Windows/Linux, command line proficient</p>
+                <p><strong>Security/Auth:</strong> Basic authentication concepts</p>
+                <p><strong>Networking:</strong> Basic networking concepts, HTTP/HTTPS understanding</p>
+                <p><strong>Currently learning:</strong> SQL, Spring Boot, Docker</p>
             </div>
         </section>
 
-        <!-- About Timeline Section -->
-        <section id="about" class="about-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Journey Through Code">
-                        Journey Through Code
-                    </h2>
-                    <p class="section-subtitle">
-                        From frontend to a Java-first backend path
-                    </p>
-                </div>
-
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - 2028</div>
-                            <h3 class="timeline-title">Bachelor of Science - Double Major</h3>
-                            <div class="timeline-subtitle">University of North Georgia - Dahlonega</div>
-                            <div class="timeline-description">
-                                <p><strong class="neon-text">Cybersecurity & Computer Science</strong> | GPA: 3.48</p>
-                                <p>Expected Graduation: May 2028</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="timeline-marker">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2023 - 2025</div>
-                            <h3 class="timeline-title">Lead Stringer & Checker</h3>
-                            <div class="timeline-subtitle">Tennis Warehouse</div>
-                            <div class="timeline-description">
-                                <p>Led QA for 50+ units/hr with &lt;2% defect rate. Managed peer training and process improvements in fast-paced environment.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2024 - Present</div>
-                            <h3 class="timeline-title">Freelance Web Developer</h3>
-                            <div class="timeline-subtitle">Independent</div>
-                            <div class="timeline-description">
-                                <p>Develop custom web applications and responsive digital solutions for clients.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2025 - Present</div>
-                            <h3 class="timeline-title">Sensei (Instructor)</h3>
-                            <div class="timeline-subtitle">Code Ninjas</div>
-                            <div class="timeline-description">
-                                <p>Guide students in block coding and JavaScript fundamentals. Mentor young developers in computational thinking and problem-solving.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
-                        <div class="timeline-marker active">
-                            <div class="marker-dot"></div>
-                            <div class="marker-pulse"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">2025 - Present</div>
-                            <h3 class="timeline-title">Education Team Content Creator</h3>
-                            <div class="timeline-subtitle">Code Ninjas</div>
-                            <div class="timeline-description">
-                                <p>Support curriculum development, QA testing, and pilot new educational programs for the Education team.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-quote">
-                    <blockquote class="spiderman-quote">
-                        <span class="quote-text">"Anyone can wear the mask. You could wear the mask."</span>
-                        <cite class="quote-author">— Miles Morales</cite>
-                    </blockquote>
-                </div>
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <ul>
+                    <li><strong>CentLedger Personal Finance API</strong> (Java, Spring Boot)<br>August 2025 - Present | <a href="https://github.com/jacobsmxth/centledger" target="_blank">GitHub</a></li>
+                    <li><strong>Personal Portfolio Website</strong> (HTML, CSS, JavaScript) | <a href="https://github.com/jacobsmxth/jsmitty-portfolio" target="_blank">GitHub</a></li>
+                </ul>
             </div>
         </section>
 
-
-        <!-- Plans Section -->
-        <section id="plans" class="plans-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Future Roadmap">
-                        Future Roadmap
-                    </h2>
-                    <p class="section-subtitle">
-                        Strategic goals aligned to Java backend and fintech
-                    </p>
-                </div>
-
-                <div class="plans-grid">
-                    <div class="plan-category" data-aos="fade-up">
-                        <h3 class="plan-title">
-                            <span class="plan-icon"><i class="fas fa-code"></i></span>
-                            Technical Mastery
-                        </h3>
-                        <div class="plan-items">
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Master Java</span>
-                                    <span class="plan-timeline">2025</span>
-                                </div>
-                                <p class="plan-description">Core language, OOP, collections, concurrency, I/O</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Spring Boot + REST</span>
-                                    <span class="plan-timeline">2025</span>
-                                </div>
-                                <p class="plan-description">REST APIs, validation, dependency injection, testing</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">SQL & Docker</span>
-                                    <span class="plan-timeline">2025</span>
-                                </div>
-                                <p class="plan-description">Relational modeling, JDBC/JPA, containerized dev envs</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Kafka & API Security</span>
-                                    <span class="plan-timeline">2026</span>
-                                </div>
-                                <p class="plan-description">Messaging fundamentals, OAuth2/JWT, rate limiting</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="plan-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="plan-title">
-                            <span class="plan-icon"><i class="fas fa-project-diagram"></i></span>
-                            Major Projects
-                        </h3>
-                        <div class="plan-items">
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Personal Finance Tracker (C)</span>
-                                    <span class="plan-timeline">Active</span>
-                                </div>
-                                <p class="plan-description">Secure CLI finance tracker with Argon2; migrating ideas to Java services</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Java Backend Portfolio</span>
-                                    <span class="plan-timeline">2025</span>
-                                </div>
-                                <p class="plan-description">REST APIs, auth, SQL integration, and Dockerized deploys</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Go/C# Exploration</span>
-                                    <span class="plan-timeline">2025–2026</span>
-                                </div>
-                                <p class="plan-description">Service design patterns and cloud fundamentals</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="plan-category" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="plan-title">
-                            <span class="plan-icon"><i class="fas fa-graduation-cap"></i></span>
-                            Long-term Goals
-                        </h3>
-                        <div class="plan-items">
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Internships & Fintech</span>
-                                    <span class="plan-timeline">2025–2027</span>
-                                </div>
-                                <p class="plan-description">Pursue backend roles with a security-by-design mindset</p>
-                            </div>
-                            <div class="plan-item">
-                                <div class="plan-header">
-                                    <span class="plan-name">Career Paths</span>
-                                    <span class="plan-timeline">Post-Graduation</span>
-                                </div>
-                                <p class="plan-description">Software Engineer • Backend SWE • Security Engineer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="plans-quote">
-                    <blockquote class="spiderman-quote">
-                        <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
-                        <cite class="quote-author">— Peter Parker</cite>
-                    </blockquote>
-                </div>
+        <section id="focus">
+            <div class="container">
+                <h2>Focus Areas</h2>
+                <ul>
+                    <li>Backend development and API design</li>
+                    <li>Linux systems and command line</li>
+                    <li>Fintech applications</li>
+                    <li>Secure development practices</li>
+                    <li>Systems programming exploration</li>
+                    <li>Youth mentoring/teaching programming</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Contact Terminal Section -->
-        <section id="contact" class="contact-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title glitch-text" data-text="Initialize Connection">
-                        Initialize Connection
-                    </h2>
-                    <p class="section-subtitle">
-                        Ready to collaborate on backend or educational projects
-                    </p>
-                </div>
+        <section id="soft-skills">
+            <div class="container">
+                <h2>Soft Skills</h2>
+                <ul>
+                    <li>Problem-solving and analytical thinking</li>
+                    <li>Team collaboration and communication</li>
+                    <li>Remote work efficiency</li>
+                    <li>Youth mentoring and teaching</li>
+                    <li>Leadership (from football captain experience)</li>
+                    <li>Time management and multitasking</li>
+                    <li>Adaptability and quick learning</li>
+                    <li>Attention to detail and quality control</li>
+                    <li>Customer service orientation</li>
+                    <li>Technical troubleshooting</li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="contact-container">
-                    <div class="terminal-container">
-                        <div class="terminal-header">
-                            <div class="terminal-controls">
-                                <span class="control-btn close"></span>
-                                <span class="control-btn minimize"></span>
-                                <span class="control-btn maximize"></span>
-                            </div>
-                            <div class="terminal-title">jacob@portfolio:~$</div>
-                        </div>
-
-                        <div class="terminal-body">
-                            <div class="terminal-output" id="terminal-output">
-                                <div class="output-line">
-                                    <span class="prompt">jacob@portfolio:~$</span>
-                                    <span class="command">./contact_form --initialize</span>
-                                </div>
-                                <div class="output-line">
-                                    <span class="system-msg">Initializing secure connection...</span>
-                                </div>
-                                <div class="output-line">
-                                    <span class="success-msg">Connection established. Ready for input.</span>
-                                </div>
-                            </div>
-
-                            <form class="contact-form" id="contact-form">
-                                <div class="form-group">
-                                    <label class="form-label">
-                                        <span class="prompt">jacob@portfolio:~$</span>
-                                        <span class="command">echo "Your Name:" &&</span>
-                                    </label>
-                                    <input type="text" name="name" class="form-input" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">
-                                        <span class="prompt">jacob@portfolio:~$</span>
-                                        <span class="command">echo "Your Email:" &&</span>
-                                    </label>
-                                    <input type="email" name="email" class="form-input" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">
-                                        <span class="prompt">jacob@portfolio:~$</span>
-                                        <span class="command">echo "Your Message:" &&</span>
-                                    </label>
-                                    <textarea name="message" class="form-input form-textarea" rows="4" required></textarea>
-                                </div>
-
-                                <button type="submit" class="submit-btn">
-                                    <span class="btn-text">./send_message.sh</span>
-                                    <span class="btn-icon">→</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="contact-info">
-                        <div class="info-section">
-                            <h3 class="info-title">Connect With Me</h3>
-                            <div class="social-links">
-                                <a href="https://github.com/jacobsmxth" class="social-link" target="_blank" rel="noopener">
-                                    <span class="social-icon"><i class="fab fa-github"></i></span>
-                                    <span class="social-text">GitHub</span>
-                                </a>
-                                <a href="https://linkedin.com/in/jacobsmxth" class="social-link" target="_blank" rel="noopener">
-                                    <span class="social-icon"><i class="fab fa-linkedin"></i></span>
-                                    <span class="social-text">LinkedIn</span>
-                                </a>
-                                <a href="mailto:jacob@jsmitty.com" class="social-link">
-                                    <span class="social-icon"><i class="fas fa-envelope"></i></span>
-                                    <span class="social-text">Email</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h3 class="info-title">Current Status</h3>
-                            <div class="status-info">
-                                <div class="status-item">
-                                    <span class="status-label">Location:</span>
-                                    <span class="status-value">Alpharetta, GA</span>
-                                </div>
-                                <div class="status-item">
-                                    <span class="status-label">Availability:</span>
-                                    <span class="status-value neon-text">Open to Opportunities</span>
-                                </div>
-                                <div class="status-item">
-                                    <span class="status-label">Focus:</span>
-                                    <span class="status-value">Backend Engineering (Java)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-quote">
-                    <blockquote class="spiderman-quote">
-                        <span class="quote-text">"Whatever life holds in store for me, I will never forget these words: With great power comes great responsibility."</span>
-                        <cite class="quote-author">— Peter Parker</cite>
-                    </blockquote>
-                </div>
+        <section id="interests">
+            <div class="container">
+                <h2>Interests</h2>
+                <ul>
+                    <li>Financial Technology Innovation</li>
+                    <li>Secure Software Development</li>
+                    <li>Backend API Design</li>
+                    <li>Linux Systems Administration</li>
+                    <li>Open Source Contributing</li>
+                </ul>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <p class="footer-text">
-                    &copy; 2025 Jacob Smith. Built with a Java-first backend focus and a passion for learning.
-                </p>
-                <p class="footer-tech">
-                    Crafted with HTML5, CSS3, and JavaScript | Hosted on Vercel
-                </p>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jacob Smith. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/matrix-rain.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/projects-data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
