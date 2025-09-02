@@ -25,6 +25,7 @@ styles.css (all the styling)
 script.js (interactivity)
 assets/
   favicon.png (the little icon)
+  headshot.png
 ```
 
 That's pretty much it. Simple but effective.
