@@ -3,139 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Smith - Portfolio</title>
+    <meta name="description" content="Jacob Smith - Backend Developer & CS Student Portfolio. Specializing in Java Spring Boot, cybersecurity, and web development.">
+    <meta name="keywords" content="backend developer, computer science, Java, Spring Boot, cybersecurity, portfolio">
+    <meta name="author" content="Jacob Smith">
+    <title>Jacob Smith - Backend Developer Portfolio</title>
+
     <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <img src="assets/headshot.jpg" alt="Jacob Smith" id="headshot" class="headshot">
-            <h1>Jacob Smith</h1>
-            <p>Alpharetta, GA | (678) 457-9988 | <a href="mailto:jacob.d.smith@live.com">jacob.d.smith@live.com</a> | <a href="https://jsmitty.com" target="_blank">jsmitty.com</a> | <a href="https://github.com/jacobsmxth" target="_blank">GitHub</a></p>
+            <div class="logo">
+                <h1>Jacob Smith</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
         </div>
-    </header>
- 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#focus">Focus</a></li>
-                <li><a href="#soft-skills">Soft Skills</a></li>
-                <li><a href="#interests">Interests</a></li>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
             </ul>
         </div>
-    </nav>
- 
+    </header>
+
     <main>
-        <section id="about">
+        <section id="hero" class="hero">
             <div class="container">
-                <h2>About</h2>
-                <p>Passionate about backend development, secure software, and fintech innovation. Currently pursuing a B.S. in Cybersecurity and Computer Science at the University of North Georgia.</p>
-                <blockquote>"The most critical system we rely on isn’t one we programmed, it’s the trust that privacy and security will hold."</blockquote>
+                <div class="hero-content">
+                    <h2 class="hero-title">Backend Developer & CS Student</h2>
+                    <blockquote class="hero-quote">
+                        "The most critical system we rely on isn't one we programmed, it's the trust that privacy and security will hold."
+                    </blockquote>
+                    <a href="#projects" class="cta-button">View My Projects</a>
+                </div>
+            </div>
+            <div class="web-pattern"></div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm Jacob Smith, a dedicated Computer Science student double majoring in Cybersecurity and Computer Science. Currently pursuing my degree while gaining practical experience through teaching and development projects.</p>
+                        <p>My focus areas include Java Spring Boot development, REST API design, and implementing secure authentication systems. I'm particularly interested in how technology can enhance privacy and security in our increasingly connected world.</p>
+                        <p>When I'm not coding, you can find me teaching the next generation of developers at Code Ninjas or working on personal projects that challenge my technical skills.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/headshot.jpg" alt="Jacob Smith - Backend Developer" loading="lazy">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="education">
+        <section id="projects" class="projects">
             <div class="container">
-                <h2>Education</h2>
-                <ul>
-                    <li><strong>University of North Georgia</strong> - B.S. in Cybersecurity and Computer Science (August 2024 - May 2028)<br>Coursework: Applied Cybersecurity, Script Programming, Computer Science II</li>
-                    <li><strong>Denmark High School</strong> - Diploma (May 2024)<br>AP Computer Science Principles, AP Computer Science A<br>Captain of Football Team, DECA member</li>
-                </ul>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">CentLedger</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">REST API</span>
+                            </div>
+                        </div>
+                        <p class="project-description">A comprehensive personal finance API built with Java Spring Boot. Features include transaction management, budget tracking, financial reporting, and secure user authentication. Implements best practices for API design and data security.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View CentLedger on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Portfolio Website</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <p class="project-description">This responsive portfolio website showcasing my development skills. Built with vanilla JavaScript, featuring smooth animations, mobile-first design, and integrated contact form with EmailJS for secure communication.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Portfolio on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="work">
+        <section id="experience" class="experience">
             <div class="container">
-                <h2>Current Work</h2>
-                <ul>
-                    <li><strong>Code Ninjas</strong> - Education Content Team Member (Contract, Remote, August 2025 - Present)<br>Working on the black belt program, converting Unity projects in C# to Godot</li>
-                    <li><strong>Code Ninjas</strong> - Sensei (Part-time, On-site, June 2025 - Present)<br>Teaching kids programming and coding concepts</li>
-                    <li><strong>Freelance Web Developer</strong> (Remote, January 2025 - Present) - Limited client work</li>
-                    <li><strong>Tennis Warehouse</strong> - Stringer and Lead Checker (July 2023 - Present)</li>
-                </ul>
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Sensei & Content Team Member</h3>
+                            <span class="experience-company">Code Ninjas</span>
+                            <span class="experience-date">2023 - Present</span>
+                        </div>
+                        <p class="experience-description">Teaching programming fundamentals to students aged 7-14. Developing curriculum content and mentoring young developers in game design, web development, and coding concepts.</p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Lead Stringer & Quality Checker</h3>
+                            <span class="experience-company">Tennis Warehouse</span>
+                            <span class="experience-date">2022 - 2023</span>
+                        </div>
+                        <p class="experience-description">Managed tennis racquet stringing operations and quality control. Developed attention to detail and problem-solving skills while working in a fast-paced retail environment.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="skills">
             <div class="container">
-                <h2>Technical Skills</h2>
-                <p><strong>Languages:</strong> JavaScript, Java, C (explored), HTML, CSS, Python, GDScript, Bash</p>
-                <p><strong>Low-level:</strong> 16-bit Assembly (bootloader experimentation - brief period)</p>
-                <p><strong>Backend Focus:</strong> RESTful API development, JSON handling</p>
-                <p><strong>Frontend:</strong> HTMX, Tailwind CSS</p>
-                <p><strong>Tools:</strong> Git, GitHub, Gradle, Vite, npm, Chrome DevTools</p>
-                <p><strong>Systems:</strong> Linux (Arch Linux primary OS), dual boot Windows/Linux, command line proficient</p>
-                <p><strong>Security/Auth:</strong> Basic authentication concepts</p>
-                <p><strong>Networking:</strong> Basic networking concepts, HTTP/HTTPS understanding</p>
-                <p><strong>Currently learning:</strong> SQL, Spring Boot, Docker</p>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-content">
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">
+                            <i class="fas fa-code"></i>
+                            Programming Languages
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C</span>
+                                <span class="skill-level familiar">Familiar</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">React</span>
+                                <span class="skill-level familiar">Familiar</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">GDScript</span>
+                                <span class="skill-level familiar">Familiar</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Bash</span>
+                                <span class="skill-level familiar">Familiar</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">16-bit Assembly</span>
+                                <span class="skill-level familiar">Familiar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">
+                            <i class="fas fa-tools"></i>
+                            Technologies & Concepts
+                        </h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Spring Boot</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">REST API Development</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Git</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Linux (Arch Linux)</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Command Line</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Dual boot Windows/Linux</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Basic Authentication</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Networking Concepts</span>
+                                <span class="skill-level proficient">Proficient</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="contact" class="contact">
             <div class="container">
-                <h2>Projects</h2>
-                <ul>
-                    <li><strong>CentLedger Personal Finance API</strong> (Java, Spring Boot)<br>August 2025 - Present | <a href="https://github.com/jacobsmxth/centledger" target="_blank">GitHub</a></li>
-                    <li><strong>Personal Portfolio Website</strong> (HTML, CSS, JavaScript) | <a href="https://github.com/jacobsmxth/jsmitty-portfolio" target="_blank">GitHub</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="focus">
-            <div class="container">
-                <h2>Focus Areas</h2>
-                <ul>
-                    <li>Backend development and API design</li>
-                    <li>Linux systems and command line</li>
-                    <li>Fintech applications</li>
-                    <li>Secure development practices</li>
-                    <li>Systems programming exploration</li>
-                    <li>Youth mentoring/teaching programming</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="soft-skills">
-            <div class="container">
-                <h2>Soft Skills</h2>
-                <ul>
-                    <li>Problem-solving and analytical thinking</li>
-                    <li>Team collaboration and communication</li>
-                    <li>Remote work efficiency</li>
-                    <li>Youth mentoring and teaching</li>
-                    <li>Leadership (from football captain experience)</li>
-                    <li>Time management and multitasking</li>
-                    <li>Adaptability and quick learning</li>
-                    <li>Attention to detail and quality control</li>
-                    <li>Customer service orientation</li>
-                    <li>Technical troubleshooting</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="interests">
-            <div class="container">
-                <h2>Interests</h2>
-                <ul>
-                    <li>Financial Technology Innovation</li>
-                    <li>Secure Software Development</li>
-                    <li>Backend API Design</li>
-                    <li>Linux Systems Administration</li>
-                    <li>Open Source Contributing</li>
-                </ul>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>I'm always interested in discussing new opportunities, collaborations, or just having a conversation about technology and cybersecurity.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Atlanta, GA area</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="#" aria-label="LinkedIn Profile">LinkedIn</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="#" aria-label="GitHub Profile">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span class="button-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="formStatus" class="form-status" aria-live="polite"></div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Jacob Smith. All rights reserved.</p>
+            <p>&copy; 2024 Jacob Smith. Built with vanilla JavaScript and a focus on security.</p>
         </div>
     </footer>
 

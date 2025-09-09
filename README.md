@@ -1,31 +1,64 @@
 # Jacob Smith Portfolio
 
-This is my personal portfolio website. It's a simple single page site built with HTML, CSS, and vanilla JavaScript.
+## Description
 
-**What I Built**
+This is the personal portfolio website of Jacob Smith, a backend developer and Computer Science student specializing in Java Spring Boot, cybersecurity, and web development. The site showcases his projects, experience, skills, and provides a way to get in touch.
 
-I kept it straightforward no fancy frameworks, just clean code. The site has a dark theme with cyan accents that I think looks professional. It's responsive so it works on phones and desktops.
+## Features
 
-**Tech Used**
+- Responsive design that works on all devices
+- Hero section with professional introduction
+- About section with personal background
+- Featured projects including CentLedger API and this portfolio site
+- Experience timeline
+- Technical skills overview
+- Contact form with EmailJS integration
+- Smooth scrolling navigation
+- Mobile-friendly hamburger menu
 
-HTML for the structure
-CSS for styling (gradients, flexbox, responsive stuff)
-JavaScript for smooth scrolling and fade in animations
+## Technologies Used
 
-**Why I Made These Choices**
+- HTML5
+- CSS3 (with Flexbox and Grid)
+- Vanilla JavaScript (ES6+)
+- EmailJS for contact form
+- Font Awesome for icons
+- Google Fonts (Roboto and Roboto Mono)
 
-I wanted something fast and simple. No dependencies means it loads quick. Used semantic HTML for accessibility. The IntersectionObserver thing was new to me it's for triggering animations when you scroll to sections.
+## Usage
 
-For the design, I went with a dark background because I like it, and cyan because it pops against the dark. Kept the layout clean with flexbox for the header.
+To view the portfolio, open `index.html` in your web browser or serve it with a local server.
 
-**Files**
+For a local server, you can use Python:
 ```
-index.html (main page)
-styles.css (all the styling)
-script.js (interactivity)
-assets/
-  favicon.png (the little icon)
-  headshot.png
+python3 -m http.server 8000
+```
+Then visit `http://localhost:8000`
+
+Navigate through the sections using the navigation menu. The site is fully responsive and optimized for mobile devices.
+
+## Project Structure
+
+```
+jsmitty-portfolio/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styles
+├── script.js           # JavaScript functionality
+├── assets/             # Static assets
+│   ├── favicon.png
+│   ├── headshot.jpg
+│   └── spiderman.jpg
+├── plan.md             # Project planning document
+└── README.md           # This file
 ```
 
-That's pretty much it. Simple but effective.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Jacob Smith - [LinkedIn](https://linkedin.com/in/jacobsmith) - [GitHub](https://github.com/jsmitty)
+
+Project Link: [https://github.com/jsmitty/jsmitty-portfolio](https://github.com/jsmitty)
