@@ -1,18 +1,17 @@
 
 :root {
-  --primary-red: #B22222;      /* Professional Spider-Man red (firebrick) */
-  --secondary-blue: #191970;  /* Midnight blue - more professional */
-  --accent-gray: #A9A9A9;     /* Darker gray for sophistication */
-  --background: #FFFFFF;      /* Clean white */
-  --text-dark: #2C2C2C;       /* Darker text for better contrast */
-  --text-light: #555555;      /* Adjusted light text */
-  --border-color: #E0E0E0;    /* Light border */
+  --primary-red: #B22222;
+  --secondary-blue: #191970;
+  --accent-gray: #A9A9A9;
+  --background: #FFFFFF;
+  --text-dark: #2C2C2C;
+  --text-light: #555555;
+  --border-color: #E0E0E0;
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.15);
   --transition: all 0.3s ease;
 }
 
-/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -226,7 +225,7 @@ input, textarea, select {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background-image: url('assets/spiderman.jpg');
+  background-image: url('assets/spiderman-768w.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -692,7 +691,190 @@ section {
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
+.services-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 25px var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-red), var(--secondary-blue));
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px var(--shadow-hover);
+}
+
+.service-icon {
+  background: linear-gradient(135deg, var(--primary-red), var(--secondary-blue));
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(178, 34, 34, 0.3);
+}
+
+.service-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: var(--secondary-blue);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.service-description {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.service-features ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-red);
+  font-weight: bold;
+}
+
+.service-pricing {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-red);
+}
+
+.process-steps {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  margin: 3rem auto 0;
+  max-width: 800px;
+}
+
+.process-step {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px var(--shadow);
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-red), var(--secondary-blue));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 15px rgba(178, 34, 34, 0.3);
+}
+
+.step-title {
+  font-size: 1.25rem;
+  color: var(--secondary-blue);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.step-description {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, var(--secondary-blue), var(--primary-red));
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button-secondary {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+}
+
+.cta-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .about-content,
   .contact-content {
@@ -709,6 +891,14 @@ section {
   }
 
   .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-steps {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -760,6 +950,26 @@ section {
 
   .about-image img {
     max-width: 400px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 3rem auto 0;
+  }
+
+  .hero {
+    background-image: url('assets/spiderman-1280w.webp');
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    background-image: url('assets/spiderman-1920w.webp');
   }
 }
 

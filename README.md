@@ -1,64 +1,40 @@
 # Jacob Smith Portfolio
 
-## Description
+Personal portfolio website showcasing my development projects and experience as a backend developer and Computer Science student.
 
-This is the personal portfolio website of Jacob Smith, a backend developer and Computer Science student specializing in Java Spring Boot, cybersecurity, and web development. The site showcases his projects, experience, skills, and provides a way to get in touch.
+## Tech Stack
 
-## Features
+- **Frontend**: Vanilla HTML5, CSS3, JavaScript
+- **Performance**: Optimized WebP images with responsive loading
+- **Email**: EmailJS for contact form
+- **Icons**: Font Awesome
+- **Fonts**: Google Fonts (Roboto)
 
-- Responsive design that works on all devices
-- Hero section with professional introduction
-- About section with personal background
-- Featured projects including CentLedger API and this portfolio site
-- Experience timeline
-- Technical skills overview
-- Contact form with EmailJS integration
-- Smooth scrolling navigation
-- Mobile-friendly hamburger menu
+## Design Choices
 
-## Technologies Used
+**Vanilla JavaScript**: Chose vanilla JS over frameworks to demonstrate fundamental skills and keep the site lightweight.
 
-- HTML5
-- CSS3 (with Flexbox and Grid)
-- Vanilla JavaScript (ES6+)
-- EmailJS for contact form
-- Font Awesome for icons
-- Google Fonts (Roboto and Roboto Mono)
+**Mobile-First**: Responsive design prioritizing mobile experience with hamburger navigation and optimized layouts.
 
-## Usage
+**Performance**: Converted 4.4MB hero image to multiple WebP formats (93KB-338KB) with responsive loading based on screen size.
 
-To view the portfolio, open `index.html` in your web browser or serve it with a local server.
+**Clean Architecture**: Semantic HTML, CSS custom properties for theming, and modular JavaScript functions.
 
-For a local server, you can use Python:
-```
-python3 -m http.server 8000
-```
-Then visit `http://localhost:8000`
-
-Navigate through the sections using the navigation menu. The site is fully responsive and optimized for mobile devices.
+**Accessibility**: Proper ARIA attributes, keyboard navigation support, and alt text for images.
 
 ## Project Structure
 
 ```
 jsmitty-portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles
-├── script.js           # JavaScript functionality
-├── assets/             # Static assets
-│   ├── favicon.png
-│   ├── headshot.jpg
-│   └── spiderman.jpg
-├── plan.md             # Project planning document
-└── README.md           # This file
+├── index.html              # Main portfolio page
+├── services/
+│   └── index.html          # Services page
+├── styles.css              # All styles
+├── script.js               # Site functionality
+└── assets/                 # Optimized images
+    ├── favicon.png
+    ├── headshot-*.webp     # Responsive headshot images
+    └── spiderman-*.webp    # Responsive hero background images
 ```
 
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-Jacob Smith - [LinkedIn](https://linkedin.com/in/jacobsmith) - [GitHub](https://github.com/jsmitty)
-
-Project Link: [https://github.com/jsmitty/jsmitty-portfolio](https://github.com/jsmitty)
+Live at: [jsmitty.com](https://jsmitty.com)

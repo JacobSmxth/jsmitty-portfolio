@@ -11,14 +11,13 @@ function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    // Highlight active nav item based on scroll position
     function updateActiveNav() {
         const sections = document.querySelectorAll('section[id]');
         const scrollY = window.pageYOffset;
 
         sections.forEach(section => {
             const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100; // Offset for fixed header
+            const sectionTop = section.offsetTop - 100;
             const sectionId = section.getAttribute('id');
 
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -39,10 +38,9 @@ function initNavigation() {
     }
 
     window.addEventListener('scroll', updateActiveNav);
-    updateActiveNav(); // Initial call
+    updateActiveNav();
 }
 
-// Mobile Menu Functions
 function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -52,7 +50,6 @@ function initMobileMenu() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
 
-        // Animate hamburger icon to X shape
         const bars = document.querySelectorAll('.bar');
         if (mobileMenu.classList.contains('active')) {
             bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
@@ -64,7 +61,6 @@ function initMobileMenu() {
             bars[2].style.transform = 'none';
         }
 
-        // Update accessibility attributes
         const isExpanded = mobileMenu.classList.contains('active');
         hamburger.setAttribute('aria-expanded', isExpanded);
     }
@@ -103,7 +99,7 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed header height
+                const offsetTop = targetSection.offsetTop - 70;
 
                 window.scrollTo({
                     top: offsetTop,
@@ -119,7 +115,7 @@ function initSmoothScrolling() {
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px' // Trigger animation before element is fully visible
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -150,12 +146,9 @@ function initContactForm() {
     if (typeof emailjs !== 'undefined') {
         try {
             emailjs.init(EMAILJS_CONFIG.publicKey);
-            console.log('EmailJS initialized successfully');
         } catch (error) {
-            console.error('EmailJS initialization failed:', error);
         }
     } else {
-        console.warn('EmailJS library not loaded. Contact form will use fallback mode.');
     }
 
     function validateForm() {
@@ -210,8 +203,7 @@ function initContactForm() {
 
         try {
             if (typeof emailjs === 'undefined') {
-                console.error('EmailJS library not loaded');
-                showFormStatus('Email service temporarily unavailable. Please contact me directly.');
+                    showFormStatus('Email service temporarily unavailable. Please contact me directly.');
                 return;
             }
 
@@ -223,7 +215,6 @@ function initContactForm() {
                 to_name: 'Jacob Smith'
             };
 
-            console.log('Sending email with params:', templateParams);
 
             const result = await emailjs.send(
                 EMAILJS_CONFIG.serviceId,
@@ -231,18 +222,15 @@ function initContactForm() {
                 templateParams
             );
 
-            console.log('EmailJS result:', result);
 
             if (result.status === 200) {
                 showFormStatus('Message sent successfully! I\'ll get back to you soon.', true);
                 form.reset();
             } else {
-                console.error('EmailJS returned non-200 status:', result.status);
                 throw new Error(`EmailJS returned status ${result.status}`);
             }
 
         } catch (error) {
-            console.error('EmailJS error details:', error);
 
             let errorMessage = 'Failed to send message. ';
 
@@ -290,7 +278,6 @@ function initAccessibility() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         if (!img.hasAttribute('alt')) {
-            console.warn('Image missing alt attribute:', img.src);
         }
     });
 
@@ -317,20 +304,3 @@ function initAccessibility() {
     });
 }
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-window.addEventListener('scroll', debouncedScroll);
-
-window.addEventListener('error', (e) => {
-    console.error('JavaScript error:', e.error);
-});

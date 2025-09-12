@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="assets/spiderman-768w.webp" as="image" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" href="assets/spiderman-1280w.webp" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1199px)">
+    <link rel="preload" href="assets/spiderman-1920w.webp" as="image" type="image/webp" media="(min-width: 1200px)">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
@@ -28,11 +32,11 @@
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="/" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="services" class="nav-link">Services</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <button class="hamburger" aria-label="Toggle navigation menu">
@@ -44,11 +48,11 @@
         </div>
         <div class="mobile-menu">
             <ul class="mobile-nav-list">
-                <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+                <li><a href="/" class="mobile-nav-link">Home</a></li>
                 <li><a href="#about" class="mobile-nav-link">About</a></li>
                 <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
                 <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
-                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="services" class="mobile-nav-link">Services</a></li>
                 <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
             </ul>
         </div>
@@ -78,7 +82,16 @@
                         <p>When I'm not coding, you can find me teaching the next generation of developers at Code Ninjas or working on personal projects that challenge my technical skills.</p>
                     </div>
                     <div class="about-image">
-                        <img src="assets/headshot.jpg" alt="Jacob Smith - Backend Developer" loading="lazy">
+                        <picture>
+                            <source srcset="assets/headshot-400w.webp 400w, assets/headshot-200w.webp 200w" 
+                                    sizes="(max-width: 768px) 200px, 400px" 
+                                    type="image/webp">
+                            <img src="assets/headshot.jpg" 
+                                 srcset="assets/headshot.jpg 400w" 
+                                 sizes="(max-width: 768px) 200px, 400px"
+                                 alt="Jacob Smith - Backend Developer" 
+                                 loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -100,6 +113,23 @@
                         <p class="project-description">A comprehensive personal finance API built with Java Spring Boot. Features include transaction management, budget tracking, financial reporting, and secure user authentication. Implements best practices for API design and data security.</p>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="View CentLedger on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">AcademicEdge</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">JPA</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                        </div>
+                        <p class="project-description">Full-stack academic management system with role-based access for students, teachers, and administrators. Features comprehensive scheduling, course management, grade tracking, and user authentication. Java Spring Boot backend with responsive HTML/CSS/JavaScript frontend.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View AcademicEdge on GitHub">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -132,7 +162,7 @@
                         <div class="experience-header">
                             <h3 class="experience-title">Sensei & Content Team Member</h3>
                             <span class="experience-company">Code Ninjas</span>
-                            <span class="experience-date">2023 - Present</span>
+                            <span class="experience-date">June 2025 - Present</span>
                         </div>
                         <p class="experience-description">Teaching programming fundamentals to students aged 7-14. Developing curriculum content and mentoring young developers in game design, web development, and coding concepts.</p>
                     </div>
@@ -140,7 +170,7 @@
                         <div class="experience-header">
                             <h3 class="experience-title">Lead Stringer & Quality Checker</h3>
                             <span class="experience-company">Tennis Warehouse</span>
-                            <span class="experience-date">2022 - 2023</span>
+                            <span class="experience-date">August 2023 - June 2025</span>
                         </div>
                         <p class="experience-description">Managed tennis racquet stringing operations and quality control. Developed attention to detail and problem-solving skills while working in a fast-paced retail environment.</p>
                     </div>
@@ -290,7 +320,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Jacob Smith. Built with vanilla JavaScript and a focus on security.</p>
+            <p>&copy; 2025 Jacob Smith. Built with vanilla JavaScript and a focus on security.</p>
         </div>
     </footer>
 
