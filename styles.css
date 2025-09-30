@@ -475,6 +475,17 @@ section {
   margin-right: 1rem;
 }
 
+.experience-company a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.experience-company a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
 .experience-date {
   color: var(--text-light);
   font-size: 0.9rem;
