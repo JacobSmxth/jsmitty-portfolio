@@ -1,40 +1,75 @@
-# Jacob Smith Portfolio
+# Jacob Smith - Portfolio
 
-Personal portfolio website showcasing my development projects and experience as a backend developer and Computer Science student.
+Personal portfolio website showcasing my projects, experience, and blog.
 
 ## Tech Stack
 
-- **Frontend**: Vanilla HTML5, CSS3, JavaScript
-- **Performance**: Optimized WebP images with responsive loading
-- **Email**: EmailJS for contact form
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts (Roboto)
+- **Framework:** Next.js 14 (App Router)
+- **UI:** React 19
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Language:** TypeScript
+- **Hosting:** Vercel
 
-## Design Choices
+## Features
 
-**Vanilla JavaScript**: Chose vanilla JS over frameworks to demonstrate fundamental skills and keep the site lightweight.
+- 🎨 Modern, responsive design
+- ✨ Smooth animations and transitions
+- 📱 Mobile-first approach
+- 🎯 SEO optimized
+- 🚀 Fast performance
+- 🎭 Dynamic modals for project and experience details
+- 📝 Blog platform (coming soon)
 
-**Mobile-First**: Responsive design prioritizing mobile experience with hamburger navigation and optimized layouts.
+## Getting Started
 
-**Performance**: Converted 4.4MB hero image to multiple WebP formats (93KB-338KB) with responsive loading based on screen size.
+Install dependencies:
 
-**Clean Architecture**: Semantic HTML, CSS custom properties for theming, and modular JavaScript functions.
+```bash
+npm install
+```
 
-**Accessibility**: Proper ARIA attributes, keyboard navigation support, and alt text for images.
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
 
 ## Project Structure
 
 ```
-jsmitty-portfolio/
-├── index.html              # Main portfolio page
-├── services/
-│   └── index.html          # Services page
-├── styles.css              # All styles
-├── script.js               # Site functionality
-└── assets/                 # Optimized images
-    ├── favicon.png
-    ├── headshot-*.webp     # Responsive headshot images
-    └── spiderman-*.webp    # Responsive hero background images
+/app              - Next.js app router pages
+/components       - Reusable React components
+  /sections       - Page section components
+/data             - Data files for projects and experiences
+/assets           - Images and static files
 ```
 
-Live at: [jsmitty.com](https://jsmitty.com)
+## Color Palette
+
+- Primary: #3E92CC
+- Cream: #FFF3F0
+- Navy: #13293d
+- Mauve: #A57982
+- Coral: #FF5A5F
+
+## Contact
+
+- Email: jacobsmith@jsmitty.com
+- LinkedIn: [jacobsmxth](https://linkedin.com/in/jacobsmxth)
+- GitHub: [jacobsmxth](https://github.com/jacobsmxth)
+
+---
+
+Built with ❤️ by Jacob Smith
+
+
