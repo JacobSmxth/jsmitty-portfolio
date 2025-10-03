@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react' // or use your preferred icon library
+import { Menu, X } from 'lucide-react'
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -83,9 +83,12 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="font-bold text-lg sm:text-xl text-slate-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <Link 
+            href="/"
+            className="font-bold text-lg sm:text-xl text-slate-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
             Jacob Smith
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-8 items-center ml-12">
@@ -95,7 +98,7 @@ export default function Navigation() {
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 ${
+                    className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block ${
                       isActive
                         ? 'text-white'
                         : 'text-slate-700 hover:text-blue-600'
@@ -120,6 +123,7 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-slate-700 hover:text-blue-600 transition-colors"
             aria-label="Toggle menu"
+            type="button"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -155,13 +159,18 @@ export default function Navigation() {
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-200">
-                  <div className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <Link
+                    href="/"
+                    className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     Jacob Smith
-                  </div>
+                  </Link>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 text-slate-700 hover:text-blue-600 transition-colors"
                     aria-label="Close menu"
+                    type="button"
                   >
                     <X className="w-6 h-6" />
                   </button>
