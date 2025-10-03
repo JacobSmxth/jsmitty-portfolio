@@ -136,32 +136,40 @@ This project demonstrates:
   },
   {
     name: 'PR Tracker API',
-    summary: 'Practice project: Built from scratch in ~1 hour to test knowledge retention',
-    description: `A personal fitness tracking API built entirely from memory without reference materials to validate Spring Boot knowledge retention.
+    summary: 'Workout tracking API demonstrating advanced JPA/ORM entity relationships',
+    description: `A comprehensive fitness tracking system that evolved from a simple PR tracker into a sophisticated workout management API with complex entity relationships.
 
-Features:
-- Complete CRUD operations for tracking personal records
-- One-rep max calculation algorithms
-- Clean entity relationships and data modeling
-- Built quickly to demonstrate efficient development
-- Tracks my actual gym PRs for personal use
+Core Architecture:
+- Advanced Object-Relational Mapping (ORM) with JPA
+- Bidirectional entity relationships (@OneToMany, @ManyToOne)
+- Cascade operations for automatic persistence
+- Foreign key management with @JoinColumn
+- JSON serialization with @JsonIgnore to prevent infinite loops
 
-This project serves as:
-- A learning exercise to reinforce Spring Data JPA patterns
-- Evidence of ability to build APIs without external references
-- Practice with mathematical algorithms and calculations
-- Personal tool that I actually use
+Data Model:
+- Sessions → Exercises → Sets (hierarchical structure)
+- One session contains many exercises
+- Each exercise contains multiple sets
+- Automatic cascade save/delete operations
+- mappedBy relationships for bidirectional navigation
 
-While not a portfolio centerpiece, it demonstrates understanding of core patterns and ability to work independently.`,
-    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'REST API'],
+Technical Implementation:
+- Create and Read operations across all entities (Update/Delete in progress)
+- Spring Data JPA with automatic SQL generation
+- Clean separation of concerns in entity design
+- Real-world relational database modeling
+
+This project demonstrates advanced backend concepts beyond basic CRUD - specifically how to model complex domain relationships using JPA and let Spring handle the SQL complexity. Currently implements creation and retrieval of nested workout data, with full CRUD operations being added.`,
+    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'REST API', 'Hibernate ORM'],
     aiUsage: 'None',
-    aiDetails: 'Built from memory without any AI assistance or reference materials',
+    aiDetails: 'Built from scratch to master advanced JPA relationships and ORM concepts',
     learnings: [
-      'Knowledge retention and application without references',
-      'Spring Data JPA patterns and best practices',
-      'Entity relationship design',
-      'Algorithm implementation (one-rep max calculations)',
-      'Rapid prototyping and efficient development'
+      'Advanced JPA entity relationships (@OneToMany, @ManyToOne, bidirectional mapping)',
+      'Cascade operations and entity lifecycle management',
+      'Foreign key design with @JoinColumn',
+      'Preventing JSON serialization loops with @JsonIgnore',
+      'Complex relational database modeling in Java',
+      'Spring Data JPA automatic SQL generation and join handling'
     ],
     githubUrl: 'https://github.com/JacobSmxth/pr-api',
     featured: false
