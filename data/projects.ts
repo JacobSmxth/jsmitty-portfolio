@@ -14,12 +14,12 @@ export interface Project {
 export const featuredProjects: Project[] = [
   {
     name: 'Inventory Management API',
-    summary: 'Production-ready REST API with advanced features and comprehensive testing',
-    description: `A full-featured inventory management system built from scratch to demonstrate backend fundamentals and production-ready patterns.
+    summary: 'Portfolio-ready REST API with comprehensive testing and clean Spring Boot patterns',
+    description: `A full-featured inventory management system built from scratch to demonstrate backend fundamentals and clean coding practices.
 
 Key Features:
 - Complete CRUD operations with clean REST architecture
-- Advanced search by SKU and category filtering
+- Search by SKU and category filtering
 - Low-stock tracking for consumables with automated alerts
 - Stock adjustment system with validation (prevents negative inventory)
 - Real-time inventory statistics (total value, quantity calculations)
@@ -28,17 +28,17 @@ Key Features:
 - Integration tests with separate H2 test database
 - File-based H2 database for data persistence
 
-Built to track my actual desk setup inventory while demonstrating enterprise-level API design patterns.`,
+Built to track my actual desk setup inventory while demonstrating clean Spring Boot design patterns.`,
     techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'JUnit', 'REST API'],
     aiUsage: 'None',
     aiDetails: 'Built entirely from scratch to demonstrate mastery of Spring Boot fundamentals and best practices',
     learnings: [
-      'Advanced Spring Data JPA queries and custom repository methods',
-      'Comprehensive input validation and error handling strategies',
+      'Spring Data JPA queries and custom repository methods',
+      'Input validation and error handling strategies',
       'Integration testing with separate test database configuration',
       'RESTful API design with proper HTTP status codes',
       'Business logic implementation (stock management, low-stock alerts)',
-      'Production-ready code structure and documentation'
+      'Clean code structure and documentation'
     ],
     githubUrl: 'https://github.com/JacobSmxth/Inventory-management-api',
     featured: true
@@ -57,8 +57,8 @@ While basic in implementation, it demonstrates:
 
 This project is significant because it shows where I started and the progression to more sophisticated systems. The financial tracking domain is directly relevant to fintech work.`,
     techStack: ['Java', 'Spring Boot', 'REST API', 'CSV'],
-    aiUsage: 'None',
-    aiDetails: 'Built entirely without AI to ensure deep understanding of Java and Spring Boot fundamentals',
+    aiUsage: 'Low',
+    aiDetails: 'Minimal AI assistance for basic Spring Boot setup; core logic and implementation done independently',
     learnings: [
       'Java Spring Boot fundamentals and project structure',
       'RESTful API design principles',
@@ -71,31 +71,30 @@ This project is significant because it shows where I started and the progression
   },
   {
     name: 'Washington Archives',
-    summary: 'Large-scale content management system with 14 sections and 52 sources',
-    description: `A comprehensive historical research website demonstrating complex information architecture and data organization skills.
+    summary: 'Comprehensive historical research website with well-organized content and citations',
+    description: `A historical research website demonstrating content organization and proper academic documentation.
 
 Contains:
 - 14 detailed sections with hierarchical organization
 - 10,000+ words of carefully structured content
 - 52 cited sources with proper academic formatting
-- Custom TypeScript data modeling (sections.ts, sources.ts)
-- File-based database system for content management
+- TypeScript interfaces for structured content organization
 - Clean, academic design with focus on readability
 
 This project showcases ability to:
-- Handle large-scale information architecture
-- Create structured data models in TypeScript
-- Organize and present complex datasets effectively
-- Build content management systems from scratch`,
-    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'File-based CMS'],
+- Organize large amounts of research content effectively
+- Implement proper citation and documentation systems
+- Create clean, readable interfaces for content presentation
+- Structure data using TypeScript`,
+    techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
     aiUsage: 'Low',
-    aiDetails: 'Minimal AI assistance - most content organization and styling done independently',
+    aiDetails: 'AI-assisted for implementation and structure; content research and organization done independently',
     learnings: [
-      'Large-scale content organization and information architecture',
-      'TypeScript for structured data modeling',
+      'Content organization and information architecture',
+      'TypeScript interfaces for structured data',
       'Academic citation systems and proper documentation',
-      'Building custom CMS solutions with TypeScript',
-      'Rapid prototyping with existing design patterns'
+      'Working with Next.js for content-heavy sites',
+      'Creating clean, readable user interfaces'
     ],
     url: 'https://washingtonarchives.vercel.app',
     githubUrl: 'https://github.com/JacobSmxth/washingtonarchives',
@@ -135,41 +134,26 @@ This project demonstrates:
     featured: false
   },
   {
-    name: 'PR Tracker API',
-    summary: 'Workout tracking API demonstrating advanced JPA/ORM entity relationships',
-    description: `A comprehensive fitness tracking system that evolved from a simple PR tracker into a sophisticated workout management API with complex entity relationships.
-
-Core Architecture:
-- Advanced Object-Relational Mapping (ORM) with JPA
-- Bidirectional entity relationships (@OneToMany, @ManyToOne)
-- Cascade operations for automatic persistence
-- Foreign key management with @JoinColumn
-- JSON serialization with @JsonIgnore to prevent infinite loops
-
-Data Model:
-- Sessions → Exercises → Sets (hierarchical structure)
-- One session contains many exercises
-- Each exercise contains multiple sets
-- Automatic cascade save/delete operations
-- mappedBy relationships for bidirectional navigation
-
-Technical Implementation:
-- Create and Read operations across all entities (Update/Delete in progress)
-- Spring Data JPA with automatic SQL generation
-- Clean separation of concerns in entity design
-- Real-world relational database modeling
-
-This project demonstrates advanced backend concepts beyond basic CRUD - specifically how to model complex domain relationships using JPA and let Spring handle the SQL complexity. Currently implements creation and retrieval of nested workout data, with full CRUD operations being added.`,
-    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'REST API', 'Hibernate ORM'],
+    name: 'Workout Tracker API',
+    summary: 'REST API with JPA entity relationships - practice project',
+    description: `A workout tracking API built to practice Spring Data JPA relationships beyond basic CRUD.
+  
+  Features three-level entity structure:
+  - Sessions (workout dates)
+  - Exercises (movements within a session)
+  - Sets (weight/reps for each exercise)
+  
+  Demonstrates JPA relationship patterns (@OneToMany/@ManyToOne), foreign key management, and cascade operations. Built in a few hours to solidify understanding of entity relationships after completing InventoryAPI.
+  
+  Basic CRUD operations implemented across all entities with proper HTTP status codes.`,
+    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database'],
     aiUsage: 'None',
-    aiDetails: 'Built from scratch to master advanced JPA relationships and ORM concepts',
+    aiDetails: 'Practically zero AI usage - built independently after learning JPA concepts from documentation',
     learnings: [
-      'Advanced JPA entity relationships (@OneToMany, @ManyToOne, bidirectional mapping)',
-      'Cascade operations and entity lifecycle management',
-      'Foreign key design with @JoinColumn',
-      'Preventing JSON serialization loops with @JsonIgnore',
-      'Complex relational database modeling in Java',
-      'Spring Data JPA automatic SQL generation and join handling'
+      'JPA bidirectional relationships and foreign keys',
+      'Cascade operations for nested entity saves',
+      'Preventing JSON serialization loops',
+      'Spring Data JPA query methods'
     ],
     githubUrl: 'https://github.com/JacobSmxth/pr-api',
     featured: false
@@ -177,7 +161,7 @@ This project demonstrates advanced backend concepts beyond basic CRUD - specific
   {
     name: 'RainbetVIP.com',
     summary: 'Client project: Automated content management with external integrations',
-    description: `An information and promotional website with automated content management, built for a client with minimal AI assistance.
+    description: `An information and promotional website with automated content management, built for a real client.
 
 Key features:
 - Telegram bot integration for automated code distribution
@@ -187,13 +171,13 @@ Key features:
 - Professional, modern design
 
 This project demonstrates:
-- Independent problem-solving with minimal AI usage
+- Client communication and delivering to specifications
 - Integration of multiple external services (Telegram, News API)
 - Building automated workflows
 - Professional client deliverables`,
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'Firestore', 'Telegram Bot API', 'News API'],
-    aiUsage: 'Low',
-    aiDetails: 'Minimal AI assistance - most problem-solving and implementation done independently',
+    aiUsage: 'Medium',
+    aiDetails: 'AI-assisted for implementation; API integration patterns and client requirements handled independently',
     learnings: [
       'Third-party API integration (Telegram, News)',
       'Automated content workflow design',
