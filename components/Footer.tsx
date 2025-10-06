@@ -14,10 +14,10 @@ export default function Footer() {
   ]
 
   const services = [
-    { name: 'API Development', path: '/services#api' },
-    { name: 'Web Development', path: '/services#web' },
-    { name: 'Tutoring', path: '/services#tutoring' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Business Websites', path: '/services' },
+    { name: 'Website Redesign', path: '/services' },
+    { name: 'Web Applications', path: '/services' },
+    { name: 'Maintenance & Hosting', path: '/services' },
   ]
 
   return (

@@ -1,70 +1,76 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaCode, FaGraduationCap, FaLaptopCode, FaServer } from 'react-icons/fa'
+import { FaDesktop, FaSync, FaCode, FaTools } from 'react-icons/fa'
 
 const services = [
   {
-    icon: FaServer,
-    title: 'API Development',
-    description: 'Building secure, scalable RESTful APIs with modern frameworks',
+    icon: FaDesktop,
+    title: 'Business Websites',
+    description: 'Professional websites that get you online fast',
     details: [
-      'Java Spring Boot development',
-      'RESTful API design',
-      'Database design and optimization',
-      'Security best practices',
-      'API documentation',
-      'Performance optimization'
+      'Custom responsive design',
+      'Mobile-friendly layout',
+      'Contact forms & integrations',
+      'SEO basics',
+      'Fast loading speeds',
+      '2 weeks delivery'
     ],
+    pricing: '$1,500 - $3,500',
+    idealFor: 'Restaurants, salons, contractors, professional services',
     color: 'primary'
   },
   {
-    icon: FaLaptopCode,
-    title: 'Full-Stack Web Development',
-    description: 'Complete web solutions from front-end to back-end',
+    icon: FaSync,
+    title: 'Website Redesign & Modernization',
+    description: 'Breathe new life into your outdated website',
     details: [
-      'Next.js & React applications',
-      'Responsive, modern UI/UX',
-      'Backend integration',
-      'Database setup (Firestore, PostgreSQL)',
-      'Deployment and hosting',
-      'Ongoing maintenance'
+      'Modern, clean design',
+      'Improved mobile experience',
+      'Better performance',
+      'Updated content structure',
+      'Preservation of SEO value'
     ],
+    pricing: '$1,200 - $2,800',
+    idealFor: 'Businesses with 5+ year old websites',
     color: 'coral'
   },
   {
     icon: FaCode,
-    title: 'Front-End Development',
-    description: 'Beautiful, responsive user interfaces',
+    title: 'Custom Web Applications',
+    description: 'Simple tools and dashboards for your business',
     details: [
-      'React/Next.js development',
-      'Tailwind CSS styling',
-      'Responsive design',
-      'Modern animations',
-      'Component libraries',
-      'Performance optimization'
+      'Custom functionality',
+      'Database setup',
+      'User authentication',
+      'Admin dashboards',
+      'API integrations'
     ],
+    pricing: 'Starting at $2,500',
+    idealFor: 'Booking systems, inventory tracking, client portals',
     color: 'mauve'
   },
   {
-    icon: FaGraduationCap,
-    title: 'Computer Science Tutoring',
-    description: 'One-on-one tutoring for CS fundamentals and programming',
+    icon: FaTools,
+    title: 'Website Maintenance & Hosting',
+    description: 'Keep your site running smoothly',
     details: [
-      'Programming fundamentals',
-      'Data structures & algorithms',
-      'Web development basics',
-      'Code review and best practices',
-      'Project guidance',
-      'Career mentorship'
+      'Hosting & domain management',
+      'Security updates',
+      'Monthly backups',
+      'Uptime monitoring',
+      'Content updates',
+      'Performance monitoring'
     ],
+    pricing: '$50 - $100/month',
+    idealFor: 'Any website owner who wants peace of mind',
     color: 'navy'
   }
 ]
 
 export default function Services() {
   return (
-    <div className="min-h-screen pt-24 px-4 pb-20">
+    <div className="min-h-screen pt-32 px-4 pb-20">
       <div className="max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
@@ -80,7 +86,7 @@ export default function Services() {
           transition={{ delay: 0.1 }}
           className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto"
         >
-          I offer a range of development and educational services. Whether you need a full application, API development, or personalized tutoring, I&apos;m here to help.
+          Fast, modern, and affordable web solutions for your business. I help small businesses get online quickly with professional websites and custom tools.
         </motion.p>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -110,6 +116,16 @@ export default function Services() {
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   {service.description}
                 </p>
+
+                <div className="mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-lg font-semibold text-slate-900">Pricing:</span>
+                    <span className="text-lg font-bold text-blue-600">{service.pricing}</span>
+                  </div>
+                  <p className="text-sm text-slate-600">
+                    <strong>Ideal for:</strong> {service.idealFor}
+                  </p>
+                </div>
 
                 <ul className="space-y-3">
                   {service.details.map((detail) => (
