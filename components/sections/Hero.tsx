@@ -6,8 +6,8 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
+    <>
+      <div className="fixed inset-0 z-0">
         <Image
           src="/LineArtBackgroundMtn.png"
           alt=""
@@ -20,12 +20,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/40"></div>
       </div>
 
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-purple-400/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-5xl mx-auto text-center relative z-10">
+      <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative z-10">
+        <div className="max-w-5xl mx-auto text-center relative">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -134,7 +130,8 @@ export default function Hero() {
             <div className="text-sm mt-2 text-slate-500">- Uncle Ben</div>
           </div>
         </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   )
 }

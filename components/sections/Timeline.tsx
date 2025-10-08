@@ -17,7 +17,7 @@ export default function Timeline() {
   }, [selectedExperience])
 
   return (
-    <section id="timeline" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section id="timeline" className="py-32 px-6 bg-gradient-to-b from-white/80 to-gray-50/80 backdrop-blur-sm shadow-2xl relative">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

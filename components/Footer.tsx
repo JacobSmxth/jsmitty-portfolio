@@ -95,7 +95,7 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4 text-purple-400">Services</h4>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service.path}>
+                <li key={service.name}>
                   <Link
                     href={service.path}
                     className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"

@@ -87,7 +87,7 @@ export default function Projects() {
   )
 
   return (
-    <section id="projects" className="py-32 px-6 relative overflow-hidden">
+    <section id="projects" className="py-32 px-6 relative overflow-hidden bg-white/80 backdrop-blur-sm shadow-2xl">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
