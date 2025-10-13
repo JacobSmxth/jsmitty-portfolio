@@ -125,7 +125,7 @@ export default function Hero() {
           transition={{ delay: 1.2, duration: 1 }}
           className="text-slate-400 italic text-lg max-w-2xl mx-auto"
         >
-          <div className="p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/30 shadow-lg">
+          <div className="p-6 bg-white/60 rounded-2xl border border-white/30 shadow-lg">
             &ldquo;With great power comes great responsibility&rdquo;
             <div className="text-sm mt-2 text-slate-500">- Uncle Ben</div>
           </div>

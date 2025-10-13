@@ -23,7 +23,8 @@ export default function ExperienceModal({ experience, onClose }: ExperienceModal
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
       onClick={onClose}
-      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center p-4"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}

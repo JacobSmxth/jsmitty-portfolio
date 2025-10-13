@@ -3,8 +3,20 @@ export interface Project {
   summary: string
   description: string
   techStack: string[]
-  aiUsage: 'None' | 'Low' | 'Medium' | 'High'
-  aiDetails?: string
+  developmentApproach: 'From Scratch' | 'Rapid Prototyped' | 'Documentation-First'
+  technicalDepth: {
+    linesOfCode?: number
+    testCoverage?: number
+    apiEndpoints?: number
+    performanceMetrics?: {
+      requestsPerSec?: number
+      responseTime?: number
+    }
+    databaseComplexity?: {
+      tables?: number
+      relationships?: number
+    }
+  }
   learnings: string[]
   url?: string
   githubUrl?: string
@@ -30,8 +42,11 @@ Key Features:
 
 Built to track my actual desk setup inventory while demonstrating clean Spring Boot design patterns.`,
     techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'JUnit', 'REST API'],
-    aiUsage: 'None',
-    aiDetails: 'Built entirely from scratch to demonstrate mastery of Spring Boot fundamentals and best practices',
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 412,
+      apiEndpoints: 9
+    },
     learnings: [
       'Spring Data JPA queries and custom repository methods',
       'Input validation and error handling strategies',
@@ -57,8 +72,11 @@ While basic in implementation, it demonstrates:
 
 This project is significant because it shows where I started and the progression to more sophisticated systems. The financial tracking domain is directly relevant to fintech work.`,
     techStack: ['Java', 'Spring Boot', 'REST API', 'CSV'],
-    aiUsage: 'Low',
-    aiDetails: 'Minimal AI assistance for basic Spring Boot setup; core logic and implementation done independently',
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 453,
+      apiEndpoints: 5
+    },
     learnings: [
       'Java Spring Boot fundamentals and project structure',
       'RESTful API design principles',
@@ -87,8 +105,10 @@ This project showcases ability to:
 - Create clean, readable interfaces for content presentation
 - Structure data using TypeScript`,
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'],
-    aiUsage: 'Low',
-    aiDetails: 'AI-assisted for implementation and structure; content research and organization done independently',
+    developmentApproach: 'Rapid Prototyped',
+    technicalDepth: {
+      linesOfCode: 6019,
+    },
     learnings: [
       'Content organization and information architecture',
       'TypeScript interfaces for structured data',
@@ -121,8 +141,8 @@ This project demonstrates:
 - API integration and data transformation
 - Building scalable systems for production use`,
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'Firestore', 'API Integration'],
-    aiUsage: 'Medium',
-    aiDetails: 'AI helped with UI boilerplate; architecture and system design were done manually',
+    developmentApproach: 'Rapid Prototyped',
+    technicalDepth: {},
     learnings: [
       'API integration and data merging strategies',
       'Complex state management in production React apps',
@@ -137,18 +157,21 @@ This project demonstrates:
     name: 'Workout Tracker API',
     summary: 'REST API with JPA entity relationships - practice project',
     description: `A workout tracking API built to practice Spring Data JPA relationships beyond basic CRUD.
-  
+
   Features three-level entity structure:
   - Sessions (workout dates)
   - Exercises (movements within a session)
   - Sets (weight/reps for each exercise)
-  
+
   Demonstrates JPA relationship patterns (@OneToMany/@ManyToOne), foreign key management, and cascade operations. Built in a few hours to solidify understanding of entity relationships after completing InventoryAPI.
-  
+
   Basic CRUD operations implemented across all entities with proper HTTP status codes.`,
     techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database'],
-    aiUsage: 'None',
-    aiDetails: 'Practically zero AI usage - built independently after learning JPA concepts from documentation',
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 512,
+      apiEndpoints: 11,
+    },
     learnings: [
       'JPA bidirectional relationships and foreign keys',
       'Cascade operations for nested entity saves',
@@ -176,8 +199,8 @@ This project demonstrates:
 - Building automated workflows
 - Professional client deliverables`,
     techStack: ['React', 'Next.js', 'Tailwind CSS', 'Firestore', 'Telegram Bot API', 'News API'],
-    aiUsage: 'Medium',
-    aiDetails: 'AI-assisted for implementation; API integration patterns and client requirements handled independently',
+    developmentApproach: 'Rapid Prototyped',
+    technicalDepth: {},
     learnings: [
       'Third-party API integration (Telegram, News)',
       'Automated content workflow design',
@@ -205,8 +228,8 @@ Features:
 
 Built to showcase both technical skills and design sensibility while providing a professional online presence.`,
     techStack: ['React 19', 'Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion'],
-    aiUsage: 'Medium',
-    aiDetails: 'AI-assisted frontend development to allow focus on backend/Java learning, as I\'m primarily backend-focused',
+    developmentApproach: 'Rapid Prototyped',
+    technicalDepth: {},
     learnings: [
       'Next.js 15 App Router and React 19 features',
       'Tailwind CSS v4 theming and custom design systems',

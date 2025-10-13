@@ -17,7 +17,7 @@ export default function Timeline() {
   }, [selectedExperience])
 
   return (
-    <section id="timeline" className="py-32 px-6 bg-gradient-to-b from-white/80 to-gray-50/80 backdrop-blur-sm shadow-2xl relative">
+    <section id="timeline" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50 shadow-2xl relative">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -42,17 +42,17 @@ export default function Timeline() {
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.title}
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15, type: 'spring' }}
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
                 className="relative pl-24 group"
               >
                 <div className="absolute left-5 top-8 w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform" />
 
                 <div
                   onClick={() => setSelectedExperience(exp)}
-                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200"
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200 will-change-transform"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">

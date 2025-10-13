@@ -23,7 +23,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
       onClick={onClose}
-      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
@@ -85,23 +86,62 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         </div>
 
-        {project.aiUsage && (
+        {project.developmentApproach && (
           <div className="mb-8 p-6 bg-slate-50 rounded-2xl">
-            <h3 className="font-bold text-slate-900 mb-3 text-lg">AI Usage</h3>
+            <h3 className="font-bold text-slate-900 mb-3 text-lg">Development Approach</h3>
             <span className={`inline-block px-4 py-2 rounded-xl text-sm font-bold border ${
-              project.aiUsage === 'None' 
+              project.developmentApproach === 'From Scratch'
                 ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                : project.aiUsage === 'Low'
+                : project.developmentApproach === 'Documentation-First'
                 ? 'bg-blue-50 text-blue-700 border-blue-200'
-                : project.aiUsage === 'Medium'
-                ? 'bg-amber-50 text-amber-700 border-amber-200'
-                : 'bg-rose-50 text-rose-700 border-rose-200'
+                : 'bg-purple-50 text-purple-700 border-purple-200'
             }`}>
-              {project.aiUsage}
+              {project.developmentApproach}
             </span>
-            {project.aiDetails && (
-              <p className="text-slate-600 mt-4 leading-relaxed">{project.aiDetails}</p>
-            )}
+          </div>
+        )}
+
+        {project.technicalDepth && Object.keys(project.technicalDepth).length > 0 && (
+          <div className="mb-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+            <h3 className="font-bold text-slate-900 mb-4 text-lg">Technical Metrics</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {project.technicalDepth.linesOfCode && (
+                <div className="bg-white/70 rounded-xl p-4 border border-blue-100">
+                  <div className="text-3xl font-bold text-blue-600">{project.technicalDepth.linesOfCode.toLocaleString()}</div>
+                  <div className="text-sm text-slate-600 mt-1">Lines of Code</div>
+                </div>
+              )}
+              {project.technicalDepth.testCoverage !== undefined && (
+                <div className="bg-white/70 rounded-xl p-4 border border-emerald-100">
+                  <div className="text-3xl font-bold text-emerald-600">{project.technicalDepth.testCoverage}%</div>
+                  <div className="text-sm text-slate-600 mt-1">Test Coverage</div>
+                </div>
+              )}
+              {project.technicalDepth.apiEndpoints !== undefined && project.technicalDepth.apiEndpoints > 0 && (
+                <div className="bg-white/70 rounded-xl p-4 border border-purple-100">
+                  <div className="text-3xl font-bold text-purple-600">{project.technicalDepth.apiEndpoints}</div>
+                  <div className="text-sm text-slate-600 mt-1">API Endpoints</div>
+                </div>
+              )}
+              {project.technicalDepth.performanceMetrics?.responseTime && (
+                <div className="bg-white/70 rounded-xl p-4 border border-amber-100">
+                  <div className="text-3xl font-bold text-amber-600">{project.technicalDepth.performanceMetrics.responseTime}ms</div>
+                  <div className="text-sm text-slate-600 mt-1">Response Time</div>
+                </div>
+              )}
+              {project.technicalDepth.performanceMetrics?.requestsPerSec && (
+                <div className="bg-white/70 rounded-xl p-4 border border-rose-100">
+                  <div className="text-3xl font-bold text-rose-600">{project.technicalDepth.performanceMetrics.requestsPerSec}</div>
+                  <div className="text-sm text-slate-600 mt-1">Requests/sec</div>
+                </div>
+              )}
+              {project.technicalDepth.databaseComplexity?.tables && project.technicalDepth.databaseComplexity.tables > 0 && (
+                <div className="bg-white/70 rounded-xl p-4 border border-indigo-100">
+                  <div className="text-3xl font-bold text-indigo-600">{project.technicalDepth.databaseComplexity.tables}</div>
+                  <div className="text-sm text-slate-600 mt-1">Database Tables</div>
+                </div>
+              )}
+            </div>
           </div>
         )}
 

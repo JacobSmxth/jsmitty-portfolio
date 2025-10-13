@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProjectModal from '@/components/ProjectModal'
 import { featuredProjects, archivedProjects } from '@/data/projects'
-import { FaExternalLinkAlt, FaRobot, FaArchive } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaArchive } from 'react-icons/fa'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<any>(null)
@@ -17,12 +17,11 @@ export default function Projects() {
     }
   }, [selectedProject])
 
-  const getAIBadgeColor = (usage: string) => {
-    switch (usage) {
-      case 'None': return 'bg-emerald-100 text-emerald-700 border-emerald-200'
-      case 'Low': return 'bg-blue-100 text-blue-700 border-blue-200'
-      case 'Medium': return 'bg-amber-100 text-amber-700 border-amber-200'
-      case 'High': return 'bg-rose-100 text-rose-700 border-rose-200'
+  const getApproachBadgeColor = (approach: string) => {
+    switch (approach) {
+      case 'From Scratch': return 'bg-emerald-100 text-emerald-700 border-emerald-200'
+      case 'Documentation-First': return 'bg-blue-100 text-blue-700 border-blue-200'
+      case 'Rapid Prototyped': return 'bg-purple-100 text-purple-700 border-purple-200'
       default: return 'bg-gray-100 text-gray-700 border-gray-200'
     }
   }
@@ -30,14 +29,14 @@ export default function Projects() {
   const ProjectCard = ({ project, index }: { project: any, index: number }) => (
     <motion.div
       key={project.name}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
       onClick={() => setSelectedProject(project)}
       className="group cursor-pointer"
     >
-      <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
+      <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col will-change-transform">
         <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -48,12 +47,21 @@ export default function Projects() {
           <FaExternalLinkAlt className="text-slate-400 group-hover:text-blue-500 transition-colors" />
         </div>
 
-        {project.aiUsage && (
-          <div className="mb-4">
-            <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-semibold border ${getAIBadgeColor(project.aiUsage)}`}>
-              <FaRobot className="text-xs" />
-              AI: {project.aiUsage}
+        {project.developmentApproach && (
+          <div className="mb-4 flex flex-wrap gap-2 items-center">
+            <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold border ${getApproachBadgeColor(project.developmentApproach)}`}>
+              {project.developmentApproach}
             </span>
+            {project.technicalDepth?.testCoverage && project.technicalDepth.testCoverage >= 70 && (
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ✓ {project.technicalDepth.testCoverage}% tested
+              </span>
+            )}
+            {project.technicalDepth?.performanceMetrics?.responseTime && project.technicalDepth.performanceMetrics.responseTime < 50 && (
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                ⚡ {project.technicalDepth.performanceMetrics.responseTime}ms
+              </span>
+            )}
           </div>
         )}
 
@@ -87,10 +95,10 @@ export default function Projects() {
   )
 
   return (
-    <section id="projects" className="py-32 px-6 relative overflow-hidden bg-white/80 backdrop-blur-sm shadow-2xl">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
+    <section id="projects" className="py-32 px-6 relative overflow-hidden bg-white shadow-2xl">
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl will-change-transform"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl will-change-transform"></div>
         
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="absolute inset-0" style={{
@@ -99,13 +107,13 @@ export default function Projects() {
           }}></div>
         </div>
 
-        <svg className="absolute top-20 right-10 w-64 h-64 opacity-5" viewBox="0 0 200 200">
+        <svg className="absolute top-20 right-10 w-64 h-64 opacity-5 pointer-events-none" viewBox="0 0 200 200" aria-hidden="true">
           <path d="M10 80 Q 52.5 10, 95 80 T 180 80" stroke="#3b82f6" strokeWidth="2" fill="none"/>
           <circle cx="95" cy="40" r="30" stroke="#8b5cf6" strokeWidth="2" fill="none"/>
           <path d="M40 120 L 160 120 L 100 180 Z" stroke="#3b82f6" strokeWidth="2" fill="none"/>
         </svg>
-        
-        <svg className="absolute bottom-20 left-10 w-48 h-48 opacity-5" viewBox="0 0 200 200">
+
+        <svg className="absolute bottom-20 left-10 w-48 h-48 opacity-5 pointer-events-none" viewBox="0 0 200 200" aria-hidden="true">
           <rect x="20" y="20" width="160" height="160" stroke="#8b5cf6" strokeWidth="2" fill="none" rx="20"/>
           <circle cx="100" cy="100" r="60" stroke="#3b82f6" strokeWidth="2" fill="none"/>
         </svg>
