@@ -126,10 +126,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+            Featured Projects
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Highlighting my best work in backend development, security, and full-stack applications.

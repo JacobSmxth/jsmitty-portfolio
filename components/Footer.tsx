@@ -88,6 +88,24 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/uses"
+                  className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-200"></span>
+                  Uses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/now"
+                  className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-200"></span>
+                  Now
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -114,13 +132,19 @@ export default function Footer() {
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <span>© {currentYear} Jacob Smith. All rights reserved.</span>
             </div>
-            
+
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <span>Jesus Christ is King</span>
             </div>
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-4 text-center">
+            <p className="text-xs text-slate-500 font-mono">
+              Built with Next.js • Running on Arch Linux • Crafted in Neovim
+            </p>
+          </div>
+
+          <div className="mt-4 text-center">
             <p className="text-sm text-slate-400 italic">
               &ldquo;For God so loved the world that he gave his one and only Son&rdquo; - John 3:16
             </p>

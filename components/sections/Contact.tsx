@@ -3,8 +3,16 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { useState } from 'react'
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('jacobsmith@jsmitty.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
   return (
     <section id="contact" className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -34,14 +42,17 @@ export default function Contact() {
           transition={{ delay: 0.2 }}
           className="grid md:grid-cols-3 gap-8 mb-16"
         >
-          <a
-            href="mailto:jacobsmith@jsmitty.com"
-            className="group p-8 bg-white/5 rounded-3xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform"
+          <button
+            onClick={copyEmail}
+            className="group p-8 bg-white/5 rounded-3xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform w-full"
           >
             <FaEnvelope className="mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
-            <h3 className="font-bold mb-3 text-xl">Email (Work)</h3>
+            <h3 className="font-bold mb-3 text-xl">
+              {copied ? 'Email Copied!' : 'Email (Work)'}
+            </h3>
             <p className="text-sm text-slate-300">jacobsmith@jsmitty.com</p>
-          </a>
+            <p className="text-xs text-slate-400 mt-2">Click to copy</p>
+          </button>
 
           <a
             href="https://linkedin.com/in/jacobsmxth"

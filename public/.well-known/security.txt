@@ -1,0 +1,33 @@
+Contact: mailto:security@jacobsmxth.dev
+Preferred-Languages: en
+Canonical: https://jacobsmxth.dev/.well-known/security.txt
+Policy: https://jacobsmxth.dev/security-policy
+Acknowledgments: https://jacobsmxth.dev/security/hall-of-fame
+
+# Security Policy
+
+Thank you for helping keep jacobsmxth.dev and its users safe!
+
+## Reporting a Vulnerability
+
+If you believe you've found a security vulnerability, please send a report to:
+security@jacobsmxth.dev
+
+I will respond within 48 hours and work with you to understand and address the issue.
+
+## Scope
+
+All services and applications hosted on:
+- jacobsmxth.dev
+- *.jacobsmxth.dev
+
+## Out of Scope
+
+- Third-party services (GitHub, Vercel, etc.)
+- Social engineering
+- Physical security
+
+## Safe Harbor
+
+I support security research conducted in good faith and will not pursue legal action
+for security research that follows responsible disclosure practices.

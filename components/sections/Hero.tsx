@@ -69,7 +69,7 @@ export default function Hero() {
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
             Aspiring backend developer passionate about security, clean architecture, and modern technologies.
-            Building foundational projects while learning Java, Spring Boot, and web development.
+            Building foundational projects while learning Java, Spring Boot, and doing freelance web development.
           </p>
         </motion.div>
 

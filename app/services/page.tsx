@@ -70,12 +70,12 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen pt-32 px-4 pb-20">
+    <div className="min-h-screen pt-40 px-4 pb-20">
       <div className="max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-6 text-center"
+          className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent text-center"
         >
           Services
         </motion.h1>

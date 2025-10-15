@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import CommandPalette from '@/components/CommandPalette'
 
 export const metadata: Metadata = {
   title: 'Jacob Smith | Backend Engineer & Security Specialist',
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <CommandPalette />
       </body>
     </html>
   )

@@ -25,10 +25,8 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-              Experience
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+            Experience
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             My professional journey from hospitality to education and freelance development.
