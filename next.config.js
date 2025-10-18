@@ -11,6 +11,9 @@ const nextConfig = {
         hostname: 'ghchart.rshah.org',
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 }
 

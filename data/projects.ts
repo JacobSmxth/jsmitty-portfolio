@@ -21,6 +21,7 @@ export interface Project {
   url?: string
   githubUrl?: string
   featured?: boolean
+  inProgress?: boolean
 }
 
 export const featuredProjects: Project[] = [
@@ -59,6 +60,43 @@ Built to track my actual desk setup inventory while demonstrating clean Spring B
     featured: true
   },
   {
+    name: 'CentDash',
+    summary: 'Personal finance API demonstrating migration from CSV to database-backed architecture',
+    description: `A complete rebuild of CentLedger API, migrating from CSV-based persistence to a proper database-backed REST API with type-safe inheritance modeling.
+
+What I built:
+- RESTful API with separate endpoints for income/expense tracking and budget management
+- Single-table inheritance using JPA discriminator columns for polymorphic entry types
+- Custom repository queries using JPQL for type-based filtering
+- Aggregate endpoints providing formatted financial summaries (net totals, income/expense breakdowns)
+- File-based H2 persistence with automatic schema generation
+
+Key technical decisions:
+- Chose single-table inheritance over joined/table-per-class for simpler queries
+- Implemented discriminator columns for Entry subtypes (Income, Expense)
+- Used @PrePersist and @PreUpdate for timestamp management
+- Applied Bean Validation for input sanitization
+
+This fork represents the evolution from CentLedger's HashMap approach to proper ORM patterns with JPA.
+
+Next phases: JWT authentication, PostgreSQL migration, exception handling, reporting/analytics`,
+    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'Gradle'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 475,
+      apiEndpoints: 8
+    },
+    learnings: [
+      'JPA entity lifecycle management (@PrePersist, @PreUpdate) and single-table inheritance with discriminator columns',
+      'ORM patterns: repository abstraction, entity relationships, and query methods',
+      'Spring Boot auto-configuration, dependency injection, and application.properties setup',
+      'Database migration strategy: CSV → H2 → (planned) PostgreSQL'
+    ],
+    githubUrl: 'https://github.com/jacobsmxth/centdash',
+    featured: true,
+    inProgress: true
+  },
+  {
     name: 'CentLedger API',
     summary: 'Financial ledger API - first Java Spring project demonstrating fintech domain knowledge',
     description: `My first working Spring Boot API, built to track financial transactions. This project represents the foundation that led to more advanced work like the Inventory Management API.
@@ -86,7 +124,10 @@ This project is significant because it shows where I started and the progression
     ],
     githubUrl: 'https://github.com/JacobSmxth/CentLedger',
     featured: true
-  },
+  }
+]
+
+export const archivedProjects: Project[] = [
   {
     name: 'Washington Archives',
     summary: 'Comprehensive historical research website with well-organized content and citations',
@@ -118,11 +159,8 @@ This project showcases ability to:
     ],
     url: 'https://washingtonarchives.vercel.app',
     githubUrl: 'https://github.com/JacobSmxth/washingtonarchives',
-    featured: true
-  }
-]
-
-export const archivedProjects: Project[] = [
+    featured: false
+  },
   {
     name: 'GoatRewards.com',
     summary: 'Client project: Unified leaderboard from multiple data sources',

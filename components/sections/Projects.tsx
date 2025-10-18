@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ProjectModal from '@/components/ProjectModal'
 import { featuredProjects, archivedProjects } from '@/data/projects'
 import { FaExternalLinkAlt, FaArchive } from 'react-icons/fa'
+import { Rocket } from 'lucide-react'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<any>(null)
@@ -52,6 +53,11 @@ export default function Projects() {
             <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold border ${getApproachBadgeColor(project.developmentApproach)}`}>
               {project.developmentApproach}
             </span>
+            {project.inProgress && (
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                🚧 Currently Building
+              </span>
+            )}
             {project.technicalDepth?.testCoverage && project.technicalDepth.testCoverage >= 70 && (
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 ✓ {project.technicalDepth.testCoverage}% tested
@@ -126,9 +132,14 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
+              <Rocket className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+          </div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Highlighting my best work in backend development, security, and full-stack applications.
           </p>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ExperienceModal from '@/components/ExperienceModal'
 import { experiences } from '@/data/experiences'
+import { Briefcase } from 'lucide-react'
 
 export default function Timeline() {
   const [selectedExperience, setSelectedExperience] = useState<any>(null)
@@ -25,9 +26,14 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
-            Experience
-          </h2>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
+              <Briefcase className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+              Experience
+            </h2>
+          </div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             My professional journey from hospitality to education and freelance development.
           </p>
