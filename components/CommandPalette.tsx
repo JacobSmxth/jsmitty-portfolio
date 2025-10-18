@@ -70,10 +70,10 @@ export default function CommandPalette() {
     },
     {
       id: 'resume',
-      name: 'Download Resume',
+      name: 'View Resume',
       shortcut: 'r',
       icon: Download,
-      action: () => window.open('/MyResume2025.pdf'),
+      action: () => window.open('/MyResume2025.pdf', '_blank'),
       category: 'Actions'
     },
     {

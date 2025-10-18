@@ -111,11 +111,12 @@ export default function Hero() {
         >
           <a
             href="/MyResume2025.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             <FaDownload className="group-hover:bounce" />
-            Download Resume
+            View Resume
           </a>
         </motion.div>
 

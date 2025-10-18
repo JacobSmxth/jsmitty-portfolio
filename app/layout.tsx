@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 import CommandPalette from '@/components/CommandPalette'
 
 export const metadata: Metadata = {
-  title: 'Jacob Smith | Backend Engineer & Security Specialist',
-  description: 'Portfolio of Jacob Smith - CS + Cybersecurity student specializing in secure fintech systems',
-  keywords: ['Jacob Smith', 'Backend Engineer', 'Cybersecurity', 'Software Developer', 'Fintech'],
+  title: 'Jacob Smith | CS + Cybersecurity Student',
+  description: 'Portfolio of Jacob Smith - Computer Science and Cybersecurity student focused on backend development and secure software design',
+  keywords: ['Jacob Smith', 'Computer Science', 'Cybersecurity Student', 'Software Developer', 'Backend Development'],
   icons: {
     icon: '/assets/favicon.png',
   },

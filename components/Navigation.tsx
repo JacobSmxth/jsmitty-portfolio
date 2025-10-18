@@ -21,6 +21,7 @@ export default function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isDarkPage = false // All pages now use light theme
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,34 +75,43 @@ export default function Navigation() {
     <>
       {/* Desktop & Mobile Navigation Bar */}
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ 
-          y: shouldShow ? 0 : -100, 
-          opacity: shouldShow ? 1 : 0 
+        initial={false}
+        animate={{
+          y: shouldShow ? 0 : -120
         }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-40 glass-effect rounded-2xl px-4 sm:px-8 py-4 shadow-xl w-[calc(100%-2rem)] sm:w-auto max-w-6xl"
+        transition={{
+          duration: 0.25,
+          ease: [0.4, 0, 0.2, 1]
+        }}
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-2xl px-6 sm:px-8 py-4 shadow-xl transition-colors duration-300 ${
+          isDarkPage
+            ? 'bg-slate-900/90 backdrop-blur-md border border-slate-700'
+            : 'glass-effect'
+        }`}
+        style={{ width: 'calc(100% - 3rem)', maxWidth: '1200px' }}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           {/* Logo */}
-          <Link 
+          <Link
             href="/"
-            className="font-bold text-lg sm:text-xl text-slate-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap flex-shrink-0"
           >
             Jacob Smith
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-8 items-center ml-12">
+          <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
             {navItems.map((item) => {
               const isActive = pathname === item.path
               return (
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block ${
+                    className={`px-3 lg:px-4 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
                       isActive
                         ? 'text-white'
+                        : isDarkPage
+                        ? 'text-slate-300 hover:text-blue-400'
                         : 'text-slate-700 hover:text-blue-600'
                     }`}
                   >
@@ -122,7 +132,11 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-700 hover:text-blue-600 transition-colors"
+            className={`md:hidden p-2 transition-colors ${
+              isDarkPage
+                ? 'text-slate-300 hover:text-blue-400'
+                : 'text-slate-700 hover:text-blue-600'
+            }`}
             aria-label="Toggle menu"
             type="button"
           >
@@ -162,7 +176,7 @@ export default function Navigation() {
                 <div className="flex items-center justify-between p-6 border-b border-slate-200">
                   <Link
                     href="/"
-                    className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                    className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Jacob Smith

@@ -1,147 +1,240 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BookOpen, Code, Target, Lightbulb } from 'lucide-react'
+import { BookOpen, Code2, Target, GraduationCap, Lightbulb } from 'lucide-react'
 
 const nowData = {
-  updated: 'January 2025',
-  sections: [
+  updated: 'October 2025',
+  semesterInfo: {
+    term: 'Fall 2025 - Sophomore Year at University of North Georgia',
+    graduation: 'Expected Graduation: May 2028'
+  },
+  semester: [
+    'BIOL1102K - Intro to Ecology Lab',
+    'HIST2111 - US History I',
+    'MUSC1100 - Music Appreciation',
+    'CSCI1302 - Computer Science II',
+    'CRJU1100 - Intro to Criminal Justice'
+  ],
+  learning: [
+    'Studying Spring Security (JWT, OAuth2) for authentication/authorization',
+    'PostgreSQL for production-ready database skills'
+  ],
+  building: [
     {
-      title: 'Learning',
-      icon: BookOpen,
-      color: 'from-blue-500 to-blue-600',
-      items: [
-        'Deep diving into Spring Security for authentication/authorization',
-        'PostgreSQL for production-ready database skills',
-        'Docker basics for containerization'
-      ]
+      title: 'Inventory Management API - Adding Spring Security auth layer',
+      details: []
     },
     {
-      title: 'Building',
-      icon: Code,
-      color: 'from-purple-500 to-purple-600',
-      items: [
-        'Expanding Inventory Management API with auth layer',
-        'Learning Log posts about Spring Boot patterns',
-        'Contributing to open source Java projects'
-      ]
-    },
-    {
-      title: 'Reading',
-      icon: Lightbulb,
-      color: 'from-emerald-500 to-emerald-600',
-      items: [
-        'Spring Security in Action',
-        'Designing Data-Intensive Applications',
-        'r/java and r/springframework daily'
-      ]
-    },
-    {
-      title: 'Goals',
-      icon: Target,
-      color: 'from-orange-500 to-orange-600',
-      items: [
-        'Land a backend engineering internship for Summer 2025',
-        'Contribute to a major Java open source project',
-        'Build a production-ready fintech API'
+      title: 'CentDash - Personal finance dashboard (forked from CentLedger)',
+      details: [
+        'Migrating from CSV persistence to database',
+        'Building user authentication system'
       ]
     }
+  ],
+  goals: [
+    'Complete University of Colorado Secure Software Design Specialization (Coursera)',
+    'Land a backend engineering internship for Summer 2026',
+    'Contribute to a major open source project in the Spring ecosystem',
+    'Build a production-ready fintech API'
+  ],
+  specialization: [
+    'Database Management', 'Object Oriented Design', 'Secure Coding',
+    'Security Software', 'OWASP', 'SDLC',
+    'Systems Design', 'UML', 'Design Patterns',
+    'Software Engineering', 'Database Design', 'Usability Testing',
+    'Vulnerability Assessments', 'Unit Testing', 'Threat Modeling',
+    'Software Design', 'UI/UX Design', 'Technical Design',
+    'Software Architecture', 'Application Security'
   ]
 }
 
 export default function Now() {
   return (
-    <main className="min-h-screen pt-40 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      <div className="max-w-5xl mx-auto">
+    <main className="min-h-screen pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="mb-20 text-center"
         >
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 pb-4 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 pb-2 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
             What I&apos;m Doing Now
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-4">
-            A snapshot of what I&apos;m currently focused on
+          <p className="text-lg text-slate-600 max-w-2xl mb-2 mx-auto">
+            A snapshot of what I&apos;m currently focused on in my journey to becoming a backend engineer.
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-500 italic">
             Last updated: {nowData.updated}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {nowData.sections.map((section, index) => {
-            const Icon = section.icon
-            return (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all border border-slate-100"
-              >
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${section.color} mb-6`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
+        {/* Main Content */}
+        <div className="space-y-8 mb-12">
+          {/* Current Semester */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="border-l-4 border-blue-600 pl-6 py-4"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <GraduationCap className="w-6 h-6 text-blue-600" />
+              <h2 className="text-2xl font-bold text-slate-800">Current Semester</h2>
+            </div>
+            <p className="text-sm text-slate-600 mb-1">{nowData.semesterInfo.term}</p>
+            <p className="text-sm text-slate-500 mb-4">{nowData.semesterInfo.graduation}</p>
+            <ul className="space-y-2">
+              {nowData.semester.map((course, idx) => (
+                <li key={idx} className="text-slate-700 text-sm">
+                  {course}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-                <h2 className="text-3xl font-bold mb-6 text-slate-800">
-                  {section.title}
-                </h2>
+          <hr className="border-slate-200" />
 
-                <ul className="space-y-4">
-                  {section.items.map((item, itemIndex) => (
-                    <motion.li
-                      key={itemIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2 + index * 0.1 + itemIndex * 0.05 }}
-                      className="flex items-start text-slate-700"
-                    >
-                      <span className={`bg-gradient-to-r ${section.color} bg-clip-text text-transparent mr-3 font-bold`}>
-                        →
-                      </span>
-                      <span className="leading-relaxed">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            )
-          })}
+          {/* Learning */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="border-l-4 border-green-600 pl-6 py-4"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <BookOpen className="w-6 h-6 text-green-600" />
+              <h2 className="text-2xl font-bold text-slate-800">Learning</h2>
+            </div>
+            <ul className="space-y-2">
+              {nowData.learning.map((item, idx) => (
+                <li key={idx} className="text-slate-700 text-sm">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <hr className="border-slate-200" />
+
+          {/* Building */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="border-l-4 border-purple-600 pl-6 py-4"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Code2 className="w-6 h-6 text-purple-600" />
+              <h2 className="text-2xl font-bold text-slate-800">Building</h2>
+            </div>
+            <ul className="space-y-4">
+              {nowData.building.map((item, idx) => (
+                <li key={idx} className="text-slate-700">
+                  <div className="text-sm font-medium">{item.title}</div>
+                  {item.details.length > 0 && (
+                    <ul className="mt-2 ml-4 space-y-1">
+                      {item.details.map((detail, detailIdx) => (
+                        <li key={detailIdx} className="text-xs text-slate-600 flex items-start gap-2">
+                          <span className="text-purple-600">→</span>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <hr className="border-slate-200" />
+
+          {/* Goals */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="border-l-4 border-orange-600 pl-6 py-4"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Target className="w-6 h-6 text-orange-600" />
+              <h2 className="text-2xl font-bold text-slate-800">2026 Goals</h2>
+            </div>
+            <ul className="space-y-2">
+              {nowData.goals.map((goal, idx) => (
+                <li key={idx} className="text-slate-700 text-sm">
+                  {goal}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
+
+        {/* Specialization Focus - Commented out until started */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mb-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-2xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Lightbulb className="w-6 h-6 text-yellow-400" />
+            <h2 className="text-2xl font-bold text-white">Secure Software Design Specialization</h2>
+          </div>
+          <p className="text-slate-300 mb-4 text-sm">University of Colorado - Key Topics:</p>
+          <div className="flex flex-wrap gap-2">
+            {nowData.specialization.map((topic, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 bg-slate-700/50 text-slate-200 rounded-lg text-xs font-medium border border-slate-600"
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
+        </motion.div> */}
 
         {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl border border-blue-100 text-center"
+          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-center shadow-xl mb-12"
         >
-          <h3 className="text-2xl font-bold mb-4 text-slate-800">
+          <h3 className="text-2xl font-bold mb-3 text-white">
             Interested in collaborating?
           </h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
             I&apos;m always open to discussing new opportunities, projects, or just chatting about backend development and technology.
           </p>
           <a
-            href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+            href="mailto:jacobsmith@jsmitty.com"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Get in Touch
           </a>
         </motion.div>
 
-        {/* About /now pages */}
+        {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="mt-16 text-center text-slate-500 text-sm"
+          transition={{ delay: 0.7 }}
+          className="text-center text-slate-400 text-sm"
         >
           <p>
-            This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">/now page</a>, inspired by Derek Sivers.
-          </p>
-          <p className="mt-2">
-            It&apos;s a living document that shows what I&apos;m focused on at this point in my life.
+            Inspired by{' '}
+            <a
+              href="https://nownownow.com/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              /now pages
+            </a>
+            {' '}— a living document of what I&apos;m focused on right now.
           </p>
         </motion.div>
       </div>
