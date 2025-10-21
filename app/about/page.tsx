@@ -9,6 +9,33 @@ export default function About() {
   const [showFullStory, setShowFullStory] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
+  const footballImages = [
+    {
+      id: 1,
+      title: 'Game Day',
+      description: 'Senior year action shot',
+      image: '/FavoriteFootballPic.jpg'
+    },
+    {
+      id: 2,
+      title: 'Homecoming King',
+      description: 'Senior year homecoming',
+      image: '/hocoKingFootball.jpg'
+    },
+    {
+      id: 3,
+      title: 'Sportsmanship',
+      description: 'Post-game handshake',
+      image: '/HandshakeFootball.jpg'
+    },
+    {
+      id: 4,
+      title: 'Homecoming',
+      description: 'With Ceci at homecoming',
+      image: '/hocoKingWCeci.jpg'
+    }
+  ]
+
   useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = 'hidden'
@@ -88,23 +115,18 @@ Currently learning: Backend security, distributed systems, and performance optim
                   </a>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  {[
-                    { src: '/FavoriteFootballPic.jpg', alt: 'Football action shot' },
-                    { src: '/hocoKingFootball.jpg', alt: 'Homecoming King in football uniform' },
-                    { src: '/HandshakeFootball.jpg', alt: 'Post-game handshake' },
-                    { src: '/hocoKingWCeci.jpg', alt: 'Homecoming King with Ceci' }
-                  ].map((img, idx) => (
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {footballImages.map((img) => (
                     <div
-                      key={idx}
-                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-                      onClick={() => setSelectedImage(img.src)}
+                      key={img.id}
+                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform"
+                      onClick={() => setSelectedImage(img.image)}
                     >
                       <Image
-                        src={img.src}
-                        alt={img.alt}
+                        src={img.image}
+                        alt={img.description}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="object-cover"
                       />
                     </div>
                   ))}

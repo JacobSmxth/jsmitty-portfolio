@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { FaTimes } from 'react-icons/fa'
 import { useEffect } from 'react'
+import CountUp from './CountUp'
 
 interface ProjectModalProps {
   project: any
@@ -32,7 +33,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar will-change-transform"
+        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
       >
         <button
           onClick={onClose}
@@ -107,37 +108,80 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="grid grid-cols-2 gap-4">
               {project.technicalDepth.linesOfCode && (
                 <div className="bg-white/70 rounded-xl p-4 border border-blue-100">
-                  <div className="text-3xl font-bold text-blue-600">{project.technicalDepth.linesOfCode.toLocaleString()}</div>
+                  <div className="text-3xl font-bold text-blue-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.linesOfCode}
+                      separator=","
+                      duration={1.5}
+                      className="text-3xl font-bold text-blue-600"
+                    />
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">Lines of Code</div>
                 </div>
               )}
               {project.technicalDepth.testCoverage !== undefined && (
                 <div className="bg-white/70 rounded-xl p-4 border border-emerald-100">
-                  <div className="text-3xl font-bold text-emerald-600">{project.technicalDepth.testCoverage}%</div>
+                  <div className="text-3xl font-bold text-emerald-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.testCoverage}
+                      duration={1.5}
+                      className="text-3xl font-bold text-emerald-600"
+                    />%
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">Test Coverage</div>
                 </div>
               )}
               {project.technicalDepth.apiEndpoints !== undefined && project.technicalDepth.apiEndpoints > 0 && (
                 <div className="bg-white/70 rounded-xl p-4 border border-purple-100">
-                  <div className="text-3xl font-bold text-purple-600">{project.technicalDepth.apiEndpoints}</div>
+                  <div className="text-3xl font-bold text-purple-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.apiEndpoints}
+                      duration={1.5}
+                      className="text-3xl font-bold text-purple-600"
+                    />
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">API Endpoints</div>
                 </div>
               )}
               {project.technicalDepth.performanceMetrics?.responseTime && (
                 <div className="bg-white/70 rounded-xl p-4 border border-amber-100">
-                  <div className="text-3xl font-bold text-amber-600">{project.technicalDepth.performanceMetrics.responseTime}ms</div>
+                  <div className="text-3xl font-bold text-amber-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.performanceMetrics.responseTime}
+                      duration={1.5}
+                      className="text-3xl font-bold text-amber-600"
+                    />ms
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">Response Time</div>
                 </div>
               )}
               {project.technicalDepth.performanceMetrics?.requestsPerSec && (
                 <div className="bg-white/70 rounded-xl p-4 border border-rose-100">
-                  <div className="text-3xl font-bold text-rose-600">{project.technicalDepth.performanceMetrics.requestsPerSec}</div>
+                  <div className="text-3xl font-bold text-rose-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.performanceMetrics.requestsPerSec}
+                      duration={1.5}
+                      className="text-3xl font-bold text-rose-600"
+                    />
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">Requests/sec</div>
                 </div>
               )}
               {project.technicalDepth.databaseComplexity?.tables && project.technicalDepth.databaseComplexity.tables > 0 && (
                 <div className="bg-white/70 rounded-xl p-4 border border-indigo-100">
-                  <div className="text-3xl font-bold text-indigo-600">{project.technicalDepth.databaseComplexity.tables}</div>
+                  <div className="text-3xl font-bold text-indigo-600">
+                    <CountUp
+                      from={0}
+                      to={project.technicalDepth.databaseComplexity.tables}
+                      duration={1.5}
+                      className="text-3xl font-bold text-indigo-600"
+                    />
+                  </div>
                   <div className="text-sm text-slate-600 mt-1">Database Tables</div>
                 </div>
               )}

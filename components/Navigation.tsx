@@ -6,14 +6,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
-const navItems = [
-  { name: 'Home', path: '/' },
+const leftNavItems = [
   { name: 'About', path: '/about' },
   { name: 'Uses', path: '/uses' },
   { name: 'Now', path: '/now' },
+]
+
+const rightNavItems = [
   { name: 'Services', path: '/services' },
   { name: 'Contact', path: '/contact' },
 ]
+
+const allNavItems = [...leftNavItems, ...rightNavItems]
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -26,13 +30,13 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      
+
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
         setIsVisible(true)
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false)
       }
-      
+
       setLastScrollY(currentScrollY)
     }
 
@@ -45,7 +49,7 @@ export default function Navigation() {
     observer.observe(document.body, { attributes: true })
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
       observer.disconnect()
@@ -91,17 +95,47 @@ export default function Navigation() {
         style={{ width: 'calc(100% - 3rem)', maxWidth: '1200px' }}
       >
         <div className="flex items-center justify-between w-full">
-          {/* Logo */}
+          {/* Left Nav Items */}
+          <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
+            {leftNavItems.map((item) => {
+              const isActive = pathname === item.path
+              return (
+                <li key={item.path} className="relative">
+                  <Link
+                    href={item.path}
+                    className={`px-3 lg:px-4 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
+                      isActive
+                        ? 'text-white'
+                        : isDarkPage
+                        ? 'text-slate-300 hover:text-blue-400'
+                        : 'text-slate-700 hover:text-blue-600'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg"
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </li>
+              )
+            })}
+          </ul>
+
+          {/* Centered Logo */}
           <Link
             href="/"
-            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap flex-shrink-0"
+            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
           >
-            Jacob Smith
+            jsmitty
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Right Nav Items */}
           <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
-            {navItems.map((item) => {
+            {rightNavItems.map((item) => {
               const isActive = pathname === item.path
               return (
                 <li key={item.path} className="relative">
@@ -179,7 +213,7 @@ export default function Navigation() {
                     className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Jacob Smith
+                    jsmitty
                   </Link>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -193,7 +227,7 @@ export default function Navigation() {
 
                 {/* Mobile Menu Items */}
                 <ul className="flex flex-col p-6 gap-2">
-                  {navItems.map((item, index) => {
+                  {allNavItems.map((item, index) => {
                     const isActive = pathname === item.path
                     return (
                       <motion.li

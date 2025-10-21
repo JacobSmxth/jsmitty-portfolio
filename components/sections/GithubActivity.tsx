@@ -49,7 +49,6 @@ export default function GithubActivity() {
                 width={900}
                 height={150}
                 className="max-w-full h-auto rounded-lg"
-                unoptimized
               />
             </div>
           </div>

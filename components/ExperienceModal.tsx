@@ -32,7 +32,7 @@ export default function ExperienceModal({ experience, onClose }: ExperienceModal
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar will-change-transform"
+        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
       >
         <button
           onClick={onClose}
