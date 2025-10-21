@@ -97,32 +97,33 @@ Next phases: JWT authentication, PostgreSQL migration, exception handling, repor
     inProgress: true
   },
   {
-    name: 'CentLedger API',
-    summary: 'Financial ledger API - first Java Spring project demonstrating fintech domain knowledge',
-    description: `My first working Spring Boot API, built to track financial transactions. This project represents the foundation that led to more advanced work like the Inventory Management API.
+    name: 'Task Manager API',
+    summary: 'REST API with soft delete, category filtering, and multi-dimensional query composition',
+    description: `A task management API built from scratch to demonstrate layered Spring Boot architecture and real-world data management patterns.
 
-While basic in implementation, it demonstrates:
-- Understanding of financial domain concepts
-- Complete project lifecycle from concept to deployment
-- Foundation in Java and Spring Boot fundamentals
-- HashMap-based data structure with CSV persistence
-- RESTful endpoint design
+Key Features:
+- Soft delete with undo/recovery functionality (tasks marked as deleted, not removed)
+- Multi-dimensional filtering (combine category + priority ranges in a single query)
+- Smart query routing with 9 custom repository methods
+- Toggle completion with automatic timestamp tracking
+- Admin endpoints for accessing deleted items (recovery scenarios)
+- Proper transaction boundaries and business logic separation
 
-This project is significant because it shows where I started and the progression to more sophisticated systems. The financial tracking domain is directly relevant to fintech work.`,
-    techStack: ['Java', 'Spring Boot', 'REST API', 'CSV'],
+Built to explore soft delete patterns and complex Spring Data JPA query composition beyond basic CRUD.`,
+    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database', 'Gradle'],
     developmentApproach: 'From Scratch',
     technicalDepth: {
-      linesOfCode: 453,
+      linesOfCode: 291,
       apiEndpoints: 5
     },
     learnings: [
-      'Java Spring Boot fundamentals and project structure',
-      'RESTful API design principles',
-      'Data persistence strategies',
-      'Financial domain modeling',
-      'The value of starting simple and iterating'
+      'Soft delete implementation with recovery patterns',
+      'Complex Spring Data JPA query method composition',
+      'Transaction management and proper service layer boundaries',
+      'Multi-parameter filtering with conditional query routing',
+      'RESTful API design with idempotent operations'
     ],
-    githubUrl: 'https://github.com/JacobSmxth/CentLedger',
+    githubUrl: 'https://github.com/JacobSmxth/task-manager-api',
     featured: true
   }
 ]
@@ -276,6 +277,35 @@ Built to showcase both technical skills and design sensibility while providing a
       'Professional portfolio design and UX'
     ],
     githubUrl: 'https://github.com/JacobSmxth/jsmitty-portfolio',
+    featured: false
+  },
+  {
+    name: 'CentLedger API',
+    summary: 'Financial ledger API - first Java Spring project demonstrating fintech domain knowledge',
+    description: `My first working Spring Boot API, built to track financial transactions. This project represents the foundation that led to more advanced work like the Inventory Management API.
+
+While basic in implementation, it demonstrates:
+- Understanding of financial domain concepts
+- Complete project lifecycle from concept to deployment
+- Foundation in Java and Spring Boot fundamentals
+- HashMap-based data structure with CSV persistence
+- RESTful endpoint design
+
+This project is significant because it shows where I started and the progression to more sophisticated systems. The financial tracking domain is directly relevant to fintech work.`,
+    techStack: ['Java', 'Spring Boot', 'REST API', 'CSV'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 453,
+      apiEndpoints: 5
+    },
+    learnings: [
+      'Java Spring Boot fundamentals and project structure',
+      'RESTful API design principles',
+      'Data persistence strategies',
+      'Financial domain modeling',
+      'The value of starting simple and iterating'
+    ],
+    githubUrl: 'https://github.com/JacobSmxth/CentLedger',
     featured: false
   }
 ]

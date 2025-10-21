@@ -1,20 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { ExternalLink, X } from 'lucide-react'
 
 export default function About() {
   const [showFullStory, setShowFullStory] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-  const summary = `I'm a Cybersecurity + CS student passionate about backend development and security, learning to build systems that are both fast to ship AND fast to run.
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
 
-Started programming at 6 with batch scripts. Explored game dev, 3D modeling, and even played football competitively before realizing I couldn't stay away from code.
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [selectedImage])
 
-Now I'm building foundational projects while learning Java, Spring Boot, and modern backend technologies. Using AI as a force multiplier while maintaining deep technical understanding.
+  const summary = `I'm a Cybersecurity + CS student at University of North Georgia, focused on backend development and security.
 
-Currently: Cybersecurity + CS Student (added CS before sophomore year because theory is interesting)
-Focus: Learning backend security, performance optimization, and system architecture`
+Started coding at 6 with batch scripts, got into web development, then played football from 2nd grade through senior year where I was recruited by multiple colleges as a Defensive End.
+
+After football, I came back to programming. Now I'm building projects with Java and Spring Boot, learning to ship secure, performant systems.
+
+Currently learning: Backend security, distributed systems, and performance optimization`
 
   return (
     <div className="min-h-screen pt-40 px-4 pb-20">
@@ -60,23 +73,55 @@ Focus: Learning backend security, performance optimization, and system architect
                 transition={{ delay: 0.1 }}
                 className="bg-white rounded-3xl p-8 shadow-lg mb-8"
               >
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                  Football Journey
-                </h2>
-                <div className="space-y-4 text-slate-600">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-3xl font-bold text-slate-900">
+                    Football
+                  </h2>
+                  <a
+                    href="https://www.hudl.com/profile/14908647/Jacob-Smith"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors"
+                  >
+                    View Hudl
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  {[
+                    { src: '/FavoriteFootballPic.jpg', alt: 'Football action shot' },
+                    { src: '/hocoKingFootball.jpg', alt: 'Homecoming King in football uniform' },
+                    { src: '/HandshakeFootball.jpg', alt: 'Post-game handshake' },
+                    { src: '/hocoKingWCeci.jpg', alt: 'Homecoming King with Ceci' }
+                  ].map((img, idx) => (
+                    <div
+                      key={idx}
+                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => setSelectedImage(img.src)}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-3 text-slate-600">
                   <p>
-                    <strong className="text-slate-900">Position:</strong> Defensive End (DE)
+                    <strong className="text-slate-900">Position:</strong> Defensive End
                   </p>
                   <p>
-                    <strong className="text-slate-900">Achievements:</strong>
+                    <strong className="text-slate-900">Varsity starter</strong> Junior and Senior year, <strong className="text-slate-900">Team Captain</strong> Senior year
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li>Captain of the football team Senior year</li>
-                    <li>Started Varsity Junior and Senior year</li>
-                    <li>Recruited by Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College</li>
-                  </ul>
-                  <p className="italic text-pink-600">
-                    Football taught me discipline, commitment, and teamwork - skills that translate directly to engineering.
+                  <p>
+                    Recruited by Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College
+                  </p>
+                  <p className="text-sm italic pt-2">
+                    Playing football from 2nd grade through senior year taught me what it takes to commit to something hard. That focus carries over to how I approach engineering problems.
                   </p>
                 </div>
               </motion.div>
@@ -88,17 +133,17 @@ Focus: Learning backend security, performance optimization, and system architect
                 className="bg-white rounded-3xl p-8 shadow-lg"
               >
                 <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                  Beyond Code
+                  Other Things
                 </h2>
-                <div className="space-y-4 text-slate-600">
+                <div className="space-y-3 text-slate-600">
                   <p>
-                    <strong className="text-blue-600">Faith:</strong> Avid follower of Christ - my faith shapes how I approach life and work
+                    <strong className="text-slate-900">Faith:</strong> Follower of Christ - my faith shapes how I approach life and work
                   </p>
                   <p>
-                    <strong className="text-blue-600">Spider-Man Fan:</strong> Tobey is the best Peter, Andrew is the best Spider-Man, Tom is the best middle ground
+                    <strong className="text-slate-900">Spider-Man takes:</strong> Tobey is the best Peter, Andrew is the best Spider-Man, Tom is the best middle ground
                   </p>
                   <p>
-                    <strong className="text-blue-600">Philosophy:</strong> &ldquo;AI doesn&apos;t replace engineers. It separates the ones who understand from the ones who copy-paste.&rdquo;
+                    <strong className="text-slate-900">On AI:</strong> Use it to learn faster, but build things yourself to actually understand them
                   </p>
                 </div>
               </motion.div>
@@ -119,109 +164,102 @@ Focus: Learning backend security, performance optimization, and system architect
               </button>
 
               <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Beginning (Age 6)</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Early Days (Age 6-13)</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Most kids at 6 were playing video games. I was writing batch scripts.
+                  Started programming at 6 with batch scripts. Made text adventure games with echo commands and if statements. Simple stuff, but it taught me the basics of logic and control flow.
                   <br /><br />
-                  Started with simple echo commands and if statements, building text adventure trees, my first &ldquo;games.&rdquo; Looking back, those .bat files taught me the fundamentals: logic, branching, and the satisfaction of making a computer do what you want.
+                  Around 9, I got into web development - HTML, CSS, and jQuery. Built random websites, broke things, fixed them. The instant feedback of seeing code become a webpage was addictive.
                 </p>
 
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Web Years (Age 9-13)</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Football (2nd Grade - Senior Year)</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Discovered web development and dove deep into HTML and CSS. Learned jQuery when vanilla JavaScript felt too complex, I wanted to build things, not fight with syntax.
+                  Started playing football in 2nd grade and played through senior year. At 14, I briefly tried Unity game dev and Blender for 3D modeling, but neither stuck - I was focused on football.
                   <br /><br />
-                  Built random websites. Broke things. Fixed them. Learned that the browser was this incredible playground where you could see your code come to life instantly.
+                  Played Defensive End, made Varsity starter Junior year, became Team Captain Senior year. Got recruited by Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College. Was planning to play in college.
+                  <br /><br />
+                  But the physical toll caught up with me. I couldn&apos;t sustain it long-term, so I made the call to step away and get back to what I started with: programming.
                 </p>
 
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Detour (Age 14-17)</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Coming Back (Age 17-18)</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  At 14, I wanted to make games. Tried Unity. C# scared me. The complexity overwhelmed me.
+                  After football, I came back to programming with a different mindset. This time I actually learned JavaScript properly instead of just using jQuery. Got into Node.js and Express, built real backend systems.
                   <br /><br />
-                  Tried Blender for 3D modeling. Didn&apos;t click.
-                  <br /><br />
-                  Lost motivation. Started drawing for a bit. Eventually stopped.
-                  <br /><br />
-                  Then I focused on football. Really focused. For about 3 years, football was my thing. Got good at it. Committed to it.
-                  <br /><br />
-                  The offers came: Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College. I was sure I would go to college just for football.
-                  <br /><br />
-                  But then it clicked, I couldn&apos;t physically sustain that level. As much as I miss it, as much as I wanted to, I was in pain, so I went back to my first love: computers.
+                  Tried React for a bit, but realized I was way more interested in the server-side: data models, business logic, system architecture. Started doing freelance work and made actual money from code for the first time.
                 </p>
 
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Return (Age 17, Almost 18)</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">The AI Phase (Age 17-19)</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  After football, I came back to programming.
+                  When AI coding tools became mainstream, I went all-in. Shipped projects faster than ever, made good money freelancing.
                   <br /><br />
-                  Not because I had to, not because someone told me it was a good career, but because I <em>missed</em> it. The problem-solving, the building, the satisfaction of creating something from nothing.
-                  <br /><br />
-                  That time away taught me something crucial, programming isn&apos;t just something I do, it&apos;s something I need to do.
-                  <br /><br />
-                  When I came back, I came back serious. Learned intermediate JavaScript properly. Dove into Node.js and Express. Built my first real backend systems.
-                  <br /><br />
-                  Tried React, didn&apos;t love it. Realized I preferred the server-side, data, logic, architecture.
-                  <br /><br />
-                  Started freelancing, made actual money writing code. For the first time, programming felt like a craft, not just a hobby.
+                  But I started feeling like I was just prompting instead of actually programming. The speed was great, but I wasn&apos;t building the deep understanding I wanted. Started worrying about whether I actually knew how to code or if I was just good at using AI.
                 </p>
 
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The AI Era (Age 17-19)</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Going Deeper (Age 19-20)</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  Then AI tools arrived and I used them heavily.
+                  Decided to take a step back and learn fundamentals properly. Started with C - watched long tutorials, built a finance ledger from scratch to understand memory management and pointers.
                   <br /><br />
-                  Built things faster than ever, made more money, shipped projects in days that used to take weeks.
+                  When college started and we were learning Java, things clicked. Switched from C to Java and took a new approach: use AI to learn concepts quickly, then build projects myself using just documentation. Limited even Google searches since they push AI summaries now.
                   <br /><br />
-                  But something felt hollow, like I was just prompting, not programming. The speed was addictive but the depth was missing, the craft felt diluted.
-                  <br /><br />
-                  I realized I was afraid: afraid of being obsolete, afraid of not &ldquo;really&rdquo; being able to code, afraid that AI made me replaceable before I even started my career.
-                </p>
-
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">The Depth (Age 19, Almost 20)</h2>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  That fear pushed me to go deeper.
-                  <br /><br />
-                  Started learning C. Watched 8-hour tutorials. Built a finance ledger from scratch just to understand memory management and pointers.
-                  <br /><br />
-                  Then school started. We were learning Java. I was interested in fintech. The pieces clicked.
-                  <br /><br />
-                  Switched from C to Java. But this time, different approach, use AI as my &ldquo;tutorial&rdquo; then throw myself into the deep end, no AI, only docs, even limited Google searches (Google has that AI so I try to avoid it).
-                  <br /><br />
-                  Started focusing on security (my first major). Realized, this is where AI can&apos;t replace humans. Security requires adversarial thinking, threat modeling, understanding of context and trade-offs, things AI hallucinates.
+                  Got serious about security (my first major). Realized this is where deep understanding matters most - threat modeling, attack vectors, security trade-offs. Things AI can explain but can&apos;t truly reason about.
                 </p>
 
                 <h2 className="text-3xl font-bold text-slate-900 mb-4">Now</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  I&apos;m a Cybersecurity + CS student building secure fintech systems.
+                  I&apos;m a Cybersecurity + CS student at University of North Georgia, building projects with Java and Spring Boot. My focus is on backend security and performance.
                   <br /><br />
-                  My approach, use AI as my &ldquo;tutorial&rdquo; then throw myself into the deep end, no AI, only docs, even limited Google searches (Google has that AI so I try to avoid it). I architect the systems, I design the security model, I optimize the performance, I make the trade-offs.
+                  Current approach: Use AI as a learning accelerator, then build things myself. I make the architectural decisions, handle the security model, optimize performance, and make the trade-offs.
                   <br /><br />
-                  I care about
+                  What I care about:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-600 mb-6 ml-4">
-                  <li>Security first (defense-in-depth, threat modeling, zero-trust)</li>
-                  <li>Performance (sub-50ms response times, handling 1000+ req/s)</li>
-                  <li>Clean architecture (systems that scale, code that&apos;s maintainable)</li>
-                  <li>Understanding WHY (not just copying what works)</li>
+                  <li>Security-first design (defense-in-depth, threat modeling, zero-trust)</li>
+                  <li>Performance (targeting sub-50ms response times, 1000+ req/s)</li>
+                  <li>Clean architecture that scales and stays maintainable</li>
+                  <li>Understanding why things work, not just that they work</li>
                 </ul>
 
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">What I&apos;m Building Toward</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">Goals</h2>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  I don&apos;t want to be just another backend developer. I want to be the person who builds the payment infrastructure, the trading systems, the financial platforms that move millions of dollars and require institutional-grade security.
+                  Long-term, I want to build financial infrastructure - payment systems, trading platforms, things that handle serious money and require institutional-grade security.
                   <br /><br />
-                  <strong>Short-term</strong>, Master Java, Spring Security, distributed systems,<br />
-                  <strong>Medium-term</strong>, Contribute to major fintech open source projects,<br />
-                  <strong>Long-term</strong>, Build something that thousands of developers rely on
+                  <strong>Short-term:</strong> Master Java, Spring Security, distributed systems<br />
+                  <strong>Medium-term:</strong> Contribute to major fintech open source projects<br />
+                  <strong>Long-term:</strong> Build infrastructure that thousands of developers rely on
                 </p>
-
-                <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
-                  <p className="text-lg italic text-slate-900 text-center">
-                    &ldquo;AI doesn&apos;t replace engineers. It separates the ones who understand from the ones who copy-paste.&rdquo;
-                    <br /><br />
-                    <span className="font-bold">I&apos;m in the first group.</span>
-                  </p>
-                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Fullscreen Image Modal */}
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-4 right-4 text-white hover:text-slate-300 transition-colors"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              className="relative max-w-5xl max-h-[90vh] w-full h-full"
+            >
+              <Image
+                src={selectedImage}
+                alt="Football photo"
+                fill
+                className="object-contain rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </div>
   )

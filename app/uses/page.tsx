@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Code2, Terminal, Cpu, Monitor } from 'lucide-react'
+import { ExternalLink, Code2, Terminal, Cpu, Monitor, Maximize2, X } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 const usesData = {
   software: [
@@ -95,6 +96,20 @@ const usesData = {
 }
 
 export default function Uses() {
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isFullscreen])
+
   return (
     <main className="min-h-screen pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="max-w-6xl mx-auto">
@@ -237,11 +252,63 @@ export default function Uses() {
           </div>
         </motion.div>
 
+        {/* Desk Setup Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mb-12"
+        >
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+            <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+              My Desk Setup
+            </h3>
+            <div
+              className="relative rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+              onClick={() => setIsFullscreen(true)}
+            >
+              <img
+                src="/DeskSetup.png"
+                alt="Desk Setup"
+                className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <Maximize2 className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Fullscreen Modal */}
+        {isFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={() => setIsFullscreen(false)}
+          >
+            <button
+              className="absolute top-4 right-4 text-white hover:text-slate-300 transition-colors"
+              onClick={() => setIsFullscreen(false)}
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              src="/DeskSetup.png"
+              alt="Desk Setup"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </motion.div>
+        )}
+
         {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.7 }}
           className="text-center text-slate-400 text-sm"
         >
           <p>
