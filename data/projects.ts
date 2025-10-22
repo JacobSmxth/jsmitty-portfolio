@@ -60,6 +60,50 @@ Built to track my actual desk setup inventory while demonstrating clean Spring B
     featured: true
   },
   {
+    name: 'Task Manager API',
+    summary: 'Production-ready REST API with DTOs, centralized exception handling, and soft delete recovery',
+    description: `A task management API built from scratch to demonstrate advanced Spring Boot architecture patterns and real-world data management strategies.
+
+Key Technical Features:
+- DTO pattern for secure partial updates (prevents mass assignment vulnerabilities)
+- Custom exception hierarchy with @RestControllerAdvice for consistent error responses
+- Soft delete with undo/recovery functionality (tasks marked as deleted, not removed)
+- Multi-dimensional filtering combining category + priority ranges in single queries
+- Smart query routing across 9 custom repository methods
+- Multi-layer validation (entity + controller levels with Bean Validation)
+- Proper transaction boundaries with business logic in service layer
+- Toggle completion with automatic timestamp tracking
+
+Built to explore advanced JPA patterns, exception handling strategies, and the DTO pattern - going beyond basic CRUD to demonstrate production-ready architecture.
+
+Technical Highlights:
+- Three-layer architecture (Controller → Service → Repository) with clear separation of concerns
+- DTOs decouple API contract from database schema, allowing flexible partial updates
+- Global exception handler catches and formats all exceptions into consistent JSON responses
+- Soft delete implementation allows data recovery without database restoration`,
+    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database', 'Gradle', 'Bean Validation'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 458,
+      apiEndpoints: 6,
+      databaseComplexity: {
+        tables: 1,
+        relationships: 0
+      }
+    },
+    learnings: [
+      'DTO pattern for secure partial updates with Bean Validation',
+      'Custom exception hierarchy with @RestControllerAdvice for centralized error handling',
+      'Complex Spring Data JPA query method composition (9 repository methods)',
+      'Multi-layer validation strategy (entity-level + controller-level)',
+      'Soft delete patterns with recovery functionality and timestamp management',
+      'Transaction management and service layer separation of concerns',
+      'RESTful API design with idempotent operations and proper HTTP status codes'
+    ],
+    githubUrl: 'https://github.com/JacobSmxth/task-manager-api',
+    featured: true
+  },
+  {
     name: 'CentDash',
     summary: 'Personal finance API demonstrating migration from CSV to database-backed architecture',
     description: `A complete rebuild of CentLedger API, migrating from CSV-based persistence to a proper database-backed REST API with type-safe inheritance modeling.
@@ -95,36 +139,6 @@ Next phases: JWT authentication, PostgreSQL migration, exception handling, repor
     githubUrl: 'https://github.com/jacobsmxth/centdash',
     featured: true,
     inProgress: true
-  },
-  {
-    name: 'Task Manager API',
-    summary: 'REST API with soft delete, category filtering, and multi-dimensional query composition',
-    description: `A task management API built from scratch to demonstrate layered Spring Boot architecture and real-world data management patterns.
-
-Key Features:
-- Soft delete with undo/recovery functionality (tasks marked as deleted, not removed)
-- Multi-dimensional filtering (combine category + priority ranges in a single query)
-- Smart query routing with 9 custom repository methods
-- Toggle completion with automatic timestamp tracking
-- Admin endpoints for accessing deleted items (recovery scenarios)
-- Proper transaction boundaries and business logic separation
-
-Built to explore soft delete patterns and complex Spring Data JPA query composition beyond basic CRUD.`,
-    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database', 'Gradle'],
-    developmentApproach: 'From Scratch',
-    technicalDepth: {
-      linesOfCode: 291,
-      apiEndpoints: 5
-    },
-    learnings: [
-      'Soft delete implementation with recovery patterns',
-      'Complex Spring Data JPA query method composition',
-      'Transaction management and proper service layer boundaries',
-      'Multi-parameter filtering with conditional query routing',
-      'RESTful API design with idempotent operations'
-    ],
-    githubUrl: 'https://github.com/JacobSmxth/task-manager-api',
-    featured: true
   }
 ]
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Command, Search, Home, FolderOpen, User, Mail, FileText, Github, Wrench, Clock, Download } from 'lucide-react'
+import { Command, Search, Home, FolderOpen, User, Mail, FileText, Github, Wrench, Clock, Download, Linkedin } from 'lucide-react'
 
 interface CommandItem {
   id: string
@@ -85,15 +85,70 @@ export default function CommandPalette() {
       category: 'Social'
     },
     {
-      id: 'copy-email',
-      name: 'Copy Work Email',
-      shortcut: 'e',
+      id: 'copy-personal-email',
+      name: 'Copy Personal Email',
+      shortcut: 'pe',
       icon: Mail,
       action: () => {
-        navigator.clipboard.writeText('jacobsmith@jsmitty.com')
-        setIsOpen(false)
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText('jacob.d.smith@live.com').then(() => {
+            setIsOpen(false)
+          }).catch((err) => {
+            console.error('Failed to copy personal email', err)
+          })
+        } else {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea')
+          textArea.value = 'jacob.d.smith@live.com'
+          document.body.appendChild(textArea)
+          textArea.select()
+          try {
+            document.execCommand('copy')
+            setIsOpen(false)
+          } catch (err) {
+            console.error('Failed to copy personal email', err)
+          }
+          document.body.removeChild(textArea)
+        }
       },
       category: 'Actions'
+    },
+    {
+      id: 'copy-work-email',
+      name: 'Copy Work Email',
+      shortcut: 'we',
+      icon: Mail,
+      action: () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText('jacobsmith@jsmitty.com').then(() => {
+            setIsOpen(false)
+          }).catch((err) => {
+            console.error('Failed to copy work email', err)
+          })
+        } else {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea')
+          textArea.value = 'jacobsmith@jsmitty.com'
+          document.body.appendChild(textArea)
+          textArea.select()
+          try {
+            document.execCommand('copy')
+            setIsOpen(false)
+          } catch (err) {
+            console.error('Failed to copy work email', err)
+          }
+          document.body.removeChild(textArea)
+        }
+      },
+      category: 'Actions'
+    },
+    {
+      id: 'linkedin',
+      name: 'LinkedIn Profile',
+      shortcut: 'l',
+      icon: Linkedin,
+      action: () => window.open('https://linkedin.com/in/jacobsmxth'),
+      category: 'Social'
     }
   ]
 
@@ -124,6 +179,18 @@ export default function CommandPalette() {
     document.addEventListener('keydown', down)
     return () => document.removeEventListener('keydown', down)
   }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   useEffect(() => {
     if (isOpen) {
@@ -231,7 +298,7 @@ export default function CommandPalette() {
               <div className="px-6 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-500">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-2">
-                    <kbd className="px-2 py-1 bg-white rounded border border-slate-200">⌘</kbd>
+                    <kbd className="px-2 py-1 bg-white rounded border border-slate-200">CTRL</kbd>
                     <kbd className="px-2 py-1 bg-white rounded border border-slate-200">K</kbd>
                     <span>to toggle</span>
                   </span>

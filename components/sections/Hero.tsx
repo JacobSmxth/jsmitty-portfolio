@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaJava, FaGitAlt } from 'react-icons/fa'
-import { SiSpringboot, SiNextdotjs, SiReact, SiPostgresql } from 'react-icons/si'
+import { SiSpringboot, SiPostgresql, SiIntellijidea, SiNeovim, SiPostman, SiGradle, SiArchlinux, SiLogitech } from 'react-icons/si'
 import ShinyText from '@/components/ShinyText'
 import ProfileCard from '@/components/ProfileCard'
 import LogoLoop from '@/components/LogoLoop'
@@ -12,9 +12,12 @@ export default function Hero() {
   const techStack = [
     { node: <FaJava />, title: 'Java', href: 'https://www.java.com' },
     { node: <SiSpringboot />, title: 'Spring Boot', href: 'https://spring.io/projects/spring-boot' },
-    { node: <SiReact />, title: 'React', href: 'https://react.dev' },
-    { node: <SiNextdotjs />, title: 'Next.js', href: 'https://nextjs.org' },
-    { node: <SiPostgresql />, title: 'PostgreSQL', href: 'https://www.postgresql.org' },
+    { node: <SiIntellijidea />, title: 'IntelliJ IDEA', href: 'https://www.jetbrains.com/idea/' },
+    { node: <SiNeovim />, title: 'Neovim', href: 'https://neovim.io/' },
+    { node: <SiPostman />, title: 'Postman', href: 'https://www.postman.com/' },
+    { node: <SiGradle />, title: 'Gradle', href: 'https://gradle.org/' },
+    { node: <SiArchlinux />, title: 'Arch Linux', href: 'https://archlinux.org/' },
+    { node: <SiLogitech />, title: 'Logitech', href: 'https://www.logitech.com/' },
     { node: <FaGitAlt />, title: 'Git', href: 'https://git-scm.com' }
   ];
 
