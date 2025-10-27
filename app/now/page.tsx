@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BookOpen, Code2, Target, GraduationCap, Lightbulb } from 'lucide-react'
+import { BookOpen, Code2, Target, GraduationCap, Lightbulb, Trophy } from 'lucide-react'
 
 const nowData = {
   updated: 'October 2025',
@@ -47,7 +47,18 @@ const nowData = {
     'Vulnerability Assessments', 'Unit Testing', 'Threat Modeling',
     'Software Design', 'UI/UX Design', 'Technical Design',
     'Software Architecture', 'Application Security'
-  ]
+  ],
+  competitions: [
+  {
+    title: 'NSA Codebreaker Challenge 2025/2026',
+    status: 'In Progress - Task 2',
+    details: [
+      'Completed: Task 0 (Registration & Setup), Task 1 (Initial Analysis)',
+      'Current: Task 2 - Network traffic analysis using Wireshark on PCAP files',
+      'Applying cybersecurity fundamentals in real-world CTF scenarios'
+    ]
+  }
+]
 }
 
 export default function Now() {
@@ -172,6 +183,43 @@ export default function Now() {
           </motion.div>
         </div>
 
+        <hr className="border-slate-200" />
+
+        {/*Competitions*/}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="border-l-4 border-red-600 pl-6 py-4 mt-12"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Trophy className="w-6 h-6 text-red-600" />
+            <h2 className="text-2xl font-bold text-slate-800">Competitions & Challenges</h2>
+          </div>
+          <ul className="space-y-4">
+            {nowData.competitions.map((item, idx) => (
+              <li key={idx} className="text-slate-700">
+                <div className="text-sm font-medium flex items-center gap-2">
+                  {item.title}
+                  <span className="px-2 py-0.5 bg-red-50 text-red-700 text-xs font-bold rounded">
+                    {item.status}
+                  </span>
+                </div>
+                {item.details.length > 0 && (
+                  <ul className="mt-2 ml-4 space-y-1">
+                    {item.details.map((detail, detailIdx) => (
+                      <li key={detailIdx} className="text-xs text-slate-600 flex items-start gap-2">
+                        <span className="text-red-600">→</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
         {/* Specialization Focus - Commented out until started */}
         {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -201,7 +249,7 @@ export default function Now() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-center shadow-xl mb-12"
+          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-center shadow-xl my-12"
         >
           <h3 className="text-2xl font-bold mb-3 text-white">
             Interested in collaborating?
