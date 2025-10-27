@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react'
 
 const leftNavItems = [
   { name: 'About', path: '/about' },
+  { name: 'Repos', path: '/repos' },
   { name: 'Uses', path: '/uses' },
   { name: 'Now', path: '/now' },
 ]

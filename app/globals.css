@@ -93,4 +93,149 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
   }
+
+  /* Markdown Viewer Styles */
+  .markdown-viewer {
+    color: #24292f;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .markdown-viewer h1,
+  .markdown-viewer h2,
+  .markdown-viewer h3,
+  .markdown-viewer h4,
+  .markdown-viewer h5,
+  .markdown-viewer h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #24292f;
+  }
+
+  .markdown-viewer h1 {
+    font-size: 2em;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+  }
+
+  .markdown-viewer h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.3em;
+  }
+
+  .markdown-viewer h3 {
+    font-size: 1.25em;
+  }
+
+  .markdown-viewer h4 {
+    font-size: 1em;
+  }
+
+  .markdown-viewer h5 {
+    font-size: 0.875em;
+  }
+
+  .markdown-viewer h6 {
+    font-size: 0.85em;
+    color: #656d76;
+  }
+
+  .markdown-viewer p {
+    margin-bottom: 10px;
+  }
+
+  .markdown-viewer ul,
+  .markdown-viewer ol {
+    margin-bottom: 16px;
+    padding-left: 2em;
+  }
+
+  .markdown-viewer li {
+    margin-bottom: 0.25em;
+  }
+
+  .markdown-viewer code {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  .markdown-viewer pre {
+    background-color: #161b22;
+    border-radius: 6px;
+    font-size: 85%;
+    line-height: 1.45;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .markdown-viewer pre code {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    color: #e6edf3;
+  }
+
+  .markdown-viewer a {
+    color: #0969da;
+    text-decoration: none;
+  }
+
+  .markdown-viewer a:hover {
+    text-decoration: underline;
+  }
+
+  .markdown-viewer blockquote {
+    border-left: 0.25em solid #d0d7de;
+    color: #656d76;
+    padding: 0 1em;
+    margin: 16px 0;
+  }
+
+  .markdown-viewer table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    max-width: 100%;
+    overflow: auto;
+    width: max-content;
+    margin: 16px 0;
+  }
+
+  .markdown-viewer table tr {
+    border-top: 1px solid #d0d7de;
+    background-color: #ffffff;
+  }
+
+  .markdown-viewer table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+
+  .markdown-viewer table td,
+  .markdown-viewer table th {
+    border: 1px solid #d0d7de;
+    padding: 6px 13px;
+  }
+
+  .markdown-viewer table th {
+    font-weight: 600;
+    background-color: #f6f8fa;
+  }
+
+  .markdown-viewer hr {
+    border: 0;
+    border-top: 1px solid #d0d7de;
+    margin: 24px 0;
+  }
+
+  .markdown-viewer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
 }
