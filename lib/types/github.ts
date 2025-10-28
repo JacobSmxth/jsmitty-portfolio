@@ -37,5 +37,7 @@ export interface RepoDetailsData {
   repo: GitHubRepo
   readmeContent: string
   commits: GitHubCommit[]
+  languages: Record<string, number>
 }
+
 

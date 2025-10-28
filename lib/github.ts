@@ -70,12 +70,23 @@ export async function fetchRepoDetails(
             'X-GitHub-Api-Version': '2022-11-28',
           }
         }
+      ),
+      fetch(
+        `https://api.github.com/repos/${username}/${repoName}/languages`,
+        { 
+          next: { revalidate: 3600 },
+          headers: {
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+          }
+        }
       )
     ])
     
     const repoRes = responses[0]
     const readmeRes = responses[1]
     const commitsRes = responses[2]
+    const languagesRes = responses[3]
     
     if (!repoRes.ok) {
       throw new Error(`Failed to fetch repo details: ${repoRes.statusText}`)
@@ -94,10 +105,16 @@ export async function fetchRepoDetails(
       commits = await commitsRes.json()
     }
     
+    let languages: Record<string, number> = {}
+    if (languagesRes.ok) {
+      languages = await languagesRes.json()
+    }
+    
     return {
       repo: repoData,
       readmeContent,
-      commits
+      commits,
+      languages
     }
   } catch (error) {
     console.error('Error fetching repo details:', error)
