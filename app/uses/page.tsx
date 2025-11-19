@@ -17,8 +17,8 @@ const usesData = {
         },
         {
           name: 'Neovim',
-          description: 'Fast edits, configs, and frontend work',
-          link: 'https://neovim.io/'
+          description: 'Fast edits, configs, and frontend work with my custom config Ichthys.nvim',
+          link: 'https://github.com/jacobsmxth/ichthys'
         }
       ]
     },

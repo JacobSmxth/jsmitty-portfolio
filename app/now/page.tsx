@@ -22,19 +22,28 @@ const nowData = {
   ],
   building: [
     {
-      title: 'Inventory Management API - Adding Spring Security auth layer',
+      title: 'CentDash - Migrating personal finance API from CSV to database-backed architecture with JPA inheritance',
       details: []
     },
     {
-      title: 'CentDash - Personal finance dashboard (forked from CentLedger)',
+      title: 'Spring Boot REST APIs with clean architecture and comprehensive testing',
+      details: []
+    },
+    {
+      title: 'New rewards and progression system for Code Ninjas students',
       details: [
-        'Migrating from CSV persistence to database',
-        'Building user authentication system'
+        'Starting with my dojo',
+        'Planning expansion internationally'
+      ]
+    },
+    {
+      title: 'Co-designing the new Unreal Engine learning pathway from scratch',
+      details: [
+        'Working with Code Ninjas Corporate'
       ]
     }
   ],
   goals: [
-    'Complete University of Colorado Secure Software Design Specialization (Coursera)',
     'Land a backend engineering internship for Summer 2026',
     'Contribute to a major open source project in the Spring ecosystem',
     'Build a production-ready fintech API'
@@ -51,10 +60,10 @@ const nowData = {
   competitions: [
   {
     title: 'NSA Codebreaker Challenge 2025/2026',
-    status: 'In Progress - Task 2',
+    status: 'Struggling on Task 2',
     details: [
-      'Completed: Task 0 (Registration & Setup), Task 1 (Initial Analysis)',
-      'Current: Task 2 - Network traffic analysis using Wireshark on PCAP files',
+      'Been working on Task 2 for about a month now',
+      'Actively learning and trying different approaches to pass this challenge',
       'Applying cybersecurity fundamentals in real-world CTF scenarios'
     ]
   }
