@@ -28,7 +28,7 @@ export function RepoCard({ repo, index }: RepoCardProps) {
         href={`/repos/${repo.name}`}
         className="group block h-full"
       >
-        <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
+        <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
           {/* Header */}
           <div className="flex items-start justify-between mb-6">
             <div className="flex-1">

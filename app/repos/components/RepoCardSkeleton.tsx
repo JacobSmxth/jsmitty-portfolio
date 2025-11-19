@@ -1,6 +1,6 @@
 export function Skeleton() {
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 animate-pulse">
+    <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-100 animate-pulse">
       {/* Header skeleton */}
       <div className="flex items-start gap-3 mb-6">
         <div className="w-8 h-8 bg-gray-200 rounded-lg"></div>

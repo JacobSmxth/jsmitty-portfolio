@@ -33,7 +33,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
+        className="bg-white rounded-lg p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
       >
         <button
           onClick={onClose}
@@ -88,7 +88,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {project.developmentApproach && (
-          <div className="mb-8 p-6 bg-slate-50 rounded-2xl">
+          <div className="mb-8 p-6 bg-slate-50 rounded-md">
             <h3 className="font-bold text-slate-900 mb-3 text-lg">Development Approach</h3>
             <span className={`inline-block px-4 py-2 rounded-xl text-sm font-bold border ${
               project.developmentApproach === 'From Scratch'
@@ -103,7 +103,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         )}
 
         {project.technicalDepth && Object.keys(project.technicalDepth).length > 0 && (
-          <div className="mb-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+          <div className="mb-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-md border border-blue-100">
             <h3 className="font-bold text-slate-900 mb-4 text-lg">Technical Metrics</h3>
             <div className="grid grid-cols-2 gap-4">
               {project.technicalDepth.linesOfCode && (
@@ -197,7 +197,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {project.learnings && project.learnings.length > 0 && (
-          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl">
+          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-md">
             <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Learnings</h3>
             <ul className="space-y-3">
               {project.learnings.map((learning: string, index: number) => (

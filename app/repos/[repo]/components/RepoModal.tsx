@@ -45,7 +45,7 @@ export function RepoModal({ repo, readmeContent, commits, languages, activeTab, 
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl p-10 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
+        className="bg-white rounded-lg p-10 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
       >
         <button
           onClick={onClose}
@@ -87,7 +87,7 @@ export function RepoModal({ repo, readmeContent, commits, languages, activeTab, 
               {languageEntries.length > 0 ? (
                 <div className="space-y-6">
                   {/* Language Breakdown */}
-                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100">
+                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-md p-6 border border-blue-100">
                     <h4 className="text-lg font-bold text-slate-900 mb-4">Language Breakdown</h4>
                     <div className="space-y-3">
                       {languageEntries.map(({ lang, percent }) => (

@@ -30,7 +30,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
           >
             <FaEnvelope className="text-blue-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -49,7 +49,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
           >
             <FaEnvelope className="text-rose-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -70,7 +70,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
           >
             <FaLinkedin className="text-blue-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -91,7 +91,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
           >
             <FaGithub className="text-slate-900 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -110,7 +110,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-slate-900 text-white rounded-3xl p-8 text-center"
+          className="bg-slate-900 text-white rounded-lg p-8 text-center"
         >
           <FaGlobe className="mx-auto mb-4" size={40} />
           <h3 className="text-2xl font-bold mb-2">Website</h3>

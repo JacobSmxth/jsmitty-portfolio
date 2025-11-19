@@ -148,7 +148,7 @@ export default function Uses() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + sectionIdx * 0.1 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all"
+                  className="bg-white rounded-md p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all"
                 >
                   <div className="flex items-center gap-2 mb-4">
                     <Icon className="w-5 h-5 text-blue-600" />
@@ -199,7 +199,7 @@ export default function Uses() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-2xl text-white"
+              className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-md p-8 shadow-2xl text-white"
             >
               <div className="flex items-center gap-3 mb-6">
                 <Cpu className="w-6 h-6 text-blue-400" />
@@ -233,7 +233,7 @@ export default function Uses() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100"
+              className="bg-white rounded-md p-8 shadow-lg border border-slate-100"
             >
               <div className="flex items-center gap-3 mb-6">
                 <Monitor className="w-6 h-6 text-purple-600" />
@@ -259,7 +259,7 @@ export default function Uses() {
           transition={{ delay: 0.6 }}
           className="mb-12"
         >
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+          <div className="bg-white rounded-md p-8 shadow-lg border border-slate-100">
             <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
               My Desk Setup
             </h3>

@@ -42,7 +42,7 @@ export default function GithubActivity() {
         >
           {/* Contribution Graph */}
           <div className="flex justify-center">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 w-full max-w-4xl">
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-md border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 w-full max-w-4xl">
               <Image
                 src="https://ghchart.rshah.org/3b82f6/jacobsmxth"
                 alt="GitHub Contribution Graph"
@@ -55,7 +55,7 @@ export default function GithubActivity() {
 
           {/* GitHub Stats */}
           <div className="flex justify-center">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 w-full max-w-xl">
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-md border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 w-full max-w-xl">
               {!statsError ? (
                 <Image
                   src="https://github-readme-stats.vercel.app/api?username=jacobsmxth&show_icons=true&theme=default&hide_border=true&bg_color=ffffff00&title_color=1e293b&text_color=475569&icon_color=3b82f6"

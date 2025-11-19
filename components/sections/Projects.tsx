@@ -37,34 +37,34 @@ export default function Projects() {
       onClick={() => setSelectedProject(project)}
       className="group cursor-pointer"
     >
-      <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
+      <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
         <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
               {project.name}
             </h3>
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
           </div>
           <FaExternalLinkAlt className="text-slate-400 group-hover:text-blue-500 transition-colors" />
         </div>
 
         {project.developmentApproach && (
           <div className="mb-4 flex flex-wrap gap-2 items-center">
-            <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold border ${getApproachBadgeColor(project.developmentApproach)}`}>
+            <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold border ${getApproachBadgeColor(project.developmentApproach)}`}>
               {project.developmentApproach}
             </span>
             {project.inProgress && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
                 🚧 Currently Building
               </span>
             )}
             {project.technicalDepth?.testCoverage && project.technicalDepth.testCoverage >= 70 && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 ✓ {project.technicalDepth.testCoverage}% tested
               </span>
             )}
             {project.technicalDepth?.performanceMetrics?.responseTime && project.technicalDepth.performanceMetrics.responseTime < 50 && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
                 ⚡ {project.technicalDepth.performanceMetrics.responseTime}ms
               </span>
             )}
@@ -79,13 +79,13 @@ export default function Projects() {
           {project.techStack.slice(0, 4).map((tech: string) => (
             <span
               key={tech}
-              className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-xl text-sm font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors"
+              className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded text-sm font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors"
             >
               {tech}
             </span>
           ))}
           {project.techStack.length > 4 && (
-            <span className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 rounded-xl text-sm font-medium border border-blue-100">
+            <span className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 rounded text-sm font-medium border border-blue-100">
               +{project.techStack.length - 4} more
             </span>
           )}
@@ -133,7 +133,7 @@ export default function Projects() {
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
+            <div className="p-3 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Rocket className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">

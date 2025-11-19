@@ -47,7 +47,7 @@ export function RepoDetailClient({ repo, readmeContent, commits, languages }: Re
 
           <div className="max-w-5xl mx-auto">
             {/* Header */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 mb-8">
+            <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-100 mb-8">
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">

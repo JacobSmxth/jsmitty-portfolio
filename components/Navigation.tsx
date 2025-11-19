@@ -88,7 +88,7 @@ export default function Navigation() {
           duration: 0.25,
           ease: [0.4, 0, 0.2, 1]
         }}
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-2xl px-6 sm:px-8 py-4 shadow-xl transition-colors duration-300 ${
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-md px-6 sm:px-8 py-4 shadow-xl transition-colors duration-300 ${
           isDarkPage
             ? 'bg-slate-900/90 backdrop-blur-md border border-slate-700'
             : 'glass-effect'
@@ -104,7 +104,7 @@ export default function Navigation() {
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-3 lg:px-4 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
+                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
                       isActive
                         ? 'text-white'
                         : isDarkPage
@@ -117,7 +117,7 @@ export default function Navigation() {
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded shadow-lg"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -129,9 +129,9 @@ export default function Navigation() {
           {/* Centered Logo */}
           <Link
             href="/"
-            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
+            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap absolute left-1/2 -translate-x-1/2"
           >
-            jsmitty
+            Jacob Smith
           </Link>
 
           {/* Right Nav Items */}
@@ -142,7 +142,7 @@ export default function Navigation() {
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-3 lg:px-4 py-3 rounded-xl transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
+                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
                       isActive
                         ? 'text-white'
                         : isDarkPage
@@ -155,7 +155,7 @@ export default function Navigation() {
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded shadow-lg"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -214,7 +214,7 @@ export default function Navigation() {
                     className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    jsmitty
+                    Jacob Smith
                   </Link>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -239,7 +239,7 @@ export default function Navigation() {
                       >
                         <Link
                           href={item.path}
-                          className={`block px-6 py-4 rounded-xl transition-all duration-300 font-medium ${
+                          className={`block px-6 py-4 rounded transition-all duration-300 font-medium ${
                             isActive
                               ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg'
                               : 'text-slate-700 hover:bg-slate-100'

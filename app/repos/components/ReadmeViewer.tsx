@@ -11,7 +11,7 @@ interface ReadmeViewerProps {
 
 export function ReadmeViewer({ content }: ReadmeViewerProps) {
   return (
-    <div className="markdown-viewer bg-white rounded-2xl p-8 border border-gray-200 max-h-[800px] overflow-y-auto modal-scrollbar">
+    <div className="markdown-viewer bg-white rounded-md p-8 border border-gray-200 max-h-[800px] overflow-y-auto modal-scrollbar">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}

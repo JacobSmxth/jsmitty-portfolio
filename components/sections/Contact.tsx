@@ -44,7 +44,7 @@ export default function Contact() {
         >
           <button
             onClick={copyEmail}
-            className="group p-8 bg-white/5 rounded-3xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform w-full"
+            className="group p-8 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform w-full"
           >
             <FaEnvelope className="mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
             <h3 className="font-bold mb-3 text-xl">
@@ -58,7 +58,7 @@ export default function Contact() {
             href="https://linkedin.com/in/jacobsmxth"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 bg-white/5 rounded-3xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform"
+            className="group p-8 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform"
           >
             <FaLinkedin className="mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
             <h3 className="font-bold mb-3 text-xl">LinkedIn</h3>
@@ -69,7 +69,7 @@ export default function Contact() {
             href="https://github.com/jacobsmxth"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 bg-white/5 rounded-3xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform"
+            className="group p-8 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 border border-white/10 hover:border-white/20 will-change-transform"
           >
             <FaGithub className="mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
             <h3 className="font-bold mb-3 text-xl">GitHub</h3>
@@ -85,7 +85,7 @@ export default function Contact() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             Send a Message
           </Link>
@@ -98,7 +98,7 @@ export default function Contact() {
           transition={{ delay: 0.5 }}
           className="mt-20"
         >
-          <div className="p-8 bg-white/5 rounded-3xl border border-white/10 max-w-2xl mx-auto">
+          <div className="p-8 bg-white/5 rounded-lg border border-white/10 max-w-2xl mx-auto">
             <p className="text-slate-300 italic text-lg">
               &ldquo;Two are better than one, because they have a good return for their labor&rdquo;
             </p>

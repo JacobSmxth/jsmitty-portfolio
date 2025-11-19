@@ -78,7 +78,7 @@ Currently learning: Backend security, distributed systems, and performance optim
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-3xl p-8 shadow-lg mb-8"
+                className="bg-white rounded-lg p-8 shadow-lg mb-8"
               >
                 <h2 className="text-3xl font-bold text-slate-900 mb-6">
                   Quick Summary
@@ -98,7 +98,7 @@ Currently learning: Backend security, distributed systems, and performance optim
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg mb-8"
+                className="bg-white rounded-lg p-8 shadow-lg mb-8"
               >
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-3xl font-bold text-slate-900">
@@ -152,7 +152,7 @@ Currently learning: Backend security, distributed systems, and performance optim
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-3xl p-8 shadow-lg"
+                className="bg-white rounded-lg p-8 shadow-lg"
               >
                 <h2 className="text-3xl font-bold text-slate-900 mb-6">
                   Other Things
@@ -176,7 +176,7 @@ Currently learning: Backend security, distributed systems, and performance optim
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-white rounded-3xl p-8 md:p-12 shadow-lg"
+              className="bg-white rounded-lg p-8 md:p-12 shadow-lg"
             >
               <button
                 onClick={() => setShowFullStory(false)}

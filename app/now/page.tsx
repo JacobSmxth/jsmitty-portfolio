@@ -234,7 +234,7 @@ export default function Now() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mb-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-2xl"
+          className="mb-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-md p-8 shadow-2xl"
         >
           <div className="flex items-center gap-3 mb-6">
             <Lightbulb className="w-6 h-6 text-yellow-400" />
@@ -258,7 +258,7 @@ export default function Now() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-center shadow-xl my-12"
+          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md text-center shadow-xl my-12"
         >
           <h3 className="text-2xl font-bold mb-3 text-white">
             Interested in collaborating?

@@ -26,23 +26,86 @@ export interface Project {
 
 export const featuredProjects: Project[] = [
   {
-    name: 'Inventory Management API',
-    summary: 'Portfolio-ready REST API with comprehensive testing and clean Spring Boot patterns',
-    description: `A full-featured inventory management system built from scratch to demonstrate backend fundamentals and clean coding practices.
+    name: 'Code Ninjas Bux',
+    summary: 'Full reward and progression system for Code Ninjas students with plans for international expansion',
+    description: `A comprehensive reward and progression system being built for Code Ninjas students, starting with my local dojo with long-term plans for international expansion.
+
+Key Features:
+- Live leaderboards tracking student progress and achievements
+- Real-time updates using WebSockets for instant feedback
+- Achievement system to motivate and recognize student accomplishments
+- Admin dashboard for dojo management and student tracking
+- Built with modern stack: React 19, Spring Boot, PostgreSQL
+
+Development Status:
+Currently in active development for initial dojo rollout. This system is being designed with scalability in mind to support potential expansion to Code Ninjas locations internationally.
+
+Also co-designing the new Unreal Engine learning pathway from scratch for Code Ninjas Corporate, working directly with the content team.`,
+    techStack: ['Java', 'Spring Boot', 'React 19', 'WebSockets', 'PostgreSQL'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {},
+    learnings: [
+      'Real-time communication with WebSockets',
+      'Building scalable systems for educational environments',
+      'Admin dashboard architecture and role-based access',
+      'Student engagement and gamification patterns',
+      'Long-term system design for potential international deployment'
+    ],
+    githubUrl: 'https://github.com/JacobSmxth/code-ninjas-bux',
+    featured: true,
+    inProgress: true
+  },
+  {
+    name: 'CentDash',
+    summary: 'Personal finance API with JPA inheritance, aggregation endpoints, and CSV to database migration',
+    description: `Personal finance API migrating from CSV-based persistence to database-backed architecture with JPA inheritance patterns.
+
+Key Features:
+- JPA single-table inheritance using discriminator columns for polymorphic entry types
+- Aggregation endpoints providing financial summaries and analytics
+- CSV to database migration demonstrating evolution of data persistence strategies
+- RESTful API with separate endpoints for income/expense tracking and budget management
+- Custom repository queries using JPQL for type-based filtering
+
+Technical Decisions:
+- Single-table inheritance over joined/table-per-class for query simplicity
+- @PrePersist and @PreUpdate for automatic timestamp management
+- Bean Validation for input sanitization
+- File-based H2 persistence with automatic schema generation
+
+This project demonstrates the evolution from CentLedger's HashMap approach to proper ORM patterns with JPA.`,
+    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {
+      linesOfCode: 475
+    },
+    learnings: [
+      'JPA entity lifecycle management and single-table inheritance with discriminator columns',
+      'ORM patterns: repository abstraction, entity relationships, and query methods',
+      'Database migration strategy: CSV → H2 → (planned) PostgreSQL',
+      'Spring Boot auto-configuration and dependency injection'
+    ],
+    githubUrl: 'https://github.com/jacobsmxth/centdash',
+    featured: true,
+    inProgress: true
+  },
+  {
+    name: 'InventoryAPI',
+    summary: 'REST API featuring CRUD, stock management, search filtering, validation, and integration tests',
+    description: `A full-featured inventory management system demonstrating backend fundamentals and clean Spring Boot patterns.
 
 Key Features:
 - Complete CRUD operations with clean REST architecture
+- Stock management with validation (prevents negative inventory)
 - Search by SKU and category filtering
 - Low-stock tracking for consumables with automated alerts
-- Stock adjustment system with validation (prevents negative inventory)
 - Real-time inventory statistics (total value, quantity calculations)
 - SKU format validation using regex patterns
 - Custom exception handling with descriptive error messages
 - Integration tests with separate H2 test database
-- File-based H2 database for data persistence
 
-Built to track my actual desk setup inventory while demonstrating clean Spring Boot design patterns.`,
-    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'JUnit', 'REST API'],
+Built to track my actual desk setup inventory while demonstrating clean Spring Boot design patterns and proper testing practices.`,
+    techStack: ['Java 21', 'Spring Boot 3.5.6', 'H2', 'JUnit'],
     developmentApproach: 'From Scratch',
     technicalDepth: {
       linesOfCode: 412,
@@ -53,96 +116,101 @@ Built to track my actual desk setup inventory while demonstrating clean Spring B
       'Input validation and error handling strategies',
       'Integration testing with separate test database configuration',
       'RESTful API design with proper HTTP status codes',
-      'Business logic implementation (stock management, low-stock alerts)',
-      'Clean code structure and documentation'
+      'Business logic implementation (stock management, low-stock alerts)'
     ],
-    githubUrl: 'https://github.com/JacobSmxth/Inventory-management-api',
+    githubUrl: 'https://github.com/JacobSmxth/inventory-management-api',
     featured: true
   },
   {
     name: 'Task Manager API',
-    summary: 'Production-ready REST API with DTOs, centralized exception handling, and soft delete recovery',
-    description: `A task management API built from scratch to demonstrate advanced Spring Boot architecture patterns and real-world data management strategies.
+    summary: 'Task management API with soft delete and recovery, complex filtering, and custom query composition',
+    description: `A task management API demonstrating advanced Spring Boot architecture patterns and real-world data management strategies.
 
 Key Technical Features:
+- Soft delete with undo/recovery functionality (tasks marked as deleted, not removed)
+- Complex filtering combining category + priority ranges in single queries
+- Custom query composition with 9 repository methods
 - DTO pattern for secure partial updates (prevents mass assignment vulnerabilities)
 - Custom exception hierarchy with @RestControllerAdvice for consistent error responses
-- Soft delete with undo/recovery functionality (tasks marked as deleted, not removed)
-- Multi-dimensional filtering combining category + priority ranges in single queries
-- Smart query routing across 9 custom repository methods
 - Multi-layer validation (entity + controller levels with Bean Validation)
-- Proper transaction boundaries with business logic in service layer
 - Toggle completion with automatic timestamp tracking
-
-Built to explore advanced JPA patterns, exception handling strategies, and the DTO pattern - going beyond basic CRUD to demonstrate production-ready architecture.
 
 Technical Highlights:
 - Three-layer architecture (Controller → Service → Repository) with clear separation of concerns
 - DTOs decouple API contract from database schema, allowing flexible partial updates
-- Global exception handler catches and formats all exceptions into consistent JSON responses
+- Global exception handler for consistent JSON error responses
 - Soft delete implementation allows data recovery without database restoration`,
-    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA', 'H2 Database', 'Gradle', 'Bean Validation'],
+    techStack: ['Java 21', 'Spring Boot 3.5.6', 'Spring Data JPA'],
     developmentApproach: 'From Scratch',
     technicalDepth: {
-      linesOfCode: 458,
-      apiEndpoints: 6,
-      databaseComplexity: {
-        tables: 1,
-        relationships: 0
-      }
+      linesOfCode: 291
     },
     learnings: [
       'DTO pattern for secure partial updates with Bean Validation',
       'Custom exception hierarchy with @RestControllerAdvice for centralized error handling',
-      'Complex Spring Data JPA query method composition (9 repository methods)',
-      'Multi-layer validation strategy (entity-level + controller-level)',
+      'Complex Spring Data JPA query method composition',
       'Soft delete patterns with recovery functionality and timestamp management',
-      'Transaction management and service layer separation of concerns',
-      'RESTful API design with idempotent operations and proper HTTP status codes'
+      'Transaction management and service layer separation of concerns'
     ],
     githubUrl: 'https://github.com/JacobSmxth/task-manager-api',
     featured: true
-  },
-  {
-    name: 'CentDash',
-    summary: 'Personal finance API demonstrating migration from CSV to database-backed architecture',
-    description: `A complete rebuild of CentLedger API, migrating from CSV-based persistence to a proper database-backed REST API with type-safe inheritance modeling.
-
-What I built:
-- RESTful API with separate endpoints for income/expense tracking and budget management
-- Single-table inheritance using JPA discriminator columns for polymorphic entry types
-- Custom repository queries using JPQL for type-based filtering
-- Aggregate endpoints providing formatted financial summaries (net totals, income/expense breakdowns)
-- File-based H2 persistence with automatic schema generation
-
-Key technical decisions:
-- Chose single-table inheritance over joined/table-per-class for simpler queries
-- Implemented discriminator columns for Entry subtypes (Income, Expense)
-- Used @PrePersist and @PreUpdate for timestamp management
-- Applied Bean Validation for input sanitization
-
-This fork represents the evolution from CentLedger's HashMap approach to proper ORM patterns with JPA.
-
-Next phases: JWT authentication, PostgreSQL migration, exception handling, reporting/analytics`,
-    techStack: ['Java', 'Spring Boot', 'Spring Data JPA', 'H2 Database', 'Gradle'],
-    developmentApproach: 'From Scratch',
-    technicalDepth: {
-      linesOfCode: 475,
-      apiEndpoints: 8
-    },
-    learnings: [
-      'JPA entity lifecycle management (@PrePersist, @PreUpdate) and single-table inheritance with discriminator columns',
-      'ORM patterns: repository abstraction, entity relationships, and query methods',
-      'Spring Boot auto-configuration, dependency injection, and application.properties setup',
-      'Database migration strategy: CSV → H2 → (planned) PostgreSQL'
-    ],
-    githubUrl: 'https://github.com/jacobsmxth/centdash',
-    featured: true,
-    inProgress: true
   }
 ]
 
 export const archivedProjects: Project[] = [
+  {
+    name: 'Ichthys.nvim',
+    summary: 'Custom Neovim configuration optimized for Java, Go, Rust, C, and TypeScript development',
+    description: `My personal Neovim configuration built from scratch and actively maintained for professional development work.
+
+Features:
+- LSP integration for Java, Go, Rust, C, and TypeScript
+- DAP (Debug Adapter Protocol) for debugging
+- Telescope for fuzzy finding and navigation
+- Custom snippets and formatting
+- Full plugin ecosystem tailored to my workflow
+- Optimized for backend development
+
+This configuration represents my daily development environment and is continuously refined based on real-world usage.`,
+    techStack: ['Lua', 'Neovim', 'LSP', 'DAP'],
+    developmentApproach: 'From Scratch',
+    technicalDepth: {},
+    learnings: [
+      'Lua programming for Neovim configuration',
+      'LSP and DAP integration',
+      'Plugin management and customization',
+      'Developer tooling optimization',
+      'Building efficient development workflows'
+    ],
+    githubUrl: 'https://github.com/JacobSmxth/Ichthys',
+    featured: false
+  },
+  {
+    name: 'jsmitty.com',
+    summary: 'Portfolio built with Next.js 15, React 19, and Tailwind v4',
+    description: `A modern, responsive portfolio website showcasing projects and experience.
+
+Features:
+- Next.js 15 App Router with React 19
+- Tailwind CSS v4 with custom design system
+- Framer Motion animations
+- Responsive design with mobile-first approach
+- Dynamic project modals
+- SEO optimized
+
+Built to showcase both technical skills and design sensibility while providing a professional online presence.`,
+    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
+    developmentApproach: 'Rapid Prototyped',
+    technicalDepth: {},
+    learnings: [
+      'Next.js 15 App Router and React 19 features',
+      'Tailwind CSS v4 theming',
+      'Modern web development best practices',
+      'Professional portfolio design'
+    ],
+    githubUrl: 'https://github.com/JacobSmxth/jsmitty-portfolio',
+    featured: false
+  },
   {
     name: 'Washington Archives',
     summary: 'Comprehensive historical research website with well-organized content and citations',
@@ -262,35 +330,6 @@ This project demonstrates:
       'Professional client communication'
     ],
     url: 'https://rainbetvip-dev.vercel.app',
-    featured: false
-  },
-  {
-    name: 'This Portfolio',
-    summary: 'Modern portfolio built with Next.js 15, React 19, and Tailwind CSS v4',
-    description: `A modern, responsive portfolio website showcasing projects and experience.
-
-Features:
-- Next.js 15 App Router with React 19
-- Tailwind CSS v4 with custom design system
-- Framer Motion animations
-- Responsive design with mobile-first approach
-- Dynamic project and experience modals
-- Smart navigation with scroll behavior
-- Custom line art backgrounds
-- SEO optimized
-
-Built to showcase both technical skills and design sensibility while providing a professional online presence.`,
-    techStack: ['React 19', 'Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion'],
-    developmentApproach: 'Rapid Prototyped',
-    technicalDepth: {},
-    learnings: [
-      'Next.js 15 App Router and React 19 features',
-      'Tailwind CSS v4 theming and custom design systems',
-      'Complex animation orchestration with Framer Motion',
-      'Modern web development best practices',
-      'Professional portfolio design and UX'
-    ],
-    githubUrl: 'https://github.com/JacobSmxth/jsmitty-portfolio',
     featured: false
   },
   {

@@ -56,7 +56,7 @@ export default function Timeline() {
 
                 <div
                   onClick={() => setSelectedExperience(exp)}
-                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200 will-change-transform"
+                  className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200 will-change-transform"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">

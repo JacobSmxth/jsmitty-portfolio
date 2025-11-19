@@ -41,7 +41,7 @@
 
   ::-webkit-scrollbar-thumb {
     background: var(--color-primary);
-    border-radius: 4px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -81,7 +81,7 @@
 
   .modal-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(148, 163, 184, 0.3);
-    border-radius: 10px;
+    border-radius: 2px;
   }
 
   .modal-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -159,7 +159,7 @@
 
   .markdown-viewer code {
     background-color: #f6f8fa;
-    border-radius: 6px;
+    border-radius: 3px;
     font-size: 85%;
     padding: 0.2em 0.4em;
     font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -167,7 +167,7 @@
 
   .markdown-viewer pre {
     background-color: #161b22;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 85%;
     line-height: 1.45;
     padding: 16px;
@@ -236,6 +236,6 @@
   .markdown-viewer img {
     max-width: 100%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 4px;
   }
 }

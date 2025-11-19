@@ -237,7 +237,7 @@ export default function CommandPalette() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -50, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-1/4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-white rounded-3xl shadow-2xl z-50 overflow-hidden"
+              className="fixed top-1/4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-white rounded-lg shadow-2xl z-50 overflow-hidden"
             >
               {/* Search Input */}
               <div className="p-6 border-b border-slate-200 flex items-center gap-4">
@@ -269,7 +269,7 @@ export default function CommandPalette() {
                           <button
                             key={cmd.id}
                             onClick={() => handleCommand(cmd)}
-                            className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-slate-50 transition-colors group text-left"
+                            className="w-full flex items-center gap-4 px-4 py-3 rounded-md hover:bg-slate-50 transition-colors group text-left"
                           >
                             <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl group-hover:scale-110 transition-transform">
                               <Icon className="w-5 h-5 text-white" />

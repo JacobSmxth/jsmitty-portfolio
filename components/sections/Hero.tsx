@@ -89,7 +89,7 @@ export default function Hero() {
                   href="https://github.com/jacobsmxth"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 bg-slate-800 text-white rounded-2xl hover:bg-slate-900 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="group p-4 bg-slate-800 text-white rounded-md hover:bg-slate-900 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
                   <FaGithub size={24} className="group-hover:rotate-12 transition-transform" />
                 </a>
@@ -97,13 +97,13 @@ export default function Hero() {
                   href="https://linkedin.com/in/jacobsmxth"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="group p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
                   <FaLinkedin size={24} className="group-hover:rotate-12 transition-transform" />
                 </a>
                 <a
                   href="mailto:jacobsmith@jsmitty.com"
-                  className="group p-4 bg-emerald-600 text-white rounded-2xl hover:bg-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="group p-4 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
                   <FaEnvelope size={24} className="group-hover:rotate-12 transition-transform" />
                 </a>
@@ -114,7 +114,7 @@ export default function Hero() {
                   href="/MyResume2025.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
                   <FaDownload className="group-hover:bounce" />
                   View Resume
@@ -122,7 +122,7 @@ export default function Hero() {
               </div>
 
               <div className="text-slate-400 italic text-base">
-                <div className="p-6 bg-white/60 rounded-2xl border border-white/30 shadow-lg">
+                <div className="p-6 bg-white/60 rounded-md border border-white/30 shadow-lg">
                   &ldquo;With great power comes great responsibility&rdquo;
                   <div className="text-sm mt-2 text-slate-500">- Uncle Ben</div>
                 </div>

@@ -98,9 +98,9 @@ export default function Services() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02]"
+                className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02]"
               >
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
+                <div className={`w-16 h-16 rounded-md flex items-center justify-center mb-6 ${
                   service.color === 'primary' ? 'bg-blue-500' :
                   service.color === 'coral' ? 'bg-rose-500' :
                   service.color === 'mauve' ? 'bg-pink-500' :
@@ -144,7 +144,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-12 shadow-2xl"
+          className="mt-16 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-12 shadow-2xl"
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl mb-8 text-white/80">
@@ -152,7 +152,7 @@ export default function Services() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl hover:scale-105 transition-transform shadow-xl"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-md hover:scale-105 transition-transform shadow-xl"
           >
             Get In Touch
           </a>

@@ -32,7 +32,7 @@ export default function ExperienceModal({ experience, onClose }: ExperienceModal
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
+        className="bg-white rounded-lg p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
       >
         <button
           onClick={onClose}
@@ -62,7 +62,7 @@ export default function ExperienceModal({ experience, onClose }: ExperienceModal
         </div>
 
         {experience.responsibilities && experience.responsibilities.length > 0 && (
-          <div className="mb-8 p-6 bg-slate-50 rounded-2xl">
+          <div className="mb-8 p-6 bg-slate-50 rounded-md">
             <h3 className="font-bold text-slate-900 mb-4 text-lg">Responsibilities</h3>
             <ul className="space-y-3">
               {experience.responsibilities.map((resp: string, index: number) => (
@@ -76,7 +76,7 @@ export default function ExperienceModal({ experience, onClose }: ExperienceModal
         )}
 
         {experience.learnings && experience.learnings.length > 0 && (
-          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl">
+          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-md">
             <h3 className="font-bold text-slate-900 mb-4 text-lg">What I Learned</h3>
             <ul className="space-y-3">
               {experience.learnings.map((learning: string, index: number) => (
