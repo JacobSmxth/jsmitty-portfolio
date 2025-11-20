@@ -14,6 +14,7 @@ This portfolio includes:
 - **Uses page** (`/uses`) documenting my development setup and tools
 - **Services page** for professional offerings
 - **Command palette** (press `Cmd/Ctrl + K`) for keyboard navigation throughout the site
+- **Reusable UI kit** (Buttons, Cards, Headings) for consistent styling
 
 ## Tech Stack
 
@@ -34,6 +35,7 @@ This portfolio includes:
 - Animated logo carousel and skill displays
 - Interactive timeline component
 - Markdown rendering with GitHub Flavored Markdown support
+- Unified palette/typography with shared UI components for CTAs and cards
 
 ## Getting Started
 
@@ -84,7 +86,6 @@ npm start
 - Email: jacobsmith@jsmitty.com
 - LinkedIn: [jacobsmxth](https://linkedin.com/in/jacobsmxth)
 - GitHub: [jacobsmxth](https://github.com/jacobsmxth)
-
 
 
 
