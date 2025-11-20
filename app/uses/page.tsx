@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Code2, Terminal, Cpu, Monitor, Maximize2, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { GradientHeading } from '@/components/ui'
+import { useBodyScrollLock } from '@/hooks'
 
 const usesData = {
   software: [
@@ -98,17 +100,7 @@ const usesData = {
 export default function Uses() {
   const [isFullscreen, setIsFullscreen] = useState(false)
 
-  useEffect(() => {
-    if (isFullscreen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isFullscreen])
+  useBodyScrollLock(isFullscreen)
 
   return (
     <main className="min-h-screen pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
@@ -119,9 +111,9 @@ export default function Uses() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-20 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 pb-2 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+          <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 pb-2">
             What I Use
-          </h1>
+          </GradientHeading>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             The software and hardware I rely on for backend development, security projects, and daily workflows.
           </p>

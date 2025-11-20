@@ -3,27 +3,19 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useBodyScrollLock } from '@/hooks'
+import { navLinks } from '@/config/navigation'
 
-const leftNavItems = [
-  { name: 'About', path: '/about' },
-  { name: 'Repos', path: '/repos' },
-  { name: 'Uses', path: '/uses' },
-  { name: 'Now', path: '/now' },
-]
-
-const rightNavItems = [
-  { name: 'Services', path: '/services' },
-  { name: 'Contact', path: '/contact' },
-]
-
-const allNavItems = [...leftNavItems, ...rightNavItems]
+const leftNavItems = navLinks.slice(0, 4)
+const rightNavItems = navLinks.slice(4)
+const allNavItems = navLinks
 
 export default function Navigation() {
   const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const lastScrollYRef = useRef(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isDarkPage = false // All pages now use light theme
@@ -32,13 +24,13 @@ export default function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+      if (currentScrollY < lastScrollYRef.current || currentScrollY < 100) {
         setIsVisible(true)
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      } else if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
         setIsVisible(false)
       }
 
-      setLastScrollY(currentScrollY)
+      lastScrollYRef.current = currentScrollY
     }
 
     const checkModalState = () => {
@@ -55,24 +47,13 @@ export default function Navigation() {
       window.removeEventListener('scroll', handleScroll)
       observer.disconnect()
     }
-  }, [lastScrollY])
+  }, [])
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isMobileMenuOpen])
+  useBodyScrollLock(isMobileMenuOpen)
 
   const shouldShow = isVisible && !isModalOpen
 

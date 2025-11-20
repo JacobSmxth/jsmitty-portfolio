@@ -1,24 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaCode } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { footerQuickLinks, footerServices, socialLinks } from '@/config/navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/#projects' },
-    { name: 'Experience', path: '/#timeline' },
-  ]
-
-  const services = [
-    { name: 'Business Websites', path: '/services' },
-    { name: 'Website Redesign', path: '/services' },
-    { name: 'Web Applications', path: '/services' },
-    { name: 'Maintenance & Hosting', path: '/services' },
-  ]
+  const quickLinks = footerQuickLinks
+  const services = footerServices
 
   return (
     <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
@@ -40,7 +30,7 @@ export default function Footer() {
             
             <div className="flex gap-4 mb-6">
               <a
-                href="https://github.com/jacobsmxth"
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 hover:scale-110"
@@ -49,7 +39,7 @@ export default function Footer() {
                 <FaGithub size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/jacobsmxth"
+                href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 hover:scale-110"
@@ -58,7 +48,7 @@ export default function Footer() {
                 <FaLinkedin size={20} />
               </a>
               <a
-                href="mailto:jacobsmith@jsmitty.com"
+                href={`mailto:${socialLinks.email}`}
                 className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 hover:scale-110"
                 aria-label="Email"
               >
@@ -88,24 +78,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/uses"
-                  className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
-                >
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-200"></span>
-                  Uses
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/now"
-                  className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
-                >
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-200"></span>
-                  Now
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -154,4 +126,3 @@ export default function Footer() {
     </footer>
   )
 }
-

@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Shield, Database, Wrench, Lightbulb, Cpu } from 'lucide-react'
+import { Code2, Shield, Database, Wrench, Lightbulb } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
 
 const skills = {
   backend: {
@@ -62,9 +63,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+          <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold mb-4">
             Technical Skills
-          </h2>
+          </GradientHeading>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Core technologies and tools I work with
           </p>

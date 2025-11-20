@@ -3,16 +3,21 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ExperienceModal from '@/components/ExperienceModal'
-import { experiences } from '@/data/experiences'
+import { experiences, Experience } from '@/data/experiences'
 import { Briefcase } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
 
 export default function Timeline() {
-  const [selectedExperience, setSelectedExperience] = useState<any>(null)
+  const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null)
 
   useEffect(() => {
     if (selectedExperience) {
       document.body.setAttribute('data-modal-open', 'true')
     } else {
+      document.body.removeAttribute('data-modal-open')
+    }
+
+    return () => {
       document.body.removeAttribute('data-modal-open')
     }
   }, [selectedExperience])
@@ -30,9 +35,9 @@ export default function Timeline() {
             <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+            <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold pb-2">
               Experience
-            </h2>
+            </GradientHeading>
           </div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             My professional journey from hospitality to education and freelance development.

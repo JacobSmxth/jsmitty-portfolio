@@ -1,9 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink, X } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
+import { useBodyScrollLock } from '@/hooks'
 
 export default function About() {
   const [showFullStory, setShowFullStory] = useState(false)
@@ -36,17 +38,7 @@ export default function About() {
     }
   ]
 
-  useEffect(() => {
-    if (selectedImage) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [selectedImage])
+  useBodyScrollLock(!!selectedImage)
 
   const summary = `I'm a Cybersecurity + CS student at University of North Georgia, focused on backend development and security.
 
@@ -59,13 +51,14 @@ Currently learning: Backend security, distributed systems, and performance optim
   return (
     <div className="min-h-screen pt-40 px-4 pb-20">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent text-center"
         >
-          About Me
-        </motion.h1>
+          <GradientHeading as="h1" className="text-6xl md:text-7xl font-bold mb-6 text-center">
+            About Me
+          </GradientHeading>
+        </motion.div>
 
         <AnimatePresence mode="wait">
           {!showFullStory ? (

@@ -87,8 +87,12 @@ export async function fetchRepoDetails(
     const readmeRes = responses[1]
     const commitsRes = responses[2]
     const languagesRes = responses[3]
-    
+
     if (!repoRes.ok) {
+      if (repoRes.status === 404) {
+        console.error(`Repository not found: ${username}/${repoName}`)
+        return null
+      }
       throw new Error(`Failed to fetch repo details: ${repoRes.statusText}`)
     }
     

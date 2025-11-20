@@ -8,11 +8,12 @@ interface PageProps {
 
 export default async function RepoDetailPage({ params }: PageProps) {
   const { repo: repoName } = await params
+  const decodedRepoName = decodeURIComponent(repoName)
   const username = getGitHubUsername()
-  const data = await fetchRepoDetails(username, repoName)
+  const data = await fetchRepoDetails(username, decodedRepoName)
 
   if (!data) {
-    return <NotFound repoName={repoName} />
+    return <NotFound repoName={decodedRepoName} />
   }
 
   const { repo, readmeContent, commits, languages } = data
@@ -26,4 +27,3 @@ export default async function RepoDetailPage({ params }: PageProps) {
     />
   )
 }
-

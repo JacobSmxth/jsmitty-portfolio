@@ -3,12 +3,13 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProjectModal from '@/components/ProjectModal'
-import { featuredProjects, archivedProjects } from '@/data/projects'
+import { featuredProjects, archivedProjects, Project } from '@/data/projects'
 import { FaExternalLinkAlt, FaArchive } from 'react-icons/fa'
 import { Rocket } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<any>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   useEffect(() => {
     if (selectedProject) {
@@ -16,7 +17,18 @@ export default function Projects() {
     } else {
       document.body.removeAttribute('data-modal-open')
     }
+
+    return () => {
+      document.body.removeAttribute('data-modal-open')
+    }
   }, [selectedProject])
+
+  const featuredGridClass =
+    featuredProjects.length >= 3
+      ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-32'
+      : featuredProjects.length === 2
+        ? 'grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 max-w-4xl mx-auto'
+        : 'grid grid-cols-1 gap-8 mb-32 max-w-xl mx-auto'
 
   const getApproachBadgeColor = (approach: string) => {
     switch (approach) {
@@ -27,7 +39,7 @@ export default function Projects() {
     }
   }
 
-  const ProjectCard = ({ project, index }: { project: any, index: number }) => (
+  const ProjectCard = ({ project, index, className = '' }: { project: Project, index: number, className?: string }) => (
     <motion.div
       key={project.name}
       initial={{ opacity: 0, y: 20 }}
@@ -35,7 +47,7 @@ export default function Projects() {
       viewport={{ once: true, margin: "0px 0px -100px 0px" }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
       onClick={() => setSelectedProject(project)}
-      className="group cursor-pointer"
+      className={`group cursor-pointer ${className}`}
     >
       <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
         <div className="flex items-start justify-between mb-6">
@@ -136,19 +148,33 @@ export default function Projects() {
             <div className="p-3 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Rocket className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+            <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold pb-2">
               Featured Projects
-            </h2>
+            </GradientHeading>
           </div>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Highlighting my best work in backend development, security, and full-stack applications.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-32">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.name} project={project} index={index} />
-          ))}
+        <div className={featuredGridClass}>
+          {featuredProjects.map((project, index) => {
+            const isSingleInLastRow =
+              featuredProjects.length > 3 &&
+              featuredProjects.length % 3 === 1 &&
+              index === featuredProjects.length - 1
+
+            const extraClass = isSingleInLastRow ? 'xl:col-start-2' : ''
+
+            return (
+              <ProjectCard
+                key={project.name}
+                project={project}
+                index={index}
+                className={extraClass}
+              />
+            )
+          })}
         </div>
 
         <motion.div

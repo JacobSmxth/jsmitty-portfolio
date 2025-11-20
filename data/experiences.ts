@@ -13,14 +13,15 @@ export const experiences: Experience[] = [
     title: 'Content Team Member',
     company: 'Code Ninjas Corporate',
     period: '2025 - Present',
-    summary: 'Remote collaboration on educational game development and curriculum translation',
-    description: `Collaborate remotely with cross-functional teams across USA and Canada to develop and maintain educational programming curriculum. Work involves game development, QA testing, and multi-platform content adaptation.`,
+    summary: 'Remote collaboration on educational game development and co-designing a new Unreal Engine learning pathway',
+    description: `Collaborate remotely with cross-functional teams across USA and Canada to develop and maintain educational programming curriculum. Work involves game development, QA testing, multi-platform content adaptation, and co-designing the new Unreal Engine learning pathway from scratch.`,
     responsibilities: [
       'Collaborate with cross-functional teams across USA and Canada using Microsoft suite',
       'Translate Unity C# projects to Godot GDScript for multi-platform educational curriculum',
       'Perform QA testing on pre-release belt curriculum to ensure quality standards',
       'Contribute to programming curriculum development using Git-based workflow',
-      'Work in agile sprints to deliver educational game projects and content updates'
+      'Work in agile sprints to deliver educational game projects and content updates',
+      'Co-design the new Unreal Engine learning pathway from the ground up'
     ],
     learnings: [
       'Remote collaboration with distributed teams',
@@ -34,14 +35,15 @@ export const experiences: Experience[] = [
     title: 'Sensei (Instructor)',
     company: 'Code Ninjas',
     period: '2025 - Present',
-    summary: 'Teaching programming fundamentals and debugging skills to students ages 7-14',
-    description: `Teach programming fundamentals through project-based learning, working with students on both block coding and text-based languages. Guide students through computational thinking and provide advanced debugging support for Black Belt students working in C#.`,
+    summary: 'Teaching programming fundamentals, building the Code Ninja Bux rewards system, and coaching students ages 7-14',
+    description: `Teach programming fundamentals through project-based learning, working with students on both block coding and text-based languages. Guide students through computational thinking, provide advanced debugging support for Black Belt students working in C#, and built the Code Ninja Bux rewards system to encourage progress inside the dojo.`,
     responsibilities: [
       'Teach JavaScript fundamentals and programming logic to students ages 7-14',
       'Debug and troubleshoot C# code for advanced Black Belt students',
       'Guide students through project-based learning with block coding and text-based languages',
       'Mentor students in computational thinking and problem-solving techniques',
-      'Adapt teaching approaches to different learning styles and skill levels'
+      'Adapt teaching approaches to different learning styles and skill levels',
+      'Design and build the Code Ninja Bux rewards and progression system for dojo students'
     ],
     learnings: [
       'Teaching complex technical concepts to diverse age groups',

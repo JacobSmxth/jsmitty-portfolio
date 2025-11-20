@@ -5,8 +5,9 @@ import Link from 'next/link'
 import { AnimatePresence } from 'framer-motion'
 import { GitHubRepo, GitHubCommit } from '@/lib/types/github'
 import { RepoModal } from './RepoModal'
-import { NotFound } from './NotFound'
-import { FaGithub, FaCode, FaStar, FaCodeBranch, FaLanguage, FaFileCode, FaGitAlt, FaChartBar } from 'react-icons/fa'
+import { Github, Star, GitFork, ArrowLeft, FileText, GitCommit, BarChart3 } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
+import { Button } from '@/components/ui'
 
 interface RepoDetailClientProps {
   repo: GitHubRepo
@@ -32,97 +33,81 @@ export function RepoDetailClient({ repo, readmeContent, commits, languages }: Re
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Back Button */}
-          <div className="mb-8">
-            <Link
-              href="/repos"
-              className="inline-flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors"
-            >
-              <span className="text-2xl">←</span>
-              <span>Back to Repositories</span>
-            </Link>
-          </div>
+      <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <Link
+            href="/repos"
+            className="inline-flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors mb-8"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span className="text-sm sm:text-base">Back to Repositories</span>
+          </Link>
 
-          <div className="max-w-5xl mx-auto">
-            {/* Header */}
-            <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-100 mb-8">
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
-                      <FaCode className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
-                        {repo.name}
-                      </h1>
-                      <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                    </div>
+          <div className="bg-white rounded-xl p-6 sm:p-8 md:p-10 shadow-lg border border-gray-100">
+            <div className="mb-6 sm:mb-8">
+              <GradientHeading as="h1" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                {repo.name}
+              </GradientHeading>
+
+              {repo.description && (
+                <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-6">
+                  {repo.description}
+                </p>
+              )}
+
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6">
+                {repo.language && (
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    {repo.language}
                   </div>
-
-                  {repo.description && (
-                    <p className="text-xl text-slate-600 mb-6">
-                      {repo.description}
-                    </p>
-                  )}
-
-                  <div className="flex flex-wrap items-center gap-6 mb-6">
-                    {repo.language && (
-                      <div className="flex items-center gap-2 text-slate-700">
-                        <FaLanguage className="text-2xl" />
-                        <span className="font-medium">{repo.language}</span>
-                      </div>
-                    )}
-                    <div className="flex items-center gap-1">
-                      <FaStar className="text-yellow-500" />
-                      <span className="font-medium">{repo.stargazers_count}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <FaCodeBranch className="text-blue-500" />
-                      <span className="font-medium">{repo.forks_count}</span>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-wrap gap-3">
-                    <button
-                      onClick={() => openModal('readme')}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                    >
-                      <FaFileCode />
-                      View README
-                    </button>
-                    <button
-                      onClick={() => openModal('commits')}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-700 rounded-xl font-medium border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300"
-                    >
-                      <FaGitAlt />
-                      Recent Commits
-                    </button>
-                    <button
-                      onClick={() => openModal('languages')}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-700 rounded-xl font-medium border-2 border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300"
-                    >
-                      <FaChartBar />
-                      Languages & Stats
-                    </button>
-                  </div>
-
-                  <div className="mt-4">
-                    <a
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
-                    >
-                      <FaGithub />
-                      View on GitHub
-                    </a>
-                  </div>
+                )}
+                <div className="flex items-center gap-1.5 text-sm sm:text-base text-slate-700">
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
+                  <span className="font-medium">{repo.stargazers_count}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-sm sm:text-base text-slate-700">
+                  <GitFork className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                  <span className="font-medium">{repo.forks_count}</span>
                 </div>
               </div>
+
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
+                <Button
+                  variant="gradient"
+                  icon={FileText}
+                  onClick={() => openModal('readme')}
+                  className="w-full sm:w-auto justify-center"
+                >
+                  README
+                </Button>
+                <Button
+                  variant="outline"
+                  icon={GitCommit}
+                  onClick={() => openModal('commits')}
+                  className="w-full sm:w-auto justify-center"
+                >
+                  Commits
+                </Button>
+                <Button
+                  variant="outline"
+                  icon={BarChart3}
+                  onClick={() => openModal('languages')}
+                  className="w-full sm:w-auto justify-center"
+                >
+                  Languages
+                </Button>
+              </div>
+
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base"
+              >
+                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                View on GitHub
+              </a>
             </div>
           </div>
         </div>
@@ -143,4 +128,3 @@ export function RepoDetailClient({ repo, readmeContent, commits, languages }: Re
     </>
   )
 }
-

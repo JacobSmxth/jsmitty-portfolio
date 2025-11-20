@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Command, Search, Home, FolderOpen, User, Mail, FileText, Github, Wrench, Clock, Download, Linkedin } from 'lucide-react'
+import { Command, Search, Home, FolderOpen, User, Mail, Github, Wrench, Clock, Download, Linkedin, Server } from 'lucide-react'
+import { useBodyScrollLock } from '@/hooks'
+import { socialLinks } from '@/config/navigation'
 
 interface CommandItem {
   id: string
@@ -73,7 +75,7 @@ export default function CommandPalette() {
       name: 'View Resume',
       shortcut: 'r',
       icon: Download,
-      action: () => window.open('/MyResume2025.pdf', '_blank'),
+      action: () => window.open('/JacobResume2025Internships.pdf', '_blank'),
       category: 'Actions'
     },
     {
@@ -81,7 +83,7 @@ export default function CommandPalette() {
       name: 'GitHub Profile',
       shortcut: 'g',
       icon: Github,
-      action: () => window.open('https://github.com/jacobsmxth'),
+      action: () => window.open(socialLinks.github),
       category: 'Social'
     },
     {
@@ -91,15 +93,14 @@ export default function CommandPalette() {
       icon: Mail,
       action: () => {
         if (navigator.clipboard) {
-          navigator.clipboard.writeText('jacob.d.smith@live.com').then(() => {
+          navigator.clipboard.writeText(socialLinks.personalEmail).then(() => {
             setIsOpen(false)
           }).catch((err) => {
             console.error('Failed to copy personal email', err)
           })
         } else {
-          // Fallback for older browsers
           const textArea = document.createElement('textarea')
-          textArea.value = 'jacob.d.smith@live.com'
+          textArea.value = socialLinks.personalEmail
           document.body.appendChild(textArea)
           textArea.select()
           try {
@@ -120,15 +121,14 @@ export default function CommandPalette() {
       icon: Mail,
       action: () => {
         if (navigator.clipboard) {
-          navigator.clipboard.writeText('jacobsmith@jsmitty.com').then(() => {
+          navigator.clipboard.writeText(socialLinks.email).then(() => {
             setIsOpen(false)
           }).catch((err) => {
             console.error('Failed to copy work email', err)
           })
         } else {
-          // Fallback for older browsers
           const textArea = document.createElement('textarea')
-          textArea.value = 'jacobsmith@jsmitty.com'
+          textArea.value = socialLinks.email
           document.body.appendChild(textArea)
           textArea.select()
           try {
@@ -147,7 +147,7 @@ export default function CommandPalette() {
       name: 'LinkedIn Profile',
       shortcut: 'l',
       icon: Linkedin,
-      action: () => window.open('https://linkedin.com/in/jacobsmxth'),
+      action: () => window.open(socialLinks.linkedin),
       category: 'Social'
     }
   ]
@@ -180,17 +180,7 @@ export default function CommandPalette() {
     return () => document.removeEventListener('keydown', down)
   }, [])
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen])
+  useBodyScrollLock(isOpen)
 
   useEffect(() => {
     if (isOpen) {
@@ -211,7 +201,7 @@ export default function CommandPalette() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.5 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-30 group"
+        className="hidden md:flex fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-30 group"
         aria-label="Open command palette"
       >
         <Command className="w-6 h-6 group-hover:rotate-12 transition-transform" />

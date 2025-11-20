@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaJava, FaGitAlt } from 'react-icons/fa'
-import { SiSpringboot, SiPostgresql, SiIntellijidea, SiNeovim, SiPostman, SiGradle, SiArchlinux, SiLogitech } from 'react-icons/si'
+import { SiSpringboot, SiIntellijidea, SiNeovim, SiPostman, SiGradle, SiArchlinux, SiLogitech } from 'react-icons/si'
 import ShinyText from '@/components/ShinyText'
 import ProfileCard from '@/components/ProfileCard'
 import LogoLoop from '@/components/LogoLoop'
@@ -54,8 +54,7 @@ export default function Hero() {
                 contactText="Contact"
                 avatarUrl="/assets/headshot-400w.webp"
                 miniAvatarUrl="/assets/headshot-400w.webp"
-                showUserInfo={true}
-                enableTilt={true}
+                enableTilt
                 enableMobileTilt={false}
                 onContactClick={() => {
                   window.location.href = 'mailto:jacobsmith@jsmitty.com';
@@ -89,23 +88,23 @@ export default function Hero() {
                   href="https://github.com/jacobsmxth"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 bg-slate-800 text-white rounded-md hover:bg-slate-900 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="p-4 bg-slate-800 text-white rounded-md hover:bg-slate-900 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
-                  <FaGithub size={24} className="group-hover:rotate-12 transition-transform" />
+                  <FaGithub size={24} className="transition-transform" />
                 </a>
                 <a
                   href="https://linkedin.com/in/jacobsmxth"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
-                  <FaLinkedin size={24} className="group-hover:rotate-12 transition-transform" />
+                  <FaLinkedin size={24} className="transition-transform" />
                 </a>
                 <a
                   href="mailto:jacobsmith@jsmitty.com"
-                  className="group p-4 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  className="p-4 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
                 >
-                  <FaEnvelope size={24} className="group-hover:rotate-12 transition-transform" />
+                  <FaEnvelope size={24} className="transition-transform" />
                 </a>
               </div>
 
@@ -144,13 +143,8 @@ export default function Hero() {
               <LogoLoop
                 logos={techStack}
                 speed={50}
-                direction="left"
-                logoHeight={40}
                 gap={48}
                 pauseOnHover
-                scaleOnHover
-                fadeOut
-                fadeOutColor="rgba(255, 255, 255, 0.9)"
                 ariaLabel="Technology stack"
               />
             </div>

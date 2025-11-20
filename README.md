@@ -1,25 +1,39 @@
-# Jacob Smith - Portfolio
+# Portfolio - Jacob Smith
 
-Personal portfolio website showcasing my projects, experience, and blog.
+Personal portfolio website built with Next.js 15, featuring live GitHub integration and interactive navigation.
+
+## Overview
+
+This portfolio includes:
+
+- **Home page** with hero section, featured projects, GitHub activity feed, skills, timeline, and contact form
+- **About page** with detailed background and experience
+- **Repositories page** (`/repos`) that fetches and displays GitHub repositories with README rendering and commit history
+- **Dynamic repository pages** (`/repos/[repo]`) showing individual repo details
+- **Now page** (`/now`) for current activities and focus
+- **Uses page** (`/uses`) documenting my development setup and tools
+- **Services page** for professional offerings
+- **Command palette** (press `Cmd/Ctrl + K`) for keyboard navigation throughout the site
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 with App Router
 - **UI:** React 19
 - **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
+- **Animations:** Framer Motion, GSAP
+- **Icons:** Lucide React, React Icons
+- **Markdown:** react-markdown with syntax highlighting (rehype-highlight, remark-gfm)
 - **Language:** TypeScript
-- **Hosting:** Vercel
+- **Deployment:** Vercel
 
-## Features
+## Key Features
 
-- 🎨 Modern, responsive design
-- ✨ Smooth animations and transitions
-- 📱 Mobile-first approach
-- 🎯 SEO optimized
-- 🚀 Fast performance
-- 🎭 Dynamic modals for project and experience details
-- 📝 Blog platform (coming soon)
+- GitHub API integration for live repository data, READMEs, and commit history
+- Keyboard-driven command palette for quick navigation
+- Modal-based project and experience viewers
+- Animated logo carousel and skill displays
+- Interactive timeline component
+- Markdown rendering with GitHub Flavored Markdown support
 
 ## Getting Started
 
@@ -47,20 +61,23 @@ npm start
 ## Project Structure
 
 ```
-/app              - Next.js app router pages
-/components       - Reusable React components
-  /sections       - Page section components
-/data             - Data files for projects and experiences
-/assets           - Images and static files
+/app
+  /about          - About page
+  /contact        - Contact page
+  /now            - Current activities
+  /repos          - GitHub repositories with dynamic [repo] routes
+  /services       - Services page
+  /uses           - Development setup and tools
+/components
+  /sections       - Homepage sections (Hero, Projects, Skills, Timeline, etc.)
+  CommandPalette  - Keyboard navigation
+  ExperienceModal - Experience detail viewer
+  ProjectModal    - Project detail viewer
+  LogoLoop        - Animated technology logos
+/data
+  experiences.ts  - Professional experience data
+  projects.ts     - Portfolio project data
 ```
-
-## Color Palette
-
-- Primary: #3E92CC
-- Cream: #FFF3F0
-- Navy: #13293d
-- Mauve: #A57982
-- Coral: #FF5A5F
 
 ## Contact
 
@@ -68,9 +85,6 @@ npm start
 - LinkedIn: [jacobsmxth](https://linkedin.com/in/jacobsmxth)
 - GitHub: [jacobsmxth](https://github.com/jacobsmxth)
 
----
-
-Built with ❤️ by Jacob Smith
 
 
 

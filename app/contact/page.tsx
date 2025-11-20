@@ -2,18 +2,20 @@
 
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa'
+import { GradientHeading } from '@/components/ui'
 
 export default function Contact() {
   return (
     <div className="min-h-screen pt-40 px-4 pb-20">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent text-center"
         >
-          Get In Touch
-        </motion.h1>
+          <GradientHeading as="h1" className="text-6xl md:text-7xl font-bold mb-6 text-center">
+            Get In Touch
+          </GradientHeading>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 50 }}

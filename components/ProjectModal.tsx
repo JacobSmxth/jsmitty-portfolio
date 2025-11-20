@@ -1,51 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { FaTimes } from 'react-icons/fa'
-import { useEffect } from 'react'
 import CountUp from './CountUp'
+import ModalContainer from './ModalContainer'
+import { ModalHeader } from '@/components/ui'
+import { Project } from '@/data/projects'
 
 interface ProjectModalProps {
-  project: any
+  project: Project
   onClose: () => void
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [])
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.15 }}
-      onClick={onClose}
-      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
-    >
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        transition={{ duration: 0.15, ease: "easeOut" }}
-        onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-lg p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl modal-scrollbar"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-6 right-6 p-3 hover:bg-gray-100 rounded-full transition-all hover:rotate-90 cursor-pointer"
-        >
-          <FaTimes size={24} className="text-slate-700" />
-        </button>
-
-        <h2 className="text-4xl font-bold text-slate-900 mb-3 pr-16">
-          {project.name}
-        </h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
+    <ModalContainer onClose={onClose}>
+      <ModalHeader title={project.name} onClose={onClose} />
 
         <div className="flex gap-4 mb-6">
           {project.url && (
@@ -196,20 +164,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </p>
         </div>
 
-        {project.learnings && project.learnings.length > 0 && (
-          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-md">
-            <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Learnings</h3>
-            <ul className="space-y-3">
-              {project.learnings.map((learning: string, index: number) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-blue-600 mt-1">✓</span>
-                  <span className="text-slate-700 leading-relaxed">{learning}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </motion.div>
-    </motion.div>
+      {project.learnings && project.learnings.length > 0 && (
+        <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-md">
+          <h3 className="font-bold text-slate-900 mb-4 text-lg">Key Learnings</h3>
+          <ul className="space-y-3">
+            {project.learnings.map((learning: string, index: number) => (
+              <li key={index} className="flex items-start gap-3">
+                <span className="text-blue-600 mt-1">✓</span>
+                <span className="text-slate-700 leading-relaxed">{learning}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </ModalContainer>
   )
 }

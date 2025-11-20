@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BookOpen, Code2, Target, GraduationCap, Lightbulb, Trophy } from 'lucide-react'
+import { BookOpen, Code2, Target, GraduationCap, Trophy } from 'lucide-react'
+import { GradientHeading } from '@/components/ui'
 
 const nowData = {
   updated: 'October 2025',
@@ -48,15 +49,6 @@ const nowData = {
     'Contribute to a major open source project in the Spring ecosystem',
     'Build a production-ready fintech API'
   ],
-  specialization: [
-    'Database Management', 'Object Oriented Design', 'Secure Coding',
-    'Security Software', 'OWASP', 'SDLC',
-    'Systems Design', 'UML', 'Design Patterns',
-    'Software Engineering', 'Database Design', 'Usability Testing',
-    'Vulnerability Assessments', 'Unit Testing', 'Threat Modeling',
-    'Software Design', 'UI/UX Design', 'Technical Design',
-    'Software Architecture', 'Application Security'
-  ],
   competitions: [
   {
     title: 'NSA Codebreaker Challenge 2025/2026',
@@ -80,9 +72,9 @@ export default function Now() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-20 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 pb-2 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+          <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 pb-2">
             What I&apos;m Doing Now
-          </h1>
+          </GradientHeading>
           <p className="text-lg text-slate-600 max-w-2xl mb-2 mx-auto">
             A snapshot of what I&apos;m currently focused on in my journey to becoming a backend engineer.
           </p>
@@ -228,30 +220,6 @@ export default function Now() {
             ))}
           </ul>
         </motion.div>
-
-        {/* Specialization Focus - Commented out until started */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mb-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-md p-8 shadow-2xl"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Lightbulb className="w-6 h-6 text-yellow-400" />
-            <h2 className="text-2xl font-bold text-white">Secure Software Design Specialization</h2>
-          </div>
-          <p className="text-slate-300 mb-4 text-sm">University of Colorado - Key Topics:</p>
-          <div className="flex flex-wrap gap-2">
-            {nowData.specialization.map((topic, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 bg-slate-700/50 text-slate-200 rounded-lg text-xs font-medium border border-slate-600"
-              >
-                {topic}
-              </span>
-            ))}
-          </div>
-        </motion.div> */}
 
         {/* Call to Action */}
         <motion.div

@@ -6,12 +6,38 @@ import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
 import { useState } from 'react'
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false)
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('jacobsmith@jsmitty.com')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText('jacobsmith@jsmitty.com').then(() => {
+        setCopyStatus('success')
+        setTimeout(() => setCopyStatus('idle'), 2000)
+      }).catch((err) => {
+        console.error('Failed to copy email', err)
+        setCopyStatus('error')
+        setTimeout(() => setCopyStatus('idle'), 2000)
+      })
+    } else {
+      const textArea = document.createElement('textarea')
+      textArea.value = 'jacobsmith@jsmitty.com'
+      document.body.appendChild(textArea)
+      textArea.select()
+      try {
+        const success = document.execCommand('copy')
+        if (success) {
+          setCopyStatus('success')
+        } else {
+          setCopyStatus('error')
+        }
+        setTimeout(() => setCopyStatus('idle'), 2000)
+      } catch (err) {
+        console.error('Failed to copy email', err)
+        setCopyStatus('error')
+        setTimeout(() => setCopyStatus('idle'), 2000)
+      }
+      document.body.removeChild(textArea)
+    }
   }
   return (
     <section id="contact" className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl text-white relative overflow-hidden">
@@ -48,10 +74,12 @@ export default function Contact() {
           >
             <FaEnvelope className="mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
             <h3 className="font-bold mb-3 text-xl">
-              {copied ? 'Email Copied!' : 'Email (Work)'}
+              {copyStatus === 'success' ? 'Email Copied!' : copyStatus === 'error' ? 'Copy Failed' : 'Email (Work)'}
             </h3>
             <p className="text-sm text-slate-300">jacobsmith@jsmitty.com</p>
-            <p className="text-xs text-slate-400 mt-2">Click to copy</p>
+            <p className={`text-xs mt-2 ${copyStatus === 'error' ? 'text-red-400' : 'text-slate-400'}`}>
+              {copyStatus === 'error' ? 'Try selecting the text manually' : 'Click to copy'}
+            </p>
           </button>
 
           <a
