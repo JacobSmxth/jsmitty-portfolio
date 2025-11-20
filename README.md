@@ -18,14 +18,12 @@ This portfolio includes:
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 with App Router
-- **UI:** React 19
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion, GSAP
+- **Framework:** Next.js 16 (App Router) on React 19
+- **Styling:** Tailwind CSS v4 + custom UI kit (Buttons, Cards, GradientHeading)
+- **Animations:** Framer Motion (GSAP available for advanced sequences)
 - **Icons:** Lucide React, React Icons
 - **Markdown:** react-markdown with syntax highlighting (rehype-highlight, remark-gfm)
 - **Language:** TypeScript
-- **Deployment:** Vercel
 
 ## Key Features
 
@@ -86,8 +84,6 @@ npm start
 - Email: jacobsmith@jsmitty.com
 - LinkedIn: [jacobsmxth](https://linkedin.com/in/jacobsmxth)
 - GitHub: [jacobsmxth](https://github.com/jacobsmxth)
-
-
 
 
 
