@@ -63,10 +63,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold mb-4">
+          <GradientHeading as="h2" className="text-4xl md:text-5xl font-bold mb-4">
             Technical Skills
           </GradientHeading>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Core technologies and tools I work with
           </p>
         </motion.div>

@@ -69,11 +69,7 @@ export default function Navigation() {
           duration: 0.25,
           ease: [0.4, 0, 0.2, 1]
         }}
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-md px-6 sm:px-8 py-4 shadow-xl transition-colors duration-300 ${
-          isDarkPage
-            ? 'bg-slate-900/90 backdrop-blur-md border border-slate-700'
-            : 'glass-effect'
-        }`}
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-md px-6 sm:px-8 py-4 shadow-lg bg-white/95 backdrop-blur-sm border border-gray-200"
         style={{ width: 'calc(100% - 3rem)', maxWidth: '1200px' }}
       >
         <div className="flex items-center justify-between w-full">
@@ -85,11 +81,9 @@ export default function Navigation() {
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
+                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-200 font-medium relative z-10 block text-sm lg:text-base ${
                       isActive
                         ? 'text-white'
-                        : isDarkPage
-                        ? 'text-slate-300 hover:text-blue-400'
                         : 'text-slate-700 hover:text-blue-600'
                     }`}
                   >
@@ -123,11 +117,9 @@ export default function Navigation() {
                 <li key={item.path} className="relative">
                   <Link
                     href={item.path}
-                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-300 font-medium relative z-10 block text-sm lg:text-base ${
+                    className={`px-3 lg:px-4 py-3 rounded transition-all duration-200 font-medium relative z-10 block text-sm lg:text-base ${
                       isActive
                         ? 'text-white'
-                        : isDarkPage
-                        ? 'text-slate-300 hover:text-blue-400'
                         : 'text-slate-700 hover:text-blue-600'
                     }`}
                   >

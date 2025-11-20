@@ -2,70 +2,33 @@
 
 import { motion } from 'framer-motion'
 import { FaDesktop, FaSync, FaCode, FaTools } from 'react-icons/fa'
-import { GradientHeading } from '@/components/ui'
+import { GradientHeading, Card, CardContent, CardHeader, CardTitle } from '@/components/ui'
+import { Button } from '@/components/ui/Button'
 
 const services = [
   {
     icon: FaDesktop,
     title: 'Business Websites',
-    description: 'Professional websites that get you online fast',
-    details: [
-      'Custom responsive design',
-      'Mobile-friendly layout',
-      'Contact forms & integrations',
-      'SEO basics',
-      'Fast loading speeds',
-      '2 weeks delivery'
-    ],
-    pricing: '$1,500 - $3,500',
-    idealFor: 'Restaurants, salons, contractors, professional services',
-    color: 'primary'
+    description: 'Professional, mobile-friendly websites that get your business online quickly.',
+    pricing: '$1,500 - $3,500'
   },
   {
     icon: FaSync,
-    title: 'Website Redesign & Modernization',
-    description: 'Breathe new life into your outdated website',
-    details: [
-      'Modern, clean design',
-      'Improved mobile experience',
-      'Better performance',
-      'Updated content structure',
-      'Preservation of SEO value'
-    ],
-    pricing: '$1,200 - $2,800',
-    idealFor: 'Businesses with 5+ year old websites',
-    color: 'coral'
+    title: 'Website Redesign',
+    description: 'Modernize your outdated website with fresh design and improved performance.',
+    pricing: '$1,200 - $2,800'
   },
   {
     icon: FaCode,
-    title: 'Custom Web Applications',
-    description: 'Simple tools and dashboards for your business',
-    details: [
-      'Custom functionality',
-      'Database setup',
-      'User authentication',
-      'Admin dashboards',
-      'API integrations'
-    ],
-    pricing: 'Starting at $2,500',
-    idealFor: 'Booking systems, inventory tracking, client portals',
-    color: 'mauve'
+    title: 'Web Applications',
+    description: 'Custom tools and dashboards tailored to your business needs.',
+    pricing: 'Starting at $2,500'
   },
   {
     icon: FaTools,
-    title: 'Website Maintenance & Hosting',
-    description: 'Keep your site running smoothly',
-    details: [
-      'Hosting & domain management',
-      'Security updates',
-      'Monthly backups',
-      'Uptime monitoring',
-      'Content updates',
-      'Performance monitoring'
-    ],
-    pricing: '$50 - $100/month',
-    idealFor: 'Any website owner who wants peace of mind',
-    color: 'navy'
+    title: 'Maintenance & Hosting',
+    description: 'Keep your site secure, updated, and running smoothly.',
+    pricing: '$50 - $100/month'
   }
 ]
 
@@ -77,7 +40,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <GradientHeading as="h1" className="text-6xl md:text-7xl font-bold mb-6 text-center">
+          <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 text-center pb-2">
             Services
           </GradientHeading>
         </motion.div>
@@ -91,73 +54,53 @@ export default function Services() {
           Fast, modern, and affordable web solutions for your business. I help small businesses get online quickly with professional websites and custom tools.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02]"
               >
-                <div className={`w-16 h-16 rounded-md flex items-center justify-center mb-6 ${
-                  service.color === 'primary' ? 'bg-blue-500' :
-                  service.color === 'coral' ? 'bg-rose-500' :
-                  service.color === 'mauve' ? 'bg-pink-500' :
-                  'bg-slate-800'
-                }`}>
-                  <Icon className="text-white" size={32} />
-                </div>
-
-                <h2 className="text-2xl font-bold text-slate-900 mb-3">
-                  {service.title}
-                </h2>
-
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold text-slate-900">Pricing:</span>
-                    <span className="text-lg font-bold text-blue-600">{service.pricing}</span>
-                  </div>
-                  <p className="text-sm text-slate-600">
-                    <strong>Ideal for:</strong> {service.idealFor}
-                  </p>
-                </div>
-
-                <ul className="space-y-3">
-                  {service.details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-2">
-                      <span className="text-blue-600 mt-1">✓</span>
-                      <span className="text-slate-700">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+                <Card variant="interactive" className="border-gray-200">
+                  <CardHeader className="flex items-center gap-3">
+                    <Icon className="text-blue-600" size={28} />
+                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                      {service.description}
+                    </p>
+                    <div className="text-blue-600 font-semibold">
+                      {service.pricing}
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             )
           })}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-12 shadow-2xl"
+          className="mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-10 max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-          <p className="text-xl mb-8 text-white/80">
-            Let&apos;s discuss your project and how I can help bring it to life.
+          <h2 className="text-2xl font-bold mb-3">Ready to Work Together?</h2>
+          <p className="text-lg mb-6 text-slate-100">
+            Let&apos;s discuss your project and how I can help.
           </p>
-          <a
+          <Button
             href="/contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-md hover:scale-105 transition-transform shadow-xl"
+            variant="gradient"
+            size="lg"
+            className="shadow-lg"
           >
             Get In Touch
-          </a>
+          </Button>
         </motion.div>
       </div>
     </div>

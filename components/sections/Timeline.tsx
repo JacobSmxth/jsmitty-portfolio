@@ -35,11 +35,11 @@ export default function Timeline() {
             <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
-            <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold pb-2">
+            <GradientHeading as="h2" className="text-4xl md:text-5xl font-bold pb-2">
               Experience
             </GradientHeading>
           </div>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             My professional journey from hospitality to education and freelance development.
           </p>
         </motion.div>
@@ -57,11 +57,11 @@ export default function Timeline() {
                 transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
                 className="relative pl-24 group"
               >
-                <div className="absolute left-5 top-8 w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform" />
+                <div className="absolute left-5 top-8 w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-200" />
 
                 <div
                   onClick={() => setSelectedExperience(exp)}
-                  className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 border border-gray-100 hover:border-blue-200 will-change-transform"
+                  className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer hover:border-blue-300 border border-gray-200"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">

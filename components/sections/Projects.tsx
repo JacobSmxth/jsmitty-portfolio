@@ -49,7 +49,7 @@ export default function Projects() {
       onClick={() => setSelectedProject(project)}
       className={`group cursor-pointer ${className}`}
     >
-      <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200 h-full flex flex-col">
+      <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 border border-gray-200 hover:border-blue-300 h-full flex flex-col">
         <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -113,29 +113,7 @@ export default function Projects() {
   )
 
   return (
-    <section id="projects" className="py-32 px-6 relative overflow-hidden bg-white shadow-2xl">
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl"></div>
-        
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(to right, #3b82f6 1px, transparent 1px), linear-gradient(to bottom, #3b82f6 1px, transparent 1px)`,
-            backgroundSize: '80px 80px'
-          }}></div>
-        </div>
-
-        <svg className="absolute top-20 right-10 w-64 h-64 opacity-5 pointer-events-none" viewBox="0 0 200 200" aria-hidden="true">
-          <path d="M10 80 Q 52.5 10, 95 80 T 180 80" stroke="#3b82f6" strokeWidth="2" fill="none"/>
-          <circle cx="95" cy="40" r="30" stroke="#8b5cf6" strokeWidth="2" fill="none"/>
-          <path d="M40 120 L 160 120 L 100 180 Z" stroke="#3b82f6" strokeWidth="2" fill="none"/>
-        </svg>
-
-        <svg className="absolute bottom-20 left-10 w-48 h-48 opacity-5 pointer-events-none" viewBox="0 0 200 200" aria-hidden="true">
-          <rect x="20" y="20" width="160" height="160" stroke="#8b5cf6" strokeWidth="2" fill="none" rx="20"/>
-          <circle cx="100" cy="100" r="60" stroke="#3b82f6" strokeWidth="2" fill="none"/>
-        </svg>
-      </div>
+    <section id="projects" className="py-32 px-6 relative bg-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -148,11 +126,11 @@ export default function Projects() {
             <div className="p-3 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Rocket className="w-6 h-6 text-white" />
             </div>
-            <GradientHeading as="h2" className="text-5xl md:text-6xl font-bold pb-2">
+            <GradientHeading as="h2" className="text-4xl md:text-5xl font-bold pb-2">
               Featured Projects
             </GradientHeading>
           </div>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             Highlighting my best work in backend development, security, and full-stack applications.
           </p>
         </motion.div>
@@ -185,13 +163,13 @@ export default function Projects() {
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <FaArchive className="text-slate-500 text-3xl" />
-            <h2 className="text-4xl md:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-slate-600 to-slate-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              <span className="bg-gradient-to-r from-slate-700 to-slate-500 bg-clip-text text-transparent">
                 Archived Projects
               </span>
             </h2>
           </div>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto">
+          <p className="text-base text-slate-600 max-w-3xl mx-auto">
             Some projects that contributed to my learning journey.
           </p>
         </motion.div>

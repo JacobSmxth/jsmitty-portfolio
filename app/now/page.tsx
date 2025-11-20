@@ -259,7 +259,7 @@ export default function Now() {
             >
               /now pages
             </a>
-            {' '}— a living document of what I&apos;m focused on right now.
+            {' '}- a living document of what I&apos;m focused on right now.
           </p>
         </motion.div>
       </div>

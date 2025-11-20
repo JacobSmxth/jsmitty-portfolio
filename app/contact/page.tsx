@@ -12,7 +12,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <GradientHeading as="h1" className="text-6xl md:text-7xl font-bold mb-6 text-center">
+          <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 text-center pb-2">
             Get In Touch
           </GradientHeading>
         </motion.div>
@@ -32,7 +32,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border border-gray-200"
           >
             <FaEnvelope className="text-blue-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -51,7 +51,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border border-gray-200"
           >
             <FaEnvelope className="text-rose-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -72,7 +72,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border border-gray-200"
           >
             <FaLinkedin className="text-blue-600 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -93,7 +93,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="bg-white rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-105"
+            className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] border border-gray-200"
           >
             <FaGithub className="text-slate-900 mb-4" size={40} />
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
@@ -108,27 +108,6 @@ export default function Contact() {
           </motion.a>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-slate-900 text-white rounded-lg p-8 text-center"
-        >
-          <FaGlobe className="mx-auto mb-4" size={40} />
-          <h3 className="text-2xl font-bold mb-2">Website</h3>
-          <p className="text-xl font-semibold text-amber-50">
-            jsmitty.com
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 text-center text-sm italic text-pink-600"
-        >
-          &ldquo;Whatever you do, work at it with all your heart&rdquo; - Colossians 3:23
-        </motion.div>
       </div>
     </div>
   )

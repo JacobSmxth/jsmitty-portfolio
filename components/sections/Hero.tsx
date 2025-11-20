@@ -7,6 +7,7 @@ import { SiSpringboot, SiIntellijidea, SiNeovim, SiPostman, SiGradle, SiArchlinu
 import ShinyText from '@/components/ShinyText'
 import ProfileCard from '@/components/ProfileCard'
 import LogoLoop from '@/components/LogoLoop'
+import { Button } from '@/components/ui'
 
 export default function Hero() {
   const techStack = [
@@ -23,18 +24,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/LineArtBackgroundMtn.png"
-          alt=""
-          fill
-          className="object-cover opacity-30"
-          priority
-          sizes="100vw"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/40"></div>
-      </div>
+      <div className="fixed inset-0 z-0 bg-gray-50"></div>
 
       <section className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative z-10">
         <div className="max-w-6xl mx-auto w-full">
@@ -70,62 +60,48 @@ export default function Hero() {
               className="text-center lg:text-left space-y-8"
             >
               <div>
-                <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-sm">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-4">
                   <ShinyText
                     text="Cybersecurity + CS Student"
                     speed={4}
                     className="text-slate-700"
                   />
                 </h2>
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed drop-shadow-sm">
+                <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                   Aspiring backend developer passionate about security, clean architecture, and modern technologies.
                   Building foundational projects while learning Java, Spring Boot, and doing freelance web development.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <a
-                  href="https://github.com/jacobsmxth"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 bg-slate-800 text-white rounded-md hover:bg-slate-900 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
-                >
-                  <FaGithub size={24} className="transition-transform" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/jacobsmxth"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
-                >
-                  <FaLinkedin size={24} className="transition-transform" />
-                </a>
-                <a
-                  href="mailto:jacobsmith@jsmitty.com"
-                  className="p-4 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-transform duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl"
-                >
-                  <FaEnvelope size={24} className="transition-transform" />
-                </a>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Button variant="secondary" size="lg" className="shadow-md hover:shadow-lg" href="https://github.com/jacobsmxth" target="_blank" rel="noopener noreferrer">
+                  <FaGithub size={20} />
+                  GitHub
+                </Button>
+                <Button variant="primary" size="lg" className="shadow-md hover:shadow-lg" href="https://linkedin.com/in/jacobsmxth" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin size={20} />
+                  LinkedIn
+                </Button>
+                <Button variant="gradient" size="lg" className="shadow-md hover:shadow-lg" href="mailto:jacobsmith@jsmitty.com">
+                  <FaEnvelope size={20} />
+                  Email
+                </Button>
               </div>
 
               <div>
-                <a
+                <Button
+                  variant="gradient"
+                  size="lg"
+                  className="shadow-lg hover:shadow-xl"
                   href="/JacobResume2025Internships.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
-                  <FaDownload className="group-hover:bounce" />
+                  <FaDownload />
                   View Resume
-                </a>
+                </Button>
               </div>
 
-              <div className="text-slate-400 italic text-base">
-                <div className="p-6 bg-white/60 rounded-md border border-white/30 shadow-lg">
-                  &ldquo;With great power comes great responsibility&rdquo;
-                  <div className="text-sm mt-2 text-slate-500">- Uncle Ben</div>
-                </div>
-              </div>
             </motion.div>
           </div>
 
