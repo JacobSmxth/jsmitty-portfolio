@@ -19,7 +19,9 @@ const nowData = {
   ],
   learning: [
     'Studying Spring Security (JWT, OAuth2) for authentication/authorization',
-    'PostgreSQL for production-ready database skills'
+    'PostgreSQL for production-ready database skills',
+    'Unreal Engine 5 for Code Ninjas curriculum development',
+    'Want to learn Go for backend development'
   ],
   building: [
     {

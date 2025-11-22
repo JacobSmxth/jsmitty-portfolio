@@ -1,34 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaJava, FaReact, FaGitAlt, FaDocker, FaNode, FaPython } from 'react-icons/fa'
-import { SiSpring, SiPostgresql, SiMysql, SiMongodb, SiTypescript, SiJavascript, SiTailwindcss, SiNextdotjs, SiGradle, SiIntellijidea, SiNeovim, SiPostman, SiLinux, SiFirebase } from 'react-icons/si'
-import { BiShield, BiCodeAlt, BiData, BiWrench, BiBrain } from 'react-icons/bi'
+import { BiShield, BiCodeAlt, BiData, BiWrench, BiBrain, BiBookOpen } from 'react-icons/bi'
+import { FaUsers, FaChalkboardTeacher, FaLightbulb } from 'react-icons/fa'
 import { GradientHeading } from '@/components/ui'
 
 const skills = {
-  backend: {
-    title: 'Backend Development',
+  development: {
+    title: 'Development',
     icon: BiCodeAlt,
-    items: ['Java', 'Spring Boot', 'REST APIs', 'Spring Data JPA', 'Node.js', 'Python'],
+    items: ['Java', 'Spring Boot', 'REST APIs', 'JPA', 'Node.js', 'C', 'React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS'],
     color: 'from-blue-500 to-blue-600',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200',
     textColor: 'text-blue-700'
   },
-  frontend: {
-    title: 'Frontend Development',
-    icon: FaReact,
-    items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
-    color: 'from-cyan-500 to-cyan-600',
-    bgColor: 'bg-cyan-50',
-    borderColor: 'border-cyan-200',
-    textColor: 'text-cyan-700'
-  },
   databases: {
     title: 'Databases & Data',
     icon: BiData,
-    items: ['PostgreSQL', 'MySQL', 'H2', 'MongoDB', 'SQL', 'JPA/Hibernate', 'Firestore'],
+    items: ['PostgreSQL (learning)', 'H2', 'SQL', 'JPA/Hibernate'],
     color: 'from-purple-500 to-purple-600',
     bgColor: 'bg-purple-50',
     borderColor: 'border-purple-200',
@@ -44,22 +34,40 @@ const skills = {
     textColor: 'text-emerald-700'
   },
   tools: {
-    title: 'Tools & DevOps',
+    title: 'Tools & Workflow',
     icon: BiWrench,
-    items: ['Git', 'GitHub', 'IntelliJ IDEA', 'Neovim', 'Postman', 'Gradle', 'Linux', 'Docker'],
+    items: ['Git', 'GitHub', 'IntelliJ IDEA', 'Neovim', 'Postman', 'Gradle', 'Linux'],
     color: 'from-orange-500 to-orange-600',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-200',
     textColor: 'text-orange-700'
   },
   learning: {
+    title: 'Currently Learning',
+    icon: BiBookOpen,
+    items: ['C#', 'C++', '.NET with C#', 'Unreal Engine 5', 'Go'],
+    color: 'from-indigo-500 to-indigo-600',
+    bgColor: 'bg-indigo-50',
+    borderColor: 'border-indigo-200',
+    textColor: 'text-indigo-700'
+  },
+  focus: {
     title: 'Current Focus',
     icon: BiBrain,
-    items: ['Spring Security', 'PostgreSQL', 'Docker', 'Microservices', 'Cloud Platforms'],
+    items: ['Spring Security', 'PostgreSQL', 'Building production-ready APIs'],
     color: 'from-amber-500 to-amber-600',
     bgColor: 'bg-amber-50',
     borderColor: 'border-amber-200',
     textColor: 'text-amber-700'
+  },
+  soft: {
+    title: 'Soft Skills',
+    icon: FaUsers,
+    items: ['Teaching & Mentoring', 'Technical Communication', 'Problem Solving', 'Team Collaboration', 'Attention to Detail', 'Adaptability'],
+    color: 'from-pink-500 to-pink-600',
+    bgColor: 'bg-pink-50',
+    borderColor: 'border-pink-200',
+    textColor: 'text-pink-700'
   }
 }
 
