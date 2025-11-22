@@ -10,6 +10,25 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    title: 'Freelance Web Developer',
+    company: 'Self-Employed',
+    period: '2024 - Present',
+    summary: 'Building custom websites and applications for clients',
+    description: `Developing custom web solutions for clients, from simple landing pages to complex full-stack applications. Managing all aspects of projects from initial consultation to deployment and maintenance.`,
+    responsibilities: [
+      'Client consultation and requirement gathering',
+      'Full-stack web development',
+      'Project management and timeline coordination',
+      'Post-launch support and maintenance'
+    ],
+    learnings: [
+      'Client communication and expectation management',
+      'Time estimation and project scoping',
+      'Balancing speed with quality',
+      'Business side of software development'
+    ]
+  },
+  {
     title: 'Content Team Member',
     company: 'Code Ninjas Corporate',
     period: '2025 - Present',
@@ -51,25 +70,6 @@ export const experiences: Experience[] = [
       'Project-based learning and curriculum delivery',
       'Mentorship techniques for developing problem-solving skills',
       'JavaScript and C# in educational contexts'
-    ]
-  },
-  {
-    title: 'Freelance Web Developer',
-    company: 'Self-Employed',
-    period: '2024 - Present',
-    summary: 'Building custom websites and applications for clients',
-    description: `Developing custom web solutions for clients, from simple landing pages to complex full-stack applications. Managing all aspects of projects from initial consultation to deployment and maintenance.`,
-    responsibilities: [
-      'Client consultation and requirement gathering',
-      'Full-stack web development',
-      'Project management and timeline coordination',
-      'Post-launch support and maintenance'
-    ],
-    learnings: [
-      'Client communication and expectation management',
-      'Time estimation and project scoping',
-      'Balancing speed with quality',
-      'Business side of software development'
     ]
   },
   {

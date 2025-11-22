@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ProjectModal from '@/components/ProjectModal'
 import { featuredProjects, archivedProjects, Project } from '@/data/projects'
 import { FaExternalLinkAlt, FaArchive } from 'react-icons/fa'
-import { Rocket } from 'lucide-react'
+import { Rocket, Construction, Zap } from 'lucide-react'
 import { GradientHeading } from '@/components/ui'
+import { FaCheckCircle } from 'react-icons/fa'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -60,28 +61,33 @@ export default function Projects() {
           <FaExternalLinkAlt className="text-slate-400 group-hover:text-blue-500 transition-colors" />
         </div>
 
-        {project.developmentApproach && (
-          <div className="mb-4 flex flex-wrap gap-2 items-center">
+        <div className="mb-4 flex flex-wrap gap-2 items-center">
+          {project.label && (
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold border bg-indigo-100 text-indigo-700 border-indigo-200">
+              {project.label}
+            </span>
+          )}
+          {project.developmentApproach && (
             <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold border ${getApproachBadgeColor(project.developmentApproach)}`}>
               {project.developmentApproach}
             </span>
-            {project.inProgress && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-                🚧 Currently Building
-              </span>
-            )}
-            {project.technicalDepth?.testCoverage && project.technicalDepth.testCoverage >= 70 && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                ✓ {project.technicalDepth.testCoverage}% tested
-              </span>
-            )}
-            {project.technicalDepth?.performanceMetrics?.responseTime && project.technicalDepth.performanceMetrics.responseTime < 50 && (
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-                ⚡ {project.technicalDepth.performanceMetrics.responseTime}ms
-              </span>
-            )}
-          </div>
-        )}
+          )}
+          {project.inProgress && (
+            <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+              <Construction size={12} /> Currently Building
+            </span>
+          )}
+          {project.technicalDepth?.testCoverage && project.technicalDepth.testCoverage >= 70 && (
+            <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <FaCheckCircle size={12} /> {project.technicalDepth.testCoverage}% tested
+            </span>
+          )}
+          {project.technicalDepth?.performanceMetrics?.responseTime && project.technicalDepth.performanceMetrics.responseTime < 50 && (
+            <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+              <Zap size={12} /> {project.technicalDepth.performanceMetrics.responseTime}ms
+            </span>
+          )}
+        </div>
 
         <p className="text-slate-600 mb-6 leading-relaxed flex-1">
           {project.summary}

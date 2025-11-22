@@ -22,6 +22,7 @@ export interface Project {
   githubUrl?: string
   featured?: boolean
   inProgress?: boolean
+  label?: string
 }
 
 export const featuredProjects: Project[] = [
@@ -53,7 +54,8 @@ Also co-designing the new Unreal Engine learning pathway from scratch for Code N
     ],
     githubUrl: 'https://github.com/JacobSmxth/code-ninjas-bux',
     featured: true,
-    inProgress: true
+    inProgress: true,
+    label: 'Production System - Code Ninjas'
   },
   {
     name: 'CentDash',
@@ -87,7 +89,8 @@ This project demonstrates the evolution from CentLedger's HashMap approach to pr
     ],
     githubUrl: 'https://github.com/jacobsmxth/centdash',
     featured: true,
-    inProgress: true
+    inProgress: true,
+    label: 'Personal Project'
   },
   {
     name: 'InventoryAPI',
@@ -119,7 +122,8 @@ Built to track my actual desk setup inventory while demonstrating clean Spring B
       'Business logic implementation (stock management, low-stock alerts)'
     ],
     githubUrl: 'https://github.com/JacobSmxth/inventory-management-api',
-    featured: true
+    featured: true,
+    label: 'Personal Project'
   },
   {
     name: 'Task Manager API',
@@ -153,7 +157,8 @@ Technical Highlights:
       'Transaction management and service layer separation of concerns'
     ],
     githubUrl: 'https://github.com/JacobSmxth/task-manager-api',
-    featured: true
+    featured: true,
+    label: 'Personal Project'
   }
 ]
 
@@ -242,7 +247,8 @@ This project showcases ability to:
     ],
     url: 'https://washingtonarchives.vercel.app',
     githubUrl: 'https://github.com/JacobSmxth/washingtonarchives',
-    featured: false
+    featured: false,
+    label: 'Academic Project'
   },
   {
     name: 'GoatRewards.com',
@@ -272,7 +278,8 @@ This project demonstrates:
       'Professional client communication'
     ],
     url: 'https://goatrewards.com',
-    featured: false
+    featured: false,
+    label: 'Client Project'
   },
   {
     name: 'Workout Tracker API',
@@ -330,7 +337,8 @@ This project demonstrates:
       'Professional client communication'
     ],
     url: 'https://rainbetvip-dev.vercel.app',
-    featured: false
+    featured: false,
+    label: 'Client Project'
   },
   {
     name: 'CentLedger API',

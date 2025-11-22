@@ -52,8 +52,11 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Let&apos;s Connect
           </h2>
-          <p className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-100 max-w-3xl mx-auto mb-4">
             I&apos;m always open to discussing new opportunities, collaborations, or just chatting about tech.
+          </p>
+          <p className="text-base md:text-lg text-blue-200 max-w-3xl mx-auto font-medium">
+            Open to Summer 2026 internship opportunities in backend development and cybersecurity
           </p>
         </motion.div>
 
