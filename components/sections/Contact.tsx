@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
 import { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/Card'
@@ -43,12 +42,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-32 px-6 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative">
       <div className="max-w-5xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Let&apos;s Connect
           </h2>
@@ -58,15 +52,9 @@ export default function Contact() {
           <p className="text-base md:text-lg text-blue-200 max-w-3xl mx-auto font-medium">
             Open to Summer 2026 internship opportunities in backend development and cybersecurity
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-8 mb-16"
-        >
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border border-white/10">
             <CardContent className="p-8 flex flex-col items-center text-center gap-2">
               <FaEnvelope className="mb-2" size={48} />
@@ -117,14 +105,9 @@ export default function Contact() {
               </CardContent>
             </a>
           </Card>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
+        <div>
           <Button
             href="/contact"
             variant="gradient"
@@ -133,17 +116,11 @@ export default function Contact() {
           >
             Send a Message
           </Button>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 text-slate-200 text-sm"
-        >
+        <div className="mt-20 text-slate-200 text-sm">
           <p>Prefer email? I typically respond within 24 hours.</p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

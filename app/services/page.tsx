@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { FaDesktop, FaSync, FaCode, FaTools } from 'react-icons/fa'
 import { GradientHeading, Card, CardContent, CardHeader, CardTitle } from '@/components/ui'
 import { Button } from '@/components/ui/Button'
@@ -36,34 +33,21 @@ export default function Services() {
   return (
     <div className="min-h-screen pt-40 px-4 pb-20">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <div>
           <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 text-center pb-2">
             Services
           </GradientHeading>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto"
-        >
+        <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
           Fast, modern, and affordable web solutions for your business. I help small businesses get online quickly with professional websites and custom tools.
-        </motion.p>
+        </p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon
             return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
+              <div key={service.title}>
                 <Card variant="interactive" className="border-gray-200">
                   <CardHeader className="flex items-center gap-3">
                     <Icon className="text-blue-600" size={28} />
@@ -78,17 +62,12 @@ export default function Services() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             )
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-10 max-w-2xl mx-auto"
-        >
+        <div className="mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-lg p-10 max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-3">Ready to Work Together?</h2>
           <p className="text-lg mb-6 text-slate-100">
             Let&apos;s discuss your project and how I can help.
@@ -101,7 +80,7 @@ export default function Services() {
           >
             Get In Touch
           </Button>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

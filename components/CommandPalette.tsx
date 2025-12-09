@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Command, Search, Home, FolderOpen, User, Mail, Github, Wrench, Clock, Download, Linkedin, Server } from 'lucide-react'
 import { useBodyScrollLock } from '@/hooks'
 import { socialLinks } from '@/config/navigation'
@@ -196,39 +195,27 @@ export default function CommandPalette() {
   return (
     <>
       {/* Trigger Button */}
-      <motion.button
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.5 }}
+      <button
         onClick={() => setIsOpen(true)}
         className="hidden md:flex fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-30 group"
         aria-label="Open command palette"
       >
         <Command className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-      </motion.button>
+      </button>
 
       {/* Command Palette Modal */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 z-40"
-              onClick={() => setIsOpen(false)}
-            />
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-200"
+            onClick={() => setIsOpen(false)}
+          />
 
-            {/* Modal */}
-            <motion.div
-              initial={{ opacity: 0, y: -50, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -50, scale: 0.95 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-1/4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-white rounded-lg shadow-2xl z-50 overflow-hidden"
-            >
+          {/* Modal */}
+          <div
+            className="fixed top-1/4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-white rounded-lg shadow-2xl z-50 overflow-hidden transition-all duration-300"
+          >
               {/* Search Input */}
               <div className="p-6 border-b border-slate-200 flex items-center gap-4">
                 <Search className="w-6 h-6 text-slate-400" />
@@ -295,10 +282,9 @@ export default function CommandPalette() {
                 </div>
                 <span>Navigate with keyboard</span>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
-      </AnimatePresence>
     </>
   )
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Github } from 'lucide-react'
@@ -14,12 +13,7 @@ export default function GithubActivity() {
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
 
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="p-3 rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 shadow-lg">
               <Github className="w-6 h-6 text-white" />
@@ -31,15 +25,9 @@ export default function GithubActivity() {
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             My open source contributions and coding activity
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="space-y-6"
-        >
+        <div className="space-y-6">
           {/* Contribution Graph */}
           <div className="flex justify-center">
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-md border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 w-full max-w-4xl">
@@ -75,7 +63,7 @@ export default function GithubActivity() {
               )}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink, X } from 'lucide-react'
 import { GradientHeading, Card, CardContent, CardHeader, CardTitle, Button } from '@/components/ui'
@@ -51,147 +50,115 @@ Currently learning: Backend security, distributed systems, and performance optim
   return (
     <div className="min-h-screen pt-32 px-4 pb-20">
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-3 text-center pb-2">
             About Me
           </GradientHeading>
           <p className="text-center text-slate-600 text-base md:text-lg">
             Cybersecurity + CS student building secure backend systems
           </p>
-        </motion.div>
+        </div>
 
-        <AnimatePresence mode="wait">
-          {!showFullStory ? (
-            <motion.div
-              key="summary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <Card className="mb-6">
-                  <CardHeader>
-                    <CardTitle>Quick Summary</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-base md:text-lg text-slate-600 whitespace-pre-line leading-relaxed mb-6">
-                      {summary}
-                    </p>
-                    <Button
-                      onClick={() => setShowFullStory(true)}
-                      variant="gradient"
-                    >
-                      Read Full Story →
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                <Card className="mb-6">
-                  <CardHeader>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                      <CardTitle>Football</CardTitle>
-                      <a
-                        href="https://www.hudl.com/profile/14908647/Jacob-Smith"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md transition-colors duration-200 w-fit"
-                      >
-                        View Hudl
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      {footballImages.map((img) => (
-                        <div
-                          key={img.id}
-                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform duration-200 border border-gray-200"
-                          onClick={() => setSelectedImage(img.image)}
-                        >
-                          <Image
-                            src={img.image}
-                            alt={img.description}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="space-y-2.5 text-slate-600 text-sm md:text-base">
-                      <p>
-                        <strong className="text-slate-900">Position:</strong> Defensive End
-                      </p>
-                      <p>
-                        <strong className="text-slate-900">Varsity starter</strong> Junior and Senior year, <strong className="text-slate-900">Team Captain</strong> Senior year
-                      </p>
-                      <p>
-                        Recruited by Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College
-                      </p>
-                      <p className="text-sm italic pt-3 border-t border-gray-200 mt-4">
-                        Playing football from 2nd grade through senior year taught me what it takes to commit to something hard. That focus carries over to how I approach engineering problems.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Values</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2.5 text-slate-600 text-sm md:text-base">
-                      <p>
-                        <strong className="text-slate-900">Faith:</strong> Follower of Christ - my faith shapes how I approach life and work.
-                      </p>
-                      <p>
-                        <strong className="text-slate-900">Craft:</strong> I care about security, performance, and understanding why things work.
-                      </p>
-                      <p>
-                        <strong className="text-slate-900">Learning:</strong> Use AI to learn faster, then build it myself to internalize it.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="fullstory"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Card className="p-8 md:p-12">
+        {!showFullStory ? (
+          <div className="space-y-6">
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle>Quick Summary</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-base md:text-lg text-slate-600 whitespace-pre-line leading-relaxed mb-6">
+                  {summary}
+                </p>
                 <Button
-                  onClick={() => setShowFullStory(false)}
-                  variant="primary"
-                  className="mb-8"
+                  onClick={() => setShowFullStory(true)}
+                  variant="gradient"
                 >
-                  ← Back to Summary
+                  Read Full Story →
                 </Button>
+              </CardContent>
+            </Card>
 
-                <div className="prose prose-lg max-w-none">
+            <Card className="mb-6">
+              <CardHeader>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <CardTitle>Football</CardTitle>
+                  <a
+                    href="https://www.hudl.com/profile/14908647/Jacob-Smith"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-md transition-colors duration-200 w-fit"
+                  >
+                    View Hudl
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {footballImages.map((img) => (
+                    <div
+                      key={img.id}
+                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform duration-200 border border-gray-200"
+                      onClick={() => setSelectedImage(img.image)}
+                    >
+                      <Image
+                        src={img.image}
+                        alt={img.description}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2.5 text-slate-600 text-sm md:text-base">
+                  <p>
+                    <strong className="text-slate-900">Position:</strong> Defensive End
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">Varsity starter</strong> Junior and Senior year, <strong className="text-slate-900">Team Captain</strong> Senior year
+                  </p>
+                  <p>
+                    Recruited by Berry College, University of the Cumberlands, UVA-Wise, Culver-Stockton, and Erskine College
+                  </p>
+                  <p className="text-sm italic pt-3 border-t border-gray-200 mt-4">
+                    Playing football from 2nd grade through senior year taught me what it takes to commit to something hard. That focus carries over to how I approach engineering problems.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Values</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2.5 text-slate-600 text-sm md:text-base">
+                  <p>
+                    <strong className="text-slate-900">Faith:</strong> Follower of Christ - my faith shapes how I approach life and work.
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">Craft:</strong> I care about security, performance, and understanding why things work.
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">Learning:</strong> Use AI to learn faster, then build it myself to internalize it.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ) : (
+          <div>
+            <Card className="p-8 md:p-12">
+              <Button
+                onClick={() => setShowFullStory(false)}
+                variant="primary"
+                className="mb-8"
+              >
+                ← Back to Summary
+              </Button>
+
+              <div className="prose prose-lg max-w-none">
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">Early Days (Age 6-13)</h2>
                   <p className="text-slate-600 mb-6 leading-relaxed">
                     Started programming at 6 with batch scripts. Made text adventure games with echo commands and if statements. Simple stuff, but it taught me the basics of logic and control flow.
@@ -256,16 +223,12 @@ Currently learning: Backend security, distributed systems, and performance optim
                   </p>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
 
         {/* Fullscreen Image Modal */}
         {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
@@ -275,19 +238,15 @@ Currently learning: Backend security, distributed systems, and performance optim
             >
               <X className="w-8 h-8" />
             </button>
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              className="relative max-w-5xl max-h-[90vh] w-full h-full"
-            >
+            <div className="relative max-w-5xl max-h-[90vh] w-full h-full">
               <Image
                 src={selectedImage}
                 alt="Football photo"
                 fill
                 className="object-contain rounded-lg"
               />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         )}
       </div>
     </div>

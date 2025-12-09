@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { GitHubRepo } from '@/lib/types/github'
 import { Star, GitFork, Calendar } from 'lucide-react'
 import { Card } from '@/components/ui'
@@ -19,12 +16,7 @@ export function RepoCard({ repo, index }: RepoCardProps) {
   })
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
-    >
+    <div>
       <Link href={`/repos/${repo.name}`} className="block h-full">
         <Card variant="hover" className="h-full flex flex-col">
           <div className="flex-1">
@@ -63,6 +55,6 @@ export function RepoCard({ repo, index }: RepoCardProps) {
           </div>
         </Card>
       </Link>
-    </motion.div>
+    </div>
   )
 }

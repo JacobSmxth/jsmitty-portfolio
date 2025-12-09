@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaJava, FaGitAlt } from 'react-icons/fa'
 import { SiSpringboot, SiIntellijidea, SiNeovim, SiPostman, SiGradle, SiArchlinux, SiLogitech } from 'react-icons/si'
 import ShinyText from '@/components/ShinyText'
@@ -30,12 +28,7 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - ProfileCard */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-              className="flex justify-center lg:justify-end"
-            >
+            <div className="flex justify-center lg:justify-end">
               <ProfileCard
                 name="Jacob Smith"
                 title="Cybersecurity + CS Student"
@@ -50,15 +43,10 @@ export default function Hero() {
                   window.location.href = 'mailto:jacobsmith@jsmitty.com';
                 }}
               />
-            </motion.div>
+            </div>
 
             {/* Right side - Text content */}
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-center lg:text-left space-y-8"
-            >
+            <div className="text-center lg:text-left space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-semibold mb-4">
                   <ShinyText
@@ -101,16 +89,11 @@ export default function Hero() {
                 </Button>
               </div>
 
-            </motion.div>
+            </div>
           </div>
 
           {/* Tech Stack Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-16"
-          >
+          <div className="mt-16">
             <h3 className="text-center text-sm font-semibold text-slate-500 mb-6 uppercase tracking-wider">
               Technologies & Tools
             </h3>
@@ -123,7 +106,7 @@ export default function Hero() {
                 ariaLabel="Technology stack"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

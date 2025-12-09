@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import ProjectModal from '@/components/ProjectModal'
 import { featuredProjects, archivedProjects, Project } from '@/data/projects'
 import { FaExternalLinkAlt, FaArchive } from 'react-icons/fa'
@@ -24,6 +23,7 @@ export default function Projects() {
     }
   }, [selectedProject])
 
+
   const featuredGridClass =
     featuredProjects.length >= 3
       ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-32'
@@ -41,12 +41,8 @@ export default function Projects() {
   }
 
   const ProjectCard = ({ project, index, className = '' }: { project: Project, index: number, className?: string }) => (
-    <motion.div
+    <div
       key={project.name}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
       onClick={() => setSelectedProject(project)}
       className={`group cursor-pointer ${className}`}
     >
@@ -115,19 +111,14 @@ export default function Projects() {
           </span>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 
   return (
     <section id="projects" className="py-32 px-6 relative bg-white">
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="p-3 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Rocket className="w-6 h-6 text-white" />
@@ -139,7 +130,7 @@ export default function Projects() {
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             Highlighting my best work in backend development, security, and full-stack applications.
           </p>
-        </motion.div>
+        </div>
 
         <div className={featuredGridClass}>
           {featuredProjects.map((project, index) => {
@@ -161,12 +152,7 @@ export default function Projects() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <FaArchive className="text-slate-500 text-3xl" />
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -178,7 +164,7 @@ export default function Projects() {
           <p className="text-base text-slate-600 max-w-3xl mx-auto">
             Some projects that contributed to my learning journey.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {archivedProjects.map((project, index) => (
@@ -186,14 +172,12 @@ export default function Projects() {
           ))}
         </div>
 
-        <AnimatePresence>
-          {selectedProject && (
-            <ProjectModal
-              project={selectedProject}
-              onClose={() => setSelectedProject(null)}
-            />
-          )}
-        </AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import ExperienceModal from '@/components/ExperienceModal'
 import { experiences, Experience } from '@/data/experiences'
 import { Briefcase } from 'lucide-react'
@@ -22,15 +21,11 @@ export default function Timeline() {
     }
   }, [selectedExperience])
 
+
   return (
     <section id="timeline" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50 shadow-2xl relative">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
               <Briefcase className="w-6 h-6 text-white" />
@@ -42,19 +37,15 @@ export default function Timeline() {
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             My professional journey from hospitality to education and freelance development.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative">
           <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={exp.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-                transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
                 className="relative pl-24 group"
               >
                 <div className="absolute left-5 top-8 w-7 h-7 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-200" />
@@ -82,19 +73,17 @@ export default function Timeline() {
                     Click to learn more →
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        <AnimatePresence>
-          {selectedExperience && (
-            <ExperienceModal
-              experience={selectedExperience}
-              onClose={() => setSelectedExperience(null)}
-            />
-          )}
-        </AnimatePresence>
+        {selectedExperience && (
+          <ExperienceModal
+            experience={selectedExperience}
+            onClose={() => setSelectedExperience(null)}
+          />
+        )}
       </div>
     </section>
   )

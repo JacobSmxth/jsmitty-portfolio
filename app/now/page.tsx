@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { BookOpen, Code2, Target, GraduationCap, Trophy } from 'lucide-react'
 import { GradientHeading } from '@/components/ui'
 
@@ -69,11 +66,7 @@ export default function Now() {
     <main className="min-h-screen pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-20 text-center"
-        >
+        <div className="mb-20 text-center">
           <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 pb-2">
             What I&apos;m Doing Now
           </GradientHeading>
@@ -83,17 +76,12 @@ export default function Now() {
           <p className="text-sm text-slate-500 italic">
             Last updated: {nowData.updated}
           </p>
-        </motion.div>
+        </div>
 
         {/* Main Content */}
         <div className="space-y-8 mb-12">
           {/* Current Semester */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="border-l-4 border-blue-600 pl-6 py-4"
-          >
+          <div className="border-l-4 border-blue-600 pl-6 py-4">
             <div className="flex items-center gap-3 mb-2">
               <GraduationCap className="w-6 h-6 text-blue-600" />
               <h2 className="text-2xl font-bold text-slate-800">Current Semester</h2>
@@ -107,17 +95,12 @@ export default function Now() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           <hr className="border-slate-200" />
 
           {/* Learning */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="border-l-4 border-green-600 pl-6 py-4"
-          >
+          <div className="border-l-4 border-green-600 pl-6 py-4">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen className="w-6 h-6 text-green-600" />
               <h2 className="text-2xl font-bold text-slate-800">Learning</h2>
@@ -129,17 +112,12 @@ export default function Now() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           <hr className="border-slate-200" />
 
           {/* Building */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="border-l-4 border-purple-600 pl-6 py-4"
-          >
+          <div className="border-l-4 border-purple-600 pl-6 py-4">
             <div className="flex items-center gap-3 mb-4">
               <Code2 className="w-6 h-6 text-purple-600" />
               <h2 className="text-2xl font-bold text-slate-800">Building</h2>
@@ -161,17 +139,12 @@ export default function Now() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           <hr className="border-slate-200" />
 
           {/* Goals */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="border-l-4 border-orange-600 pl-6 py-4"
-          >
+          <div className="border-l-4 border-orange-600 pl-6 py-4">
             <div className="flex items-center gap-3 mb-4">
               <Target className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-slate-800">2026 Goals</h2>
@@ -183,18 +156,13 @@ export default function Now() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         <hr className="border-slate-200" />
 
         {/*Competitions*/}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-          className="border-l-4 border-red-600 pl-6 py-4 mt-12"
-        >
+        <div className="border-l-4 border-red-600 pl-6 py-4 mt-12">
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="w-6 h-6 text-red-600" />
             <h2 className="text-2xl font-bold text-slate-800">Competitions & Challenges</h2>
@@ -221,15 +189,10 @@ export default function Now() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md text-center shadow-xl my-12"
-        >
+        <div className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md text-center shadow-xl my-12">
           <h3 className="text-2xl font-bold mb-3 text-white">
             Interested in collaborating?
           </h3>
@@ -242,15 +205,10 @@ export default function Now() {
           >
             Get in Touch
           </a>
-        </motion.div>
+        </div>
 
         {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="text-center text-slate-400 text-sm"
-        >
+        <div className="text-center text-slate-400 text-sm">
           <p>
             Inspired by{' '}
             <a
@@ -263,7 +221,7 @@ export default function Now() {
             </a>
             {' '}- a living document of what I&apos;m focused on right now.
           </p>
-        </motion.div>
+        </div>
       </div>
     </main>
   )

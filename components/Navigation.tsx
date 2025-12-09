@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
 import { useBodyScrollLock } from '@/hooks'
@@ -60,21 +59,17 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop & Mobile Navigation Bar */}
-      <motion.nav
-        initial={false}
-        animate={{
-          y: shouldShow ? 0 : -120
+      <nav
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-md px-6 sm:px-8 py-4 shadow-lg bg-white/95 backdrop-blur-sm border border-gray-200 transition-transform duration-300 ease-out"
+        style={{
+          width: 'calc(100% - 3rem)',
+          maxWidth: '1200px',
+          transform: `translate(-50%, ${shouldShow ? '0' : '-120px'})`
         }}
-        transition={{
-          duration: 0.25,
-          ease: [0.4, 0, 0.2, 1]
-        }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-40 rounded-md px-6 sm:px-8 py-4 shadow-lg bg-white/95 backdrop-blur-sm border border-gray-200"
-        style={{ width: 'calc(100% - 3rem)', maxWidth: '1200px' }}
       >
-        <div className="flex items-center justify-between w-full">
+        <div className="hidden md:grid md:grid-cols-3 items-center w-full gap-4">
           {/* Left Nav Items */}
-          <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
+          <ul className="flex gap-4 lg:gap-6 items-center justify-end">
             {leftNavItems.map((item) => {
               const isActive = pathname === item.path
               return (
@@ -90,10 +85,8 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                   {isActive && (
-                    <motion.div
-                      layoutId="activeTab"
+                    <div
                       className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded shadow-lg"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
                 </li>
@@ -104,13 +97,13 @@ export default function Navigation() {
           {/* Centered Logo */}
           <Link
             href="/"
-            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap absolute left-1/2 -translate-x-1/2"
+            className="font-bold text-lg sm:text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap text-center"
           >
             Jacob Smith
           </Link>
 
           {/* Right Nav Items */}
-          <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
+          <ul className="flex gap-4 lg:gap-6 items-center justify-start">
             {rightNavItems.map((item) => {
               const isActive = pathname === item.path
               return (
@@ -126,16 +119,24 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                   {isActive && (
-                    <motion.div
-                      layoutId="activeTab"
+                    <div
                       className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded shadow-lg"
-                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
                 </li>
               )
             })}
           </ul>
+        </div>
+
+        {/* Mobile view */}
+        <div className="md:hidden flex items-center justify-between w-full">
+          <Link
+            href="/"
+            className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap"
+          >
+            Jacob Smith
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -155,30 +156,21 @@ export default function Navigation() {
             )}
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden transition-opacity duration-200"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
 
-            {/* Mobile Menu */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white z-40 md:hidden shadow-2xl"
-            >
+          {/* Mobile Menu */}
+          <div
+            className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white z-40 md:hidden shadow-2xl transition-transform duration-300 ease-out"
+          >
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-200">
@@ -204,12 +196,7 @@ export default function Navigation() {
                   {allNavItems.map((item, index) => {
                     const isActive = pathname === item.path
                     return (
-                      <motion.li
-                        key={item.path}
-                        initial={{ x: 50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
+                      <li key={item.path}>
                         <Link
                           href={item.path}
                           className={`block px-6 py-4 rounded transition-all duration-300 font-medium ${
@@ -220,15 +207,14 @@ export default function Navigation() {
                         >
                           {item.name}
                         </Link>
-                      </motion.li>
+                      </li>
                     )
                   })}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           </>
         )}
-      </AnimatePresence>
     </>
   )
 }

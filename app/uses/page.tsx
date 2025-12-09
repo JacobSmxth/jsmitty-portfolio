@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ExternalLink, Code2, Terminal, Cpu, Monitor, Maximize2, X } from 'lucide-react'
 import { useState } from 'react'
 import { GradientHeading } from '@/components/ui'
@@ -106,40 +105,28 @@ export default function Uses() {
     <main className="min-h-screen pt-32 pb-20 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-20 text-center"
-        >
+        <div className="mb-20 text-center">
           <GradientHeading as="h1" className="text-5xl md:text-6xl font-bold mb-6 pb-2">
             What I Use
           </GradientHeading>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             The software and hardware I rely on for backend development, security projects, and daily workflows.
           </p>
-        </motion.div>
+        </div>
 
         {/* Software Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-slate-800 flex items-center gap-3">
             <Code2 className="w-8 h-8 text-blue-600" />
             Software
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {usesData.software.map((section, sectionIdx) => {
+            {usesData.software.map((section) => {
               const Icon = section.icon
               return (
-                <motion.div
+                <div
                   key={section.category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + sectionIdx * 0.1 }}
                   className="bg-white rounded-md p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all"
                 >
                   <div className="flex items-center gap-2 mb-4">
@@ -167,19 +154,14 @@ export default function Uses() {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )
             })}
           </div>
-        </motion.div>
+        </div>
 
         {/* Hardware Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <h2 className="text-3xl font-bold mb-8 text-slate-800 flex items-center gap-3">
             <Cpu className="w-8 h-8 text-purple-600" />
             Hardware
@@ -187,12 +169,7 @@ export default function Uses() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Workstation Specs */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-md p-8 shadow-2xl text-white"
-            >
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-md p-8 shadow-2xl text-white">
               <div className="flex items-center gap-3 mb-6">
                 <Cpu className="w-6 h-6 text-blue-400" />
                 <h3 className="text-2xl font-bold">Workstation</h3>
@@ -218,15 +195,10 @@ export default function Uses() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Peripherals */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-              className="bg-white rounded-md p-8 shadow-lg border border-slate-100"
-            >
+            <div className="bg-white rounded-md p-8 shadow-lg border border-slate-100">
               <div className="flex items-center gap-3 mb-6">
                 <Monitor className="w-6 h-6 text-purple-600" />
                 <h3 className="text-2xl font-bold text-slate-800">Setup</h3>
@@ -240,17 +212,12 @@ export default function Uses() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Desk Setup Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <div className="bg-white rounded-md p-8 shadow-lg border border-slate-100">
             <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
               My Desk Setup
@@ -269,14 +236,11 @@ export default function Uses() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Fullscreen Modal */}
         {isFullscreen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
             onClick={() => setIsFullscreen(false)}
           >
@@ -286,23 +250,16 @@ export default function Uses() {
             >
               <X className="w-8 h-8" />
             </button>
-            <motion.img
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
+            <img
               src="/DeskSetup.png"
               alt="Desk Setup"
               className="max-w-full max-h-full object-contain rounded-lg"
             />
-          </motion.div>
+          </div>
         )}
 
         {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="text-center text-slate-400 text-sm"
-        >
+        <div className="text-center text-slate-400 text-sm">
           <p>
             Inspired by{' '}
             <a
@@ -314,7 +271,7 @@ export default function Uses() {
               uses.tech
             </a>
           </p>
-        </motion.div>
+        </div>
       </div>
     </main>
   )

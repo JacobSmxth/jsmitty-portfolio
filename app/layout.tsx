@@ -3,6 +3,7 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import CommandPalette from '@/components/CommandPalette'
+import PageTransition from '@/components/PageTransition'
 
 export const metadata: Metadata = {
   title: 'Jacob Smith | CS + Cybersecurity Student',
@@ -22,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navigation />
-        <main>{children}</main>
+        <PageTransition>
+          <main>{children}</main>
+        </PageTransition>
         <Footer />
         <CommandPalette />
       </body>

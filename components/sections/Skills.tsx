@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { BiShield, BiCodeAlt, BiData, BiWrench, BiBrain, BiBookOpen } from 'react-icons/bi'
 import { FaUsers, FaChalkboardTeacher, FaLightbulb } from 'react-icons/fa'
 import { GradientHeading } from '@/components/ui'
@@ -75,30 +72,21 @@ export default function Skills() {
   return (
     <section className="py-32 px-6 bg-gradient-to-b from-white to-gray-50 relative">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <GradientHeading as="h2" className="text-4xl md:text-5xl font-bold mb-4">
             Technical Skills
           </GradientHeading>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Technologies and tools I use to build full-stack applications
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-8 md:grid-cols-2">
           {Object.entries(skills).map(([key, category], index) => {
             const Icon = category.icon
             return (
-              <motion.div
+              <div
                 key={key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 group"
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -120,7 +108,7 @@ export default function Skills() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>

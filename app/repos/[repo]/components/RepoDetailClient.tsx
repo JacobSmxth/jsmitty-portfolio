@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { AnimatePresence } from 'framer-motion'
 import { GitHubRepo, GitHubCommit } from '@/lib/types/github'
 import { RepoModal } from './RepoModal'
 import { Github, Star, GitFork, ArrowLeft, FileText, GitCommit, BarChart3 } from 'lucide-react'
@@ -113,18 +112,16 @@ export function RepoDetailClient({ repo, readmeContent, commits, languages }: Re
         </div>
       </div>
 
-      <AnimatePresence>
-        {isModalOpen && (
-          <RepoModal
-            repo={repo}
-            readmeContent={readmeContent}
-            commits={commits}
-            languages={languages}
-            activeTab={activeTab}
-            onClose={closeModal}
-          />
-        )}
-      </AnimatePresence>
+      {isModalOpen && (
+        <RepoModal
+          repo={repo}
+          readmeContent={readmeContent}
+          commits={commits}
+          languages={languages}
+          activeTab={activeTab}
+          onClose={closeModal}
+        />
+      )}
     </>
   )
 }
