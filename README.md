@@ -1,91 +1,104 @@
-# Portfolio - Jacob Smith
+# Jacob Smith Portfolio
 
-Personal portfolio website built with Next.js 15, featuring live GitHub integration and interactive navigation.
+Minimalist, performance-focused portfolio site with dark grayscale theme, sharp edges, and command palette navigation.
 
-## Overview
+## Features
 
-This portfolio includes:
-
-- **Home page** with hero section, featured projects, GitHub activity feed, skills, timeline, and contact form
-- **About page** with detailed background and experience
-- **Repositories page** (`/repos`) that fetches and displays GitHub repositories with README rendering and commit history
-- **Dynamic repository pages** (`/repos/[repo]`) showing individual repo details
-- **Now page** (`/now`) for current activities and focus
-- **Uses page** (`/uses`) documenting my development setup and tools
-- **Services page** for professional offerings
-- **Command palette** (press `Cmd/Ctrl + K`) for keyboard navigation throughout the site
-- **Reusable UI kit** (Buttons, Cards, Headings) for consistent styling
-
-## Tech Stack
-
-- **Framework:** Next.js 16 (App Router) on React 19
-- **Styling:** Tailwind CSS v4 + custom UI kit (Buttons, Cards, GradientHeading)
-- **Animations:** Framer Motion (GSAP available for advanced sequences)
-- **Icons:** Lucide React, React Icons
-- **Markdown:** react-markdown with syntax highlighting (rehype-highlight, remark-gfm)
-- **Language:** TypeScript
-
-## Key Features
-
-- GitHub API integration for live repository data, READMEs, and commit history
-- Keyboard-driven command palette for quick navigation
-- Modal-based project and experience viewers
-- Animated logo carousel and skill displays
-- Interactive timeline component
-- Markdown rendering with GitHub Flavored Markdown support
-- Unified palette/typography with shared UI components for CTAs and cards
-
-## Getting Started
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Build for Production
-
-```bash
-npm run build
-npm start
-```
+- **Single-scroll executive summary** - All key info visible in one flow
+- **Command palette** - Press `Ctrl+K` (or `Cmd+K` on Mac) to open command palette
+- **Keyboard navigation** - Arrow keys to navigate, Enter to execute, Esc to close
+- **Dark grayscale theme** - Black background with grayscale accents, no rounded corners
+- **Performance-first** - Single SCSS file, minimal JavaScript, optimized assets
+- **Background image** - Grayscale mountain background (credit: Fabrizio Conti/Unsplash)
 
 ## Project Structure
 
 ```
-/app
-  /about          - About page
-  /contact        - Contact page
-  /now            - Current activities
-  /repos          - GitHub repositories with dynamic [repo] routes
-  /services       - Services page
-  /uses           - Development setup and tools
-/components
-  /sections       - Homepage sections (Hero, Projects, Skills, Timeline, etc.)
-  CommandPalette  - Keyboard navigation
-  ExperienceModal - Experience detail viewer
-  ProjectModal    - Project detail viewer
-  LogoLoop        - Animated technology logos
-/data
-  experiences.ts  - Professional experience data
-  projects.ts     - Portfolio project data
+jsmitty-portfolio/
+├── index.html              # Single-page portfolio
+├── assets/
+│   └── background.jpg      # Background image
+├── src/
+│   ├── main.ts            # Command palette & keyboard shortcuts
+│   └── styles/
+│       └── main.scss      # Single SCSS file (dark theme)
+├── dist/                  # Compiled output (generated)
+│   ├── css/
+│   │   └── main.css
+│   └── js/
+│       └── main.js
+└── package.json
 ```
 
-## Contact
+## Development
 
-- Email: jacobsmith@jsmitty.com
-- LinkedIn: [jacobsmxth](https://linkedin.com/in/jacobsmxth)
-- GitHub: [jacobsmxth](https://github.com/jacobsmxth)
+### Install Dependencies
+```bash
+npm install
+```
 
+### Build (CSS + TypeScript)
+```bash
+npm run build
+```
 
+### Development Mode (watch for changes)
+```bash
+npm run dev
+```
 
+### Individual Commands
+```bash
+npm run build:css    # Build CSS only
+npm run build:ts     # Build TypeScript only
+npm run watch:css    # Watch CSS
+npm run watch:ts     # Watch TypeScript
+```
 
+## Viewing the Site
 
+Open `index.html` in your browser, or use a local server:
+
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node http-server
+http-server -p 8000
+
+# Then visit http://localhost:8000
+```
+
+## Keyboard Shortcuts
+
+- `Ctrl+K` / `Cmd+K` - Open command palette
+- `↑` / `↓` - Navigate commands
+- `Enter` - Execute command
+- `Esc` - Close palette
+- Type to filter commands
+
+## Command Palette Actions
+
+- View GitHub/LinkedIn profiles
+- Send email/make phone call
+- Navigate to sections
+- Open project repos
+- Copy contact info to clipboard
+
+## Design Philosophy
+
+- **Dark & minimal** - Black background, grayscale palette, sharp edges
+- **Performance-focused** - Single SCSS file, basic TypeScript, no frameworks
+- **Keyboard-first** - Command palette for power users
+- **Single-scroll** - Executive summary format, all info in one page
+
+## Tech Stack
+
+- HTML5
+- SCSS (single file, modern `@use` syntax)
+- TypeScript (basic static typing)
+- No frameworks - vanilla JS
+
+## Credits
+
+Background photo by [Fabrizio Conti](https://unsplash.com/@conti_photos) on [Unsplash](https://unsplash.com/photos/grayscale-photograph-of-mountain-ranges-9oKZm8YgcnA)
