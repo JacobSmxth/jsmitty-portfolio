@@ -162,8 +162,11 @@ strong {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
 .kbd {
   background-color: $gray-800;
   border: 1px solid $gray-600;
@@ -300,7 +303,7 @@ strong {
   &__meta {
     font-family: $font-mono;
     font-size: 0.75rem;
-    color: $gray-500;
+    color: $gray-400;
     margin-bottom: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -400,7 +403,7 @@ strong {
   &__stack {
     font-family: $font-mono;
     font-size: 0.65rem;
-    color: $gray-500;
+    color: $gray-400;
     text-transform: uppercase;
   }
 
@@ -443,7 +446,7 @@ strong {
   &__period {
     font-family: $font-mono;
     font-size: 0.75rem;
-    color: $gray-500;
+    color: $gray-400;
     text-transform: uppercase;
   }
 
@@ -584,7 +587,7 @@ strong {
     justify-content: space-between;
     align-items: center;
     font-size: 0.75rem;
-    color: $gray-500;
+    color: $gray-400;
     font-family: $font-mono;
 
     @media (max-width: 768px) {
