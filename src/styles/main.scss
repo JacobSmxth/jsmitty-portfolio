@@ -209,6 +209,12 @@ strong {
     margin-bottom: 2rem;
   }
 
+  &__core {
+    font-size: 1.25rem;
+    color: $gray-300;
+    max-width: 800px;
+  }
+
   &__metric {
     display: inline-block;
     background-color: $gray-900;
