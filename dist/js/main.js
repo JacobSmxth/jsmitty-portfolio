@@ -5,7 +5,7 @@ const commands = [
     {
         label: 'View Resume',
         description: 'Open resume PDF',
-        action: () => window.open('JacobResume2025Internships.pdf', '_blank'),
+        action: () => window.open('MyResume2025.pdf', '_blank'),
         keywords: ['resume', 'cv', 'download', 'pdf']
     },
     {
@@ -21,16 +21,16 @@ const commands = [
         keywords: ['linkedin', 'professional', 'network']
     },
     {
+        label: 'Open Discord',
+        description: 'Open Discord profile',
+        action: () => window.open('https://discordapp.com/users/518631054018609154', '_blank'),
+        keywords: ['discord', 'profile', 'chat', 'contact']
+    },
+    {
         label: 'Send Email',
         description: 'Open email client',
         action: () => window.location.href = 'mailto:jacobsmith@jsmitty.com',
         keywords: ['email', 'contact', 'message']
-    },
-    {
-        label: 'Call Phone',
-        description: 'Call +1 678-457-9988',
-        action: () => window.location.href = 'tel:+16784579988',
-        keywords: ['phone', 'call', 'contact']
     },
     {
         label: 'Code Ninjas Bux',
@@ -63,34 +63,10 @@ const commands = [
         keywords: ['project', 'neovim', 'config', 'vim']
     },
     {
-        label: 'Scroll to Projects',
-        description: 'Jump to projects section',
-        action: () => scrollToSection('projects'),
-        keywords: ['navigate', 'projects', 'work']
-    },
-    {
-        label: 'Scroll to Experience',
-        description: 'Jump to experience section',
-        action: () => scrollToSection('experience'),
-        keywords: ['navigate', 'experience', 'work']
-    },
-    {
-        label: 'Scroll to Tech Stack',
-        description: 'Jump to tech stack section',
-        action: () => scrollToSection('tech'),
-        keywords: ['navigate', 'tech', 'skills', 'stack']
-    },
-    {
         label: 'Copy Email',
         description: 'Copy email to clipboard',
         action: () => copyToClipboard('jacobsmith@jsmitty.com'),
         keywords: ['copy', 'email', 'clipboard']
-    },
-    {
-        label: 'Copy Phone',
-        description: 'Copy phone number to clipboard',
-        action: () => copyToClipboard('+1 678-457-9988'),
-        keywords: ['copy', 'phone', 'clipboard']
     }
 ];
 const commandPalette = document.getElementById('commandPalette');
@@ -167,18 +143,6 @@ function scrollToSection(id) {
         element.scrollIntoView({ behavior: 'smooth' });
     }
 }
-// Scroll to keep selected item visible
-function scrollToSelected() {
-    if (!commandResults)
-        return;
-    const selectedElement = commandResults.querySelector('.command-palette__item.selected');
-    if (selectedElement) {
-        selectedElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }
-}
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         console.log('Copied to clipboard:', text);
@@ -204,25 +168,15 @@ function handleKeyDown(e) {
         e.preventDefault();
         e.stopPropagation();
         if (e.shiftKey) {
-            // Shift+Tab: go up, wrap to bottom if at top
-            if (selectedIndex === 0) {
-                selectedIndex = filteredCommands.length - 1;
-            }
-            else {
-                selectedIndex = selectedIndex - 1;
-            }
+            selectedIndex = Math.max(selectedIndex - 1, 0);
         }
         else {
-            // Tab: go down, wrap to top if at bottom
-            if (selectedIndex >= filteredCommands.length - 1) {
+            selectedIndex = Math.min(selectedIndex + 1, filteredCommands.length - 1);
+            if (selectedIndex > filteredCommands.length - 1) {
                 selectedIndex = 0;
-            }
-            else {
-                selectedIndex = selectedIndex + 1;
             }
         }
         renderCommands();
-        scrollToSelected();
         return;
     }
     switch (e.key) {
@@ -232,25 +186,13 @@ function handleKeyDown(e) {
             break;
         case 'ArrowDown':
             e.preventDefault();
-            if (selectedIndex >= filteredCommands.length - 1) {
-                selectedIndex = 0;
-            }
-            else {
-                selectedIndex = selectedIndex + 1;
-            }
+            selectedIndex = Math.min(selectedIndex + 1, filteredCommands.length - 1);
             renderCommands();
-            scrollToSelected();
             break;
         case 'ArrowUp':
             e.preventDefault();
-            if (selectedIndex === 0) {
-                selectedIndex = filteredCommands.length - 1;
-            }
-            else {
-                selectedIndex = selectedIndex - 1;
-            }
+            selectedIndex = Math.max(selectedIndex - 1, 0);
             renderCommands();
-            scrollToSelected();
             break;
         case 'Enter':
             e.preventDefault();
