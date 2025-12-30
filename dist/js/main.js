@@ -9,6 +9,12 @@ const commands = [
         keywords: ['resume', 'cv', 'download', 'pdf']
     },
     {
+        label: 'View Codeberg',
+        description: 'Open Codeberg profile',
+        action: () => window.open('https://codeberg.org/jsmitty', '_blank'),
+        keywords: ['codeberg', 'git', 'code', 'repos', 'projects']
+    },
+    {
         label: 'View GitHub',
         description: 'Open GitHub profile',
         action: () => window.open('https://github.com/jacobsmxth', '_blank'),
@@ -67,6 +73,12 @@ const commands = [
         description: 'Copy email to clipboard',
         action: () => copyToClipboard('jacobsmith@jsmitty.com'),
         keywords: ['copy', 'email', 'clipboard']
+    },
+    {
+        label: 'Stonepath.dev',
+        description: 'Open Stonepath web agency',
+        action: () => window.open('https://stonepath.dev', '_blank'),
+        keywords: ['stonepath', 'agency', 'astro', 'web']
     }
 ];
 const commandPalette = document.getElementById('commandPalette');
