@@ -3,7 +3,7 @@
 ## Contact
 - Phone: +1 678-457-9988
 - Location: Atlanta, GA
-- Website: jsmitty.com
+- Website: jsmitty.dev
 - LinkedIn: linkedin.com/in/jacobsmxth
 - GitHub: github.com/jacobsmxth
 

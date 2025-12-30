@@ -43,7 +43,7 @@ const commands: Command[] = [
   {
     label: 'Send Email',
     description: 'Open email client',
-    action: () => window.location.href = 'mailto:jacobsmith@jsmitty.com',
+    action: () => window.location.href = 'mailto:jacob@jsmitty.dev',
     keywords: ['email', 'contact', 'message']
   },
   {
@@ -79,7 +79,7 @@ const commands: Command[] = [
   {
     label: 'Copy Email',
     description: 'Copy email to clipboard',
-    action: () => copyToClipboard('jacobsmith@jsmitty.com'),
+    action: () => copyToClipboard('jacob@jsmitty.dev'),
     keywords: ['copy', 'email', 'clipboard']
   },
   {
