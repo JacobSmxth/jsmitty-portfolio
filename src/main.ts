@@ -13,7 +13,7 @@ const commands: Command[] = [
   {
     label: 'View Resume',
     description: 'Open resume PDF',
-    action: () => window.open('MyResume2025.pdf', '_blank'),
+    action: () => window.open('JacobSmithFeb2026v3.pdf', '_blank'),
     keywords: ['resume', 'cv', 'download', 'pdf']
   },
   {
@@ -47,10 +47,22 @@ const commands: Command[] = [
     keywords: ['email', 'contact', 'message']
   },
   {
-    label: 'Code Ninjas Bux',
-    description: 'View project on GitHub',
+    label: 'NinjaBux',
+    description: 'Multi-tenant reward platform — view on GitHub',
     action: () => window.open('https://github.com/JacobSmxth/code-ninjas-bux', '_blank'),
-    keywords: ['project', 'code ninjas', 'bux', 'spring boot']
+    keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac']
+  },
+  {
+    label: 'Vulnerable Web App Lab',
+    description: 'Offensive security practice environment',
+    action: () => window.open('https://github.com/jacobsmxth', '_blank'),
+    keywords: ['project', 'security', 'lab', 'sql injection', 'xss', 'burp suite', 'hydra']
+  },
+  {
+    label: 'Hack the Box',
+    description: 'Starting Point pentesting machines',
+    action: () => window.open('https://app.hackthebox.com', '_blank'),
+    keywords: ['project', 'htb', 'hack the box', 'pentesting', 'nmap', 'ctf']
   },
   {
     label: 'CentDash',
@@ -63,12 +75,6 @@ const commands: Command[] = [
     description: 'View project on GitHub',
     action: () => window.open('https://github.com/JacobSmxth/inventory-management-api', '_blank'),
     keywords: ['project', 'inventory', 'api', 'spring boot']
-  },
-  {
-    label: 'Task Manager API',
-    description: 'View project on GitHub',
-    action: () => window.open('https://github.com/JacobSmxth/task-manager-api', '_blank'),
-    keywords: ['project', 'task', 'api']
   },
   {
     label: 'Ichthys.nvim',
