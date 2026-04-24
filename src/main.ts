@@ -13,7 +13,7 @@ const commands: Command[] = [
   {
     label: 'View Resume',
     description: 'Open resume PDF',
-    action: () => window.open('JacobSmithFeb2026v3.pdf', '_blank'),
+    action: () => window.open('JacobSmith_Apr2026.pdf', '_blank'),
     keywords: ['resume', 'cv', 'download', 'pdf']
   },
   {
@@ -43,7 +43,7 @@ const commands: Command[] = [
   {
     label: 'Send Email',
     description: 'Open email client',
-    action: () => window.location.href = 'mailto:jacob@jsmitty.dev',
+    action: () => window.location.href = 'mailto:jacob.d.smith@live.com',
     keywords: ['email', 'contact', 'message']
   },
   {
@@ -53,10 +53,10 @@ const commands: Command[] = [
     keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac']
   },
   {
-    label: 'Vulnerable Web App Lab',
-    description: 'Offensive security practice environment',
+    label: 'C-CentLedger',
+    description: 'Financial tracking CLI written in C',
     action: () => window.open('https://github.com/jacobsmxth', '_blank'),
-    keywords: ['project', 'security', 'lab', 'sql injection', 'xss', 'burp suite', 'hydra']
+    keywords: ['project', 'c', 'ledger', 'finance', 'dynamic array', 'memory']
   },
   {
     label: 'Hack the Box',
@@ -85,7 +85,7 @@ const commands: Command[] = [
   {
     label: 'Copy Email',
     description: 'Copy email to clipboard',
-    action: () => copyToClipboard('jacob@jsmitty.dev'),
+    action: () => copyToClipboard('jacob.d.smith@live.com'),
     keywords: ['copy', 'email', 'clipboard']
   },
   {
