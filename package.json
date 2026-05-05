@@ -2,16 +2,17 @@
   "name": "jsmitty-portfolio",
   "version": "1.0.0",
   "description": "Jacob Smith - Backend Developer & Technical Instructor Portfolio",
+  "packageManager": "bun@1.3.11",
+  "type": "module",
   "scripts": {
-    "build:css": "sass src/styles/main.scss dist/css/main.css --style compressed",
-    "build:ts": "tsc",
-    "build": "npm run build:css && npm run build:ts",
-    "watch:css": "sass src/styles/main.scss dist/css/main.css --watch",
-    "watch:ts": "tsc --watch",
-    "watch": "npm run watch:css & npm run watch:ts",
-    "dev": "npm run watch"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.15.9",
     "sass": "^1.83.0",
     "typescript": "^5.7.2"
   }

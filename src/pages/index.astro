@@ -1,3 +1,7 @@
+---
+import '../styles/main.scss';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -43,7 +47,7 @@
     />
 
     <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -83,11 +87,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="dist/css/main.css" />
   </head>
   <body>
     <div class="bg-image">
-      <img src="dist/assets/background.webp" alt="Background" loading="lazy" />
+      <img src="/assets/background.webp" alt="Background" loading="lazy" />
     </div>
 
     <header class="header">
@@ -121,7 +124,7 @@
             </div>
             <div class="hero__links">
               <a
-                href="JacobSmith_Apr2026.pdf"
+                href="/JacobSmith_Apr2026.pdf"
                 target="_blank"
                 class="hero__resume"
                 >Resume</a
@@ -166,26 +169,25 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="projects">
             <h2 class="section__title">FEATURED PROJECTS</h2>
             <div class="grid">
               <div class="card">
                 <h3 class="card__title">NinjaBux — Multi-Tenant Reward Platform</h3>
                 <div class="card__meta">
-                  Java • Spring Boot • TypeScript
+                  Java 21 • Spring Boot • PostgreSQL • TypeScript
                 </div>
                 <p class="card__description">
-                  Facility-scoped platform supporting multiple Code Ninjas locations
-                  and 20+ active student accounts. Implemented JWT authentication
-                  and role-based access control securing admin and student portal
-                  endpoints. Built immutable ledger-based transaction system with a
-                  TypeScript SPA and integrated external REST API for student
-                  progression sync.
+                  Gamified reward system for Code Ninjas facilities with isolated
+                  multi-tenant data, student progress sync from the Code Ninjas
+                  Impact API, JWT authentication, role hierarchy, and immutable
+                  ledger transactions as the source of truth for balances.
                 </p>
                 <div class="card__tags">
                   <span class="tag">JWT Auth</span>
                   <span class="tag">RBAC</span>
                   <span class="tag">Ledger System</span>
+                  <span class="tag">Railway</span>
                 </div>
                 <div class="featured-nav">
                   <a
@@ -198,22 +200,26 @@
               </div>
 
               <div class="card">
-                <h3 class="card__title">C-CentLedger — Financial Tracking CLI</h3>
+                <h3 class="card__title">Jewels by Patty — Custom Jewelry Site</h3>
                 <div class="card__meta">
-                  C • Dynamic Arrays • Memory Management
+                  Astro • TypeScript • SCSS • Resend • Netlify
                 </div>
                 <p class="card__description">
-                  Built a command-line financial ledger around a custom dynamic
-                  array with capacity-doubling growth for amortized O(1)
-                  insertions. Designed a cent-based currency system to avoid
-                  floating-point errors, implemented category and amount filters,
-                  and managed the full memory lifecycle with malloc, realloc, and
-                  free.
+                  Built a custom Astro site for a handmade jewelry business with
+                  a WebP-optimized gallery, reusable custom order modal, Resend
+                  contact and order emails, canonical domain configuration, and a
+                  Shopify-free bespoke request flow.
                 </p>
                 <div class="card__tags">
-                  <span class="tag">C</span>
-                  <span class="tag">Ledger CLI</span>
-                  <span class="tag">Leak-Free Memory</span>
+                  <span class="tag">Astro</span>
+                  <span class="tag">Custom Orders</span>
+                  <span class="tag">Resend</span>
+                  <span class="tag">Bun</span>
+                </div>
+                <div class="featured-nav">
+                  <a href="https://jewelsbypatty.com" target="_blank" rel="noopener"
+                    >Visit Site →</a
+                  >
                 </div>
               </div>
 
@@ -242,6 +248,25 @@
           <section class="section">
             <h2 class="section__title">ADDITIONAL WORK</h2>
             <div class="project-list">
+              <div class="project-item">
+                <div class="project-item__info">
+                  <div class="project-item__name">C-CentLedger</div>
+                  <div class="project-item__description">
+                    Financial tracking CLI with cent-based currency math,
+                    dynamic arrays, category filters, and explicit memory
+                    management
+                  </div>
+                  <div class="project-item__stack">C • Dynamic Arrays • Memory Management</div>
+                </div>
+                <a
+                  href="https://github.com/jacobsmxth"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-item__link"
+                  >View →</a
+                >
+              </div>
+
               <div class="project-item">
                 <div class="project-item__info">
                   <div class="project-item__name">CentDash</div>
@@ -280,15 +305,15 @@
 
               <div class="project-item">
                 <div class="project-item__info">
-                  <div class="project-item__name">GoatRewards.com</div>
+                  <div class="project-item__name">Jewels by Patty</div>
                   <div class="project-item__description">
-                    Multi-API integration client with real-time leaderboards and
-                    aggregation layer
+                    Client website for handmade jewelry with gallery-driven
+                    custom order requests and Resend-powered forms
                   </div>
-                  <div class="project-item__stack">Client Project • API Integration</div>
+                  <div class="project-item__stack">Astro • TypeScript • Resend • Netlify</div>
                 </div>
                 <a
-                  href="https://www.goatrewards.com/"
+                  href="https://jewelsbypatty.com"
                   target="_blank"
                   rel="noopener"
                   class="project-item__link"
@@ -301,9 +326,9 @@
                   <div class="project-item__name">jsmitty.dev</div>
                   <div class="project-item__description">
                     Minimalist portfolio with dark grayscale theme, command
-                    palette (Ctrl+K), and keyboard shortcuts
+                    palette (Ctrl+K), keyboard shortcuts, and Bun-based tooling
                   </div>
-                  <div class="project-item__stack">HTML • SCSS • TypeScript</div>
+                  <div class="project-item__stack">HTML • SCSS • TypeScript • Bun</div>
                 </div>
                 <a
                   href="https://jsmitty.dev"
@@ -336,7 +361,7 @@
 
           <div class="grid">
             <section class="section">
-              <h2 class="section__title">EXPERIENCE</h2>
+              <h2 class="section__title" id="experience">EXPERIENCE</h2>
               <div class="timeline">
                 <div class="timeline-item">
                   <div class="timeline-item__period">JUN 2025 – NOW</div>
@@ -370,7 +395,7 @@
             </section>
 
             <section class="section">
-              <h2 class="section__title">SKILLS</h2>
+              <h2 class="section__title" id="skills">SKILLS</h2>
               <div class="skill-categories">
                 <div class="skill-category">
                   <div class="skill-category__label">Languages</div>
@@ -388,8 +413,9 @@
                   <div class="skill-category__items">
                     <span class="tech-item">HTML</span>
                     <span class="tech-item">CSS</span>
-                    <span class="tech-item">TypeScript SPAs</span>
-                    <span class="tech-item">REST Integration</span>
+                  <span class="tech-item">TypeScript SPAs</span>
+                  <span class="tech-item">Astro</span>
+                  <span class="tech-item">REST Integration</span>
                   </div>
                 </div>
                 <div class="skill-category">
@@ -430,6 +456,8 @@
                     <span class="tech-item">RESTful APIs</span>
                     <span class="tech-item">Auth Workflows</span>
                     <span class="tech-item">Ledger Design</span>
+                    <span class="tech-item">Bun</span>
+                    <span class="tech-item">Resend</span>
                     <span class="tech-item">Git</span>
                   </div>
                 </div>
@@ -509,7 +537,7 @@
               </p>
               <div class="hero__links">
                 <a
-                  href="JacobSmith_Apr2026.pdf"
+                  href="/JacobSmith_Apr2026.pdf"
                   target="_blank"
                   class="hero__resume"
                   >Resume</a
@@ -585,7 +613,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__content">
-          <div>&copy; 2026 Jacob Smith — Built with HTML, SCSS, TypeScript</div>
+          <div>&copy; 2026 Jacob Smith — Built with HTML, SCSS, TypeScript, and Bun</div>
           <div class="footer__credit">
             Background:
             <a
@@ -619,6 +647,6 @@
       </div>
     </div>
 
-    <script type="module" src="dist/js/main.js"></script>
+    <script src="../main.ts"></script>
   </body>
 </html>

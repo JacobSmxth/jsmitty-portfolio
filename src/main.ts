@@ -13,7 +13,7 @@ const commands: Command[] = [
   {
     label: 'View Resume',
     description: 'Open resume PDF',
-    action: () => window.open('JacobSmith_Apr2026.pdf', '_blank'),
+    action: () => window.open('/JacobSmith_Apr2026.pdf', '_blank'),
     keywords: ['resume', 'cv', 'download', 'pdf']
   },
   {
@@ -48,9 +48,15 @@ const commands: Command[] = [
   },
   {
     label: 'NinjaBux',
-    description: 'Multi-tenant reward platform — view on GitHub',
+    description: 'Multi-tenant Code Ninjas reward platform',
     action: () => window.open('https://github.com/JacobSmxth/code-ninjas-bux', '_blank'),
     keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac']
+  },
+  {
+    label: 'Jewels by Patty',
+    description: 'Custom jewelry website with gallery and order flow',
+    action: () => window.open('https://jewelsbypatty.com', '_blank'),
+    keywords: ['project', 'jewels by patty', 'patty', 'astro', 'resend', 'netlify', 'client']
   },
   {
     label: 'C-CentLedger',
@@ -93,6 +99,24 @@ const commands: Command[] = [
     description: 'Open Stonepath web agency',
     action: () => window.open('https://stonepath.dev', '_blank'),
     keywords: ['stonepath', 'agency', 'astro', 'web']
+  },
+  {
+    label: 'Projects',
+    description: 'Jump to featured projects',
+    action: () => scrollToSection('projects'),
+    keywords: ['projects', 'portfolio', 'work']
+  },
+  {
+    label: 'Experience',
+    description: 'Jump to work experience',
+    action: () => scrollToSection('experience'),
+    keywords: ['experience', 'work', 'jobs']
+  },
+  {
+    label: 'Skills',
+    description: 'Jump to skills',
+    action: () => scrollToSection('skills'),
+    keywords: ['skills', 'tech', 'stack', 'tools']
   }
 ];
 
@@ -145,8 +169,8 @@ function renderCommands(): void {
   commandResults.innerHTML = filteredCommands.map((cmd, index) => `
     <div class="command-palette__item ${index === selectedIndex ? 'selected' : ''}" data-index="${index}">
       <div>
-        <div class="command-palette__item-label">${cmd.label}</div>
-        <div class="command-palette__item-description">${cmd.description}</div>
+        <div class="command-palette__item-label">${escapeHtml(cmd.label)}</div>
+        <div class="command-palette__item-description">${escapeHtml(cmd.description)}</div>
       </div>
       <div class="command-palette__item-key">↵</div>
     </div>
@@ -171,16 +195,16 @@ function executeCommand(index: number): void {
 }
 
 function scrollToSection(id: string): void {
-  const sections: { [key: string]: string } = {
-    'projects': '.section:nth-of-type(1)',
-    'experience': '.section:nth-of-type(4)',
-    'tech': '.section:nth-of-type(4)'
-  };
-
-  const element: HTMLElement | null = document.querySelector(sections[id]);
+  const element: HTMLElement | null = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
   }
+}
+
+function escapeHtml(value: string): string {
+  const element: HTMLDivElement = document.createElement('div');
+  element.textContent = value;
+  return element.innerHTML;
 }
 
 function copyToClipboard(text: string): void {
@@ -208,13 +232,12 @@ function handleKeyDown(e: KeyboardEvent): void {
   if (e.key === 'Tab') {
     e.preventDefault();
     e.stopPropagation();
+    if (filteredCommands.length === 0) return;
+
     if (e.shiftKey) {
-      selectedIndex = Math.max(selectedIndex - 1, 0);
+      selectedIndex = selectedIndex === 0 ? filteredCommands.length - 1 : selectedIndex - 1;
     } else {
-      selectedIndex = Math.min(selectedIndex + 1, filteredCommands.length - 1);
-      if (selectedIndex > filteredCommands.length - 1) {
-        selectedIndex = 0;
-      }
+      selectedIndex = (selectedIndex + 1) % filteredCommands.length;
     }
     renderCommands();
     return;
@@ -228,13 +251,15 @@ function handleKeyDown(e: KeyboardEvent): void {
 
     case 'ArrowDown':
       e.preventDefault();
-      selectedIndex = Math.min(selectedIndex + 1, filteredCommands.length - 1);
+      if (filteredCommands.length === 0) return;
+      selectedIndex = (selectedIndex + 1) % filteredCommands.length;
       renderCommands();
       break;
 
     case 'ArrowUp':
       e.preventDefault();
-      selectedIndex = Math.max(selectedIndex - 1, 0);
+      if (filteredCommands.length === 0) return;
+      selectedIndex = selectedIndex === 0 ? filteredCommands.length - 1 : selectedIndex - 1;
       renderCommands();
       break;
 

@@ -1,64 +1,59 @@
 # Jacob Smith Portfolio
-Minimalist, performance-focused portfolio site with dark grayscale theme, sharp edges, and command palette navigation.
+Astro portfolio site with a dark grayscale theme, sharp edges, featured project writeups, and command palette navigation.
 
 ## Features
 - **Single-scroll executive summary** - All key info visible in one flow
 - **Command palette** - Press `Ctrl+K` (or `Cmd+K` on Mac) to open command palette
 - **Keyboard navigation** - Arrow keys to navigate, Enter to execute, Esc to close
 - **Dark grayscale theme** - Black background with grayscale accents, no rounded corners
-- **Performance-first** - Single SCSS file, minimal JavaScript, optimized assets
+- **Performance-first** - Astro static output, single SCSS entry, minimal JavaScript, optimized assets
 - **Background image** - Grayscale mountain background (credit: Fabrizio Conti/Unsplash)
 
 ## Project Structure
 ```
 jsmitty-portfolio/
-├── index.html # Single-page portfolio
-├── assets/
-│ └── background.jpg # Background image
+├── astro.config.mjs # Astro config
+├── public/
+│ ├── assets/
+│ │ ├── background.webp # Background image
+│ │ └── favicon.png
+│ ├── favicon.ico
+│ └── JacobSmith_Apr2026.pdf
 ├── src/
+│ ├── pages/
+│ │ └── index.astro # Single-page portfolio
 │ ├── main.ts # Command palette & keyboard shortcuts
 │ └── styles/
-│ └── main.scss # Single SCSS file (dark theme)
-├── dist/ # Compiled output (generated)
-│ ├── css/
-│ │ └── main.css
-│ └── js/
-│ └── main.js
+│   └── main.scss # Single SCSS file (dark theme)
 └── package.json
 ```
 
 ## Development
 ### Install Dependencies
 ```bash
-npm install
+bun install
 ```
 
 ### Build (CSS + TypeScript)
 ```bash
-npm run build
+bun run build
 ```
 
 ### Development Mode (watch for changes)
 ```bash
-npm run dev
+bun run dev
 ```
 
-### Individual Commands
+### Other Commands
 ```bash
-npm run build:css # Build CSS only
-npm run build:ts # Build TypeScript only
-npm run watch:css # Watch CSS
-npm run watch:ts # Watch TypeScript
+bun run preview # Preview the production build
+bun run check # Run Astro diagnostics
 ```
 
 ## Viewing the Site
-Open `index.html` in your browser, or use a local server:
+Run the Astro development server:
 ```bash
-# Using Python
-python -m http.server 8000
-# Using Node http-server
-http-server -p 8000
-# Then visit http://localhost:8000
+bun run dev
 ```
 
 ## Keyboard Shortcuts
@@ -77,16 +72,18 @@ http-server -p 8000
 
 ## Design Philosophy
 - **Dark & minimal** - Black background, grayscale palette, sharp edges
-- **Performance-focused** - Single SCSS file, basic TypeScript, no frameworks
+- **Performance-focused** - Static Astro output, single SCSS entry, basic TypeScript
 - **Keyboard-first** - Command palette for power users
 - **Single-scroll** - Executive summary format, all info in one page
+- **Bun-first tooling** - Bun manages dependencies and runs all scripts
 - **AI-assisted development** — Claude was used to rapidly expand and directly add changes from my resume to the site
 
 ## Tech Stack
 - HTML5
+- Astro
 - SCSS (single file, modern `@use` syntax)
 - TypeScript (basic static typing)
-- No frameworks - vanilla JS
+- Bun package manager/runtime for scripts
 
 ## Credits
 Background photo by [Fabrizio Conti](https://unsplash.com/@conti_photos) on [Unsplash](https://unsplash.com/photos/grayscale-photograph-of-mountain-ranges-9oKZm8YgcnA)
