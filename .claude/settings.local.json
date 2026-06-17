@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(bun run *)",
+      "mcp__visualize__show_widget"
     ],
     "deny": [],
     "ask": []

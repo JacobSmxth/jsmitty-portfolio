@@ -3,17 +3,18 @@
 
 // === VARIABLES ===
 $black: #000000;
-$gray-900: #0a0a0a;
-$gray-800: #1a1a1a;
-$gray-700: #2a2a2a;
-$gray-600: #3a3a3a;
-$gray-500: #6a6a6a;
-$gray-400: #9a9a9a;
-$gray-300: #cacaca;
-$gray-200: #e0e0e0;
-$white: #ffffff;
+$bg: #0d0d0f;        // soft near-black page background (less harsh than pure #000)
+$gray-900: #17171a;  // elevated surfaces (cards, inputs) — sits above $bg
+$gray-800: #242428;
+$gray-700: #313137;
+$gray-600: #45454d;
+$gray-500: #74747d;
+$gray-400: #a0a0a8;
+$gray-300: #cdcdd2;
+$gray-200: #e4e4e8;
+$white: #f2f2f4;      // soft white — eases the glare of pure #fff on dark
 
-$accent: #ffffff;
+$accent: $white;
 $accent-dim: #888888;
 
 $font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', Consolas, monospace;
@@ -37,7 +38,7 @@ body {
   font-family: $font-sans;
   line-height: 1.6;
   color: $gray-200;
-  background-color: $black;
+  background-color: $bg;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -104,34 +105,25 @@ strong {
 }
 
 // === BACKGROUND ===
-.bg-image {
+// Blueprint line grid — pure CSS, fixed behind content, fades toward the edges
+$grid-line: rgba(255, 255, 255, 0.045);
+
+body::before {
+  content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: -1;
-  opacity: 0.1;
+  pointer-events: none;
+  background-image:
+    linear-gradient($grid-line 1px, transparent 1px),
+    linear-gradient(90deg, $grid-line 1px, transparent 1px);
+  background-size: 30px 30px;
+  // Keep the grid off the hard edges so it reads as depth, not a table
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 35%, transparent 100%);
 
-  // Hide on mobile for performance
   @media (max-width: 768px) {
-    display: none;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
+    background-size: 24px 24px;
   }
 }
 
@@ -716,13 +708,20 @@ strong {
     }
   }
 
-  &__credit {
+  &__links {
+    display: flex;
+    gap: 1.25rem;
+
     a {
       color: $gray-400;
 
       &:hover {
         color: $white;
       }
+    }
+
+    @media (max-width: 768px) {
+      gap: 1rem;
     }
   }
 }
