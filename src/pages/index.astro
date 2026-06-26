@@ -122,9 +122,11 @@ import '../styles/main.scss';
             </div>
             <div class="hero__links">
               <a
-                href="/JacobSmith_Apr2026.pdf"
+                href="/Resume_June2026-JS.pdf"
                 target="_blank"
+                rel="noopener"
                 class="hero__resume"
+                data-resume-trigger
                 >Resume</a
               >
               <a
@@ -564,9 +566,11 @@ import '../styles/main.scss';
               </p>
               <div class="hero__links">
                 <a
-                  href="/JacobSmith_Apr2026.pdf"
+                  href="/Resume_June2026-JS.pdf"
                   target="_blank"
+                  rel="noopener"
                   class="hero__resume"
+                  data-resume-trigger
                   >Resume</a
                 >
                 <a href="mailto:jacob.d.smith@live.com" class="hero__norm">Email</a>
@@ -659,6 +663,47 @@ import '../styles/main.scss';
         </div>
       </div>
     </footer>
+
+    <div
+      class="resume-modal"
+      id="resumeModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="resumeModalTitle"
+      aria-hidden="true"
+    >
+      <div class="resume-modal__container">
+        <button
+          type="button"
+          class="resume-modal__close"
+          id="resumeModalClose"
+          aria-label="Close"
+        >&times;</button>
+        <h2 class="resume-modal__title" id="resumeModalTitle">Resume</h2>
+        <p class="resume-modal__subtitle">Choose a format</p>
+        <div class="resume-modal__options">
+          <a
+            href="/Resume_June2026-JS.pdf"
+            target="_blank"
+            rel="noopener"
+            class="resume-modal__option"
+            data-resume-option
+          >
+            <span class="resume-modal__option-format">PDF</span>
+            <span class="resume-modal__option-desc">Open in browser</span>
+          </a>
+          <a
+            href="/Resume_June2026-JS.docx"
+            class="resume-modal__option"
+            download
+            data-resume-option
+          >
+            <span class="resume-modal__option-format">DOCX</span>
+            <span class="resume-modal__option-desc">Download Word file</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <div class="command-palette" id="commandPalette">
       <div class="command-palette__container">

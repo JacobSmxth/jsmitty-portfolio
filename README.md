@@ -18,7 +18,8 @@ jsmitty-portfolio/
 │ │ ├── background.webp # Background image
 │ │ └── favicon.png
 │ ├── favicon.ico
-│ └── JacobSmith_Apr2026.pdf
+│ ├── Resume_June2026-JS.pdf
+│ └── Resume_June2026-JS.docx
 ├── src/
 │ ├── pages/
 │ │ └── index.astro # Single-page portfolio

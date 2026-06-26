@@ -12,9 +12,9 @@ let filteredCommands: Command[] = [];
 const commands: Command[] = [
   {
     label: 'View Resume',
-    description: 'Open resume PDF',
-    action: () => window.open('/JacobSmith_Apr2026.pdf', '_blank'),
-    keywords: ['resume', 'cv', 'download', 'pdf']
+    description: 'Choose PDF or DOCX',
+    action: () => openResumeModal(),
+    keywords: ['resume', 'cv', 'download', 'pdf', 'docx', 'word']
   },
   {
     label: 'View Codeberg',
@@ -124,6 +124,23 @@ const commandPalette: HTMLElement | null = document.getElementById('commandPalet
 const commandInput: HTMLInputElement | null = document.getElementById('commandInput') as HTMLInputElement;
 const commandResults: HTMLElement | null = document.getElementById('commandResults');
 
+const resumeModal: HTMLElement | null = document.getElementById('resumeModal');
+const resumeModalClose: HTMLElement | null = document.getElementById('resumeModalClose');
+
+function openResumeModal(): void {
+  if (resumeModal) {
+    resumeModal.classList.add('active');
+    resumeModal.setAttribute('aria-hidden', 'false');
+  }
+}
+
+function closeResumeModal(): void {
+  if (resumeModal) {
+    resumeModal.classList.remove('active');
+    resumeModal.setAttribute('aria-hidden', 'true');
+  }
+}
+
 function openCommandPalette(): void {
   if (commandPalette) {
     commandPalette.classList.add('active');
@@ -216,6 +233,12 @@ function copyToClipboard(text: string): void {
 }
 
 function handleKeyDown(e: KeyboardEvent): void {
+  if (e.key === 'Escape' && resumeModal?.classList.contains('active')) {
+    e.preventDefault();
+    closeResumeModal();
+    return;
+  }
+
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
     if (commandPalette?.classList.contains('active')) {
@@ -285,6 +308,33 @@ function init(): void {
       if (e.target === commandPalette) {
         closeCommandPalette();
       }
+    });
+  }
+
+  const resumeTriggers: NodeListOf<HTMLElement> = document.querySelectorAll('[data-resume-trigger]');
+  resumeTriggers.forEach((trigger: HTMLElement) => {
+    trigger.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      openResumeModal();
+    });
+  });
+
+  if (resumeModalClose) {
+    resumeModalClose.addEventListener('click', closeResumeModal);
+  }
+
+  if (resumeModal) {
+    resumeModal.addEventListener('click', (e: MouseEvent) => {
+      if (e.target === resumeModal) {
+        closeResumeModal();
+      }
+    });
+
+    const resumeOptions: NodeListOf<HTMLElement> = resumeModal.querySelectorAll('[data-resume-option]');
+    resumeOptions.forEach((option: HTMLElement) => {
+      option.addEventListener('click', () => {
+        closeResumeModal();
+      });
     });
   }
 
