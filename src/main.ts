@@ -48,9 +48,9 @@ const commands: Command[] = [
   },
   {
     label: 'NinjaBux',
-    description: 'Multi-tenant Code Ninjas reward platform',
+    description: 'Deployed multi-tenant Code Ninjas reward platform',
     action: () => window.open('https://github.com/JacobSmxth/code-ninjas-bux', '_blank'),
-    keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac']
+    keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac', 'ledger']
   },
   {
     label: 'Jewels by Patty',
@@ -60,7 +60,7 @@ const commands: Command[] = [
   },
   {
     label: 'C-CentLedger',
-    description: 'Financial tracking CLI written in C',
+    description: 'Financial CLI with cent math and manual memory management',
     action: () => window.open('https://github.com/jacobsmxth', '_blank'),
     keywords: ['project', 'c', 'ledger', 'finance', 'dynamic array', 'memory']
   },
@@ -72,15 +72,15 @@ const commands: Command[] = [
   },
   {
     label: 'CentDash',
-    description: 'View project on GitHub',
+    description: 'Personal finance API with aggregation endpoints',
     action: () => window.open('https://github.com/jacobsmxth/centdash', '_blank'),
-    keywords: ['project', 'centdash', 'finance', 'jpa']
+    keywords: ['project', 'centdash', 'finance', 'jpa', 'api']
   },
   {
     label: 'Inventory API',
-    description: 'View project on GitHub',
+    description: 'Spring Boot inventory API with validation and alerts',
     action: () => window.open('https://github.com/JacobSmxth/inventory-management-api', '_blank'),
-    keywords: ['project', 'inventory', 'api', 'spring boot']
+    keywords: ['project', 'inventory', 'api', 'spring boot', 'validation']
   },
   {
     label: 'Ichthys.nvim',
@@ -101,6 +101,12 @@ const commands: Command[] = [
     keywords: ['stonepath', 'agency', 'astro', 'web']
   },
   {
+    label: 'Current Focus',
+    description: 'Jump to Fiserv operations systems work',
+    action: () => scrollToSection('focus'),
+    keywords: ['focus', 'fiserv', 'operations', 'office.js', 'power automate', 'power bi', 'dashboards']
+  },
+  {
     label: 'Projects',
     description: 'Jump to featured projects',
     action: () => scrollToSection('projects'),
@@ -117,6 +123,12 @@ const commands: Command[] = [
     description: 'Jump to skills',
     action: () => scrollToSection('skills'),
     keywords: ['skills', 'tech', 'stack', 'tools']
+  },
+  {
+    label: 'Availability',
+    description: 'Jump to availability and contact links',
+    action: () => scrollToSection('availability'),
+    keywords: ['availability', 'contact', 'roles', 'email']
   }
 ];
 

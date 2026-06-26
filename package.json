@@ -1,7 +1,7 @@
 {
   "name": "jsmitty-portfolio",
   "version": "1.0.0",
-  "description": "Jacob Smith - Backend Developer & Technical Instructor Portfolio",
+  "description": "Jacob Smith - Technical Business Operations, Automation, and Software Portfolio",
   "packageManager": "bun@1.3.11",
   "type": "module",
   "scripts": {
