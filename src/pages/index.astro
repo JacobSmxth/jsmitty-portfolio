@@ -1,789 +1,152 @@
 ---
 import '../styles/main.scss';
----
+import RepoExplorer from '../components/RepoExplorer';
 
+const repos = [
+  { name: 'stonepath-agency', description: 'Fast, practical websites for service businesses.', language: 'Astro', source: 'Codeberg', url: 'https://codeberg.org/JSmitty/stonepath-agency', featured: true },
+  { name: 'VO2 Training', description: 'Publicly deployed training and workout planning experience.', language: 'JavaScript', source: 'GitHub', url: 'https://github.com/JacobSmxth/potential-client-v02', featured: true },
+  { name: 'CentDash', description: 'Finance API evolving from CSV persistence to JPA and JPQL.', language: 'Java', source: 'Codeberg', url: 'https://codeberg.org/JSmitty/cent-dash', featured: true },
+  { name: 'Inventory Management API', description: 'Validated inventory CRUD, SKU rules, and low-stock alerts.', language: 'Java', source: 'GitHub', url: 'https://github.com/JacobSmxth/Inventory-management-api' },
+  { name: 'csniff', description: 'Recent systems-oriented networking work in C.', language: 'C', source: 'GitHub', url: 'https://github.com/JacobSmxth/csniff' },
+  { name: 'word-frequency-analyzer', description: 'Hash tables, sorting, and manual memory management.', language: 'C', source: 'GitHub', url: 'https://github.com/JacobSmxth/word-frequency-analyzer' },
+  { name: 'PrizePicks Projects', description: 'TypeScript and React learning projects.', language: 'TypeScript', source: 'GitHub', url: 'https://github.com/JacobSmxth/PrizePicks-Projects' },
+  { name: 'Task Manager API', description: 'REST API with soft deletion, recovery, and complex filtering.', language: 'Java', source: 'GitHub', url: 'https://github.com/JacobSmxth/task-manager-api' },
+  { name: 'CentLedger', description: 'Cent-precise ledger CLI with OpenCSV persistence.', language: 'Java', source: 'GitHub', url: 'https://github.com/JacobSmxth/CentLedger' },
+  { name: 'Ichthys Neovim', description: 'Personal developer tooling and editor workflow.', language: 'Lua', source: 'Codeberg', url: 'https://codeberg.org/JSmitty/ichthys-nvim' },
+  { name: 'Workout Tracker', description: 'Java workout tracking API and relationship modeling.', language: 'Java', source: 'GitHub', url: 'https://github.com/JacobSmxth/workout-tracker' },
+  { name: 'PR API', description: 'Small API for tracking workout personal records.', language: 'Java', source: 'GitHub', url: 'https://github.com/JacobSmxth/pr-api' },
+  { name: 'Custom Startpage', description: 'A personalized browser start page.', language: 'JavaScript', source: 'GitHub', url: 'https://github.com/JacobSmxth/custom-startpage' },
+] as const;
+---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Jacob Smith - Business Operations Intern at Fiserv Financial Solutions. CS & Cybersecurity student building operations automation, dashboards, backend APIs, and learning systems that make work easier to track and explain."
-    />
-    <meta
-      name="keywords"
-      content="business operations, fintech, financial solutions, process automation, Excel automation, Office.js, Power Automate, Power BI, cybersecurity, software engineering, Java, Spring Boot, Python, TypeScript, Fiserv, UNG, client delivery"
-    />
+    <meta name="description" content="Jacob Smith's portfolio: business operations, software engineering, automation, technical education, and selected projects." />
     <meta name="author" content="Jacob Smith" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/favicon.png" />
-
-    <!-- Open Graph Meta Tags -->
+    <link rel="canonical" href="https://jsmitty.dev/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Jacob Smith - Technical Business Operations Intern @ Fiserv | CS & Cybersecurity Student"
-    />
-    <meta
-      property="og:description"
-      content="CS & Cybersecurity student building operations automation, dashboards, backend APIs, and learning systems that make work easier to track and explain."
-    />
-    <meta property="og:url" content="https://jsmitty.dev" />
-    <meta property="og:site_name" content="Jacob Smith Portfolio" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:title" content="Jacob Smith — Business Operations & Software" />
+    <meta property="og:description" content="A record of my work across business operations, software engineering, automation, and technical education." />
+    <meta property="og:url" content="https://jsmitty.dev/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Jacob Smith - Technical Business Operations Intern @ Fiserv | CS & Cybersecurity Student" />
-    <meta
-      name="twitter:description"
-      content="CS & Cybersecurity student building operations automation, dashboards, backend APIs, and learning systems that make work easier to track and explain."
-    />
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jacob Smith",
-        "url": "https://jsmitty.dev",
-        "jobTitle": "Technical Business Operations Intern at Fiserv | CS & Cybersecurity Student",
-        "email": "jacob.d.smith@live.com",
-        "sameAs": [
-          "https://codeberg.org/jsmitty",
-          "https://github.com/jacobsmxth",
-          "https://linkedin.com/in/jacobsmxth",
-          "https://discordapp.com/users/518631054018609154"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Fiserv"
-        },
-        "knowsAbout": [
-          "Java",
-          "Spring Boot",
-          "REST API",
-          "Backend Development",
-          "Systems Programming",
-          "Cybersecurity",
-          "Python",
-          "TypeScript",
-          "C",
-          "Office.js",
-          "Power Automate",
-          "Power BI",
-          "Nmap",
-          "Burp Suite"
-        ]
-      }
-    </script>
-
-    <title>
-      Jacob Smith - Technical Business Operations Intern @ Fiserv | CS & Cybersecurity Student
-    </title>
+    <title>Jacob Smith — Business Operations & Software Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="logo">JACOB SMITH</div>
-        <div class="kbd-hint">
-          <span>Press</span>
-          <kbd class="kbd">Ctrl</kbd>
-          <kbd class="kbd">K</kbd>
-          <span>for commands</span>
-        </div>
-      </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="#main">JACOB SMITH</a>
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a><a href="#repositories">Repositories</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      </nav>
+      <button class="command-button" type="button" data-command-trigger aria-label="Open command palette">⌘ K</button>
     </header>
-
-    <main class="main">
-      <div class="executive-summary">
-        <div class="container">
-          <section class="hero">
-            <h1 class="hero__title">
-              Technical Business Operations Intern @ Fiserv
-            </h1>
-            <p class="hero__subtitle">
-              Cybersecurity and Computer Science student who likes turning messy
-              workflows into systems people can trust. At Fiserv Financial
-              Solutions, I build initiative tracking, Office.js automation,
-              Power Automate workflows, and Power BI dashboards for operations
-              leaders. Outside work, I ship Spring Boot APIs, reward platforms,
-              and client sites with the same bias: clear data, auditability, and
-              tools that explain themselves.
-            </p>
-            <div class="hero__metric">
-              FISERV FINANCIAL SOLUTIONS | INITIATIVE TRACKING, AUTOMATION &amp; DASHBOARDS | SUMMER 2026
-            </div>
-            <div class="hero__links">
-              <a
-                href="/Resume_June2026-JS.pdf"
-                target="_blank"
-                rel="noopener"
-                class="hero__resume"
-                data-resume-trigger
-                >Resume</a
-              >
-              <a
-                href="https://codeberg.org/jsmitty"
-                target="_blank"
-                class="hero__norm"
-                rel="noopener"
-                >Codeberg</a
-              >
-              <a
-                href="https://github.com/jacobsmxth"
-                target="_blank"
-                class="hero__norm"
-                rel="noopener"
-                >GitHub</a
-              >
-              <a
-                href="https://linkedin.com/in/jacobsmxth"
-                target="_blank"
-                class="hero__norm"
-                rel="noopener"
-                >LinkedIn</a
-              >
-              <a href="mailto:jacob.d.smith@live.com" class="hero__norm">Email</a>
-
-              <a
-                href="https://discordapp.com/users/518631054018609154"
-                target="_blank"
-                class="hero__norm"
-                rel="noopener"
-                >Discord</a
-              >
-              <a
-                href="https://stonepath.dev"
-                target="_blank"
-                class="hero__norm"
-                rel="noopener"
-                >Stonepath</a
-              >
-            </div>
-          </section>
-
-          <section class="section" id="focus">
-            <h2 class="section__title">CURRENT FOCUS</h2>
-            <div class="grid">
-              <div class="card">
-                <h3 class="card__title">Operations Initiative Tracking</h3>
-                <div class="card__meta">Fiserv Financial Solutions</div>
-                <p class="card__description">
-                  Architected an end-to-end Excel tracking system so
-                  cross-departmental leads could log, prioritize, escalate, and
-                  close initiatives from one source of truth.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Excel Systems</span>
-                  <span class="tag">Audit Trail</span>
-                  <span class="tag">Workflow Design</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <h3 class="card__title">Automation Layer</h3>
-                <div class="card__meta">Office.js + Power Automate</div>
-                <p class="card__description">
-                  Authored scripts for history logging, delta tracking,
-                  automated ID assignment, and completed-project clearing, then
-                  tied the workflow into weekly status automation.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Office.js</span>
-                  <span class="tag">Power Automate</span>
-                  <span class="tag">Digest Emails</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <h3 class="card__title">Executive Visibility</h3>
-                <div class="card__meta">Power BI + Stakeholder Reporting</div>
-                <p class="card__description">
-                  Built dashboards and cleaned operational datasets for VP-,
-                  Director-, PM-, and analyst-level conversations, making
-                  project health and bottlenecks easier to see during change.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Power BI</span>
-                  <span class="tag">Data Cleansing</span>
-                  <span class="tag">Status Reporting</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section" id="projects">
-            <h2 class="section__title">FEATURED PROJECTS</h2>
-            <div class="grid">
-              <div class="card">
-                <h3 class="card__title">NinjaBux — Multi-Tenant Reward Platform</h3>
-                <div class="card__meta">
-                  Java 21 • Spring Boot • PostgreSQL • TypeScript
-                </div>
-                <p class="card__description">
-                  Built originally as a solo project for Code Ninjas, then
-                  deployed across multiple locations supporting 20+ active
-                  student accounts. The platform uses isolated multi-tenant data,
-                  JWT auth, role hierarchy, a responsive TypeScript SPA, and an
-                  immutable ledger as the source of truth for balances; the next
-                  step is broader dojo availability with Code Ninjas engineers.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">JWT Auth</span>
-                  <span class="tag">RBAC</span>
-                  <span class="tag">Ledger System</span>
-                  <span class="tag">20+ Accounts</span>
-                  <span class="tag">Code Ninjas</span>
-                </div>
-                <div class="featured-nav">
-                  <a
-                    href="https://github.com/JacobSmxth/code-ninjas-bux"
-                    target="_blank"
-                    rel="noopener"
-                    >View on GitHub →</a
-                  >
-                </div>
-              </div>
-
-              <div class="card">
-                <h3 class="card__title">Jewels by Patty — Custom Jewelry Site</h3>
-                <div class="card__meta">
-                  Astro • TypeScript • SCSS • Resend • Netlify
-                </div>
-                <p class="card__description">
-                  A handmade jewelry business needed a polished custom-order flow
-                  without the weight of a full storefront. I built an Astro site
-                  with a WebP-optimized gallery, reusable request modal,
-                  Resend-powered emails, and a Shopify-free path for bespoke
-                  orders.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">AI-Assisted</span>
-                  <span class="tag">Client Delivery</span>
-                  <span class="tag">Astro</span>
-                  <span class="tag">Custom Orders</span>
-                  <span class="tag">Resend</span>
-                </div>
-                <div class="featured-nav">
-                  <a href="https://jewelsbypatty.com" target="_blank" rel="noopener"
-                    >Visit Site →</a
-                  >
-                </div>
-              </div>
-
-              <div class="card">
-                <h3 class="card__title">Hack the Box — Starting Point</h3>
-                <div class="card__meta">
-                  Nmap • smbclient • CLI Tooling
-                </div>
-                <p class="card__description">
-                  Practical security reps across Meow, Fawn, Redeemer, Dancing,
-                  and Appointment. The work covered Telnet enumeration,
-                  anonymous FTP exposure, unauthenticated Redis access, SMB share
-                  enumeration, and SQL injection against a vulnerable login form.
-                </p>
-                <div class="card__tags">
-                  <span class="tag">Enumeration</span>
-                  <span class="tag">Exploitation</span>
-                  <span class="tag">Pentesting</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h2 class="section__title">ADDITIONAL WORK</h2>
-            <div class="project-list">
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">C-CentLedger</div>
-                  <div class="project-item__description">
-                    Financial tracking CLI with cent-based currency math,
-                    amortized O(1) dynamic arrays, category and amount queries,
-                    and explicit memory lifecycle management
-                  </div>
-                  <div class="project-item__stack">C • Dynamic Arrays • Memory Management</div>
-                </div>
-                <a
-                  href="https://github.com/jacobsmxth"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">CentDash</div>
-                  <div class="project-item__description">
-                    Personal finance API with CSV-to-database migration,
-                    aggregation endpoints, and ORM mappings with cent-based precision
-                  </div>
-                  <div class="project-item__stack">Spring Boot • JPA • JPQL</div>
-                </div>
-                <a
-                  href="https://github.com/jacobsmxth/centdash"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">Inventory API</div>
-                  <div class="project-item__description">
-                    REST API with CRUD, regex SKU validation, low-stock alerts,
-                    and centralized exception handling
-                  </div>
-                  <div class="project-item__stack">Spring Boot • Java 21 • H2</div>
-                </div>
-                <a
-                  href="https://github.com/JacobSmxth/inventory-management-api"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">Jewels by Patty</div>
-                  <div class="project-item__description">
-                    Client site for handmade jewelry — AI-assisted workflow enabled
-                    expedited delivery with gallery-driven custom order requests and
-                    Resend-powered forms
-                  </div>
-                  <div class="project-item__stack">Astro • TypeScript • Resend • Netlify</div>
-                </div>
-                <a
-                  href="https://jewelsbypatty.com"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">jsmitty.dev</div>
-                  <div class="project-item__description">
-                    Minimalist executive-summary portfolio with dark grayscale
-                    theme, command palette (Ctrl+K), keyboard shortcuts, and
-                    Bun-based tooling
-                  </div>
-                  <div class="project-item__stack">HTML • SCSS • TypeScript • Bun</div>
-                </div>
-                <a
-                  href="https://jsmitty.dev"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-
-              <div class="project-item">
-                <div class="project-item__info">
-                  <div class="project-item__name">Ichthys.nvim</div>
-                  <div class="project-item__description">
-                    Custom Neovim config for Java/C with LSP, DAP, and
-                    telescope workflows
-                  </div>
-                  <div class="project-item__stack">Neovim • Lua • LSP</div>
-                </div>
-                <a
-                  href="https://github.com/JacobSmxth/Ichthys"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-item__link"
-                  >View →</a
-                >
-              </div>
-            </div>
-          </section>
-
-          <div class="grid">
-            <section class="section">
-              <h2 class="section__title" id="experience">EXPERIENCE</h2>
-              <div class="timeline">
-                <div class="timeline-item">
-                  <div class="timeline-item__period">JUN 2026 - AUG 2026</div>
-                  <div class="timeline-item__content">
-                    <h3>Business Operations Intern - Fiserv</h3>
-                    <p>
-                      Built an Operations Initiative Tracking system for
-                      cross-departmental leads, then added Office.js automation
-                      for history logging, delta tracking, ID assignment, and
-                      completed-project cleanup. Integrated the workflow with
-                      Power Automate and Power BI so VP- and Director-level
-                      stakeholders could see project health, bottlenecks, and
-                      status changes clearly.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-item__period">JUN 2025 - NOW</div>
-                  <div class="timeline-item__content">
-                    <h3>Coding Instructor - Code Ninjas</h3>
-                    <p>
-                      Instruct students ages 5–14 in programming fundamentals
-                      using Microsoft MakeCode, JavaScript, C#, Unity, and
-                      GDScript. Guide students through debugging and
-                      project-based problem solving. Contributed to 87%
-                      trial-to-membership conversion (50 pts above national avg).
-                    </p>
-                  </div>
-                </div>
-
-                <div class="timeline-item">
-                  <div class="timeline-item__period">AUG 2025 - NOW</div>
-                  <div class="timeline-item__content">
-                    <h3>Curriculum & Software Developer - Code Ninjas</h3>
-                    <p>
-                      Led curriculum work with Code Ninjas Corporate to scope a
-                      new Unreal Engine learning pathway from the ground up.
-                      Developed higher-level Godot modules, converted Unity C#
-                      projects to GDScript, and built the NinjaBux reward
-                      platform that is now being prepared for wider dojo use.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="section">
-              <h2 class="section__title" id="skills">SKILLS</h2>
-              <div class="skill-categories">
-                <div class="skill-category">
-                  <div class="skill-category__label">Project &amp; Business</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Business Operations</span>
-                    <span class="tech-item">Initiative Tracking</span>
-                    <span class="tech-item">Workflow Management</span>
-                    <span class="tech-item">Stakeholder Reporting</span>
-                    <span class="tech-item">Data Cleansing</span>
-                    <span class="tech-item">Pricing Analysis</span>
-                    <span class="tech-item">Client Communication</span>
-                    <span class="tech-item">Requirements Gathering</span>
-                    <span class="tech-item">Cross-functional Coordination</span>
-                    <span class="tech-item">Technical Documentation</span>
-                    <span class="tech-item">Stakeholder Alignment</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Automation &amp; Analytics</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Process Automation</span>
-                    <span class="tech-item">Excel Automation</span>
-                    <span class="tech-item">Office.js</span>
-                    <span class="tech-item">Power Automate</span>
-                    <span class="tech-item">Power BI</span>
-                    <span class="tech-item">Dashboard Design</span>
-                    <span class="tech-item">Audit &amp; Change Tracking</span>
-                    <span class="tech-item">AI-Assisted Delivery</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Languages</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Python</span>
-                    <span class="tech-item">Java</span>
-                    <span class="tech-item">C</span>
-                    <span class="tech-item">Bash</span>
-                    <span class="tech-item">SQL</span>
-                    <span class="tech-item">TypeScript</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Frontend Development</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">HTML</span>
-                    <span class="tech-item">CSS</span>
-                    <span class="tech-item">TypeScript SPAs</span>
-                    <span class="tech-item">Astro</span>
-                    <span class="tech-item">REST Integration</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Operating Systems</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Kali Linux</span>
-                    <span class="tech-item">Arch Linux</span>
-                    <span class="tech-item">Ubuntu</span>
-                    <span class="tech-item">Windows 10/11</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Security &amp; Networking</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Nmap</span>
-                    <span class="tech-item">Burp Suite</span>
-                    <span class="tech-item">Hydra</span>
-                    <span class="tech-item">smbclient</span>
-                    <span class="tech-item">xfreerdp</span>
-                    <span class="tech-item">Port Scanning</span>
-                    <span class="tech-item">Enumeration</span>
-                    <span class="tech-item">SQL Injection</span>
-                    <span class="tech-item">XSS</span>
-                    <span class="tech-item">Input Validation</span>
-                    <span class="tech-item">JWT Auth</span>
-                    <span class="tech-item">RBAC</span>
-                    <span class="tech-item">Encryption</span>
-                    <span class="tech-item">Hashing &amp; Salting</span>
-                    <span class="tech-item">Least Privilege</span>
-                    <span class="tech-item">Rate Limiting</span>
-                    <span class="tech-item">Hack The Box</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <div class="skill-category__label">Backend &amp; Dev</div>
-                  <div class="skill-category__items">
-                    <span class="tech-item">Spring Boot</span>
-                    <span class="tech-item">RESTful APIs</span>
-                    <span class="tech-item">Auth Workflows</span>
-                    <span class="tech-item">Ledger Design</span>
-                    <span class="tech-item">Bun</span>
-                    <span class="tech-item">Resend</span>
-                    <span class="tech-item">Git</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <section class="section">
-            <h2 class="section__title">EDUCATION</h2>
-            <div class="education-stack">
-            <div class="card">
-              <h3 class="card__title">University of North Georgia</h3>
-              <div class="card__meta">
-                B.S. Cybersecurity | Double Major in Computer Science |
-                Expected December 2027
-              </div>
-              <p class="card__description">GPA: 3.54/4.0</p>
-              <p class="card__description">
-                <strong>Relevant Coursework:</strong> Data Networks, Applied
-                Cybersecurity, Computer Organization &amp; Architecture, Script
-                Programming, Computer Ethics &amp; Social Issues, Computer
-                Science II
-              </p>
-            </div>
-            <div class="card">
-              <h3 class="card__title">Denmark High School</h3>
-              <div class="card__meta">Graduated May 2024</div>
-              <p class="card__description">GPA: 3.8</p>
-              <p class="card__description">
-                <strong>Relevant Coursework:</strong> AP Computer Science
-                Principles, AP Computer Science A
-              </p>
-            </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h2 class="section__title">AWARDS &amp; HONORS</h2>
-            <div class="profdev-tags">
-              <span class="profdev-tag">Dean's List — UNG Spring 2025</span>
-              <span class="profdev-tag">PE Student of the Year — 2024</span>
-              <span class="profdev-tag">Football Captain — 2023-2024</span>
-              <span class="profdev-tag">All-Region Honorable Mention — 2024</span>
-              <span class="profdev-tag">All-County Honorable Mention — 2024</span>
-              <span class="profdev-tag">All-Region Second Team — 2023</span>
-              <span class="profdev-tag">All-County Second Team — 2023</span>
-            </div>
-          </section>
-
-          <section class="section" id="availability">
-            <h2 class="section__title">AVAILABILITY</h2>
-            <div class="grid">
-              <div class="card">
-                <h3 class="card__title">Business Operations Intern - Fiserv</h3>
-                <div class="card__meta">Financial Solutions • Summer 2026</div>
-                <p class="card__description">
-                  Currently focused on operations systems, automation, analytics,
-                  and stakeholder reporting inside Fiserv's Financial Solutions
-                  organization. Open to software engineering, backend/API,
-                  technical operations, and TPM-style opportunities after August
-                  2026.
-                </p>
-              </div>
-            </div>
-            <div class="card contact-card">
-              <h3 class="card__title">Contact</h3>
-              <p class="card__description">
-                Atlanta, GA based. Open to remote opportunities.
-              </p>
-              <div class="hero__links">
-                <a
-                  href="/Resume_June2026-JS.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  class="hero__resume"
-                  data-resume-trigger
-                  >Resume</a
-                >
-                <a href="mailto:jacob.d.smith@live.com" class="hero__norm">Email</a>
-                <a
-                  href="https://codeberg.org/jsmitty"
-                  class="hero__norm"
-                  target="_blank"
-                  rel="noopener"
-                  >Codeberg</a
-                >
-                <a
-                  href="https://github.com/jacobsmxth"
-                  class="hero__norm"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                >
-                <a
-                  href="https://linkedin.com/in/jacobsmxth"
-                  class="hero__norm"
-                  target="_blank"
-                  rel="noopener"
-                  >LinkedIn</a
-                >
-                <a
-                  href="https://discordapp.com/users/518631054018609154"
-                  class="hero__norm"
-                  target="_blank"
-                  rel="noopener"
-                  >Discord</a
-                >
-                <a
-                  href="https://stonepath.dev"
-                  class="hero__norm"
-                  target="_blank"
-                  rel="noopener"
-                  >Stonepath</a
-                >
-              </div>
-            </div>
-          </section>
-
-          <section class="section">
-            <h2 class="section__title">AGENCY</h2>
-            <div class="card">
-              <h3 class="card__title">Stonepath.dev</h3>
-              <div class="card__meta">Astro • Web Development</div>
-              <p class="card__description">
-                My small web studio for fast, practical sites that help clients
-                explain what they do and capture the right request without
-                unnecessary platform weight. The same pattern shows up here:
-                clear copy, fast pages, simple forms, and maintainable delivery.
-              </p>
-              <div class="featured-nav">
-                <a href="https://stonepath.dev" target="_blank" rel="noopener"
-                  >Visit Stonepath.dev →</a
-                >
-                <span class="nav-sep">|</span>
-                <a
-                  href="https://codeberg.org/jsmitty/stonepath-agency"
-                  target="_blank"
-                  rel="noopener"
-                  >View Source →</a
-                >
-              </div>
-            </div>
-          </section>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Business operations<br />with a builder’s background.</h1>
+          <p>I’m Jacob Smith, a Cybersecurity and Computer Science student working in Business Operations at Fiserv. This is a record of the software, automation, reporting systems, client work, and technical education projects I’ve worked on.</p>
+          <div class="actions"><a class="button" href="#work">View my work ↓</a><a class="button" href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div>
+          <p class="role-line">Currently: Fiserv · Financial Institutions · Alpharetta, Georgia</p>
         </div>
-      </div>
+        <div class="hero-drawing" aria-hidden="true"><span></span><span></span><span></span></div>
+        <ul class="evidence-rail">
+          <li><span>01</span>Business operations</li><li><span>02</span>Software engineering</li><li><span>03</span>Technical education</li>
+        </ul>
+      </section>
+
+      <section class="section" id="work">
+        <h2>Work and systems</h2>
+        <article class="case-study case-study--flagship">
+          <header><h3>NinjaBux</h3><p>Spring Boot · PostgreSQL · React 19 · TypeScript</p><div class="project-links"><a href="https://admin.bux.codes" target="_blank" rel="noopener">Admin portal ↗</a><a href="https://ninja.bux.codes" target="_blank" rel="noopener">Ninja portal ↗</a></div></header>
+          <div><h4>System</h4><p>Three independently deployed applications that synchronize student progress, calculate rewards, manage balances, and support shop and purchase workflows.</p></div>
+          <div><h4>Backend</h4><p>Spring Boot and PostgreSQL backend with managed schema migrations, secure authentication, role-based access, and transaction-safety controls.</p></div>
+          <div><h4>Frontend</h4><p>Separate React portals for staff administration and student kiosk use, both deployed through Vercel with shared backend contracts.</p></div>
+        </article>
+        <div class="ninjabux-detail">
+          <div class="project-stats" aria-label="NinjaBux codebase statistics">
+            <div><strong>44.0k</strong><span>total workspace lines</span></div>
+            <div><strong>364</strong><span>text files</span></div>
+            <div><strong>18.3k</strong><span>Java lines</span></div>
+            <div><strong>4.9k</strong><span>TSX lines</span></div>
+            <div><strong>12.5k</strong><span>documentation lines</span></div>
+            <div><strong>3</strong><span>deployed apps</span></div>
+          </div>
+          <div class="system-notes">
+            <article><h4>System capabilities</h4><ul><li>Synchronizes student activity and progress across services</li><li>Supports separate staff and student authentication experiences</li><li>Manages rewards, purchases, adjustments, and transaction history</li><li>Calculates leaderboards and progress summaries</li></ul></article>
+            <article><h4>Reliability and access</h4><p>An auditable transaction ledger acts as the balance source of truth. Concurrency controls protect reward calculations, while tenant and role boundaries restrict access to the appropriate location and user.</p></article>
+            <article><h4>Ongoing engineering work</h4><ol><li>Broader frontend and integration test coverage</li><li>Improved server-side history pagination</li><li>Stronger shared contracts between applications</li><li>Additional progression-system support</li></ol></article>
+          </div>
+          <p class="project-footnote">July 2026 workspace count: 44.0k total lines, including 12.5k lines of Markdown documentation. The remaining 31.5k lines span source, tests, styles, configuration, lock files, and local worktree copies.</p>
+        </div>
+        <article class="case-study"><header><h3>Fiserv Initiative Tracking</h3><p>Financial Institutions · Office.js · Power Automate · Power BI</p></header><div><h4>Context</h4><p>Operational initiatives were difficult to prioritize, explain, and audit across teams.</p></div><div><h4>What I built</h4><p>One source of truth with ID assignment, delta history, workflow automation, and dashboards.</p></div><div><h4>Result</h4><p>Clearer project health, bottlenecks, and status reporting for operations leaders.</p></div></article>
+        <article class="case-study"><header><h3>Stonepath Agency</h3><p>Astro · TypeScript · Web delivery</p><a href="https://stonepath.dev" target="_blank" rel="noopener">Site ↗</a></header><div><h4>Context</h4><p>Independent web work for service businesses with practical requirements and limited platform overhead.</p></div><div><h4>What I built</h4><p>Astro sites, TypeScript interfaces, forms, deployments, and reusable delivery workflows.</p></div><div><h4>Result</h4><p>Production client work including jewelsbypatty.com and rainbetvip.com.</p></div></article>
+        <article class="case-study"><header><h3>Jewels by Patty</h3><p>Astro · TypeScript · SCSS · Resend · Netlify</p><a href="https://jewelsbypatty.com" target="_blank" rel="noopener">Live site ↗</a></header><div><h4>Context</h4><p>A handmade jewelry business needed a polished way to present its work and collect custom-order requests without operating a full storefront.</p></div><div><h4>What I built</h4><p>An Astro site with an optimized gallery, reusable request flow, responsive interfaces, and Resend-powered customer emails.</p></div><div><h4>Result</h4><p>A lightweight production site that supports bespoke orders while remaining fast and straightforward for the client to maintain.</p></div></article>
+      </section>
+
+      <section class="section" id="repositories">
+        <div class="section-heading"><h2>Repository index</h2><p>Search a curated view of public work. Source metadata verified July 2026.</p></div>
+        <RepoExplorer repos={repos} client:load />
+      </section>
+
+      <section class="section" id="experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <article><time>Jun 2026 — Present</time><h3>Business Operations Intern</h3><p>Fiserv · Financial Institutions · On-site</p><span>Support cross-department workflow visibility, reporting accuracy, and initiative tracking. Built an Excel-based tracking system with automated weekly snapshots and structured history, then used Power Automate, Power BI, and Python to reduce manual reporting work.</span></article>
+          <article><time>Sep 2025 — Present</time><h3>Software Engineer</h3><p>Code Ninjas · Contract · Remote</p><span>Designed and built NinjaBux as a multi-tenant reward platform. Developed the Spring Boot API, PostgreSQL data layer, React frontend, immutable ledger controls, role-based access, and production data migration.</span></article>
+          <article><time>Jun 2025 — Present</time><h3>Coding Instructor</h3><p>Code Ninjas · Part-time · On-site</p><span>Teach students ages 7–14 with block-based tools and JavaScript, lead game-development and debugging sessions, guide students through the belt system, and support daily center operations.</span></article>
+          <article><time>Aug 2025 — Jan 2026</time><h3>Curriculum Developer</h3><p>Code Ninjas · Contract · Remote</p><span>Developed and reviewed advanced programming curriculum across Godot, GDScript, game development, and software engineering. Tested lesson prototypes, documented concepts, and maintained structured review and issue tracking.</span></article>
+          <article><time>Nov 2024 — Jul 2026</time><h3>Founder & Lead Developer</h3><p>Stonepath Web Developments · Self-employed · Remote</p><span>Owned requirements, architecture, development, deployment, and support for independent client work, including production Astro and TypeScript sites deployed across Vercel, Netlify, and Cloudflare.</span></article>
+          <article><time>Jul 2023 — Jun 2025</time><h3>Stringer</h3><p>Tennis Warehouse · Part-time · On-site</p><span>Delivered precise racquet stringing work while managing equipment, inventory, quality expectations, order timing, and customer communication in a high-volume environment.</span></article>
+        </div>
+      </section>
+
+      <section class="section activity" id="activity">
+        <div class="section-heading">
+          <h2>LinkedIn activity</h2>
+          <p>Recent updates, milestones, and work in progress.</p>
+        </div>
+        <div class="activity-feed">
+          <article class="activity-post">
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:share:7479213623354183680?collapsed=1"
+              title="Jacob Smith LinkedIn post"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </article>
+          <article class="activity-post">
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7477793351505801216?collapsed=1"
+              title="Jacob Smith LinkedIn post"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </article>
+        </div>
+        <a class="activity-profile" href="https://www.linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">View profile on LinkedIn ↗</a>
+      </section>
+
+      <section class="section capabilities" id="stack"><h2>Capabilities</h2><div class="capability-grid">
+        <article><h3>Automation & Analytics</h3><p>Office.js, Power Automate, Power BI, Python, data cleansing, dashboards, audit trails.</p></article>
+        <article><h3>Backend Engineering</h3><p>Java, Spring Boot, REST APIs, PostgreSQL, JPA, authentication, authorization, ledger design.</p></article>
+        <article><h3>Security & Systems</h3><p>C, Linux, input validation, Nmap, Burp Suite, enumeration, least privilege, secure workflows.</p></article>
+        <article><h3>Delivery & Leadership</h3><p>Requirements, documentation, stakeholder alignment, client delivery, teaching, and technical communication.</p></article>
+      </div></section>
+
+      <section class="education"><div><strong>University of North Georgia</strong><span>B.S. Cybersecurity · Double Major in Computer Science · GPA 3.5</span></div><p>Expected December 2027</p></section>
+      <section class="contact" id="contact"><div><h2>Contact and links</h2><p>Email, professional profiles, source code, and résumé.</p></div><div class="contact-links"><a href="mailto:jacob.d.smith@live.com">Email</a><a href="https://linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/JacobSmxth" target="_blank" rel="noopener">GitHub</a><a href="https://codeberg.org/JSmitty" target="_blank" rel="noopener">Codeberg</a><a href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div></section>
     </main>
+    <footer><span>© 2026 Jacob Smith</span><span>Built with Astro + one focused React island.</span></footer>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__content">
-          <div>&copy; 2026 Jacob Smith — Built with Astro, SCSS, TypeScript, and Bun</div>
-          <div class="footer__links">
-            <a
-              href="https://github.com/jacobsmxth"
-              target="_blank"
-              rel="noopener"
-              >GitHub</a
-            >
-            <a
-              href="https://linkedin.com/in/jacobsmxth"
-              target="_blank"
-              rel="noopener"
-              >LinkedIn</a
-            >
-            <a href="mailto:jacob.d.smith@live.com">Email</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <div
-      class="resume-modal"
-      id="resumeModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="resumeModalTitle"
-      aria-hidden="true"
-    >
-      <div class="resume-modal__container">
-        <button
-          type="button"
-          class="resume-modal__close"
-          id="resumeModalClose"
-          aria-label="Close"
-        >&times;</button>
-        <h2 class="resume-modal__title" id="resumeModalTitle">Resume</h2>
-        <p class="resume-modal__subtitle">Choose a format</p>
-        <div class="resume-modal__options">
-          <a
-            href="/Resume_June2026-JS.pdf"
-            target="_blank"
-            rel="noopener"
-            class="resume-modal__option"
-            data-resume-option
-          >
-            <span class="resume-modal__option-format">PDF</span>
-            <span class="resume-modal__option-desc">Open in browser</span>
-          </a>
-          <a
-            href="/Resume_June2026-JS.docx"
-            class="resume-modal__option"
-            download
-            data-resume-option
-          >
-            <span class="resume-modal__option-format">DOCX</span>
-            <span class="resume-modal__option-desc">Download Word file</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="command-palette" id="commandPalette">
-      <div class="command-palette__container">
-        <input
-          type="text"
-          class="command-palette__input"
-          id="commandInput"
-          placeholder="Type a command..."
-          autocomplete="off"
-        />
-        <div class="command-palette__results" id="commandResults"></div>
-      </div>
-    </div>
-
+    <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" aria-hidden="true"><div class="resume-modal__container"><button type="button" class="resume-modal__close" id="resumeModalClose" aria-label="Close">×</button><h2 id="resumeModalTitle">Resume</h2><p>Choose a format.</p><div class="resume-modal__options"><a href="/Resume_June2026-JS.pdf" target="_blank" rel="noopener" data-resume-option>PDF <small>Open in browser</small></a><a href="/Resume_June2026-JS.docx" download data-resume-option>DOCX <small>Download file</small></a></div></div></div>
+    <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-labelledby="commandPaletteLabel" aria-hidden="true"><div class="command-palette__container"><h2 class="sr-only" id="commandPaletteLabel">Command palette</h2><input id="commandInput" class="command-palette__input" placeholder="Type a command…" autocomplete="off" aria-label="Search commands" aria-controls="commandResults" aria-autocomplete="list" /><div id="commandResults" class="command-palette__results" role="listbox"></div></div></div>
     <script src="../main.ts"></script>
   </body>
 </html>

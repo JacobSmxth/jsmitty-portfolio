@@ -43,11 +43,11 @@ Student and backend developer focused on Java/Spring Boot and REST APIs, with a 
 - Customer service, food prep, and POS operations; developed foundational work ethic and teamwork skills.
 
 ## Education
-- University of North Georgia — B.S. Cybersecurity & Computer Science (Expected May 2028), GPA 3.38; coursework: Computer Science II, Applied Cybersecurity, Script Programming.
+- University of North Georgia — B.S. Cybersecurity & Computer Science (Expected December 2027), GPA 3.5; coursework: Computer Science II, Applied Cybersecurity, Script Programming.
 - Denmark High School — Diploma (May 2024), GPA 3.8; AP Computer Science Principles, AP Computer Science A; Varsity Football Captain; Student of the Year.
 
 ## Projects (selected)
-- **Code Ninjas Bux** — Full reward/progression system with live leaderboards, achievements, and an admin dashboard; Spring Boot backend with planned PostgreSQL (learning) persistence; designed for dojo rollout with scalability for wider adoption. GitHub: github.com/JacobSmxth/code-ninjas-bux.
+- **Code Ninjas Bux** — Full reward/progression system with live leaderboards, achievements, and an admin dashboard; Spring Boot backend with planned PostgreSQL persistence; designed for dojo rollout with scalability for wider adoption. The source repository is private/unavailable.
 - **CentDash** — Personal finance API migrating from CSV to database with JPA single-table inheritance, aggregation endpoints, and JPQL queries; demonstrates ORM evolution and validation. GitHub: github.com/jacobsmxth/centdash.
 - **InventoryAPI** — Spring Boot 3.5.6 API (Java 21) with CRUD, stock validation, regex SKU checks, and low-stock alerts on H2; ~412 LOC across 9 endpoints. GitHub: github.com/JacobSmxth/inventory-management-api.
 - **Task Manager API** — REST API with soft delete + recovery, complex filtering, DTO-based partial updates, and centralized exception handling; ~291 LOC. GitHub: github.com/JacobSmxth/task-manager-api.

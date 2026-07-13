@@ -8,6 +8,7 @@ interface Command {
 
 let selectedIndex: number = 0;
 let filteredCommands: Command[] = [];
+let previouslyFocusedElement: HTMLElement | null = null;
 
 const commands: Command[] = [
   {
@@ -48,8 +49,8 @@ const commands: Command[] = [
   },
   {
     label: 'NinjaBux',
-    description: 'Deployed multi-tenant Code Ninjas reward platform',
-    action: () => window.open('https://github.com/JacobSmxth/code-ninjas-bux', '_blank'),
+    description: 'Jump to the multi-tenant reward platform case study',
+    action: () => scrollToSection('work'),
     keywords: ['project', 'ninjabux', 'code ninjas', 'bux', 'spring boot', 'jwt', 'rbac', 'ledger']
   },
   {
@@ -101,15 +102,15 @@ const commands: Command[] = [
     keywords: ['stonepath', 'agency', 'astro', 'web']
   },
   {
-    label: 'Current Focus',
-    description: 'Jump to Fiserv operations systems work',
-    action: () => scrollToSection('focus'),
-    keywords: ['focus', 'fiserv', 'operations', 'office.js', 'power automate', 'power bi', 'dashboards']
+    label: 'Fiserv Work',
+    description: 'Jump to Fiserv Financial Institutions operations work',
+    action: () => scrollToSection('work'),
+    keywords: ['focus', 'fiserv', 'financial institutions', 'operations', 'office.js', 'power automate', 'power bi', 'dashboards']
   },
   {
     label: 'Projects',
     description: 'Jump to featured projects',
-    action: () => scrollToSection('projects'),
+    action: () => scrollToSection('repositories'),
     keywords: ['projects', 'portfolio', 'work']
   },
   {
@@ -121,13 +122,13 @@ const commands: Command[] = [
   {
     label: 'Skills',
     description: 'Jump to skills',
-    action: () => scrollToSection('skills'),
+    action: () => scrollToSection('stack'),
     keywords: ['skills', 'tech', 'stack', 'tools']
   },
   {
     label: 'Availability',
     description: 'Jump to availability and contact links',
-    action: () => scrollToSection('availability'),
+    action: () => scrollToSection('contact'),
     keywords: ['availability', 'contact', 'roles', 'email']
   }
 ];
@@ -141,8 +142,11 @@ const resumeModalClose: HTMLElement | null = document.getElementById('resumeModa
 
 function openResumeModal(): void {
   if (resumeModal) {
+    previouslyFocusedElement = document.activeElement as HTMLElement | null;
     resumeModal.classList.add('active');
     resumeModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overlay-open');
+    resumeModalClose?.focus();
   }
 }
 
@@ -150,12 +154,17 @@ function closeResumeModal(): void {
   if (resumeModal) {
     resumeModal.classList.remove('active');
     resumeModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('overlay-open');
+    previouslyFocusedElement?.focus();
   }
 }
 
 function openCommandPalette(): void {
   if (commandPalette) {
+    previouslyFocusedElement = document.activeElement as HTMLElement | null;
     commandPalette.classList.add('active');
+    commandPalette.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overlay-open');
     if (commandInput) {
       commandInput.value = '';
       commandInput.focus();
@@ -167,6 +176,9 @@ function openCommandPalette(): void {
 function closeCommandPalette(): void {
   if (commandPalette) {
     commandPalette.classList.remove('active');
+    commandPalette.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('overlay-open');
+    previouslyFocusedElement?.focus();
   }
 }
 
@@ -191,12 +203,13 @@ function renderCommands(): void {
   if (!commandResults) return;
 
   if (filteredCommands.length === 0) {
-    commandResults.innerHTML = '<div class="command-palette__item"><div class="command-palette__item-label">No commands found</div></div>';
+    commandResults.innerHTML = '<div class="command-palette__item" role="status"><div class="command-palette__item-label">No commands found</div></div>';
+    commandInput?.removeAttribute('aria-activedescendant');
     return;
   }
 
   commandResults.innerHTML = filteredCommands.map((cmd, index) => `
-    <div class="command-palette__item ${index === selectedIndex ? 'selected' : ''}" data-index="${index}">
+    <div class="command-palette__item ${index === selectedIndex ? 'selected' : ''}" id="command-option-${index}" role="option" aria-selected="${index === selectedIndex}" data-index="${index}">
       <div>
         <div class="command-palette__item-label">${escapeHtml(cmd.label)}</div>
         <div class="command-palette__item-description">${escapeHtml(cmd.description)}</div>
@@ -204,6 +217,8 @@ function renderCommands(): void {
       <div class="command-palette__item-key">↵</div>
     </div>
   `).join('');
+
+  commandInput?.setAttribute('aria-activedescendant', `command-option-${selectedIndex}`);
 
   const items: NodeListOf<HTMLElement> = commandResults.querySelectorAll('.command-palette__item');
   items.forEach((item: HTMLElement) => {
@@ -218,8 +233,27 @@ function renderCommands(): void {
 
 function executeCommand(index: number): void {
   if (filteredCommands[index]) {
-    filteredCommands[index].action();
+    const command = filteredCommands[index];
     closeCommandPalette();
+    command.action();
+  }
+}
+
+function keepFocusInside(container: HTMLElement, event: KeyboardEvent): void {
+  const focusable = Array.from(
+    container.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
+  ).filter(element => element.offsetParent !== null);
+
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 }
 
@@ -245,6 +279,11 @@ function copyToClipboard(text: string): void {
 }
 
 function handleKeyDown(e: KeyboardEvent): void {
+  if (e.key === 'Tab' && resumeModal?.classList.contains('active')) {
+    keepFocusInside(resumeModal, e);
+    return;
+  }
+
   if (e.key === 'Escape' && resumeModal?.classList.contains('active')) {
     e.preventDefault();
     closeResumeModal();
@@ -307,6 +346,9 @@ function handleKeyDown(e: KeyboardEvent): void {
 
 function init(): void {
   document.addEventListener('keydown', handleKeyDown);
+
+  const commandTriggers = document.querySelectorAll<HTMLElement>('[data-command-trigger]');
+  commandTriggers.forEach((trigger) => trigger.addEventListener('click', openCommandPalette));
 
   if (commandInput) {
     commandInput.addEventListener('input', (e: Event) => {

@@ -13,7 +13,13 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "astro": "^5.15.9",
+    "playwright": "^1.61.1",
     "sass": "^1.83.0",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   }
 }
