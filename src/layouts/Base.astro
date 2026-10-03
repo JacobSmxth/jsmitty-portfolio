@@ -1,0 +1,52 @@
+---
+import '../styles/main.scss';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  ogTitle?: string;
+}
+
+const { title, description, path = '/', ogTitle = title } = Astro.props;
+const canonical = new URL(path, 'https://jsmitty.dev').href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Jacob Smith" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="/">JACOB SMITH</a>
+      <nav aria-label="Primary navigation">
+        <a href="/#work">Work</a><a href="/#repositories">Repositories</a><a href="/#experience">Experience</a><a href="/activity" aria-current={path === '/activity' ? 'page' : undefined}>Activity</a><a href="/#contact">Contact</a>
+      </nav>
+      <button class="command-button" type="button" data-command-trigger aria-label="Open command palette">⌘ K</button>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer><span>© 2026 Jacob Smith</span><span>Built with Astro + focused React islands.</span></footer>
+
+    <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" aria-hidden="true"><div class="resume-modal__container"><button type="button" class="resume-modal__close" id="resumeModalClose" aria-label="Close">×</button><h2 id="resumeModalTitle">Resume</h2><p>Choose a format.</p><div class="resume-modal__options"><a href="/Resume_June2026-JS.pdf" target="_blank" rel="noopener" data-resume-option>PDF <small>Open in browser</small></a><a href="/Resume_June2026-JS.docx" download data-resume-option>DOCX <small>Download file</small></a></div></div></div>
+    <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-labelledby="commandPaletteLabel" aria-hidden="true"><div class="command-palette__container"><h2 class="sr-only" id="commandPaletteLabel">Command palette</h2><input id="commandInput" class="command-palette__input" placeholder="Type a command…" autocomplete="off" aria-label="Search commands" aria-controls="commandResults" aria-autocomplete="list" /><div id="commandResults" class="command-palette__results" role="listbox"></div></div></div>
+    <script src="../main.ts"></script>
+  </body>
+</html>

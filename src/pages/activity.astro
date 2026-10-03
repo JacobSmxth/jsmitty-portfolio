@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import ActivityFeed from '../components/ActivityFeed';
+
+// LinkedIn does not offer a public API for reading a member's own posts,
+// so posts are curated by URN. Copy the URN from a post's "Embed this post" option.
+const linkedinPosts = [
+  'urn:li:share:7479213623354183680',
+  'urn:li:ugcPost:7477793351505801216',
+];
+---
+<Base
+  title="Activity — Jacob Smith"
+  description="Recent public activity from Jacob Smith across GitHub, Codeberg, and LinkedIn."
+  path="/activity"
+>
+  <section class="activity-hero" aria-labelledby="activity-title">
+    <p class="activity-hero__eyebrow">Activity</p>
+    <h1 id="activity-title">What I’ve been<br />working on lately.</h1>
+    <p>A live feed of public commits, repositories, and posts. Code activity loads directly from the GitHub and Codeberg APIs each time you visit.</p>
+  </section>
+
+  <section class="section" id="code">
+    <div class="section-heading">
+      <h2>Code activity</h2>
+      <p>GitHub REST API · Codeberg (Forgejo) API</p>
+    </div>
+    <ActivityFeed githubUser="JacobSmxth" codebergUser="JSmitty" client:load />
+  </section>
+
+  <section class="section activity" id="linkedin">
+    <div class="section-heading">
+      <h2>LinkedIn posts</h2>
+      <p>Selected updates, milestones, and work in progress.</p>
+    </div>
+    <div class="activity-feed">
+      {linkedinPosts.map((urn) => (
+        <article class="activity-post">
+          <iframe
+            src={`https://www.linkedin.com/embed/feed/update/${urn}?collapsed=1`}
+            title="Jacob Smith LinkedIn post"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </article>
+      ))}
+    </div>
+    <a class="activity-profile" href="https://www.linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">View all activity on LinkedIn ↗</a>
+  </section>
+</Base>

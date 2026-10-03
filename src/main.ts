@@ -36,6 +36,12 @@ const commands: Command[] = [
     keywords: ['linkedin', 'professional', 'network']
   },
   {
+    label: 'Activity',
+    description: 'Live GitHub, Codeberg, and LinkedIn activity',
+    action: () => { window.location.href = '/activity'; },
+    keywords: ['activity', 'feed', 'commits', 'github', 'codeberg', 'linkedin', 'posts', 'recent']
+  },
+  {
     label: 'Open Discord',
     description: 'Open Discord profile',
     action: () => window.open('https://discordapp.com/users/518631054018609154', '_blank'),
@@ -103,7 +109,7 @@ const commands: Command[] = [
   },
   {
     label: 'Fiserv Work',
-    description: 'Jump to Fiserv Financial Institutions operations work',
+    description: 'Jump to Fiserv operations internship work (Jun–Aug 2026)',
     action: () => scrollToSection('work'),
     keywords: ['focus', 'fiserv', 'financial institutions', 'operations', 'office.js', 'power automate', 'power bi', 'dashboards']
   },
@@ -261,6 +267,8 @@ function scrollToSection(id: string): void {
   const element: HTMLElement | null = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.location.href = `/#${id}`;
   }
 }
 

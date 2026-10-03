@@ -1,5 +1,5 @@
 ---
-import '../styles/main.scss';
+import Base from '../layouts/Base.astro';
 import RepoExplorer from '../components/RepoExplorer';
 
 const repos = [
@@ -18,135 +18,77 @@ const repos = [
   { name: 'Custom Startpage', description: 'A personalized browser start page.', language: 'JavaScript', source: 'GitHub', url: 'https://github.com/JacobSmxth/custom-startpage' },
 ] as const;
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jacob Smith's portfolio: business operations, software engineering, automation, technical education, and selected projects." />
-    <meta name="author" content="Jacob Smith" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jsmitty.dev/" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jacob Smith — Business Operations & Software" />
-    <meta property="og:description" content="A record of my work across business operations, software engineering, automation, and technical education." />
-    <meta property="og:url" content="https://jsmitty.dev/" />
-    <meta name="twitter:card" content="summary" />
-    <title>Jacob Smith — Business Operations & Software Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <a class="wordmark" href="#main">JACOB SMITH</a>
-      <nav aria-label="Primary navigation">
-        <a href="#work">Work</a><a href="#repositories">Repositories</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-      </nav>
-      <button class="command-button" type="button" data-command-trigger aria-label="Open command palette">⌘ K</button>
-    </header>
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">Business operations<br />with a builder’s background.</h1>
-          <p>I’m Jacob Smith, a Cybersecurity and Computer Science student working in Business Operations at Fiserv. This is a record of the software, automation, reporting systems, client work, and technical education projects I’ve worked on.</p>
-          <div class="actions"><a class="button" href="#work">View my work ↓</a><a class="button" href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div>
-          <p class="role-line">Currently: Fiserv · Financial Institutions · Alpharetta, Georgia</p>
+<Base
+  title="Jacob Smith — Business Operations & Software Portfolio"
+  ogTitle="Jacob Smith — Business Operations & Software"
+  description="Jacob Smith's portfolio: business operations, software engineering, automation, technical education, and selected projects."
+>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Business operations<br />with a builder’s background.</h1>
+        <p>I’m Jacob Smith, a Cybersecurity and Computer Science student with business operations experience from my internship at Fiserv. This is a record of the software, automation, reporting systems, client work, and technical education projects I’ve worked on.</p>
+        <div class="actions"><a class="button" href="#work">View my work ↓</a><a class="button" href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div>
+        <p class="role-line">Currently: Software Engineer &amp; Coding Instructor · Code Ninjas · Georgia</p>
+      </div>
+      <div class="hero-drawing" aria-hidden="true"><span></span><span></span><span></span></div>
+      <ul class="evidence-rail">
+        <li><span>01</span>Business operations</li><li><span>02</span>Software engineering</li><li><span>03</span>Technical education</li>
+      </ul>
+    </section>
+
+    <section class="section" id="work">
+      <h2>Work and systems</h2>
+      <article class="case-study case-study--flagship">
+        <header><h3>NinjaBux</h3><p>Spring Boot · PostgreSQL · React 19 · TypeScript</p><div class="project-links"><a href="https://admin.bux.codes" target="_blank" rel="noopener">Admin portal ↗</a><a href="https://ninja.bux.codes" target="_blank" rel="noopener">Ninja portal ↗</a></div></header>
+        <div><h4>System</h4><p>Three independently deployed applications that synchronize student progress, calculate rewards, manage balances, and support shop and purchase workflows.</p></div>
+        <div><h4>Backend</h4><p>Spring Boot and PostgreSQL backend with managed schema migrations, secure authentication, role-based access, and transaction-safety controls.</p></div>
+        <div><h4>Frontend</h4><p>Separate React portals for staff administration and student kiosk use, both deployed through Vercel with shared backend contracts.</p></div>
+      </article>
+      <div class="ninjabux-detail">
+        <div class="project-stats" aria-label="NinjaBux codebase statistics">
+          <div><strong>44.0k</strong><span>total workspace lines</span></div>
+          <div><strong>364</strong><span>text files</span></div>
+          <div><strong>18.3k</strong><span>Java lines</span></div>
+          <div><strong>4.9k</strong><span>TSX lines</span></div>
+          <div><strong>12.5k</strong><span>documentation lines</span></div>
+          <div><strong>3</strong><span>deployed apps</span></div>
         </div>
-        <div class="hero-drawing" aria-hidden="true"><span></span><span></span><span></span></div>
-        <ul class="evidence-rail">
-          <li><span>01</span>Business operations</li><li><span>02</span>Software engineering</li><li><span>03</span>Technical education</li>
-        </ul>
-      </section>
-
-      <section class="section" id="work">
-        <h2>Work and systems</h2>
-        <article class="case-study case-study--flagship">
-          <header><h3>NinjaBux</h3><p>Spring Boot · PostgreSQL · React 19 · TypeScript</p><div class="project-links"><a href="https://admin.bux.codes" target="_blank" rel="noopener">Admin portal ↗</a><a href="https://ninja.bux.codes" target="_blank" rel="noopener">Ninja portal ↗</a></div></header>
-          <div><h4>System</h4><p>Three independently deployed applications that synchronize student progress, calculate rewards, manage balances, and support shop and purchase workflows.</p></div>
-          <div><h4>Backend</h4><p>Spring Boot and PostgreSQL backend with managed schema migrations, secure authentication, role-based access, and transaction-safety controls.</p></div>
-          <div><h4>Frontend</h4><p>Separate React portals for staff administration and student kiosk use, both deployed through Vercel with shared backend contracts.</p></div>
-        </article>
-        <div class="ninjabux-detail">
-          <div class="project-stats" aria-label="NinjaBux codebase statistics">
-            <div><strong>44.0k</strong><span>total workspace lines</span></div>
-            <div><strong>364</strong><span>text files</span></div>
-            <div><strong>18.3k</strong><span>Java lines</span></div>
-            <div><strong>4.9k</strong><span>TSX lines</span></div>
-            <div><strong>12.5k</strong><span>documentation lines</span></div>
-            <div><strong>3</strong><span>deployed apps</span></div>
-          </div>
-          <div class="system-notes">
-            <article><h4>System capabilities</h4><ul><li>Synchronizes student activity and progress across services</li><li>Supports separate staff and student authentication experiences</li><li>Manages rewards, purchases, adjustments, and transaction history</li><li>Calculates leaderboards and progress summaries</li></ul></article>
-            <article><h4>Reliability and access</h4><p>An auditable transaction ledger acts as the balance source of truth. Concurrency controls protect reward calculations, while tenant and role boundaries restrict access to the appropriate location and user.</p></article>
-            <article><h4>Ongoing engineering work</h4><ol><li>Broader frontend and integration test coverage</li><li>Improved server-side history pagination</li><li>Stronger shared contracts between applications</li><li>Additional progression-system support</li></ol></article>
-          </div>
-          <p class="project-footnote">July 2026 workspace count: 44.0k total lines, including 12.5k lines of Markdown documentation. The remaining 31.5k lines span source, tests, styles, configuration, lock files, and local worktree copies.</p>
+        <div class="system-notes">
+          <article><h4>System capabilities</h4><ul><li>Synchronizes student activity and progress across services</li><li>Supports separate staff and student authentication experiences</li><li>Manages rewards, purchases, adjustments, and transaction history</li><li>Calculates leaderboards and progress summaries</li></ul></article>
+          <article><h4>Reliability and access</h4><p>An auditable transaction ledger acts as the balance source of truth. Concurrency controls protect reward calculations, while tenant and role boundaries restrict access to the appropriate location and user.</p></article>
+          <article><h4>Ongoing engineering work</h4><ol><li>Broader frontend and integration test coverage</li><li>Improved server-side history pagination</li><li>Stronger shared contracts between applications</li><li>Additional progression-system support</li></ol></article>
         </div>
-        <article class="case-study"><header><h3>Fiserv Initiative Tracking</h3><p>Financial Institutions · Office.js · Power Automate · Power BI</p></header><div><h4>Context</h4><p>Operational initiatives were difficult to prioritize, explain, and audit across teams.</p></div><div><h4>What I built</h4><p>One source of truth with ID assignment, delta history, workflow automation, and dashboards.</p></div><div><h4>Result</h4><p>Clearer project health, bottlenecks, and status reporting for operations leaders.</p></div></article>
-        <article class="case-study"><header><h3>Stonepath Agency</h3><p>Astro · TypeScript · Web delivery</p><a href="https://stonepath.dev" target="_blank" rel="noopener">Site ↗</a></header><div><h4>Context</h4><p>Independent web work for service businesses with practical requirements and limited platform overhead.</p></div><div><h4>What I built</h4><p>Astro sites, TypeScript interfaces, forms, deployments, and reusable delivery workflows.</p></div><div><h4>Result</h4><p>Production client work including jewelsbypatty.com and rainbetvip.com.</p></div></article>
-        <article class="case-study"><header><h3>Jewels by Patty</h3><p>Astro · TypeScript · SCSS · Resend · Netlify</p><a href="https://jewelsbypatty.com" target="_blank" rel="noopener">Live site ↗</a></header><div><h4>Context</h4><p>A handmade jewelry business needed a polished way to present its work and collect custom-order requests without operating a full storefront.</p></div><div><h4>What I built</h4><p>An Astro site with an optimized gallery, reusable request flow, responsive interfaces, and Resend-powered customer emails.</p></div><div><h4>Result</h4><p>A lightweight production site that supports bespoke orders while remaining fast and straightforward for the client to maintain.</p></div></article>
-      </section>
+        <p class="project-footnote">July 2026 workspace count: 44.0k total lines, including 12.5k lines of Markdown documentation. The remaining 31.5k lines span source, tests, styles, configuration, lock files, and local worktree copies.</p>
+      </div>
+      <article class="case-study"><header><h3>Fiserv Initiative Tracking</h3><p>Financial Institutions · Office.js · Power Automate · Power BI</p></header><div><h4>Context</h4><p>Operational initiatives were difficult to prioritize, explain, and audit across teams.</p></div><div><h4>What I built</h4><p>One source of truth with ID assignment, delta history, workflow automation, and dashboards.</p></div><div><h4>Result</h4><p>Clearer project health, bottlenecks, and status reporting for operations leaders.</p></div></article>
+      <article class="case-study"><header><h3>Stonepath Agency</h3><p>Astro · TypeScript · Web delivery</p><a href="https://stonepath.dev" target="_blank" rel="noopener">Site ↗</a></header><div><h4>Context</h4><p>Independent web work for service businesses with practical requirements and limited platform overhead.</p></div><div><h4>What I built</h4><p>Astro sites, TypeScript interfaces, forms, deployments, and reusable delivery workflows.</p></div><div><h4>Result</h4><p>Production client work including jewelsbypatty.com and rainbetvip.com.</p></div></article>
+      <article class="case-study"><header><h3>Jewels by Patty</h3><p>Astro · TypeScript · SCSS · Resend · Netlify</p><a href="https://jewelsbypatty.com" target="_blank" rel="noopener">Live site ↗</a></header><div><h4>Context</h4><p>A handmade jewelry business needed a polished way to present its work and collect custom-order requests without operating a full storefront.</p></div><div><h4>What I built</h4><p>An Astro site with an optimized gallery, reusable request flow, responsive interfaces, and Resend-powered customer emails.</p></div><div><h4>Result</h4><p>A lightweight production site that supports bespoke orders while remaining fast and straightforward for the client to maintain.</p></div></article>
+    </section>
 
-      <section class="section" id="repositories">
-        <div class="section-heading"><h2>Repository index</h2><p>Search a curated view of public work. Source metadata verified July 2026.</p></div>
-        <RepoExplorer repos={repos} client:load />
-      </section>
+    <section class="section" id="repositories">
+      <div class="section-heading"><h2>Repository index</h2><p>Search a curated view of public work. Source metadata verified July 2026.</p></div>
+      <RepoExplorer repos={repos} client:load />
+    </section>
 
-      <section class="section" id="experience">
-        <h2>Experience</h2>
-        <div class="timeline">
-          <article><time>Jun 2026 — Present</time><h3>Business Operations Intern</h3><p>Fiserv · Financial Institutions · On-site</p><span>Support cross-department workflow visibility, reporting accuracy, and initiative tracking. Built an Excel-based tracking system with automated weekly snapshots and structured history, then used Power Automate, Power BI, and Python to reduce manual reporting work.</span></article>
-          <article><time>Sep 2025 — Present</time><h3>Software Engineer</h3><p>Code Ninjas · Contract · Remote</p><span>Designed and built NinjaBux as a multi-tenant reward platform. Developed the Spring Boot API, PostgreSQL data layer, React frontend, immutable ledger controls, role-based access, and production data migration.</span></article>
-          <article><time>Jun 2025 — Present</time><h3>Coding Instructor</h3><p>Code Ninjas · Part-time · On-site</p><span>Teach students ages 7–14 with block-based tools and JavaScript, lead game-development and debugging sessions, guide students through the belt system, and support daily center operations.</span></article>
-          <article><time>Aug 2025 — Jan 2026</time><h3>Curriculum Developer</h3><p>Code Ninjas · Contract · Remote</p><span>Developed and reviewed advanced programming curriculum across Godot, GDScript, game development, and software engineering. Tested lesson prototypes, documented concepts, and maintained structured review and issue tracking.</span></article>
-          <article><time>Nov 2024 — Jul 2026</time><h3>Founder & Lead Developer</h3><p>Stonepath Web Developments · Self-employed · Remote</p><span>Owned requirements, architecture, development, deployment, and support for independent client work, including production Astro and TypeScript sites deployed across Vercel, Netlify, and Cloudflare.</span></article>
-          <article><time>Jul 2023 — Jun 2025</time><h3>Stringer</h3><p>Tennis Warehouse · Part-time · On-site</p><span>Delivered precise racquet stringing work while managing equipment, inventory, quality expectations, order timing, and customer communication in a high-volume environment.</span></article>
-        </div>
-      </section>
+    <section class="section" id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article><time>Sep 2025 — Present</time><h3>Software Engineer</h3><p>Code Ninjas · Contract · Remote</p><span>Designed and built NinjaBux as a multi-tenant reward platform. Developed the Spring Boot API, PostgreSQL data layer, React frontend, immutable ledger controls, role-based access, and production data migration.</span></article>
+        <article><time>Jun 2025 — Present</time><h3>Coding Instructor</h3><p>Code Ninjas · Part-time · On-site</p><span>Teach students ages 7–14 with block-based tools and JavaScript, lead game-development and debugging sessions, guide students through the belt system, and support daily center operations.</span></article>
+        <article><time>Jun 2026 — Aug 2026</time><h3>Business Operations Intern</h3><p>Fiserv · Financial Institutions · On-site</p><span>Supported cross-department workflow visibility, reporting accuracy, and initiative tracking. Built an Excel-based tracking system with automated weekly snapshots and structured history, then used Power Automate, Power BI, and Python to reduce manual reporting work.</span></article>
+        <article><time>Nov 2024 — Jul 2026</time><h3>Founder & Lead Developer</h3><p>Stonepath Web Developments · Self-employed · Remote</p><span>Owned requirements, architecture, development, deployment, and support for independent client work, including production Astro and TypeScript sites deployed across Vercel, Netlify, and Cloudflare.</span></article>
+        <article><time>Aug 2025 — Jan 2026</time><h3>Curriculum Developer</h3><p>Code Ninjas · Contract · Remote</p><span>Developed and reviewed advanced programming curriculum across Godot, GDScript, game development, and software engineering. Tested lesson prototypes, documented concepts, and maintained structured review and issue tracking.</span></article>
+        <article><time>Jul 2023 — Jun 2025</time><h3>Stringer</h3><p>Tennis Warehouse · Part-time · On-site</p><span>Delivered precise racquet stringing work while managing equipment, inventory, quality expectations, order timing, and customer communication in a high-volume environment.</span></article>
+      </div>
+    </section>
 
-      <section class="section activity" id="activity">
-        <div class="section-heading">
-          <h2>LinkedIn activity</h2>
-          <p>Recent updates, milestones, and work in progress.</p>
-        </div>
-        <div class="activity-feed">
-          <article class="activity-post">
-            <iframe
-              src="https://www.linkedin.com/embed/feed/update/urn:li:share:7479213623354183680?collapsed=1"
-              title="Jacob Smith LinkedIn post"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </article>
-          <article class="activity-post">
-            <iframe
-              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7477793351505801216?collapsed=1"
-              title="Jacob Smith LinkedIn post"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </article>
-        </div>
-        <a class="activity-profile" href="https://www.linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">View profile on LinkedIn ↗</a>
-      </section>
+    <section class="section capabilities" id="stack"><h2>Capabilities</h2><div class="capability-grid">
+      <article><h3>Automation & Analytics</h3><p>Office.js, Power Automate, Power BI, Python, data cleansing, dashboards, audit trails.</p></article>
+      <article><h3>Backend Engineering</h3><p>Java, Spring Boot, REST APIs, PostgreSQL, JPA, authentication, authorization, ledger design.</p></article>
+      <article><h3>Security & Systems</h3><p>C, Linux, input validation, Nmap, Burp Suite, enumeration, least privilege, secure workflows.</p></article>
+      <article><h3>Delivery & Leadership</h3><p>Requirements, documentation, stakeholder alignment, client delivery, teaching, and technical communication.</p></article>
+    </div></section>
 
-      <section class="section capabilities" id="stack"><h2>Capabilities</h2><div class="capability-grid">
-        <article><h3>Automation & Analytics</h3><p>Office.js, Power Automate, Power BI, Python, data cleansing, dashboards, audit trails.</p></article>
-        <article><h3>Backend Engineering</h3><p>Java, Spring Boot, REST APIs, PostgreSQL, JPA, authentication, authorization, ledger design.</p></article>
-        <article><h3>Security & Systems</h3><p>C, Linux, input validation, Nmap, Burp Suite, enumeration, least privilege, secure workflows.</p></article>
-        <article><h3>Delivery & Leadership</h3><p>Requirements, documentation, stakeholder alignment, client delivery, teaching, and technical communication.</p></article>
-      </div></section>
-
-      <section class="education"><div><strong>University of North Georgia</strong><span>B.S. Cybersecurity · Double Major in Computer Science · GPA 3.5</span></div><p>Expected December 2027</p></section>
-      <section class="contact" id="contact"><div><h2>Contact and links</h2><p>Email, professional profiles, source code, and résumé.</p></div><div class="contact-links"><a href="mailto:jacob.d.smith@live.com">Email</a><a href="https://linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/JacobSmxth" target="_blank" rel="noopener">GitHub</a><a href="https://codeberg.org/JSmitty" target="_blank" rel="noopener">Codeberg</a><a href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div></section>
-    </main>
-    <footer><span>© 2026 Jacob Smith</span><span>Built with Astro + one focused React island.</span></footer>
-
-    <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" aria-hidden="true"><div class="resume-modal__container"><button type="button" class="resume-modal__close" id="resumeModalClose" aria-label="Close">×</button><h2 id="resumeModalTitle">Resume</h2><p>Choose a format.</p><div class="resume-modal__options"><a href="/Resume_June2026-JS.pdf" target="_blank" rel="noopener" data-resume-option>PDF <small>Open in browser</small></a><a href="/Resume_June2026-JS.docx" download data-resume-option>DOCX <small>Download file</small></a></div></div></div>
-    <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-labelledby="commandPaletteLabel" aria-hidden="true"><div class="command-palette__container"><h2 class="sr-only" id="commandPaletteLabel">Command palette</h2><input id="commandInput" class="command-palette__input" placeholder="Type a command…" autocomplete="off" aria-label="Search commands" aria-controls="commandResults" aria-autocomplete="list" /><div id="commandResults" class="command-palette__results" role="listbox"></div></div></div>
-    <script src="../main.ts"></script>
-  </body>
-</html>
+    <section class="education"><div><strong>University of North Georgia</strong><span>B.S. Cybersecurity · Double Major in Computer Science · GPA 3.6</span></div><p>Expected December 2027</p></section>
+    <section class="contact" id="contact"><div><h2>Contact and links</h2><p>Email, professional profiles, source code, recent activity, and résumé.</p></div><div class="contact-links"><a href="mailto:jacob.d.smith@live.com">Email</a><a href="https://linkedin.com/in/jacobsmxth" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/JacobSmxth" target="_blank" rel="noopener">GitHub</a><a href="https://codeberg.org/JSmitty" target="_blank" rel="noopener">Codeberg</a><a href="/activity">Activity</a><a href="/Resume_June2026-JS.pdf" data-resume-trigger>Resume</a></div></section>
+</Base>

@@ -43,7 +43,7 @@ Student and backend developer focused on Java/Spring Boot and REST APIs, with a 
 - Customer service, food prep, and POS operations; developed foundational work ethic and teamwork skills.
 
 ## Education
-- University of North Georgia — B.S. Cybersecurity & Computer Science (Expected December 2027), GPA 3.5; coursework: Computer Science II, Applied Cybersecurity, Script Programming.
+- University of North Georgia — B.S. Cybersecurity & Computer Science (Expected December 2027), GPA 3.6; coursework: Computer Science II, Applied Cybersecurity, Script Programming.
 - Denmark High School — Diploma (May 2024), GPA 3.8; AP Computer Science Principles, AP Computer Science A; Varsity Football Captain; Student of the Year.
 
 ## Projects (selected)
