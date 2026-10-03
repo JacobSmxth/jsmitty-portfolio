@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Source = 'GitHub' | 'Codeberg';
 
 export type ActivityItem = {
   id: string;
   source: Source;
+  /** 'repo' items are synthesized from a repository's last push and are dropped when a real event covers the same day. */
+  kind: 'event' | 'repo';
   date: string;
   action: string;
   repo: string;
@@ -21,21 +23,33 @@ type Profile = {
 
 type SourceState = { status: 'loading' | 'ok' | 'error'; message?: string };
 
+type PageResult = { items: ActivityItem[]; hasMore: boolean };
+
+const GITHUB_EVENTS_PER_PAGE = 30;
+const GITHUB_REPOS_PER_PAGE = 10;
+
 type FeedProps = {
   githubUser: string;
   codebergUser: string;
-  limit?: number;
 };
 
 const CACHE_TTL_MS = 10 * 60 * 1000;
 
-async function cachedJson<T>(url: string): Promise<T> {
+type Fetched<T> = { data: T; hasNext: boolean };
+
+class HttpError extends Error {
+  constructor(public status: number, message: string) {
+    super(message);
+  }
+}
+
+async function cachedFetch<T>(url: string): Promise<Fetched<T>> {
   const key = `activity-cache:${url}`;
   try {
     const raw = sessionStorage.getItem(key);
     if (raw) {
-      const cached = JSON.parse(raw) as { at: number; data: T };
-      if (Date.now() - cached.at < CACHE_TTL_MS) return cached.data;
+      const cached = JSON.parse(raw) as { at: number } & Fetched<T>;
+      if (Date.now() - cached.at < CACHE_TTL_MS) return { data: cached.data, hasNext: cached.hasNext };
     }
   } catch {
     // Storage can be unavailable in private windows; fall through to the network.
@@ -43,16 +57,22 @@ async function cachedJson<T>(url: string): Promise<T> {
 
   const response = await fetch(url, { headers: { Accept: 'application/json' } });
   if (!response.ok) {
-    if (response.status === 403 || response.status === 429) throw new Error('rate limited, try again later');
-    throw new Error(`request failed (${response.status})`);
+    if (response.status === 403 || response.status === 429) throw new HttpError(response.status, 'rate limited, try again later');
+    throw new HttpError(response.status, `request failed (${response.status})`);
   }
   const data = (await response.json()) as T;
+  // GitHub exposes RFC 5988 Link headers to browsers, so rel="next" tells us whether another page exists.
+  const hasNext = /rel="next"/.test(response.headers.get('Link') ?? '');
   try {
-    sessionStorage.setItem(key, JSON.stringify({ at: Date.now(), data }));
+    sessionStorage.setItem(key, JSON.stringify({ at: Date.now(), data, hasNext }));
   } catch {
     // Ignore quota or availability errors.
   }
-  return data;
+  return { data, hasNext };
+}
+
+async function cachedJson<T>(url: string): Promise<T> {
+  return (await cachedFetch<T>(url)).data;
 }
 
 function firstLine(message: string): string {
@@ -118,20 +138,39 @@ function capitalize(value: unknown): string {
   return text ? text[0].toUpperCase() + text.slice(1) : 'Updated';
 }
 
-async function loadGitHub(user: string): Promise<{ items: ActivityItem[]; profile: Profile }> {
-  const [profile, events, repos] = await Promise.all([
-    cachedJson<GitHubUser>(`https://api.github.com/users/${user}`),
-    cachedJson<GitHubEvent[]>(`https://api.github.com/users/${user}/events/public?per_page=50`),
-    cachedJson<GitHubRepo[]>(`https://api.github.com/users/${user}/repos?sort=pushed&per_page=20`),
+async function loadGitHubProfile(user: string): Promise<Profile> {
+  const profile = await cachedJson<GitHubUser>(`https://api.github.com/users/${user}`);
+  return { source: 'GitHub', url: profile.html_url, repos: profile.public_repos, followers: profile.followers };
+}
+
+/** Pages already known to be exhausted are skipped so later pages only hit the endpoint that still has data. */
+type GitHubCursor = { page: number; eventsDone: boolean; reposDone: boolean };
+
+async function fetchGitHubEvents(user: string, page: number): Promise<Fetched<GitHubEvent[]>> {
+  try {
+    return await cachedFetch<GitHubEvent[]>(`https://api.github.com/users/${user}/events/public?per_page=${GITHUB_EVENTS_PER_PAGE}&page=${page}`);
+  } catch (error) {
+    // The events API stops at 300 events and answers 422 past that; treat it as the end of the list.
+    if (error instanceof HttpError && error.status === 422) return { data: [], hasNext: false };
+    throw error;
+  }
+}
+
+async function loadGitHubPage(user: string, cursor: GitHubCursor): Promise<PageResult & { cursor: GitHubCursor }> {
+  const empty: Fetched<never[]> = { data: [], hasNext: false };
+  const [events, repos] = await Promise.all([
+    cursor.eventsDone ? empty : fetchGitHubEvents(user, cursor.page),
+    cursor.reposDone ? empty : cachedFetch<GitHubRepo[]>(`https://api.github.com/users/${user}/repos?sort=pushed&per_page=${GITHUB_REPOS_PER_PAGE}&page=${cursor.page}`),
   ]);
 
   const items: ActivityItem[] = [];
-  for (const event of events) {
+  for (const event of events.data) {
     const described = describeGitHubEvent(event);
     if (!described) continue;
     items.push({
       id: `gh-event-${event.id}`,
       source: 'GitHub',
+      kind: 'event',
       date: event.created_at,
       repo: event.repo.name.split('/').pop() ?? event.repo.name,
       repoUrl: `https://github.com/${event.repo.name}`,
@@ -140,13 +179,12 @@ async function loadGitHub(user: string): Promise<{ items: ActivityItem[]; profil
   }
 
   // The public events API only covers ~90 days, so fill in with recently pushed repos.
-  const seen = new Set(items.map((item) => `${item.repo.toLowerCase()}|${item.date.slice(0, 10)}`));
-  for (const repo of repos) {
+  for (const repo of repos.data) {
     if (repo.fork) continue;
-    if (seen.has(`${repo.name.toLowerCase()}|${repo.pushed_at.slice(0, 10)}`)) continue;
     items.push({
       id: `gh-repo-${repo.full_name}`,
       source: 'GitHub',
+      kind: 'repo',
       date: repo.pushed_at,
       action: 'Updated repository',
       repo: repo.name,
@@ -155,7 +193,17 @@ async function loadGitHub(user: string): Promise<{ items: ActivityItem[]; profil
     });
   }
 
-  return { items, profile: { source: 'GitHub', url: profile.html_url, repos: profile.public_repos, followers: profile.followers } };
+  const eventsDone = cursor.eventsDone || !events.hasNext;
+  const reposDone = cursor.reposDone || !repos.hasNext;
+  return {
+    items,
+    hasMore: !(eventsDone && reposDone),
+    cursor: { page: cursor.page + 1, eventsDone, reposDone },
+  };
+}
+
+function dedupeKey(item: ActivityItem): string {
+  return `${item.source}|${item.repo.toLowerCase()}|${item.date.slice(0, 10)}`;
 }
 
 // ---------- Codeberg (Forgejo) ----------
@@ -226,6 +274,7 @@ async function loadCodeberg(user: string): Promise<{ items: ActivityItem[]; prof
     items.push({
       id: `cb-${entry.id}`,
       source: 'Codeberg',
+      kind: 'event',
       date: entry.created,
       repo: entry.repo.name,
       repoUrl: entry.repo.html_url,
@@ -249,7 +298,9 @@ function relativeTime(date: Date): string {
   return dateFormat.format(date);
 }
 
-export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: FeedProps) {
+const INITIAL_CURSOR: GitHubCursor = { page: 1, eventsDone: false, reposDone: false };
+
+export default function ActivityFeed({ githubUser, codebergUser }: FeedProps) {
   const [items, setItems] = useState<ActivityItem[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [states, setStates] = useState<Record<Source, SourceState>>({
@@ -257,41 +308,89 @@ export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: F
     Codeberg: { status: 'loading' },
   });
   const [filter, setFilter] = useState<'All' | Source>('All');
+  const [githubCursor, setGithubCursor] = useState<GitHubCursor>(INITIAL_CURSOR);
+  const [githubHasMore, setGithubHasMore] = useState(false);
+  const [githubPagesLoaded, setGithubPagesLoaded] = useState(0);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [moreError, setMoreError] = useState<string | null>(null);
+  const cancelled = useRef(false);
+
+  const fail = (source: Source, error: unknown) => {
+    if (cancelled.current) return;
+    const message = error instanceof Error ? error.message : 'unavailable';
+    setStates((current) => ({ ...current, [source]: { status: 'error', message } }));
+  };
+
+  const appendGitHubPage = (result: PageResult & { cursor: GitHubCursor }) => {
+    setItems((current) => {
+      const ids = new Set(current.map((item) => item.id));
+      return [...current, ...result.items.filter((item) => !ids.has(item.id))];
+    });
+    setGithubCursor(result.cursor);
+    setGithubHasMore(result.hasMore);
+    setGithubPagesLoaded(result.cursor.page - 1);
+  };
 
   useEffect(() => {
-    let cancelled = false;
-    const loaders: [Source, Promise<{ items: ActivityItem[]; profile: Profile }>][] = [
-      ['GitHub', loadGitHub(githubUser)],
-      ['Codeberg', loadCodeberg(codebergUser)],
-    ];
+    cancelled.current = false;
 
-    for (const [source, promise] of loaders) {
-      promise
-        .then((result) => {
-          if (cancelled) return;
-          setItems((current) => [...current.filter((item) => item.source !== source), ...result.items]);
-          setProfiles((current) => [...current.filter((profile) => profile.source !== source), result.profile]);
-          setStates((current) => ({ ...current, [source]: { status: 'ok' } }));
-        })
-        .catch((error: unknown) => {
-          if (cancelled) return;
-          const message = error instanceof Error ? error.message : 'unavailable';
-          setStates((current) => ({ ...current, [source]: { status: 'error', message } }));
-        });
-    }
+    Promise.all([loadGitHubProfile(githubUser), loadGitHubPage(githubUser, INITIAL_CURSOR)])
+      .then(([profile, page]) => {
+        if (cancelled.current) return;
+        setProfiles((current) => [...current.filter((p) => p.source !== 'GitHub'), profile]);
+        appendGitHubPage(page);
+        setStates((current) => ({ ...current, GitHub: { status: 'ok' } }));
+      })
+      .catch((error) => fail('GitHub', error));
+
+    loadCodeberg(codebergUser)
+      .then((result) => {
+        if (cancelled.current) return;
+        setItems((current) => [...current.filter((item) => item.source !== 'Codeberg'), ...result.items]);
+        setProfiles((current) => [...current.filter((p) => p.source !== 'Codeberg'), result.profile]);
+        setStates((current) => ({ ...current, Codeberg: { status: 'ok' } }));
+      })
+      .catch((error) => fail('Codeberg', error));
 
     return () => {
-      cancelled = true;
+      cancelled.current = true;
     };
   }, [githubUser, codebergUser]);
 
+  const loadMore = async () => {
+    setLoadingMore(true);
+    setMoreError(null);
+    try {
+      const page = await loadGitHubPage(githubUser, githubCursor);
+      if (!cancelled.current) appendGitHubPage(page);
+    } catch (error) {
+      if (!cancelled.current) setMoreError(error instanceof Error ? error.message : 'request failed');
+    } finally {
+      if (!cancelled.current) setLoadingMore(false);
+    }
+  };
+
+  // Drop repo-push placeholders when a real event already covers that repo on that day.
+  const deduped = useMemo(() => {
+    const eventKeys = new Set(items.filter((item) => item.kind === 'event').map(dedupeKey));
+    return items.filter((item) => item.kind === 'event' || !eventKeys.has(dedupeKey(item)));
+  }, [items]);
+
+  // While GitHub still has unloaded pages, anything older than its oldest loaded item could be
+  // out of order, so the merged timeline stops there until the next page arrives.
+  const githubFrontier = useMemo(() => {
+    if (!githubHasMore || filter === 'Codeberg') return null;
+    const githubDates = deduped.filter((item) => item.source === 'GitHub').map((item) => Date.parse(item.date));
+    return githubDates.length ? Math.min(...githubDates) : null;
+  }, [deduped, githubHasMore, filter]);
+
   const visible = useMemo(
     () =>
-      items
+      deduped
         .filter((item) => filter === 'All' || item.source === filter)
-        .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-        .slice(0, limit),
-    [items, filter, limit]
+        .filter((item) => githubFrontier === null || Date.parse(item.date) >= githubFrontier)
+        .sort((a, b) => Date.parse(b.date) - Date.parse(a.date)),
+    [deduped, filter, githubFrontier]
   );
 
   const groups = useMemo(() => {
@@ -306,13 +405,13 @@ export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: F
   }, [visible]);
 
   const loading = Object.values(states).some((state) => state.status === 'loading');
-  const sortedProfiles = [...profiles].sort((a, b) => a.source.localeCompare(b.source));
+  const canLoadMore = githubHasMore && filter !== 'Codeberg' && states.GitHub.status === 'ok';
 
   return (
     <div className="activity-stream">
       <div className="activity-sources">
         {(['GitHub', 'Codeberg'] as Source[]).map((source) => {
-          const profile = sortedProfiles.find((p) => p.source === source);
+          const profile = profiles.find((p) => p.source === source);
           const state = states[source];
           return (
             <div className="activity-source" key={source}>
@@ -326,7 +425,7 @@ export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: F
                 <dl>
                   <div><dt>Public repos</dt><dd>{profile.repos ?? '—'}</dd></div>
                   <div><dt>Followers</dt><dd>{profile.followers ?? '—'}</dd></div>
-                  <div><dt>Recent events</dt><dd>{items.filter((item) => item.source === source).length}</dd></div>
+                  <div><dt>Loaded events</dt><dd>{deduped.filter((item) => item.source === source).length}</dd></div>
                 </dl>
               ) : (
                 <p className="activity-source__note">{state.status === 'error' ? `Couldn’t load: ${state.message}.` : 'Fetching from the public API…'}</p>
@@ -347,7 +446,11 @@ export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: F
             </button>
           ))}
         </div>
-        <p aria-live="polite">{loading ? 'Loading activity…' : `${visible.length} most recent events`}</p>
+        <p aria-live="polite">
+          {loading
+            ? 'Loading activity…'
+            : `${visible.length} events${githubPagesLoaded ? ` · GitHub page ${githubPagesLoaded}${githubHasMore ? '' : ' of ' + githubPagesLoaded}` : ''}`}
+        </p>
       </div>
 
       <div className="activity-timeline">
@@ -375,6 +478,17 @@ export default function ActivityFeed({ githubUser, codebergUser, limit = 40 }: F
           </section>
         ))}
         {!loading && visible.length === 0 && <p className="activity-empty">No public activity to show right now.</p>}
+      </div>
+
+      <div className="activity-pager">
+        {canLoadMore ? (
+          <button type="button" onClick={loadMore} disabled={loadingMore}>
+            {loadingMore ? 'Loading…' : 'Load older activity'}
+          </button>
+        ) : (
+          !loading && states.GitHub.status === 'ok' && filter !== 'Codeberg' && <p>You’ve reached the start of the public GitHub history.</p>
+        )}
+        {moreError && <p role="alert">Couldn’t load more: {moreError}.</p>}
       </div>
     </div>
   );

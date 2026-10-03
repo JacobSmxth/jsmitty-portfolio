@@ -79,7 +79,7 @@ bun run dev
 - Copy contact info to clipboard
 
 ## Activity Sources
-- **GitHub** - Public REST API, fetched in the browser with no token. Unauthenticated calls are limited to 60 per hour per visitor IP, so responses are cached in `sessionStorage` for 10 minutes.
+- **GitHub** - Public REST API, fetched in the browser with no token. Unauthenticated calls are limited to 60 per hour per visitor IP, so responses are cached in `sessionStorage` for 10 minutes. The timeline is paginated: "Load older activity" follows GitHub's `Link: rel="next"` header for both the events and repositories endpoints. While GitHub has unloaded pages, the merged timeline stops at the oldest GitHub item so Codeberg entries never appear out of order.
 - **Codeberg** - Forgejo API activity feed, also fetched in the browser.
 - **LinkedIn** - LinkedIn has no public API for reading a member's own posts, so `src/pages/activity.astro` lists post URNs to embed. Add a post by copying the URN from its "Embed this post" option.
 
